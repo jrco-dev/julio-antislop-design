@@ -90,7 +90,7 @@ Fais une vidéo de 20 secondes qui présente notre app, à partir de captures r�
 Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
 ```
 
-Avant de coder, l'agent écrit en une ligne comment il lit votre brief (« Je lis ce projet comme : … »). Il pose une seule question groupée, ou aucune si le brief suffit.
+Avant de créer, l'agent cadre le projet avec vous : un tour de questions sur le projet (surface, audience, action visée, ton), un tour sur la matière (marque, images, preuves avec leur source, textes, références, contraintes), puis une fiche brief qui commence par « Je lis ce projet comme : … ». Il attend votre validation avant de construire. Répondez « vas-y » pour qu'il décide lui-même en annonçant ses hypothèses.
 
 ## Comment il travaille
 
@@ -107,7 +107,7 @@ La **refonte** est une action, pas un mode : audit écrit, diagnostic, direction
 
 ### 2. Il suit un processus en 12 étapes
 
-Lire le projet → une question au plus → inventaire du sujet → argument page par page → références réelles → directions hors de la moyenne → idée et test du concurrent → tous les textes avant le code → construire sans mouvement → contrôles automatiques → critique par un regard neuf → mouvement et livraison.
+Lire le projet → cadrage (questions, matière, fiche brief validée) → inventaire du sujet → argument page par page → références réelles → directions hors de la moyenne → idée et test du concurrent → tous les textes avant le code → construire sans mouvement → contrôles automatiques → critique par un regard neuf → mouvement et livraison.
 
 ### 3. Il respecte un plancher absolu
 
@@ -152,6 +152,7 @@ Sans ces outils, l'agent le dit dans son rapport au lieu de prétendre avoir vé
 skills/julio-antislop-design/
 ├── SKILL.md                     processus, plancher, défauts essentiels, livraison
 ├── references/                  chargés seulement quand la tâche en a besoin
+│   ├── intake.md                cadrage : questions, matière, fiche brief
 │   ├── defaults-by-mode.md      règles anti-slop par mode
 │   ├── idea-and-direction.md    inventaire, argument, directions, images
 │   ├── persuade.md              landing pages, hero, illustration produit, bento
@@ -180,8 +181,8 @@ skills/julio-antislop-design/
 
 ## FAQ
 
-**Pourquoi mon agent me pose-t-il une question avant de coder ?**
-Pour connaître la matière disponible, l'audience, l'action visée et le ton. Il n'en pose qu'une, groupée, et aucune si votre brief suffit. Répondez « vas-y » et il décide en annonçant ses hypothèses.
+**Pourquoi mon agent me pose-t-il des questions avant de coder ?**
+Un modèle qui manque d'information comble les trous avec la moyenne, et c'est ce qui produit des pages génériques. Il pose deux tours de questions au plus, ne demande jamais ce que votre projet dit déjà, et vous montre une fiche brief à valider. Répondez « vas-y » et il décide en annonçant ses hypothèses.
 
 **Je veux un style précis, même s'il figure parmi les « tics ».**
 Dites-le : une consigne explicite l'emporte sur tous les défauts anti-slop. Elle ne l'emporte jamais sur l'accessibilité, l'honnêteté ou la performance.

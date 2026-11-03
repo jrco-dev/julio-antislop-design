@@ -37,7 +37,7 @@ Quand une demande mélange deux surfaces (une landing et le dashboard derrière)
 Les étapes 1 à 8 se font avant d'écrire du code et décident de la qualité. Ne pas les sauter, même sur une petite demande : c'est précisément quand on va vite que la moyenne revient.
 
 1. **Lire le projet et choisir le mode.** Stack, `DESIGN.md` et `PRODUCT.md` s'ils existent (ils priment sur les défauts du skill, jamais sur le plancher absolu), marque existante, et surtout les images réellement disponibles. Ne pas planifier autour d'images qu'on n'a pas.
-2. **Une seule question groupée, ou aucune.** Matière disponible, audience, action unique visée, ton extrême (« clean et moderne » n'est pas un ton). Si le brief suffit ou si personne ne peut répondre, ne pas demander. Puis écrire la lecture du brief en une ligne, visible par l'utilisateur : « Je lis ce projet comme : … », hypothèses comprises. (En refonte, s'y ajoute la validation de la direction, voir `references/redesign.md`.)
+2. **Cadrer avec l'utilisateur avant de créer.** Un modèle qui manque d'information comble les trous avec la moyenne. Pour toute nouvelle page, tout nouvel écran ou toute refonte, suivre `references/intake.md` : un premier tour de questions sur le projet (surface et mode, audience et scène d'usage, action visée, ton extrême), un second sur la matière (marque, images, preuves avec leur source, textes, références aimées et détestées, contraintes et confidentialité), avec l'outil de questions à choix quand il existe et l'option recommandée en premier. Ne jamais demander ce que le projet dit déjà. Puis écrire la fiche brief, qui commence par « Je lis ce projet comme : … », et attendre une validation avant de construire. Deux tours de questions au plus ; ce qui manque devient une hypothèse écrite dans la fiche. Sans personne pour répondre, ou si l'utilisateur dit « vas-y », décider et annoncer les hypothèses. Le cadrage oriente les défauts, jamais le plancher absolu. (En refonte, s'y ajoute la validation de la direction, voir `references/redesign.md`.)
 3. **Inventorier le sujet.** 8 à 12 éléments qui n'appartiennent qu'à ce client : son nom et ce qu'il veut dire, son lieu, ses matières, ses rituels et horaires, la contrainte avec laquelle il vit, les objets imprimés de son monde. Puis trois listes : ce qui est réel, ce qui est montrable en image et d'où, ce qui manque. Ce qui manque reste absent. Consigner le tout dans `PRODUCT.md` à la racine du projet, créé depuis `templates/PRODUCT.md` s'il n'existe pas. Détail : `references/idea-and-direction.md`.
 4. **Écrire l'argument.** Une affirmation et sa preuve par section. Une section sans affirmation est supprimée. C'est ce qui casse l'ordre type hero, logos, trois features, témoignage, tarifs, CTA.
 5. **Consulter des références réelles.** Au moins 3, venant d'au moins 2 sites de `references/resources.md`, chacune notée avec son URL et la qualité empruntée (un rythme, une proportion, un contraste), jamais une page entière. Sans accès web, le dire et s'appuyer sur ce skill.
@@ -49,7 +49,7 @@ Les étapes 1 à 8 se font avant d'écrire du code et décident de la qualité. 
 11. **Faire juger par un regard neuf.** Un sous-agent en contexte vierge regarde les captures et note la page avec la grille de `references/critique.md`. Corriger les 3 pires problèmes, réinspecter. Trois tours au plus. Sans sous-agent, relire les captures comme un designer exigeant qui découvre la page.
 12. **Ajouter le mouvement, puis livrer.** Partir d'un composant vérifié de `references/resources.md`, dans le budget du mode (`references/motion-and-video.md`), réinspecter, puis livrer avec le rapport (section 6).
 
-Pour un composant isolé (un bouton, une carte, un formulaire), garder les étapes 1, 2, 9, 10 et 12, et appliquer le plancher et les défauts du mode. En refonte ou pour un composant isolé, les points de livraison liés aux étapes sautées (références, directions écartées, journal) ne s'appliquent pas ; le rapport dit lesquels.
+Pour un composant isolé (un bouton, une carte, un formulaire), garder les étapes 1, 2 (une ou deux questions seulement si un point bloque), 9, 10 et 12, et appliquer le plancher et les défauts du mode. En refonte ou pour un composant isolé, les points de livraison liés aux étapes sautées (références, directions écartées, journal) ne s'appliquent pas ; le rapport dit lesquels.
 
 ## 3. Plancher absolu
 
@@ -80,6 +80,7 @@ Ce sont les règles anti-slop. Elles s'appliquent par défaut, dépendent du mod
 
 | Situation | Fichier |
 | --- | --- |
+| Avant toute création ou refonte : questions, matière, fiche brief | `references/intake.md` |
 | Toute construction ou relecture | `references/defaults-by-mode.md` |
 | Inventaire, idée, direction, images, références | `references/idea-and-direction.md` |
 | Landing page, hero, sections, illustration produit, bento | `references/persuade.md` |
