@@ -6,6 +6,14 @@ Retirer les tics ne rend pas une page originale. Les quatre pages faites avec ce
 
 Signature relevée sur nos propres sorties : fond papier clair ; titre en grotesque condensée, aligné à gauche, avec la phrase d'appui à droite ; filets fins et tableaux ; un seul accent (jaune, vert ou bleu) ; sections aérées empilées les unes sous les autres ; listes numérotées. Chaque élément est défendable ; l'ensemble est devinable. Une page qui coche quatre de ces six traits sans que l'archétype tiré l'exige a échoué au test du déjà-vu (§7).
 
+## 1 bis. L'originalité ne remplace jamais la preuve
+
+Mesuré le 3 novembre 2026 sur la refonte JRCO : la version tirée (archétype « La carte ») a gagné en singularité mais perdu le produit (visuel produit 2/10 contre 9/10 pour la version précédente) et donc en crédibilité. Règles :
+
+- **Le produit reste visible** : si le produit est montrable (une interface, un fichier, un objet, un résultat), le premier écran ou la section suivante le montre en vrai, quel que soit l'archétype. L'archétype organise la page autour du produit, il ne le remplace pas par une métaphore.
+- **Une bonne chose vivante se garde** : si une version précédente avait une interaction qui démontre le produit (le fichier qui devient une slide), la nouvelle direction la reprend sous sa propre forme, même si le test du déjà-vu la pénalise un peu.
+- **Une métaphore, une fois** : l'archétype ne répète pas la même information sous trois formes (trois frises des mêmes étapes) ; chaque section apporte un contenu nouveau.
+
 ## 2. Le tirage (étape 6, obligatoire)
 
 Le premier choix d'un modèle est celui de tous les modèles. Le tirage le lui retire :

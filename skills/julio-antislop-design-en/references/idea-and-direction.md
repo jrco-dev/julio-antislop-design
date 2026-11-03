@@ -1,92 +1,92 @@
-# Idée, direction et images
+# Idea, direction and images
 
-## Sommaire
+## Contents
 
-1. Inventaire du sujet
+1. Subject inventory
 2. Argument
-3. Références réelles
-4. Directions hors de la moyenne
-5. Phrase d'idée et test du concurrent
-6. Chose vivante
-7. Images : ordre de préférence
-8. Techniques de créativité optionnelles
+3. Real references
+4. Directions away from the average
+5. Idea sentence and competitor test
+6. Living thing
+7. Images: order of preference
+8. Optional creativity techniques
 
-## 1. Inventaire du sujet
+## 1. Subject inventory
 
-La page gagnante, dans les tests à l'aveugle de Taste Skill, partait toujours d'un élément qui n'appartenait qu'au client ; les pages perdantes avaient une bonne composition avec une idée de catégorie. Noter 8 à 12 éléments :
+The winning page, in Taste Skill's blind tests, always started from an element that belonged only to the client; the losing pages had good composition with a category idea. Note 8 to 12 elements:
 
-- le nom et ce qu'il veut dire ;
-- l'adresse, la rue, le quartier, ce à quoi ils ressemblent (carreaux, enseignes, couleurs de peinture, typographies des devantures, lumière, climat) ;
-- les chiffres du brief (places, pièces, minutes jusqu'à la mer, prix, année) ;
-- la contrainte avec laquelle le client vit (une fournée par mois, fermé l'hiver, sur rendez-vous) ;
-- ses matières et ses couleurs ;
-- ses rituels et horaires ;
-- les objets imprimés de son monde (horaire, étiquette, ticket, enseigne, menu, reçu).
+- the name and what it means;
+- the address, the street, the neighborhood, what they look like (tiles, signs, paint colors, shopfront lettering, light, climate);
+- the figures in the brief (seats, rooms, minutes to the sea, price, year);
+- the constraint the client lives with (one batch a month, closed in winter, by appointment);
+- its materials and colors;
+- its rituals and hours;
+- the printed objects of its world (timetable, label, ticket, sign, menu, receipt).
 
-Pour un client local, le monde du sujet (matières, lieux, motifs, typographies de rue, langue) est une source de singularité que les modèles n'ont presque jamais vue. Chaque élément de la liste est aussi une requête de recherche d'images.
+For a local client, the subject's world (materials, places, patterns, street lettering, language) is a source of singularity that models have almost never seen. Each element of the list is also an image search query.
 
-Puis trois listes : **réel** (ce que le brief et le projet fournissent), **images** (ce qu'on peut montrer et d'où ça vient), **absent** (toute preuve qu'on n'aura pas : logos, citations, chiffres). Ce qui est absent reste absent.
+Then three lists: **real** (what the brief and the project provide), **images** (what can be shown and where it comes from), **missing** (any proof you will not have: logos, quotes, figures). What is missing stays absent.
 
 ## 2. Argument
 
-Écrire la page comme une suite d'affirmations avec leur preuve, une ligne par section. Les affirmations décident quelles sections existent et dans quel ordre. Une section sans affirmation est supprimée.
+Write the page as a series of claims with their proof, one line per section. The claims decide which sections exist and in what order. A section without a claim is deleted.
 
-## 3. Références réelles
+## 3. Real references
 
-- Au moins 3 références, venant d'au moins 2 sites de `resources.md`, choisies selon le besoin (le hero sur supahero, la nav sur navbar.gallery…).
-- Noter pour chacune l'URL et la qualité empruntée, en une ligne.
-- Emprunter une qualité (composition, proportion, contraste typographique, rythme, durée d'une animation), jamais une page entière, jamais le sujet, les textes, les logos ou les images.
-- Une seule qualité par référence ; la direction combine plusieurs références.
-- Un procédé vu partout dans les archives récentes est candidat au statut de tic : le confronter à `tells.md` avant de l'adopter.
-- Un `DESIGN.md` de Refero sert de modèle de structure, jamais d'identité appliquée à un autre client.
+- At least 3 references, from at least 2 sites in `resources.md`, chosen according to the need (the hero on supahero, the nav on navbar.gallery…).
+- Note for each the URL and the quality borrowed, in one line.
+- Borrow a quality (composition, proportion, typographic contrast, rhythm, duration of an animation), never a whole page, never the subject, the copy, the logos or the images.
+- One quality per reference; the direction combines several references.
+- A device seen everywhere in recent archives is a candidate for tell status: check it against `tells.md` before adopting it.
+- A `DESIGN.md` from Refero serves as a structural model, never as an identity applied to another client.
 
-## 4. Directions hors de la moyenne
+## 4. Directions away from the average
 
-Le modèle choisit par défaut la réponse la plus probable : c'est un biais de typicité appris dans les données de préférence. Demander plusieurs réponses avec leur probabilité multiplie la diversité par 1,6 à 2,1 en écriture créative (Verbalized Sampling, 2025), et la variante avec raisonnement préserve la qualité.
+By default the model picks the most probable answer: it is a typicality bias learned from preference data. Asking for several answers with their probability multiplies diversity by 1.6 to 2.1 in creative writing (Verbalized Sampling, 2025), and the variant with reasoning preserves quality.
 
-1. Raisonner sur l'inventaire et l'argument.
-2. Écrire 5 directions, chacune avec la probabilité de la produire par défaut pour ce type de projet.
-3. Écarter les 2 plus probables.
-4. Parmi les autres, garder celle qui porte un élément de l'inventaire, qui satisfait tout le brief, et qui diffère des 3 dernières directions du journal sur au moins 3 axes (structure, thème, police, palette, hero, signature).
-5. Vérifier que la palette ne combat pas la matière du sujet (pastels bonbon pour un whisky tourbé, néon pour un refuge de montagne). Si le sujet a ses propres couleurs, garder les proportions et prendre les couleurs du sujet.
+1. Reason about the inventory and the argument.
+2. Write 5 directions, each with the probability of producing it by default for this type of project.
+3. Discard the 2 most likely.
+4. Among the others, keep the one that carries an element of the inventory, satisfies the whole brief, and differs from the last 3 directions in the log on at least 3 axes (structure, theme, font, palette, hero, signature).
+5. Check that the palette does not fight the subject's material (candy pastels for a peated whisky, neon for a mountain hut). If the subject has its own colors, keep the proportions and take the subject's colors.
 
-La conformité au brief passe toujours avant la singularité : on choisit la plus singulière parmi celles qui remplissent tout le brief.
+Meeting the brief always comes before singularity: choose the most singular among those that fulfill the whole brief.
 
-## 5. Phrase d'idée et test du concurrent
+## 5. Idea sentence and competitor test
 
-> Sur cette page, **[une chose propre au sujet]** devient **[le procédé de composition]**.
+> On this page, **[a thing specific to the subject]** becomes **[the composition device]**.
 
-Où chercher le premier terme : ce que le sujet produit (mettre la vraie production sur la page), sa forme ou son objet (l'agrandir, le recadrer, en faire le cadre), son nom (les lettres peuvent-elles porter une image, s'empiler, se séparer ?), son lieu (la vue qui donne envie d'y être), son rituel (une séquence que la page joue au défilement), son objet imprimé, son contraire (quelle autre catégorie possède le sentiment qui lui manque ?).
+Where to look for the first term: what the subject produces (put the real output on the page), its shape or its object (enlarge it, crop it, make it the frame), its name (can the letters carry an image, stack, split apart?), its place (the view that makes you want to be there), its ritual (a sequence the page plays on scroll), its printed object, its opposite (which other category has the feeling it lacks?).
 
-Test du concurrent : mettre le concurrent le plus proche dans la phrase. Si elle marche encore, l'idée appartient à la catégorie : une miche de pain, c'est toutes les boulangeries ; les sept portes de la rue qui lui donne son nom, c'est seulement celle-ci.
+Competitor test: put the closest competitor into the sentence. If it still works, the idea belongs to the category: a loaf of bread is every bakery; the seven doors of the street that gives it its name is only this one.
 
-## 6. Chose vivante
+## 6. Living thing
 
-Elle change visiblement l'objet principal de la page (le produit se teinte, la carte se redessine), pas seulement un panneau à côté ; capturer chacun de ses états pendant le contrôle.
+It visibly changes the page's main object (the product changes tint, the map redraws), not just a panel next to it; capture each of its states during the check.
 
-Une seule chose que le visiteur peut faire, ou qui change à chaque visite, tirée de l'idée : choisir un bois et voir la chaise ; taper son nom dans les lettres de la fonderie ; régler le prêt et lire la vraie mensualité ; voir si le poêle du refuge est allumé et combien de temps avant le dernier bateau. Règles : elle utilise le vrai contenu, marche au pouce sur mobile, a un repli sans script, ne bloque jamais la lecture, et c'est une seule chose, pas un terrain de jeu. Elle se construit avec la page, pas comme un ajout de mouvement à la fin.
+A single thing the visitor can do, or that changes on each visit, drawn from the idea: choose a wood and see the chair; type your name in the foundry's letters; adjust the loan and read the real monthly payment; see whether the hut's stove is lit and how long until the last boat. Rules: it uses the real content, works with a thumb on mobile, has a no-script fallback, never blocks reading, and it is one thing, not a playground. It is built with the page, not added as motion at the end.
 
-## 7. Images : ordre de préférence
+## 7. Images: order of preference
 
-1. Les images du client.
-2. Des images générées, si un outil est disponible, signalées comme telles.
-3. De vraies images du monde du sujet dans des collections ouvertes (Openverse, Wikimedia Commons, musées), sous licence permettant l'usage commercial, téléchargées dans le projet et créditées. Chercher l'inventaire, pas la catégorie : la rue en cartes postales anciennes, une carte ancienne du quartier, la matière en gros plan, un objet de musée de son genre. Une image trouvée montre le monde autour du client, jamais son produit, sa salle ou son équipe.
-4. Des dessins en code d'objets du sujet, dans un langage graphique plat unique et les vraies couleurs de la palette, pour ce dont aucune image honnête n'existe. Jamais de « photo » imitée en SVG ou CSS, jamais d'illustration décorative.
+1. The client's images.
+2. Generated images, if a tool is available, flagged as such.
+3. Real images of the subject's world from open collections (Openverse, Wikimedia Commons, museums), under a license allowing commercial use, downloaded into the project and credited. Search for the inventory, not the category: the street in old postcards, an old map of the neighborhood, the material in close-up, a museum object of its kind. A found image shows the world around the client, never its product, its room or its team.
+4. Code drawings of the subject's objects, in a single flat graphic language and the real colors of the palette, for what no honest image exists of. Never a "photo" imitated in SVG or CSS, never decorative illustration.
 
-**Produit physique sans photo ni rendu.** C'est le cas le plus risqué : un objet dessiné en quelques formes plates ressemble à un pictogramme ou à autre chose (test du 3 novembre 2026 : une enceinte en verre lue comme un thermomètre par le juge). Dans l'ordre :
+**Physical product with no photo or render.** This is the riskiest case: an object drawn with a few flat shapes looks like a pictogram or like something else (test of 3 November 2026: a glass speaker read as a thermometer by the judge). In order:
 
-- Demander au cadrage des photos ou des rendus 3D du produit ; c'est la matière qui décide le plus de la page.
-- Sinon, si un outil de rendu existe (Blender, génération d'image), produire un rendu signalé comme tel.
-- Sinon, choisir un registre que le code fait bien : une coupe technique ou une vue cotée (traits, légendes, mesures), une silhouette pleine à grande échelle, ou un hero typographique où le produit arrive plus bas. Pas de matière simulée à moitié (reflets, flou, transparence approximatifs).
-- Vérifier sur la capture : un inconnu doit nommer l'objet en 2 secondes. Sinon, changer de registre.
-- Un objet physique se montre **entier**, posé sur sa base, avec de l'air autour : jamais coupé par le bas d'une section. (La règle « sort par un bord » de `persuade.md` vaut pour une fenêtre d'interface, pas pour un objet.)
-5. La typographie et la couleur seules.
+- Ask during the intake for photos or 3D renders of the product; it is the material that decides the page the most.
+- Otherwise, if a rendering tool exists (Blender, image generation), produce a render flagged as such.
+- Otherwise, choose a register that code does well: a technical cross-section or a dimensioned view (lines, captions, measurements), a solid silhouette at large scale, or a typographic hero where the product arrives further down. No half-simulated material (approximate reflections, blur, transparency).
+- Check on the screenshot: a stranger must name the object within 2 seconds. Otherwise, change register.
+- A physical object is shown **whole**, resting on its base, with air around it: never cut off by the bottom of a section. (The "bleeds off an edge" rule in `persuade.md` applies to an interface window, not to an object.)
+5. Typography and color alone.
 
-Une image dominante vaut mieux que six petites. Mêmes proportions, même traitement, angles droits par défaut. Rien ne se pose sur un titre. Quand le projet a une vraie vidéo ou image de son produit, le premier écran la montre en grand.
+One dominant image is worth more than six small ones. Same proportions, same treatment, square corners by default. Nothing sits on top of a headline. When the project has a real video or image of its product, the first screen shows it large.
 
-## 8. Techniques de créativité optionnelles
+## 8. Optional creativity techniques
 
-À tester sur un projet avant d'en faire une règle :
+To be tested on a project before making them a rule:
 
-- **Carte de contrainte** : tirer au sort une contrainte par projet (une seule couleur, la typographie comme image, aucun rectangle, le contenu principal en bas, emprunter le vocabulaire visuel d'un autre métier). On la garde si elle sert l'idée.
-- **Éventail puis sélection** : produire 3 maquettes franchement différentes avant d'en garder une. Un canevas hébergé comme Superdesign aide, mais seulement sur projet interne ou avec accord écrit du client (plancher A4).
+- **Constraint card**: draw one constraint at random per project (a single color, typography as image, no rectangles, main content at the bottom, borrow the visual vocabulary of another trade). Keep it if it serves the idea.
+- **Fan out, then select**: produce 3 clearly different mockups before keeping one. A hosted canvas like Superdesign helps, but only on an internal project or with the client's written consent (floor A4).

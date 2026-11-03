@@ -1,10 +1,10 @@
-# Espacer avec un système
+# Spacing with a system
 
-Un espacement généré se reconnaît de deux façons : tout est à la même distance (`gap-4`, `p-6`, `2rem` partout), ou chaque bloc a sa valeur posée au jugé (0,35 rem, 0,6 rem 0,55 rem, 3 rem 5 rem). Dans les deux cas, l'œil ne peut plus lire ce qui va ensemble. L'espace est la première structure d'une page : il dit, avant le texte, ce qui appartient à quoi (loi de proximité, voir `ux-principles.md`).
+Generated spacing is recognizable in two ways: everything is at the same distance (`gap-4`, `p-6`, `2rem` everywhere), or each block has its own value set by eye (0.35 rem, 0.6 rem 0.55 rem, 3 rem 5 rem). In both cases, the eye can no longer read what belongs together. Space is the first structure of a page: before the text does, it says what belongs to what (law of proximity, see `ux-principles.md`).
 
-## 1. Une échelle déclarée
+## 1. A declared scale
 
-- Base de 4 px. Une échelle de crans nommés, déclarée une fois dans `:root` :
+- 4 px base. A scale of named steps, declared once in `:root`:
 
 ```css
 :root {
@@ -16,37 +16,37 @@ Un espacement généré se reconnaît de deux façons : tout est à la même dis
   --space-l:   2rem;    /* 32 */
   --space-xl:  3rem;    /* 48 */
   --space-2xl: 4rem;    /* 64 */
-  --space-3xl: clamp(4rem, 2.67rem + 5.93vw, 8rem);   /* 64 → 128, entre blocs d'une section */
-  --space-section: clamp(6rem, 4rem + 8.89vw, 12rem); /* 96 → 192, entre sections */
+  --space-3xl: clamp(4rem, 2.67rem + 5.93vw, 8rem);   /* 64 → 128, between blocks of a section */
+  --space-section: clamp(6rem, 4rem + 8.89vw, 12rem); /* 96 → 192, between sections */
 }
 ```
 
-- Les grands crans sont fluides (`clamp()` entre 360 et 1440 px, calculé comme l'échelle typographique, par exemple avec Utopia) ; les petits restent fixes, car un écart de 8 px n'a pas à grandir.
-- **Aucune longueur hors des tokens** dans `margin`, `padding`, `gap`, `row-gap`, `column-gap` et `inset`. `0` et `auto` sont permis. Un ajustement optique (aligner un glyphe sur un bord) se fait avec un token nommé et commenté, jamais avec un nombre isolé.
+- The large steps are fluid (`clamp()` between 360 and 1440 px, computed like the type scale, for example with Utopia); the small ones stay fixed, because an 8 px gap has no need to grow.
+- **No length outside the tokens** in `margin`, `padding`, `gap`, `row-gap`, `column-gap` and `inset`. `0` and `auto` are allowed. An optical adjustment (aligning a glyph with an edge) is done with a named, commented token, never with a stray number.
 
-## 2. Trois niveaux, qui ne se touchent jamais
+## 2. Three levels that never touch
 
-L'espacement porte la hiérarchie s'il y a trois niveaux nettement séparés, chacun au moins le double du précédent :
+Spacing carries the hierarchy if there are three clearly separated levels, each at least double the previous one:
 
-| Niveau | Où | Crans |
+| Level | Where | Steps |
 | --- | --- | --- |
-| Intérieur | Dans un composant : icône et libellé, libellé et champ, padding d'un bouton ou d'une puce | `3xs` à `s` (4 à 16 px) |
-| Groupe | Entre les éléments d'un bloc : titre, phrase d'appui, action ; entre deux cartes d'une même grille | `s` à `xl` (16 à 48 px) |
-| Section | Entre deux blocs d'une section, puis entre deux sections | `3xl` puis `section` (64 à 192 px) |
+| Inner | Inside a component: icon and label, label and field, padding of a button or a chip | `3xs` to `s` (4 to 16 px) |
+| Group | Between the elements of a block: headline, supporting sentence, action; between two cards of the same grid | `s` to `xl` (16 to 48 px) |
+| Section | Between two blocks of a section, then between two sections | `3xl` then `section` (64 to 192 px) |
 
-Les traduire en tokens de rôle, que les composants utilisent à la place des crans bruts : `--gap-inner`, `--gap-stack`, `--gap-group`, `--gap-section`. Le choix se fait une fois, au niveau du système, pas composant par composant.
+Translate them into role tokens, which components use instead of the raw steps: `--gap-inner`, `--gap-stack`, `--gap-group`, `--gap-section`. The choice is made once, at the system level, not component by component.
 
-## 3. Règles de rythme
+## 3. Rhythm rules
 
-- **Un titre appartient à ce qui le suit** : l'espace au-dessus d'un titre est au moins le double de l'espace en dessous.
-- **La phrase d'appui colle au titre** (un cran `m` à `l`), l'action vient un cran plus loin.
-- **Un seul écart entre sections**, le même partout (`--space-section`) : vérifier sur la capture pleine page qu'aucun vide entre deux sections n'est nettement plus grand que les autres (un bloc trop haut ou un `min-height` oublié en est souvent la cause).
-- **L'écart entre sections est nettement plus grand que tout écart interne** : 120 à 240 px sur desktop en Persuader (voir `persuade.md`), 64 à 96 px sur mobile.
-- **Varier par niveau, pas par bloc** : la variété vient du passage d'un niveau à l'autre et du changement de composition entre sections, jamais d'une valeur inventée pour un bloc.
-- **Boutons et champs** : hauteur 44 px visée sur mobile ; padding vertical et horizontal tirés de l'échelle, l'horizontal environ 1,5 à 2 fois le vertical ; le même padding sur tous les boutons d'un même rang.
-- **Marges extérieures égales** à gauche et à droite, en un seul token de gouttière (`--gutter`), et un conteneur plafonné en un seul token (`--measure-page`).
-- **Mode Opérer** : échelle plus serrée (la section descend à `xl`, 48 px), mais les trois niveaux restent distincts ; la densité vient de crans plus petits, pas de valeurs arbitraires.
+- **A heading belongs to what follows it**: the space above a heading is at least double the space below it.
+- **The supporting sentence hugs the headline** (an `m` to `l` step), the action comes one step further.
+- **A single gap between sections**, the same everywhere (`--space-section`): check on the full-page screenshot that no gap between two sections is clearly larger than the others (an overly tall block or a forgotten `min-height` is often the cause).
+- **The gap between sections is clearly larger than any internal gap**: 120 to 240 px on desktop in Persuade (see `persuade.md`), 64 to 96 px on mobile.
+- **Vary by level, not by block**: variety comes from moving from one level to another and from the change of composition between sections, never from a value invented for one block.
+- **Buttons and fields**: 44 px height targeted on mobile; vertical and horizontal padding drawn from the scale, horizontal about 1.5 to 2 times the vertical; the same padding on all buttons in the same row.
+- **Equal outer margins** left and right, as a single gutter token (`--gutter`), and a container capped by a single token (`--measure-page`).
+- **Operate mode**: tighter scale (section drops to `xl`, 48 px), but the three levels stay distinct; density comes from smaller steps, not from arbitrary values.
 
-## 4. Vérifier
+## 4. Checking
 
-`node scripts/check-tokens.mjs <fichier ou dossier>` signale chaque `margin`, `padding`, `gap` ou `inset` écrit en valeur brute. Zéro signalement avant livraison.
+`node scripts/check-tokens.mjs <file or folder>` flags every `margin`, `padding`, `gap` or `inset` written as a raw value. Zero flags before delivery.

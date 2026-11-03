@@ -57,7 +57,7 @@ Le style vers lequel convergent les agents qui évitent tous les tics, ce skill 
 
 - **Structure** : titre-phrase de 3 ou 4 lignes ; ordre hero, logos, features, témoignage, tarifs, CTA ; même mise en page pour toutes les sections ; tout centré ; même rayon moyen partout ; neuf tailles de police presque égales ; fausse preuve sociale (« 10 000+ équipes », rangées d'étoiles sans source).
 - **Surfaces** : bordure colorée épaisse sur un côté des cartes et alertes ; ombre décalée sans flou (`4px 4px 0`) hors d'un vrai monde néobrutaliste ; « carte fantôme » (bordure de 1 px sous une large ombre douce) ; masque géométrique qui imite le contour d'un sujet photographié ; template « métrique de hero » (gros chiffre, petit label, stats annexes) ; rayures et grilles de fond sans vrai plan derrière.
-- **Texte** : unlock, supercharge, seamless, elevate, effortless, cutting-edge, all-in-one ; « pas seulement X, c'est Y » ; titres en trois temps ; « Get started » et « Learn more » ; tirets cadratins en série ; titre « Bienvenue, Prénom ! 👋 » ; points d'exclamation.
+- **Texte** : cadence de négations répétées (« Pas un script. », « Pas l'inverse. », « Pas une agence. ») ; points finaux sur tous les titres ; unlock, supercharge, seamless, elevate, effortless, cutting-edge, all-in-one ; « pas seulement X, c'est Y » ; titres en trois temps ; « Get started » et « Learn more » ; tirets cadratins en série ; titre « Bienvenue, Prénom ! 👋 » ; points d'exclamation.
 - **Mouvement** : même fondu partout ; survol qui soulève chaque carte ; easing à rebond ; boucles sans sens ; révélation qui échoue et laisse une bande vide.
 
 ## Esthétique d'évitement

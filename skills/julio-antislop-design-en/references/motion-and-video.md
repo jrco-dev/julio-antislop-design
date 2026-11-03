@@ -1,55 +1,55 @@
-# Mouvement, effets et vidéo en code
+# Motion, effects and video in code
 
-## 1. Mouvement de page
+## 1. Page motion
 
-Construire la page sans mouvement d'abord : une page qui a besoin d'animation pour paraître finie n'est pas finie. Puis, selon le mode (`defaults-by-mode.md`) :
+Build the page without motion first: a page that needs animation to look finished is not finished. Then, by mode (`defaults-by-mode.md`):
 
-- **Un mouvement signature**, un seul, bien fait ; en mode Persuader, une démo produit ou un effet tiré de la matière peut être ce mouvement.
-- **Entrées de section** (Persuader) : titre, puis texte, puis image, décalés de 60 à 90 ms, montée de 16 à 32 px avec opacité, déclenchées une fois à l'entrée. Le contenu est visible par défaut : si le script échoue, rien ne reste caché.
-- **Feedback sur chaque contrôle** : survol, pression, focus. Une pression = légère réduction d'échelle (0,95 à 0,98). Retour visuel en moins de 100 ms.
-- **Durées et courbes** : une courbe d'easing partagée (décélération à l'arrivée, accélération au départ), peu de durées en tokens. Une sortie dure environ 60 à 70 % de l'entrée.
-- **Interruptible** : une nouvelle action annule l'animation en cours et fixe l'état final ; jamais d'interaction bloquée pendant une animation.
-- **Propriétés** : `transform` et `opacity`. `clip-path` et masque seulement pour le moment signature, s'il tient 60 images par seconde sur un mobile moyen. Jamais `transition: all`, jamais `width`, `height`, `top`, `left`, jamais de flou animé sur une grande surface.
-- **Mouvement réduit** : avec `prefers-reduced-motion: reduce`, garder le contenu, retirer le déplacement.
+- **One signature motion**, just one, done well; in Persuade mode, a product demo or an effect drawn from the material can be that motion.
+- **Section entrances** (Persuade): headline, then text, then image, staggered 60 to 90 ms, rising 16 to 32 px with opacity, triggered once on entry. Content is visible by default: if the script fails, nothing stays hidden.
+- **Feedback on every control**: hover, press, focus. A press = slight scale-down (0.95 to 0.98). Visual feedback in under 100 ms.
+- **Durations and curves**: one shared easing curve (decelerating on arrival, accelerating on departure), few durations, as tokens. An exit lasts about 60 to 70% of the entrance.
+- **Interruptible**: a new action cancels the running animation and sets the final state; never an interaction blocked during an animation.
+- **Properties**: `transform` and `opacity`. `clip-path` and mask only for the signature moment, if it holds 60 frames per second on an average phone. Never `transition: all`, never `width`, `height`, `top`, `left`, never animated blur on a large surface.
+- **Reduced motion**: with `prefers-reduced-motion: reduce`, keep the content, remove the movement.
 
-À supprimer : le même fondu montant sur chaque bloc, une douzaine d'entrées décalées dans le hero, le survol qui soulève chaque carte, l'easing à rebond, les boucles sans sens, la parallaxe gratuite, `animate-pulse` sur ce qui n'est pas en direct.
+To remove: the same fade-up on every block, a dozen staggered entrances in the hero, hover that lifts every card, bouncy easing, meaningless loops, gratuitous parallax, `animate-pulse` on anything that is not live.
 
-## 2. Partir d'un composant éprouvé
+## 2. Start from a proven component
 
-Avant d'écrire une animation, chercher un composant dans les bibliothèques de `resources.md`, en commençant par celles sous licence MIT. Puis :
+Before writing an animation, look for a component in the libraries in `resources.md`, starting with the MIT-licensed ones. Then:
 
-1. Le confronter à `tells.md` et au plancher : beaucoup de composants spectaculaires contiennent eux-mêmes des tics (lueurs, particules, étincelles, texte qui scintille).
-2. Le restyler entièrement avec les tokens du projet : aucune trace du style d'origine.
-3. Le retenir parce qu'il porte l'idée ou la chose vivante, jamais parce qu'il impressionne.
-4. Ne jamais copier son code dans ce skill : il s'installe dans le projet, par la CLI ou le registre de la bibliothèque.
+1. Check it against `tells.md` and the floor: many spectacular components themselves contain tells (glows, particles, sparkles, shimmering text).
+2. Restyle it entirely with the project's tokens: no trace of the original style.
+3. Keep it because it carries the idea or the living thing, never because it impresses.
+4. Never copy its code into this skill: it is installed in the project, through the library's CLI or registry.
 
-## 3. Effets GPU et shaders
+## 3. GPU effects and shaders
 
-1. **Budget par mode** : aucun en Opérer et Lire ; un seul, comme moment signature, en Persuader ; plusieurs possibles en Expérience.
-2. **L'effet sort du sujet** : un fond fluide pour une marque d'eau ou de textile, oui ; un dégradé maillé « parce que ça fait premium », non.
-3. **Repli fixe obligatoire** si WebGL ou l'API manque, en mouvement réduit, ou sur appareil lent.
-4. **Performance mesurée** : 60 images par seconde sur mobile moyen, pause hors écran, poids compté dans le budget.
-5. **Lisibilité** : aucun texte sur un effet en mouvement sans voile neutre et contraste vérifié.
+1. **Budget by mode**: none in Operate and Read; a single one, as the signature moment, in Persuade; several possible in Experience.
+2. **The effect comes from the subject**: a fluid background for a water or textile brand, yes; a mesh gradient "because it looks premium", no.
+3. **Static fallback required** if WebGL or the API is missing, under reduced motion, or on a slow device.
+4. **Measured performance**: 60 frames per second on an average phone, paused off-screen, weight counted in the budget.
+5. **Legibility**: no text over a moving effect without a neutral scrim and checked contrast.
 
-## 4. Vidéo en code
+## 4. Video in code
 
-Le modèle ne produit pas de vidéo : il écrit le code qui dessine chaque image (Canvas, p5.js, Three.js, Remotion, HyperFrames, Manim), puis un navigateur sans interface capture les images une à une. Il est bon en motion design, animation dessinée ou au trait, vulgarisation, films de lancement produit, clips à paroles synchronisées ; il est mauvais en images réalistes de personnes.
+The model does not produce video: it writes the code that draws each frame (Canvas, p5.js, Three.js, Remotion, HyperFrames, Manim), then a headless browser captures the frames one by one. It is good at motion design, drawn or line animation, explainers, product launch films, lyric-synced clips; it is bad at realistic images of people.
 
-Workflow :
+Workflow:
 
-1. **Rassembler les entrées** : captures et textes réels du produit, musique, direction plan par plan.
-2. **Écrire une bible de style et un traitement plan par plan** avant le code.
-3. **Storyboarder**, puis construire plan par plan.
-4. **Faire de chaque image une fonction du temps** : l'aperçu et le rendu final sont identiques, et on peut sauter à n'importe quel instant.
-5. **Caler sur la musique par analyse** : grille des temps forts mesurée sur le fichier audio, démarrage sur un temps fort, chaque son placé sur son pic mesuré.
-6. **Se relire par planches contact** (grilles d'images clés) avant le rendu final.
-7. **Rendre en dernier**, au format final.
+1. **Gather the inputs**: real screenshots and copy of the product, music, shot-by-shot direction.
+2. **Write a style bible and a shot-by-shot treatment** before the code.
+3. **Storyboard**, then build shot by shot.
+4. **Make each frame a function of time**: the preview and the final render are identical, and you can jump to any instant.
+5. **Sync to the music by analysis**: beat grid measured on the audio file, start on a downbeat, each sound placed on its measured peak.
+6. **Review with contact sheets** (grids of key frames) before the final render.
+7. **Render last**, in the final format.
 
-Règles :
+Rules:
 
-- Le plancher et les défauts s'appliquent à chaque image : tokens, typo, interdits ; un tic en mouvement reste un tic.
-- Du vrai matériau : captures, textes et données du produit ; jamais de fonctionnalité ni de chiffre inventés à l'écran.
-- La musique n'est jamais libre par défaut : musique du client, musique sous licence vérifiée, ou son synthétisé en code.
-- Les exemples publics s'étudient, ils ne se recopient pas : copier le prompt d'une vidéo virale reproduit son look.
-- Une vidéo intégrée à une page compte comme son mouvement signature, a une image d'affiche, se met en pause et respecte le mouvement réduit.
-- Vérifier la licence de l'outil de rendu avant un usage commercial (Remotion demande une licence entreprise au-delà de 3 salariés).
+- The floor and the defaults apply to every frame: tokens, type, bans; a tell in motion is still a tell.
+- Real material: screenshots, copy and data from the product; never an invented feature or number on screen.
+- Music is never free by default: the client's music, music under a verified license, or sound synthesized in code.
+- Public examples are studied, not copied: copying the prompt of a viral video reproduces its look.
+- A video embedded in a page counts as its signature motion, has a poster frame, can be paused and respects reduced motion.
+- Check the rendering tool's license before commercial use (Remotion requires a company license beyond 3 employees).

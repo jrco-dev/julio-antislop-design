@@ -1,43 +1,43 @@
-# Catalogue de polices, par trait du sujet
+# Font catalog, by trait of the subject
 
-Ce catalogue sert quand l'utilisateur ne fournit pas de police : l'agent y puise des **propositions**, il ne choisit pas à la place de l'utilisateur sans le dire. Chaque nom a été vérifié sur Google Fonts (par son miroir Fontsource) le 3 novembre 2026, sous licence OFL ou Apache, donc utilisable sur le web. Re-vérifier un nom avant de l'utiliser (A3).
+This catalog is for when the user provides no font: the agent draws **proposals** from it, it does not choose in the user's place without saying so. Each name was checked on Google Fonts (through its Fontsource mirror) on November 3, 2026, under the OFL or Apache license, so usable on the web. Re-check a name before using it (A3).
 
-Un catalogue fixe devient vite le prochain réflexe. Trois garde-fous :
+A fixed catalog quickly becomes the next reflex. Three guardrails:
 
-- **Ne jamais prendre la première police d'une ligne par habitude**, et ne pas reprendre une police d'affichage utilisée dans les 3 dernières directions du journal.
-- **Le catalogue est un point de départ** : si le monde du sujet appelle autre chose, chercher au-delà (Google Fonts filtré par catégorie, Fontshare, fonderies libres) avec la méthode de `typography.md` §2.
-- **Une police entre dans `typography.md` §1 (réflexes)** dès qu'elle apparaît dans deux projets générés sans lien : la retirer alors d'ici.
+- **Never take the first font of a line out of habit**, and don't reuse a display font used in the last 3 directions of the log.
+- **The catalog is a starting point**: if the subject's world calls for something else, search beyond it (Google Fonts filtered by category, Fontshare, free foundries) with the method in `typography.md` §2.
+- **A font enters `typography.md` §1 (reflexes)** as soon as it shows up in two unrelated generated projects: then remove it from here.
 
-## Lire le sujet
+## Reading the subject
 
-Avant de choisir une ligne, relever dans l'inventaire les écritures réelles du monde du client et en tirer un trait dominant. Exemples :
+Before choosing a line, record in the inventory the real lettering of the client's world and draw a dominant trait from it. Examples:
 
-| Ce que le sujet montre | Trait | Lignes à regarder |
+| What the subject shows | Trait | Lines to look at |
 | --- | --- | --- |
-| Caisses, sacs, plaques, panneaux, outils de mesure | Marquage, signalétique | A |
-| Instruments, données, code, plans, laboratoire | Technique, précision | B |
-| Soin, enfance, association, service public, santé | Humain, lisible, accessible | C |
-| Livres, presse, recherche, juridique, lecture longue | Lecture, texte | D |
-| Atelier, alimentaire, agriculture, bâtiment, objets robustes | Robuste, fabriqué | E |
-| Architecture, mode, design, objets épurés | Construit, géométrique | F |
-| Musique, festival, sport, culture jeune, événement | Énergie, affiche | G |
-| Carnets, fiches, tampons, archives, documents administratifs | Écrit à la main, tapé | H |
+| Crates, bags, plates, signs, measuring tools | Marking, signage | A |
+| Instruments, data, code, plans, laboratory | Technical, precision | B |
+| Care, childhood, nonprofit, public service, health | Human, legible, accessible | C |
+| Books, press, research, legal, long reading | Reading, text | D |
+| Workshop, food, agriculture, construction, sturdy objects | Sturdy, made | E |
+| Architecture, fashion, design, minimal objects | Constructed, geometric | F |
+| Music, festival, sport, youth culture, event | Energy, poster | G |
+| Notebooks, index cards, stamps, archives, administrative documents | Handwritten, typed | H |
 
-## Les lignes
+## The lines
 
-| Ligne | Affichage | Texte associé | Ce qu'elle porte bien | Attention |
+| Line | Display | Paired text | What it carries well | Watch out |
 | --- | --- | --- | --- | --- |
-| A. Marquage | Big Shoulders Display, Big Shoulders Stencil, Saira Extra Condensed, Sofia Sans Extra Condensed, Antonio, Mohave | Chivo, Public Sans, Libre Franklin | Chiffres, mesures, lots, horaires ; titres courts et denses | Pochoir et extra-condensé seulement en affichage ; jamais en texte courant |
-| B. Technique | Red Hat Display, Schibsted Grotesk, Tomorrow, Host Grotesk | Onest, Golos Text, Reddit Sans ; mono : Martian Mono, Azeret Mono, Chivo Mono, Spline Sans Mono, Red Hat Mono | Produits techniques, outils, données | La mono reste pour le code et les valeurs (`defaults-by-mode.md`), jamais pour « faire tech » |
-| C. Humain | Rethink Sans, Commissioner, Funnel Display | Atkinson Hyperlegible Next, Alegreya Sans, Asap, Funnel Sans | Santé, services, publics larges, mode Opérer | Atkinson Hyperlegible Next est conçue pour la lisibilité basse vision : bon défaut pour les interfaces publiques |
-| D. Lecture | Young Serif, Gloock, Besley, Petrona | Literata, Source Serif 4, Spectral, Alegreya, Gelasio, Vollkorn | Lecture longue, docs, éditorial réel | Une serif n'est pas un raccourci vers « premium » (vague 3) : la choisir pour un vrai texte à lire |
-| E. Robuste | Zilla Slab, Rokkitt, Podkova, Arvo | Bitter, Aleo | Mécanes : atelier, alimentaire, terrain, emballage | Éviter le cosplay « rétro » : pas de texture vieillie ajoutée |
-| F. Construit | Jost, Urbanist, Familjen Grotesk, Afacad | Lexend, Work Sans, Karla | Architecture, design, objets | Les géométriques fatiguent en texte long : texte associé plus ouvert |
-| G. Énergie | Dela Gothic One, Gasoek One, Climate Crisis, Bungee, Anybody, Darker Grotesque, Shrikhand, Bagel Fat One | Rubik, Wix Madefor Display, Libre Franklin | Affiches, festivals, sport, culture | Une seule voix forte ; Climate Crisis et Anybody ont des axes : un seul réglage par page, sauf moment signature |
-| H. Écrit | Courier Prime, Cutive Mono, Kalam, Gochi Hand | Une police de texte des lignes C ou D | Fiches, tampons, notes, archives | En accent seulement (un champ, une annotation), jamais en titre principal ni en texte courant |
+| A. Marking | Big Shoulders Display, Big Shoulders Stencil, Saira Extra Condensed, Sofia Sans Extra Condensed, Antonio, Mohave | Chivo, Public Sans, Libre Franklin | Numbers, measurements, batches, schedules; short, dense headlines | Stencil and extra-condensed only for display; never for body text |
+| B. Technical | Red Hat Display, Schibsted Grotesk, Tomorrow, Host Grotesk | Onest, Golos Text, Reddit Sans; mono: Martian Mono, Azeret Mono, Chivo Mono, Spline Sans Mono, Red Hat Mono | Technical products, tools, data | Mono stays for code and values (`defaults-by-mode.md`), never to "look tech" |
+| C. Human | Rethink Sans, Commissioner, Funnel Display | Atkinson Hyperlegible Next, Alegreya Sans, Asap, Funnel Sans | Health, services, broad audiences, Operate mode | Atkinson Hyperlegible Next is designed for low-vision legibility: a good default for public interfaces |
+| D. Reading | Young Serif, Gloock, Besley, Petrona | Literata, Source Serif 4, Spectral, Alegreya, Gelasio, Vollkorn | Long reading, docs, real editorial | A serif is not a shortcut to "premium" (wave 3): choose it for real text to be read |
+| E. Sturdy | Zilla Slab, Rokkitt, Podkova, Arvo | Bitter, Aleo | Slabs: workshop, food, field, packaging | Avoid "retro" cosplay: no added aged texture |
+| F. Constructed | Jost, Urbanist, Familjen Grotesk, Afacad | Lexend, Work Sans, Karla | Architecture, design, objects | Geometrics tire in long text: use a more open paired text font |
+| G. Energy | Dela Gothic One, Gasoek One, Climate Crisis, Bungee, Anybody, Darker Grotesque, Shrikhand, Bagel Fat One | Rubik, Wix Madefor Display, Libre Franklin | Posters, festivals, sport, culture | A single strong voice; Climate Crisis and Anybody have axes: one setting per page, except for a signature moment |
+| H. Written | Courier Prime, Cutive Mono, Kalam, Gochi Hand | A text font from lines C or D | Index cards, stamps, notes, archives | As an accent only (a field, an annotation), never as a main headline or body text |
 
-## Selon le mode
+## By mode
 
-- **Persuader, Expérience** : une voix d'affichage avec un point de vue, tirée du sujet, et une police de texte sobre. Proposer des paires de lignes différentes pour que l'utilisateur ait un vrai choix.
-- **Opérer** : une police de travail lisible et stable compte plus qu'une voix ; une seule famille suffit souvent (lignes B ou C, ou la pile système). La liste réflexe de `typography.md` §1 ne vise ici que la voix d'affichage et la marque, pas le texte d'interface.
-- **Lire** : la police de texte d'abord (ligne D, ou C pour l'écran), l'affichage ensuite.
+- **Persuade, Experience**: a display voice with a point of view, drawn from the subject, and a sober text font. Propose pairs from different lines so the user has a real choice.
+- **Operate**: a legible, stable working font matters more than a voice; a single family is often enough (lines B or C, or the system stack). The reflex list in `typography.md` §1 targets only the display voice and the brand here, not interface text.
+- **Read**: the text font first (line D, or C for screen), the display second.

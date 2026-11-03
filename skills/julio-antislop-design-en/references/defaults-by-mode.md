@@ -1,38 +1,38 @@
-# Défauts levables, par mode
+# Liftable defaults, by mode
 
-Ces règles s'appliquent par défaut. Chacune peut se lever avec une raison écrite liée à l'idée du projet ou au brief, notée dans le rapport. Au-delà de 3 levées sur un projet, écrire le style maison dans `DESIGN.md`.
+These rules apply by default. Each one can be lifted with a written reason tied to the project's idea or to the brief, noted in the report. Beyond 3 lifts on a project, write the house style in `DESIGN.md`.
 
-Pourquoi par mode : un même procédé est un tic sur une landing et une convention utile dans un dashboard. Une page marketing se lit et se fait défiler ; une app se travaille des heures.
+Why by mode: the same device is a tell on a landing page and a useful convention in a dashboard. A marketing page is read and scrolled; an app is worked in for hours.
 
-| Sujet | Persuader | Opérer | Lire | Expérience |
+| Topic | Persuade | Operate | Read | Experience |
 | --- | --- | --- | --- | --- |
-| Dégradés, lueurs, verre | Aucun, sauf le moment signature s'il sort de la matière du sujet, avec repli fixe | Aucun | Aucun | Permis s'ils font partie de l'œuvre, avec repli |
-| Ombres | Seulement sur ce qui flotte (menu, dialogue). Une ombre a un décalage et un flou ; un halo coloré sans décalage est une décoration. Élévation déclarée une fois : bordure ou ombre, pas les deux | Idem | Idem | Idem |
-| Filets et bordures | Aucun filet décoratif ; séparer par l'espace et un écart de ton | Filets discrets, couleur du texte à 6-10 % d'opacité | Filets pour tableaux et notes | Comme Persuader |
-| Rayons | Carré ou pastille, décidé une fois ; médias à angles droits | Rayons imbriqués : contrôles 8-10 px, cartes 12-16 px, panneaux 14-20 px ; rayon intérieur = rayon extérieur − padding, jamais sous 4 px | Comme Opérer, sobre | Comme Persuader |
-| Monospace | Code uniquement | Code, compteurs, métadonnées, axes de graphiques, en couleur atténuée | Code et identifiants | Code, sauf si la mono est la matière de l'œuvre |
-| Eyebrow, capitales espacées, numérotation 01/02 | Non. Défaut le plus fort : ne se lève que si le brief l'exige ; la numérotation seulement pour une vraie séquence | Idem | Idem | Idem |
-| Polices | 1 ou 2 familles tirées du sujet, aucune police réflexe (`typography.md` §1) sans raison de marque | Idem ; graisses 400-500, 600 rare | Une vraie police de lecture longue | Idem Persuader |
-| Échelle de texte | Modulaire, texte 17 → 19 px, ratio 1,2 → 1,333 ; 5 crans utilisés au plus, qui sautent des crans | Ratio 1,125 → 1,2, texte 14 → 16 px ; la hiérarchie vient aussi de la couleur | Ratio 1,2 → 1,25, texte 18 → 20 px | Libre, une seule échelle |
-| Espacement | Échelle de base 4 px, trois niveaux (intérieur 4-16, groupe 16-48, section 96-192 px desktop) ; aucune valeur brute | Même échelle, section ramenée à 48 px ; densité par crans plus petits | Rythme de lecture : titre plus près de ce qui suit | Comme Persuader |
-| Couleur | Un fond, une encre, un accent ; accent environ 4 fois au plus par écran ; aplats de couleur entiers permis par section | Fonds et surfaces neutres ; la couleur va dans l'accent, les graphiques et les moments | Neutre ; accent pour les liens et l'état | Libre, au service de l'œuvre |
-| Cartes et grilles | Jamais de rangée de cartes identiques ni de tuile icône-titre-texte ; bento seulement selon `persuade.md` | Cartes et panneaux répétés normaux ; un graphique principal nettement plus grand | Rarement utiles | Grille de l'œuvre, une pièce en focus |
-| Composition | Aligné à gauche, un seul moment centré ; chaque section diffère de sa voisine ; ordre dicté par l'argument | Dictée par la tâche ; densité élevée permise ; sections et ordre conservés en refonte | Une colonne de lecture | L'œuvre au premier écran |
-| Quantité de texte | Prose courte (environ 80 mots par écran) ; l'information attendue (menu, tarifs, programme) est complète, en contenu structuré | Libellés courts | Prose longue permise | Minimale |
-| Mouvement | Un mouvement signature ; entrées de section décalées de 60 à 90 ms, montées de 16 à 32 px, déclenchées une fois ; feedback sur chaque contrôle | Une entrée au chargement ; feedback de 150 à 300 ms | Presque aucun | Libre dans le budget |
-| Propriétés animées | `transform` et `opacity` ; `clip-path` et masque seulement pour le moment signature, s'il tient 60 images/s sur mobile moyen | `transform` et `opacity` | Idem | Comme Persuader ; jamais de flou animé sur grande surface |
-| Mots | Aucun mot creux (unlock, seamless, supercharge, elevate, effortless, all-in-one…), ni « Get started » ou « Learn more », ni point d'exclamation dans l'interface | Idem ; une variation dit à quoi elle se compare (« +12 % vs le mois dernier ») ; pas de point final sur titres, labels et boutons | Idem | Idem |
-| Clair ou sombre | Selon la scène d'usage (qui, où, sous quelle lumière), jamais selon la catégorie ; les deux variantes conçues ensemble si les deux existent | Idem | Idem | Idem |
+| Gradients, glows, glass | None, except the signature moment if it comes out of the subject's material, with a static fallback | None | None | Allowed if they are part of the work, with a fallback |
+| Shadows | Only on what floats (menu, dialog). A shadow has an offset and a blur; a colored halo with no offset is decoration. Elevation declared once: border or shadow, not both | Same | Same | Same |
+| Rules and borders | No decorative rules; separate with space and a tone shift | Subtle rules, text color at 6-10% opacity | Rules for tables and notes | Like Persuade |
+| Radii | Square or pill, decided once; media with square corners | Nested radii: controls 8-10 px, cards 12-16 px, panels 14-20 px; inner radius = outer radius − padding, never below 4 px | Like Operate, sober | Like Persuade |
+| Monospace | Code only | Code, counters, metadata, chart axes, in a muted color | Code and identifiers | Code, unless mono is the material of the work |
+| Eyebrow, letter-spaced capitals, 01/02 numbering | No. The strongest default: lifted only if the brief requires it; numbering only for a real sequence | Same | Same | Same |
+| Fonts | 1 or 2 families drawn from the subject, no reflex font (`typography.md` §1) without a brand reason | Same; weights 400-500, 600 rare | A real long-reading font | Same as Persuade |
+| Text scale | Modular, body 17 → 19 px, ratio 1.2 → 1.333; 5 steps used at most, skipping steps | Ratio 1.125 → 1.2, body 14 → 16 px; hierarchy also comes from color | Ratio 1.2 → 1.25, body 18 → 20 px | Free, a single scale |
+| Spacing | 4 px base scale, three levels (inner 4-16, group 16-48, section 96-192 px desktop); no raw values | Same scale, section brought down to 48 px; density through smaller steps | Reading rhythm: heading closer to what follows | Like Persuade |
+| Color | One background, one ink, one accent; accent about 4 times at most per screen; full flat color fields allowed per section | Neutral backgrounds and surfaces; color goes into the accent, the charts and the moments | Neutral; accent for links and state | Free, serving the work |
+| Cards and grids | Never a row of identical cards or an icon-title-text tile; bento only per `persuade.md` | Repeated cards and panels are normal; one main chart clearly larger | Rarely useful | The work's grid, one piece in focus |
+| Composition | Left-aligned, a single centered moment; each section differs from its neighbor; order dictated by the argument | Dictated by the task; high density allowed; sections and order kept in a redesign | One reading column | The work on the first screen |
+| Amount of text | Short prose (about 80 words per screen); expected information (menu, pricing, schedule) is complete, as structured content | Short labels | Long prose allowed | Minimal |
+| Motion | One signature motion; section entrances staggered by 60 to 90 ms, rising 16 to 32 px, triggered once; feedback on every control | One entrance on load; 150 to 300 ms feedback | Almost none | Free within the budget |
+| Animated properties | `transform` and `opacity`; `clip-path` and mask only for the signature moment, if it holds 60 fps on an average phone | `transform` and `opacity` | Same | Like Persuade; never animated blur on a large surface |
+| Words | No hollow words (unlock, seamless, supercharge, elevate, effortless, all-in-one…), no "Get started" or "Learn more", no exclamation mark in the interface | Same; a change says what it compares to ("+12% vs last month"); no trailing period on headings, labels and buttons | Same | Same |
+| Light or dark | By the scene of use (who, where, under what light), never by the category; both variants designed together if both exist | Same | Same | Same |
 
-## Règles communes à tous les modes
+## Rules common to all modes
 
-- Aucun emoji comme icône : un seul jeu d'icônes (celui du produit d'abord, sinon un jeu choisi exprès, jamais Lucide par réflexe), une taille, une épaisseur de trait.
-- Aucun hex en dur dans les composants ; aucune palette par défaut de framework (`indigo-500`, `violet-600`, `slate-900`, shadcn `zinc` non retouché).
-- Pas d'italique ni de couleur sur un seul mot d'un titre.
-- Chiffres en `tabular-nums` et un seul format sur l'écran.
-- Pas de tracking négatif sur le petit texte ; tracking des titres d'affichage entre -0,02 et -0,04em, jamais au-delà.
-- Surfaces du navigateur thématisées : sélection de texte, curseur de saisie, barres de défilement, anneaux de focus, décalage du soulignement.
+- No emoji as icon: a single icon set (the product's first, otherwise a set chosen on purpose, never Lucide by reflex), one size, one stroke weight.
+- No hard-coded hex in components; no framework default palette (`indigo-500`, `violet-600`, `slate-900`, untouched shadcn `zinc`).
+- No italics or color on a single word of a headline.
+- Numbers in `tabular-nums` and a single format on the screen.
+- No negative tracking on small text; display headline tracking between -0.02 and -0.04em, never beyond.
+- Browser surfaces themed: text selection, input caret, scrollbars, focus rings, underline offset.
 
-## Les interdits ne sont pas un style
+## The prohibitions are not a style
 
-Additionnés, ces défauts dessinent un look prévisible : plat, carré, sans filet ni ombre, grande typo alignée à gauche. Une direction qui se contente de les respecter est une « esthétique d'évitement » et elle est rejetée. Les défauts disent ce qu'on ne fait pas par habitude ; l'idée dit ce qu'on fait.
+Added together, these defaults draw a predictable look: flat, square, no rules or shadows, big left-aligned type. A direction that merely respects them is an "avoidance aesthetic" and is rejected. The defaults say what you do not do out of habit; the idea says what you do.

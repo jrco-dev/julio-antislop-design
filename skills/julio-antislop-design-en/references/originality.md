@@ -1,119 +1,121 @@
-# Originalité : sortir du déjà-vu
+# Originality: getting out of déjà-vu
 
-Retirer les tics ne rend pas une page originale. Les quatre pages faites avec ce skill entre le 2 et le 3 novembre 2026 étaient propres, et deux juges les ont trouvées « déjà vues » : elles convergeaient vers un même style, que ce fichier appelle **le clean anti-slop**. Ce fichier donne des méthodes qui **produisent** de la différence au lieu d'interdire.
+Removing the tells does not make a page original. The four pages made with this skill between 2 and 3 November 2026 were clean, and two judges found them "already seen": they converged on one style, which this file calls **clean anti-slop**. This file gives methods that **produce** difference instead of prohibiting.
 
-## 1. Notre propre convergence (vague 5)
+## 1. Our own convergence (wave 5)
 
-Signature relevée sur nos propres sorties : fond papier clair ; titre en grotesque condensée, aligné à gauche, avec la phrase d'appui à droite ; filets fins et tableaux ; un seul accent (jaune, vert ou bleu) ; sections aérées empilées les unes sous les autres ; listes numérotées. Chaque élément est défendable ; l'ensemble est devinable. Une page qui coche quatre de ces six traits sans que l'archétype tiré l'exige a échoué au test du déjà-vu (§7).
+Signature found in our own outputs: light paper background; headline in a condensed grotesque, left-aligned, with the supporting sentence on the right; thin rules and tables; a single accent (yellow, green or blue); airy sections stacked one below the other; numbered lists. Each element is defensible; the whole is guessable. A page that ticks four of these six traits without the rolled archetype requiring it has failed the déjà-vu test (§7).
 
-## 2. Le tirage (étape 6, obligatoire)
+## 2. The roll (step 6, mandatory)
 
-Le premier choix d'un modèle est celui de tous les modèles. Le tirage le lui retire :
+A model's first choice is every model's choice. The roll takes it away:
 
 ```bash
-node scripts/roll.mjs --mode persuader --brief "<le brief en une phrase>" --log direction-log.md
+node scripts/roll.mjs --mode persuader --brief "<the brief in one sentence>" --log direction-log.md
 ```
 
-Il attribue un **archétype de composition** (§3), **trois cartes de contrainte** (§4, en garder au moins une), une **stratégie de couleur**, une **ligne de polices** de `font-catalog.md` et **deux leviers de risque** (§5), en évitant ce que les 3 dernières lignes du journal ont déjà utilisé. Il écrit le tout dans `.julio/roll.json`.
+(`--mode persuader` can also be written `--mode persuade`.)
 
-- La direction se construit **avec** ce qui est tiré : l'archétype porte l'élément de l'inventaire choisi à l'étape 7.
-- Re-tirer (`--reroll`) seulement pour une raison factuelle : l'archétype ne peut pas porter le contenu réel (un plateau de jeu sans aucune étape, une carte sans lieu). Le goût n'est jamais une raison. Noter le re-tirage et sa raison dans le rapport.
-- Une demande explicite de la personne (un style, une structure) prime sur le tirage (A7) : tirer alors seulement les cartes et les leviers.
+It assigns a **composition archetype** (§3), **three constraint cards** (§4, keep at least one), a **color strategy**, a **font line** from `font-catalog.md` and **two risk levers** (§5), avoiding what the last 3 lines of the log already used. It writes everything to `.julio/roll.json`.
 
-## 3. Vingt-quatre archétypes de composition
+- The direction is built **with** what was rolled: the archetype carries the inventory element chosen in step 7.
+- Re-roll (`--reroll`) only for a factual reason: the archetype cannot carry the real content (a game board with no steps at all, a map with no place). Taste is never a reason. Note the re-roll and its reason in the report.
+- An explicit request from the person (a style, a structure) takes precedence over the roll (A7): then roll only the cards and the levers.
 
-Un archétype est une **structure**, pas un style : il dit comment la page est bâtie, la direction décide de son apparence.
+## 3. Twenty-four composition archetypes
 
-| # | Archétype | La page est bâtie comme… | Il lui faut | Modes |
+An archetype is a **structure**, not a style: it says how the page is built; the direction decides how it looks.
+
+| # | Archetype | The page is built like… | It needs | Modes |
 | --- | --- | --- | --- | --- |
-| C1 | L'objet-page | un objet du monde du sujet (étiquette, ticket, carnet, fiche, emballage, plan) dont chaque partie fonctionne : liens, actions, textes lisibles | un objet imprimé réel du sujet | P, E |
-| C2 | L'instrument | un outil qui occupe le premier écran (configurateur, simulateur, calculateur) ; le texte vient après | une donnée ou un réglage réel | P, O |
-| C3 | L'échelle unique | un seul élément énorme (chiffre, mot, détail, objet) qui structure toute la page | un élément qui le mérite | P, E |
-| C4 | La séquence | une suite d'écrans au défilement, une étape par écran (rituel, fabrication, process) | une vraie suite d'étapes | P, E, L |
-| C5 | L'index | une liste ou un tableau riche qui est la page (menu, horaires, catalogue, programme) | un contenu énumérable | P, O, L |
-| C6 | L'affiche | une suite d'affiches plein écran, chacune son aplat de couleur et sa composition | peu de texte par section | P, E |
-| C7 | Le split permanent | un écran partagé : un côté fixe (image, objet, carte), l'autre défile | une image ou un objet qui tient longtemps | P, E |
-| C8 | La carte | une carte, un plan ou une coupe qu'on parcourt | des lieux ou des parties réelles | P, E, L |
-| C9 | La frise | une chronologie horizontale (avec repli vertical accessible) | des dates réelles | P, L, E |
-| C10 | Le collage | images et textes superposés, découpés, légèrement tournés | de vraies images ou matières | E, P |
-| C11 | La conversation | un dialogue : les questions du visiteur et les réponses, dans l'ordre où il les pose | des objections réelles | P |
-| C12 | Le document technique | une notice ou fiche technique : cotes, renvois, annexes, légendes | des mesures réelles | P, L |
-| C13 | L'almanach | un calendrier ou des saisons comme structure | un rythme réel dans l'année | P, L |
-| C14 | La vitrine | le produit seul, en très grand, sur un aplat ; la page tourne autour de lui | une vraie image du produit | P |
-| C15 | La typographie seule | aucune image : la typographie fait l'image (taille, coupe, superposition, rythme) | des mots forts | P, E |
-| C16 | Le flux | un fil vivant (journal, état, dernières entrées) qui montre que la chose existe | des données réelles mises à jour | P, O |
-| C17 | Le comparatif | un avant/après ou un curseur qui sépare deux états | deux états réels | P, O |
-| C18 | Le plateau | un parcours de jeu : cases, niveaux, progression | une progression réelle | P, E |
-| C19 | L'imprimé artisanal | un zine, une photocopie, des colonnes irrégulières | un sujet qui vient de cette culture | E |
-| C20 | La scène | une seule image plein cadre qui dure, le texte posé sur ses parties calmes | une très bonne image | P, E |
-| C21 | Le spécimen | une série de fiches de même grille (mesures, origine, état) | des pièces comparables | P, E, L |
-| C22 | Le plan de travail | un bureau vu de dessus, des objets disposés (vraies images) | des objets photographiés | E, P |
-| C23 | L'archive | dossiers, cotes, tampons, classement | une histoire ou un fonds réel | L, E |
-| C24 | La salle de contrôle | des panneaux d'état et de réglage, même en Persuader, si le produit est un système | un produit qui pilote quelque chose | O, P |
+| C1 | The object-page | an object from the subject's world (label, ticket, notebook, record card, packaging, plan) whose every part works: links, actions, readable text | a real printed object of the subject | P, E |
+| C2 | The instrument | a tool that fills the first screen (configurator, simulator, calculator); the text comes after | a real data point or setting | P, O |
+| C3 | The single scale | a single huge element (figure, word, detail, object) that structures the whole page | an element that deserves it | P, E |
+| C4 | The sequence | a series of screens on scroll, one step per screen (ritual, making, process) | a real series of steps | P, E, L |
+| C5 | The index | a rich list or table that is the page (menu, hours, catalog, program) | enumerable content | P, O, L |
+| C6 | The poster | a series of full-screen posters, each with its own flat color and composition | little text per section | P, E |
+| C7 | The permanent split | a split screen: one side fixed (image, object, map), the other scrolls | an image or object that holds for a long time | P, E |
+| C8 | The map | a map, plan or cross-section you travel through | real places or parts | P, E, L |
+| C9 | The timeline | a horizontal chronology (with an accessible vertical fallback) | real dates | P, L, E |
+| C10 | The collage | images and text overlapping, cut out, slightly rotated | real images or materials | E, P |
+| C11 | The conversation | a dialogue: the visitor's questions and the answers, in the order they ask them | real objections | P |
+| C12 | The technical document | a manual or spec sheet: dimensions, callouts, appendices, captions | real measurements | P, L |
+| C13 | The almanac | a calendar or the seasons as structure | a real rhythm across the year | P, L |
+| C14 | The showcase | the product alone, very large, on a flat color; the page revolves around it | a real image of the product | P |
+| C15 | Typography only | no images: typography makes the image (size, cut, overlap, rhythm) | strong words | P, E |
+| C16 | The feed | a live stream (log, status, latest entries) that shows the thing exists | real updated data | P, O |
+| C17 | The comparison | a before/after or a slider separating two states | two real states | P, O |
+| C18 | The board | a game path: squares, levels, progression | a real progression | P, E |
+| C19 | The handmade print | a zine, a photocopy, irregular columns | a subject that comes from that culture | E |
+| C20 | The scene | a single full-frame image that lasts, the text placed on its calm areas | a very good image | P, E |
+| C21 | The specimen | a series of cards on the same grid (measurements, origin, condition) | comparable pieces | P, E, L |
+| C22 | The workbench | a desk seen from above, objects laid out (real images) | photographed objects | E, P |
+| C23 | The archive | folders, shelf marks, stamps, filing | a real history or collection | L, E |
+| C24 | The control room | status and control panels, even in Persuade, if the product is a system | a product that controls something | O, P |
 
-Une page peut emprunter un second archétype pour une section, jamais plus.
+A page may borrow a second archetype for one section, never more.
 
-## 4. Cartes de contrainte
+## 4. Constraint cards
 
-Le tirage en donne trois ; on en garde au moins une, écrite dans le rapport.
+The roll gives three; keep at least one, written in the report.
 
-1. Une seule couleur et le noir (ou le blanc).
-2. Aucun rectangle arrondi, aucune carte.
-3. Une seule taille de texte en dehors du titre principal.
-4. Le contenu principal en bas du premier écran, pas en haut.
-5. La navigation est dans le contenu (`nav-footer.md`, N18).
-6. Rien n'est centré.
-7. La couleur de fond change à chaque section.
-8. Les chiffres du sujet sont la typographie d'affichage.
-9. Une seule image, recadrée de plusieurs façons dans toute la page.
-10. Une texture tirée de la matière réelle du sujet (papier, tissu, métal, terre), photographiée ou scannée.
-11. Deux polices de structure opposée (une très dessinée, une très neutre).
-12. Une grille asymétrique (5 ou 7 colonnes) où rien ne s'aligne au centre.
-13. Le titre principal fait plus de la moitié de la largeur de l'écran.
-14. L'interaction est le premier écran.
-15. Emprunter le vocabulaire visuel d'un autre métier (le tirage le choisit : signalétique ferroviaire, pharmacie, cartographie, partition, notice de montage, programme de théâtre, bulletin météo, ticket de caisse, carte à jouer, étiquette de laboratoire).
-16. Le texte se lit de bas en haut ou se répartit sur deux axes, pour un seul moment de la page.
+1. A single color and black (or white).
+2. No rounded rectangle, no card.
+3. A single text size apart from the main headline.
+4. The main content at the bottom of the first screen, not at the top.
+5. The navigation is inside the content (`nav-footer.md`, N18).
+6. Nothing is centered.
+7. The background color changes with each section.
+8. The subject's figures are the display typography.
+9. A single image, cropped in several ways throughout the page.
+10. A texture taken from the subject's real material (paper, fabric, metal, earth), photographed or scanned.
+11. Two fonts of opposite structure (one highly drawn, one highly neutral).
+12. An asymmetric grid (5 or 7 columns) where nothing aligns to the center.
+13. The main headline is more than half the screen width.
+14. The interaction is the first screen.
+15. Borrow the visual vocabulary of another trade (the roll picks it: railway signage, pharmacy, cartography, sheet music, assembly instructions, theater program, weather report, till receipt, playing card, lab label).
+16. The text reads from bottom to top or is spread over two axes, for a single moment of the page.
 
-## 5. Leviers de risque
+## 5. Risk levers
 
-Une page originale prend au moins **deux** risques visibles ; le tirage en propose deux, la direction peut les remplacer par deux autres de cette liste :
+An original page takes at least **two** visible risks; the roll proposes two, the direction may replace them with two others from this list:
 
-- **Échelle extrême** : un élément à plus de 40 % de la hauteur d'écran, ou un contraste de tailles de plus de 10 pour 1.
-- **Couleur qui porte la page** : un aplat sur 30 à 100 % de la surface, pas un accent.
-- **La matière du sujet comme structure** : la page est construite avec elle, pas décorée avec elle.
-- **La grille cassée exprès** : un élément qui chevauche, déborde ou sort de l'alignement, une fois, pour une raison.
-- **La typographie comme image** : un mot ou un chiffre traité comme une illustration.
-- **L'interaction comme argument** : comprendre le produit en l'utilisant.
-- **Un rythme inattendu** : une section très courte et très forte entre deux longues, un changement brusque de fond ou de densité.
-- **Une image originale** : photo prise pour le projet, scan, illustration commandée.
+- **Extreme scale**: an element taller than 40% of the screen height, or a size contrast greater than 10 to 1.
+- **Color that carries the page**: a flat color over 30 to 100% of the surface, not an accent.
+- **The subject's material as structure**: the page is built with it, not decorated with it.
+- **The grid broken on purpose**: an element that overlaps, overflows or breaks alignment, once, for a reason.
+- **Typography as image**: a word or figure treated as an illustration.
+- **Interaction as argument**: understanding the product by using it.
+- **An unexpected rhythm**: a very short, very strong section between two long ones, an abrupt change of background or density.
+- **An original image**: a photo taken for the project, a scan, a commissioned illustration.
 
-Le plancher reste entier : contraste, clavier, mouvement réduit, performance.
+The floor stays whole: contrast, keyboard, reduced motion, performance.
 
-## 6. Voir les références (étape 5)
+## 6. Seeing the references (step 5)
 
-On ne s'inspire pas d'un site qu'on a seulement lu. Quand le réseau le permet :
+You are not inspired by a site you have only read about. When the network allows:
 
 ```bash
 node scripts/board.mjs https://site-1 https://site-2 https://site-3 --out .julio/board
 ```
 
-Il capture chaque site en desktop et en mobile, puis compose une planche `board.png`. La regarder avec l'outil de lecture d'image avant d'écrire les directions, et noter pour chaque site la qualité empruntée telle qu'on la **voit**. Si un site ne charge pas, le dire et en prendre un autre dans `site-models.md`.
+It captures each site on desktop and mobile, then composes a `board.png` board. Look at it with the image reading tool before writing the directions, and note for each site the quality borrowed as you **see** it. If a site does not load, say so and take another from `site-models.md`.
 
-## 7. Trois heroes avant la page (après l'étape 7)
+## 7. Three heroes before the page (after step 7)
 
-Avant de construire toute la page, construire **trois premiers écrans** très différents : celui de la direction tirée, et deux autres issus de deux nouveaux tirages (`--reroll`). Chacun dans `.julio/explore/a.html`, `b.html`, `c.html`, avec le vrai texte.
+Before building the whole page, build **three first screens** that are very different: the one from the rolled direction, and two others from two new rolls (`--reroll`). Each in `.julio/explore/a.html`, `b.html`, `c.html`, with the real copy.
 
 ```bash
 node scripts/explore.mjs .julio/explore
 ```
 
-Le script capture les trois à 1440 et 390 px et compose `explore/index.html` (les trois côte à côte) et `explore/board.png`.
+The script captures all three at 1440 and 390 px and composes `explore/index.html` (the three side by side) and `explore/board.png`.
 
-- **Personne présente** : lui montrer la page de comparaison ; elle choisit, ou mélange (« la couleur de B sur la structure de A »).
-- **Personne absente** : un sous-agent en contexte neuf choisit sur les captures, avec un seul critère : lequel n'a-t-il jamais vu ? Sans sous-agent, garder celui qui partage le moins de traits avec §1 et avec le journal.
+- **Person present**: show them the comparison page; they choose, or mix ("B's color on A's structure").
+- **Person absent**: a subagent with a fresh context chooses from the screenshots, with a single criterion: which one has it never seen? Without a subagent, keep the one that shares the fewest traits with §1 and with the log.
 
-Puis construire la page entière depuis le hero choisi.
+Then build the whole page from the chosen hero.
 
-## 8. Test du déjà-vu (étape 11)
+## 8. Déjà-vu test (step 11)
 
-Montrer la capture du premier écran à un regard neuf et lui demander de décrire la page en 12 mots, puis : « À quel style connu ressemble-t-elle ? » Si la réponse nomme un style connu (SaaS sombre néon, éditorial crème et serif, clean anti-slop de §1, bento pastel, brutalisme jaune et noir, verre sur fond pastel, clone Apple, portfolio noir à curseur), changer d'abord le levier de risque le plus visible, puis réinspecter. La critique ajoute l'axe **Originalité** (`critique.md`) : sous 4 sur 5, la page n'est pas livrée.
+Show the screenshot of the first screen to a fresh pair of eyes and ask them to describe the page in 12 words, then: "Which known style does it look like?" If the answer names a known style (dark neon SaaS, cream-and-serif editorial, the clean anti-slop of §1, pastel bento, yellow-and-black brutalism, glass on a pastel background, Apple clone, black portfolio with a custom cursor), first change the most visible risk lever, then re-inspect. The critique adds the **Originality** axis (`critique.md`): below 4 out of 5, the page is not delivered.
