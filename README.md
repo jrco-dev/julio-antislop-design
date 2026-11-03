@@ -168,7 +168,8 @@ skills/julio-antislop-design/
 │   ├── performance.md           budget par mode
 │   ├── tells.md                 tics de pages générées, datés par vague
 │   ├── ux-principles.md         principes de l'UX et leurs sources d'origine
-│   ├── resources.md             références, bibliothèques, outils, licences
+│   ├── site-models.md           sites modèles réels par mode, qualité à emprunter
+│   ├── resources.md             galeries, bibliothèques, outils, licences
 │   └── critique.md              grille de critique sur 6 axes
 ├── scripts/check-tokens.mjs     contrôle : tailles, espacements, polices hors tokens, polices réflexes
 ├── templates/                   DESIGN.md, PRODUCT.md, journal des directions

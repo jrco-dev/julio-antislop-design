@@ -11,6 +11,8 @@ Liste établie le 3 novembre 2026 ; les entrées non vérifiées sont signalées
 
 ## Références (consultation : on emprunte une qualité, jamais une page)
 
+Pour des sites précis, déjà choisis et décrits par mode avec la qualité à emprunter : `site-models.md`.
+
 | Besoin | Site |
 | --- | --- |
 | Hero | [supahero.io](https://supahero.io) |
