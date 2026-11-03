@@ -85,6 +85,7 @@ Ce sont les règles anti-slop. Elles s'appliquent par défaut, dépendent du mod
 | Toute construction ou relecture | `references/defaults-by-mode.md` |
 | Inventaire, idée, direction, images, références | `references/idea-and-direction.md` |
 | Landing page, hero, sections, illustration produit, bento | `references/persuade.md` |
+| Choisir la navigation et le pied de page (18 + 15 modèles) | `references/nav-footer.md` |
 | App, dashboard, graphiques, formulaires, cartes de stats | `references/operate.md` |
 | Docs, articles, portfolio, galerie | `references/read-and-experience.md` |
 | Refonte d'un existant | `references/redesign.md` |

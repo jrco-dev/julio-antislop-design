@@ -54,6 +54,7 @@ Ce qui le distingue :
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.21 | 3 nov. 2026 | `nav-footer.md` : 18 modèles de navigation et 15 modèles de pied de page relevés sur navbar.gallery, footer.design et unsection.com, avec le cas d'usage, les règles et un exemple réel ; choix noté dans le rapport |
 | 0.20 | 3 nov. 2026 | Leçons du test « style Apple » : produit physique sans photo (registre que le code sait faire, objet entier), règles du verre demandé par le brief (flouter du réel, jamais des blobs), une seule mention du contenu d'exemple, chose vivante qui change l'objet principal, écart entre sections constant |
 | 0.19 | 3 nov. 2026 | `site-models.md` : 110 sites modèles réels par mode, avec la qualité à emprunter ; l'étape « références » y puise, dont au moins un site hors du secteur du projet |
 | 0.18 | 3 nov. 2026 | Sans police fournie, l'agent propose 3 paires affichage + texte tirées du sujet et d'un catalogue de polices vérifiées (`font-catalog.md`) au lieu de choisir en silence |
@@ -175,6 +176,7 @@ skills/julio-antislop-design/
 │   ├── defaults-by-mode.md      règles anti-slop par mode
 │   ├── idea-and-direction.md    inventaire, argument, directions, images
 │   ├── persuade.md              landing pages, hero, illustration produit, bento
+│   ├── nav-footer.md            18 modèles de navigation, 15 de pied de page
 │   ├── operate.md               apps, dashboards, formulaires, graphiques
 │   ├── read-and-experience.md   docs, articles, portfolios
 │   ├── redesign.md              refonte en 9 passes

@@ -16,7 +16,8 @@ Pour des sites précis, déjà choisis et décrits par mode avec la qualité à 
 | Besoin | Site |
 | --- | --- |
 | Hero | [supahero.io](https://supahero.io) |
-| Navigation | [navbar.gallery](https://navbar.gallery) |
+| Navigation | [navbar.gallery](https://navbar.gallery) ; modèles classés dans `nav-footer.md` |
+| Pieds de page | [footer.design](https://www.footer.design) (NOOON Studio, classés par style), [unsection.com](https://www.unsection.com/category/footer-section-design) (classés par fonction, une partie réservée aux abonnés) |
 | Appels à l'action | [cta.gallery](https://cta.gallery) |
 | Landing pages complètes | [landdding.com](https://landdding.com) (non vérifié) |
 | Mobile | [loadmo.re](https://loadmo.re) |

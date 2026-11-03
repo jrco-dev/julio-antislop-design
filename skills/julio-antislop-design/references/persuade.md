@@ -38,8 +38,8 @@ Ces structures sont des points de départ ; l'argument décide. Ne jamais tordre
 ## 3. Composants
 
 - Boutons plats, une couleur, carrés ou en pastille, décidé une fois. Le rayon « doux » de 9 à 16 px partout est la marque mesurée des sites faibles. Beaucoup de heros forts n'ont qu'un bouton, voire aucun.
-- Navigation : le nom, 3 à 5 liens, une action ; « Connexion » en simple lien. Pas de pastille flottante floutée.
-- Le footer est une fin conçue, pas un plan du site : il referme l'idée de la page (la dernière information utile, l'action une dernière fois, les coordonnées réelles). Le nom de la marque géant en pleine largeur est devenu un réflexe de génération : ne l'utiliser que si l'idée l'appelle, et l'écrire comme défaut levé dans le rapport.
+- Navigation : par défaut le nom, 3 à 5 liens, une action ; « Connexion » en simple lien. Pas de pastille flottante floutée. Choisir le modèle d'après le nombre de destinations et la tâche : 18 modèles dans `nav-footer.md`.
+- Le footer est une fin conçue, pas un plan du site : il referme l'idée de la page (la dernière information utile, l'action une dernière fois, les coordonnées réelles). Le nom de la marque géant en pleine largeur est devenu un réflexe de génération : ne l'utiliser que si l'idée l'appelle, et l'écrire comme défaut levé dans le rapport. 15 modèles de pied de page dans `nav-footer.md`, deux combinables au plus.
 - Statement : une phrase d'intro mise en grand reste un paragraphe (36 px au plus sur desktop, 24 sur mobile, environ 25 mots).
 - Le contenu d'exemple (produit fictif, cotes, prix à valider) est listé dans le rapport et signalé par **une seule** mention discrète sur la page (pied de page) ; jamais d'étiquettes « à valider » ou « exemple » semées dans les sections, qui cassent la page.
 - Tout texte qui dépend de la date ou de l'heure (« aujourd'hui », « mois en cours », compte à rebours) est calculé en direct au chargement, jamais écrit en dur : sinon il devient faux le lendemain.
