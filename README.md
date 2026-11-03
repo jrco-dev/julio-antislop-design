@@ -7,13 +7,16 @@ Une page faite par un modèle ressemble à la moyenne de toutes les pages qu'il 
 
 `julio-antislop-design` remplace ces défauts par un **processus** : l'idée vient du sujet, la direction vient de références réelles, un plancher non négociable protège l'accessibilité, l'honnêteté et la performance, et l'agent regarde ce qu'il a fait avant de le livrer.
 
-Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible [Agent Skills](https://agentskills.io).
+Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible [Agent Skills](https://agentskills.io). Deux éditions : **française** (`julio-antislop-design`) et **anglaise** (`julio-antislop-design-en`), mêmes règles et mêmes scripts.
+
+**Score actuel : 6,8 sur 10** sur 5 briefs jugés à l'aveugle ([détail](evals/README.md)). Honnêteté 8,8 ; visuels sans photo 5,4, le prochain chantier.
 
 ---
 
 ## Sommaire
 
 - [Ce que fait le skill](#ce-que-fait-le-skill)
+- [Exemples](#exemples)
 - [Nouveautés](#nouveautés)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
@@ -50,10 +53,29 @@ Ce qui le distingue :
 | Typographie et espacement en système | Police trouvée dans le monde du sujet (jamais une police « réflexe » des modèles), échelle de tailles modulaire, échelle d'espacement à trois niveaux, aucune valeur au jugé |
 | Vérifier, pas promettre | Contrôle des tokens, détecteur automatique, captures à 4 largeurs, Core Web Vitals, critique par un regard neuf |
 
+## Exemples
+
+Tests faits par des agents qui suivaient le skill, sans personne pour répondre, jugés ensuite par un regard neuf. Ce sont des essais, avec leurs défauts : plusieurs règles viennent d'eux.
+
+| Avant les règles de typographie et d'espacement (0.16) | Après (0.17) |
+| --- | --- |
+| ![Landing Lavanila avant : police Archivo, tailles au jugé](docs/examples/lavanila-avant.jpg) | ![Landing Lavanila après : Big Shoulders Stencil et Chivo, échelles en tokens](docs/examples/lavanila-apres.jpg) |
+
+| Refonte de jrcopartners.com, v1 (0.22) | v2 avec le tirage (0.23) |
+| --- | --- |
+| ![Refonte JRCO v1 : fichier de tri qui devient une slide](docs/examples/jrco-v1.jpg) | ![Refonte JRCO v2 : le moteur comme ligne de transport](docs/examples/jrco-v2.jpg) |
+
+La v2 est plus originale mais a perdu la démonstration du produit (visuel produit 9 → 2) : d'où la règle « l'originalité ne remplace jamais la preuve » (0.24).
+
+![Test « style Apple » avec verre : Brume, enceinte fictive](docs/examples/brume.jpg)
+
+Le test « style Apple + verre » (0.19) : registre 7/10, mais un produit dessiné méconnaissable (4/10), d'où les règles sur le produit physique sans photo et sur le verre (0.20).
+
 ## Nouveautés
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.24 | 3 nov. 2026 | Plus léger : `SKILL.md` de 9 Ko avec un **chemin rapide** pour les petites demandes, le détail dans `process.md` ; **édition anglaise** complète ; **évaluation** sur 5 briefs (6,8/10) publiée dans `evals/` ; « l'originalité ne remplace jamais la preuve » ; `check-tokens` détecte les eyebrows ; modèles de tickets, guide de contribution, revue trimestrielle automatique ; page d'accueil du projet dans `docs/`, faite avec le skill |
 | 0.23 | 3 nov. 2026 | Originalité : `originality.md` (24 archétypes de composition, 16 cartes de contrainte, 8 leviers de risque, test du déjà-vu, vague 5 « clean anti-slop ») ; `roll.mjs` tire la direction au lieu de laisser l'agent prendre son premier choix ; `board.mjs` capture les sites de référence pour les voir ; `explore.mjs` compare trois premiers écrans avant de construire la page ; axe Originalité éliminatoire dans la critique ; audit du contenu creux en refonte |
 | 0.22 | 3 nov. 2026 | Cadrage en une fois : un tour Goût ajouté (caractère, lumière et couleur, polices, densité, formes, images, mouvement, références aimées et rejets) qui remplit `DESIGN.md` avant le code ; 12 questions au plus, puis plus d'aller-retour ; seule une délégation explicite (« carte blanche ») dispense de ce tour |
 | 0.21 | 3 nov. 2026 | `nav-footer.md` : 18 modèles de navigation et 15 modèles de pied de page relevés sur navbar.gallery, footer.design et unsection.com, avec le cas d'usage, les règles et un exemple réel ; choix noté dans le rapport |
@@ -82,7 +104,15 @@ cp -r julio-antislop-design/skills/julio-antislop-design ~/.claude/skills/      
 # ou : cp -r … .claude/skills/   dans un seul projet
 ```
 
-**Sur Claude.ai :** téléchargez [`dist/julio-antislop-design.skill`](dist/julio-antislop-design.skill) et ajoutez-le dans vos paramètres de skills.
+**Édition anglaise :**
+
+```bash
+npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
+```
+
+N'installez qu'une des deux éditions dans un même projet.
+
+**Sur Claude.ai :** téléchargez [`dist/julio-antislop-design.skill`](dist/julio-antislop-design.skill) (ou [`dist/julio-antislop-design-en.skill`](dist/julio-antislop-design-en.skill)) et ajoutez-le dans vos paramètres de skills.
 
 Redémarrez votre agent après l'installation.
 
@@ -108,6 +138,8 @@ Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
 ```
 
 Avant de créer, l'agent cadre le projet avec vous **en une fois**, pour connaître votre goût avant la première ligne de code et éviter les allers-retours : un tour sur le projet (surface, audience, action visée, ce qui doit exister), un tour sur le goût (caractère, clair ou sombre, couleur, polices, densité, formes, images, mouvement, sites que vous aimez parmi ses modèles, ce que vous ne voulez surtout pas), un tour sur la matière (marque, images, preuves avec leur source, textes, contraintes). 12 questions au plus, à choix, avec aperçus quand c'est possible. Sans police de marque, il vous propose 3 paires. Il vous montre ensuite une fiche brief qui commence par « Je lis ce projet comme : … », la fait valider une fois, remplit `DESIGN.md` avec vos réponses, puis construit sans revenir vers vous. Dites « carte blanche » pour qu'il décide tout lui-même en annonçant ses hypothèses.
+
+Pour une **petite demande** (un composant, une section, une correction, « fais vite »), il prend le **chemin rapide** : pas de questions sauf blocage, il respecte votre `DESIGN.md`, le plancher et les tokens, vérifie, et rend un rapport en trois lignes.
 
 ## Comment il travaille
 
@@ -204,11 +236,15 @@ skills/julio-antislop-design/
 ├── templates/                   DESIGN.md, PRODUCT.md, journal des directions
 ├── CREDITS.md
 └── LICENSE
+skills/julio-antislop-design-en/  édition anglaise, même structure
+evals/                            5 briefs, consigne du juge, scores par version
+docs/                             page d'accueil du projet, exemples, revue trimestrielle
+.github/                          formulaires d'issue, revue trimestrielle automatique
 ```
 
 ## Limites connues
 
-- **Peu mesuré.** Un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis (versions 0.17 et 0.18). Ce test a tourné dans un bac à sable sans réseau : la recherche de concept d'Impeccable et les relecteurs en contexte neuf des trois skills n'ont pas pu tourner. Un second test, avec tout le réseau et un brief neuf, est en préparation.
+- **Mesuré sur peu de briefs.** 5 briefs jugés (6,8/10, `evals/`), en bac à sable sans réseau et sans sous-agent de critique ; la comparaison avec d'autres skills attend le kit de test lancé avec tout le réseau. Avant cela, un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis (versions 0.17 et 0.18). Ce test a tourné dans un bac à sable sans réseau : la recherche de concept d'Impeccable et les relecteurs en contexte neuf des trois skills n'ont pas pu tourner. Un second test, avec tout le réseau et un brief neuf, est en préparation.
 - **Les sites modèles se décrivent en texte.** Chaque site de `site-models.md` a été confirmé en ligne, mais plusieurs galeries (Awwwards, Godly, SiteInspire, Commerce Cream) bloquent la lecture automatique, et certaines descriptions visuelles sont à confirmer en ouvrant le site, ce que le skill demande à l'agent de faire.
 - **Rédigé en français.** Les agents le suivent très bien quelle que soit la langue de la demande, et la description déclenche aussi sur des demandes en anglais.
 - **Les ressources externes vieillissent.** Sites, bibliothèques et licences cités ont été vérifiés le 3 novembre 2026 ; revérifiez une licence avant un usage commercial.
@@ -239,13 +275,9 @@ Oui. Le skill dit quoi décider ; le code suit votre stack.
 
 ## Contribuer
 
-Les suggestions sont bienvenues, en particulier :
+Le slop change vite : une communauté le suit mieux qu'une seule personne. Trois formulaires d'issue sont prêts : **page qui fait IA** (le plus utile : le brief exact, l'agent, des captures), **nouveau tic repéré** (deux exemples sans lien), **site modèle à ajouter** (la qualité précise à emprunter). Règles et hiérarchie des sources : [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-- un nouveau tic de page générée, avec des exemples ;
-- une ressource (site de référence, bibliothèque, outil) avec sa licence vérifiée ;
-- un cas où le skill a produit un mauvais résultat, avec le brief.
-
-Toute règle ajoutée suit une hiérarchie : normes et accessibilité, puis honnêteté, puis contexte du mode, puis données mesurées, puis consensus entre sources, puis récence, puis goût. Ouvrez une issue avant une grosse modification.
+Chaque trimestre, une issue « Revue trimestrielle » s'ouvre automatiquement pour mettre à jour les tics, les polices réflexes, les sites modèles et les scores ([procédure](docs/quarterly-review.md)).
 
 ## Crédits
 
@@ -272,10 +304,10 @@ Exception : `references/redesign.md` est adapté d'unslop et reste sous licence 
 - **Type and spacing as a system**: a typeface found in the subject's world (never a model's reflex font; with no brand font, the agent offers 3 pairings), a modular type scale and a three-level spacing scale, no eyeballed values.
 - **Checked, not promised**: token checker (no raw sizes, spacing or fonts; reflex fonts flagged), automatic detector, screenshots at 4 widths, fresh-eyes critique, and a report that names any check that did not run.
 
-Install:
+Install the English edition:
 
 ```bash
-npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design
+npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
 ```
 
-The skill content is written in French; agents follow it regardless of the language of your request, and it triggers on English requests too. Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
+Current score: 6.8/10 on 5 blind-judged briefs (`evals/`); strongest on honesty (8.8), weakest on visuals without photos (5.4). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
