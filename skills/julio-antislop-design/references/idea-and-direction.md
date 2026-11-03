@@ -62,6 +62,8 @@ Test du concurrent : mettre le concurrent le plus proche dans la phrase. Si elle
 
 ## 6. Chose vivante
 
+Elle change visiblement l'objet principal de la page (le produit se teinte, la carte se redessine), pas seulement un panneau à côté ; capturer chacun de ses états pendant le contrôle.
+
 Une seule chose que le visiteur peut faire, ou qui change à chaque visite, tirée de l'idée : choisir un bois et voir la chaise ; taper son nom dans les lettres de la fonderie ; régler le prêt et lire la vraie mensualité ; voir si le poêle du refuge est allumé et combien de temps avant le dernier bateau. Règles : elle utilise le vrai contenu, marche au pouce sur mobile, a un repli sans script, ne bloque jamais la lecture, et c'est une seule chose, pas un terrain de jeu. Elle se construit avec la page, pas comme un ajout de mouvement à la fin.
 
 ## 7. Images : ordre de préférence
@@ -70,6 +72,14 @@ Une seule chose que le visiteur peut faire, ou qui change à chaque visite, tir�
 2. Des images générées, si un outil est disponible, signalées comme telles.
 3. De vraies images du monde du sujet dans des collections ouvertes (Openverse, Wikimedia Commons, musées), sous licence permettant l'usage commercial, téléchargées dans le projet et créditées. Chercher l'inventaire, pas la catégorie : la rue en cartes postales anciennes, une carte ancienne du quartier, la matière en gros plan, un objet de musée de son genre. Une image trouvée montre le monde autour du client, jamais son produit, sa salle ou son équipe.
 4. Des dessins en code d'objets du sujet, dans un langage graphique plat unique et les vraies couleurs de la palette, pour ce dont aucune image honnête n'existe. Jamais de « photo » imitée en SVG ou CSS, jamais d'illustration décorative.
+
+**Produit physique sans photo ni rendu.** C'est le cas le plus risqué : un objet dessiné en quelques formes plates ressemble à un pictogramme ou à autre chose (test du 3 novembre 2026 : une enceinte en verre lue comme un thermomètre par le juge). Dans l'ordre :
+
+- Demander au cadrage des photos ou des rendus 3D du produit ; c'est la matière qui décide le plus de la page.
+- Sinon, si un outil de rendu existe (Blender, génération d'image), produire un rendu signalé comme tel.
+- Sinon, choisir un registre que le code fait bien : une coupe technique ou une vue cotée (traits, légendes, mesures), une silhouette pleine à grande échelle, ou un hero typographique où le produit arrive plus bas. Pas de matière simulée à moitié (reflets, flou, transparence approximatifs).
+- Vérifier sur la capture : un inconnu doit nommer l'objet en 2 secondes. Sinon, changer de registre.
+- Un objet physique se montre **entier**, posé sur sa base, avec de l'air autour : jamais coupé par le bas d'une section. (La règle « sort par un bord » de `persuade.md` vaut pour une fenêtre d'interface, pas pour un objet.)
 5. La typographie et la couleur seules.
 
 Une image dominante vaut mieux que six petites. Mêmes proportions, même traitement, angles droits par défaut. Rien ne se pose sur un titre. Quand le projet a une vraie vidéo ou image de son produit, le premier écran la montre en grand.

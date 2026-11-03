@@ -41,6 +41,7 @@ Ces structures sont des points de départ ; l'argument décide. Ne jamais tordre
 - Navigation : le nom, 3 à 5 liens, une action ; « Connexion » en simple lien. Pas de pastille flottante floutée.
 - Le footer est une fin conçue, pas un plan du site : il referme l'idée de la page (la dernière information utile, l'action une dernière fois, les coordonnées réelles). Le nom de la marque géant en pleine largeur est devenu un réflexe de génération : ne l'utiliser que si l'idée l'appelle, et l'écrire comme défaut levé dans le rapport.
 - Statement : une phrase d'intro mise en grand reste un paragraphe (36 px au plus sur desktop, 24 sur mobile, environ 25 mots).
+- Le contenu d'exemple (produit fictif, cotes, prix à valider) est listé dans le rapport et signalé par **une seule** mention discrète sur la page (pied de page) ; jamais d'étiquettes « à valider » ou « exemple » semées dans les sections, qui cassent la page.
 - Tout texte qui dépend de la date ou de l'heure (« aujourd'hui », « mois en cours », compte à rebours) est calculé en direct au chargement, jamais écrit en dur : sinon il devient faux le lendemain.
 
 ## 3 bis. Formulaires de commande et de contact
@@ -56,13 +57,23 @@ Un formulaire long sans rythme fait chuter la conversion et casse la fin d'une p
 - **Ne jamais redemander** une information déjà saisie ailleurs sur la page.
 - Règles de saisie, d'erreur et d'accessibilité : `operate.md`, section Formulaires et feedback.
 
+## 3 ter. Verre (glassmorphism) demandé par le brief
+
+Le verre est un défaut levé (A7) ; il a des règles propres, issues du test du 3 novembre 2026 :
+
+- **Le verre floute quelque chose de réel** : le produit, une photo, le contenu qui défile dessous. Jamais des taches de couleur (« blobs ») posées exprès derrière pour que le flou se voie : c'est le tic, pas le style.
+- **Trois surfaces de verre au plus** par écran, chacune avec une fonction (navigation, légende du produit, sélecteur), aucune en décor.
+- **Lisibilité** : teinte de fond assez opaque pour tenir 4,5:1 sur le pire endroit du fond ; repli opaque avec `@supports not (backdrop-filter: blur(1px))` et `prefers-reduced-transparency`.
+- **Performance** : flou limité aux petites surfaces fixes ; jamais de flou animé sur une grande surface.
+- Un panneau de verre ne masque jamais la partie du produit qu'il décrit.
+
 ## 4. Illustration produit (faux UI)
 
 Un faux UI est permis quand il simplifie un vrai produit ; il est interdit quand il fabrique un produit. Méthode issue de Stageshow :
 
 - 3 à 7 vrais textes seulement (le titre, l'objet de l'action, ce qui est tapé, le résultat) ; le reste en barres de remplissage, placées sur les bords, jamais là où l'œil se pose. Largeurs de barres variées.
 - Concevoir à la taille d'affichage, à l'échelle 1:1 : environ 720 × 340 px pour un hero à côté du texte, 900 à 1100 px de large en pleine largeur, 400 × 300 px pour une carte. Texte d'interface de 11 à 15 px.
-- La fenêtre ou le téléphone occupe au moins les deux tiers de la scène et sort par un bord ; jamais une fenêtre entière réduite dans une carte, jamais une fenêtre qui flotte avec de l'air sur quatre côtés.
+- La fenêtre ou le téléphone occupe au moins les deux tiers de la scène et sort par un bord (fenêtres et écrans seulement : un objet physique se montre entier, voir `idea-and-direction.md` §7) ; jamais une fenêtre entière réduite dans une carte, jamais une fenêtre qui flotte avec de l'air sur quatre côtés.
 - Fenêtres et appareils jamais dessinés à la main : un kit à géométrie réelle.
 - Mots à 12 px des bords ; bouton à 8 px du champ au-dessus ; aucune quasi-tangente (deux bords à 1-3 px se lisent comme un accident).
 - Icônes d'un jeu, jamais dessinées ; aucun logo inventé (étincelle, violet, lettre dans un carré coloré).

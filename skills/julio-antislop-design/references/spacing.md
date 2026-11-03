@@ -40,6 +40,7 @@ Les traduire en tokens de rôle, que les composants utilisent à la place des cr
 
 - **Un titre appartient à ce qui le suit** : l'espace au-dessus d'un titre est au moins le double de l'espace en dessous.
 - **La phrase d'appui colle au titre** (un cran `m` à `l`), l'action vient un cran plus loin.
+- **Un seul écart entre sections**, le même partout (`--space-section`) : vérifier sur la capture pleine page qu'aucun vide entre deux sections n'est nettement plus grand que les autres (un bloc trop haut ou un `min-height` oublié en est souvent la cause).
 - **L'écart entre sections est nettement plus grand que tout écart interne** : 120 à 240 px sur desktop en Persuader (voir `persuade.md`), 64 à 96 px sur mobile.
 - **Varier par niveau, pas par bloc** : la variété vient du passage d'un niveau à l'autre et du changement de composition entre sections, jamais d'une valeur inventée pour un bloc.
 - **Boutons et champs** : hauteur 44 px visée sur mobile ; padding vertical et horizontal tirés de l'échelle, l'horizontal environ 1,5 à 2 fois le vertical ; le même padding sur tous les boutons d'un même rang.
