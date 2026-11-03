@@ -45,7 +45,7 @@ Fréquents sur des sites primés, mais ce sont les premières choses qu'un gén�
 
 ## Vague 4 — 2026 : défauts de framework
 
-Space Grotesk comme repli « original » ; shadcn `zinc` ou `slate` non retouché ; bouton `blue-600` de Tailwind ; `rounded-2xl shadow-lg` partout ; icônes Lucide réflexes (Sparkles, ArrowRight, Zap) ; avatars DiceBear ; placeholders en dégradé ; `gap-4` et `p-6` uniformes ; footer à 4 colonnes ; trois offres tarifaires avec un anneau sur celle du milieu.
+Space Grotesk comme repli « original » ; shadcn `zinc` ou `slate` non retouché ; bouton `blue-600` de Tailwind ; `rounded-2xl shadow-lg` partout ; icônes Lucide réflexes (Sparkles, ArrowRight, Zap) ; avatars DiceBear ; placeholders en dégradé ; `gap-4` et `p-6` uniformes ; footer à 4 colonnes ; trois offres tarifaires avec un anneau sur celle du milieu ; nom de la marque géant en pleine largeur dans le footer, par réflexe (relevé par un juge à l'aveugle lors du test du 3 novembre 2026) ; papier écru, serif d'affichage classique et une seule couleur sombre, variante « atelier » de la vague 3.
 
 À la place : tokens composés pour le projet, échelle d'espacement hiérarchisée, icônes du produit ou d'un jeu choisi, vrais avatars ou initiales, footer et tarifs construits d'après le contenu réel.
 

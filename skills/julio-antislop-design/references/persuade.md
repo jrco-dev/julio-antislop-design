@@ -5,6 +5,7 @@
 1. Le premier écran
 2. Sections et structures par objectif
 3. Composants
+3 bis. Formulaires de commande et de contact
 4. Illustration produit (faux UI)
 5. Grilles bento
 
@@ -38,8 +39,22 @@ Ces structures sont des points de départ ; l'argument décide. Ne jamais tordre
 
 - Boutons plats, une couleur, carrés ou en pastille, décidé une fois. Le rayon « doux » de 9 à 16 px partout est la marque mesurée des sites faibles. Beaucoup de heros forts n'ont qu'un bouton, voire aucun.
 - Navigation : le nom, 3 à 5 liens, une action ; « Connexion » en simple lien. Pas de pastille flottante floutée.
-- Le footer est une fin conçue, pas un plan du site : sur beaucoup de sites forts, le nom revient en pleine largeur.
+- Le footer est une fin conçue, pas un plan du site : il referme l'idée de la page (la dernière information utile, l'action une dernière fois, les coordonnées réelles). Le nom de la marque géant en pleine largeur est devenu un réflexe de génération : ne l'utiliser que si l'idée l'appelle, et l'écrire comme défaut levé dans le rapport.
 - Statement : une phrase d'intro mise en grand reste un paragraphe (36 px au plus sur desktop, 24 sur mobile, environ 25 mots).
+- Tout texte qui dépend de la date ou de l'heure (« aujourd'hui », « mois en cours », compte à rebours) est calculé en direct au chargement, jamais écrit en dur : sinon il devient faux le lendemain.
+
+## 3 bis. Formulaires de commande et de contact
+
+Un formulaire long sans rythme fait chuter la conversion et casse la fin d'une page réussie.
+
+- **Le minimum de champs** : seulement ce qu'il faut pour exécuter l'action ; tout le reste est optionnel ou demandé plus tard.
+- **Grouper par sens** : les champs en blocs nommés (« Vous », « Livraison », « Paiement »), espacés plus entre les blocs qu'à l'intérieur ; au-delà de 6 à 8 champs, des étapes avec indicateur de progression et retour possible.
+- **Le récapitulatif à côté** : ce qui est commandé, le prix total, le délai et le mode de livraison, visibles sans défiler pendant la saisie (à côté sur desktop, au-dessus du bouton sur mobile).
+- **Une colonne** pour la saisie ; deux champs côte à côte seulement s'ils vont ensemble (code postal et ville).
+- **Le bouton dit ce qui se passe et combien** : « Commander l'échantillon, 12 € », pas « Envoyer ».
+- **La réassurance réelle près du bouton** : délai, transporteur, conditions de retour, seulement si elles sont fournies.
+- **Ne jamais redemander** une information déjà saisie ailleurs sur la page.
+- Règles de saisie, d'erreur et d'accessibilité : `operate.md`, section Formulaires et feedback.
 
 ## 4. Illustration produit (faux UI)
 
