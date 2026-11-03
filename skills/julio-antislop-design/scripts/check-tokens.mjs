@@ -2,7 +2,7 @@
 // check-tokens.mjs — julio-antislop-design
 // Signale les tailles de texte, espacements et polices écrits hors tokens,
 // les polices réflexes, et une échelle typographique trop chargée ou trop serrée.
-// Usage : node scripts/check-tokens.mjs <fichier|dossier>... [--allow-font "Nom"]... [--json]
+// Usage : node scripts/check-tokens.mjs <fichier|dossier>... [--allow-font "Nom"]... [--mode persuade|operate|read|experience] [--json]
 // Code de sortie 1 s'il reste au moins une erreur.
 
 import { readFileSync, statSync, readdirSync } from "node:fs";
@@ -26,8 +26,10 @@ const args = process.argv.slice(2);
 const allow = new Set();
 const targets = [];
 let json = false;
+let mode = "persuade";
 for (let i = 0; i < args.length; i++) {
   if (args[i] === "--allow-font") allow.add(args[++i].toLowerCase());
+  else if (args[i] === "--mode") mode = args[++i];
   else if (args[i] === "--json") json = true;
   else targets.push(args[i]);
 }
@@ -108,7 +110,7 @@ for (const [name, value] of tokenDefs) {
 for (const [fam, file] of fontsLoaded) {
   const hit = REFLEX_FONTS.find((r) => r.toLowerCase() === fam.toLowerCase());
   if (hit && !allow.has(fam.toLowerCase()))
-    add("error", file, 0, "police-reflexe", `« ${fam} » est une police réflexe (typography.md §1). La remplacer par une police tirée du sujet, ou la garder pour raison de marque avec --allow-font "${fam}" et la noter comme défaut levé`);
+    add(["operate", "read"].includes(mode) ? "warning" : "error", file, 0, "police-reflexe", `« ${fam} » est une police réflexe (typography.md §1). La remplacer par une police tirée du sujet, ou la garder pour raison de marque avec --allow-font "${fam}" et la noter comme défaut levé`);
 }
 
 // Échelle : nombre de crans et écarts

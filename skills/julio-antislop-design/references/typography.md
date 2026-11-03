@@ -8,7 +8,7 @@ Une police réflexe est une police qu'un modèle choisit sans regarder le sujet.
 
 | Famille de réflexe | Polices |
 | --- | --- |
-| Défauts historiques | Inter, Roboto, Open Sans, Lato, Poppins, Montserrat, police système |
+| Défauts historiques | Inter, Roboto, Open Sans, Lato, Poppins, Montserrat, police système (en mode Opérer, une police de travail ou la pile système reste permise pour le texte d'interface : la liste vise la voix d'affichage et la marque) |
 | Replis « originaux » quand Inter est interdit | Space Grotesk, DM Sans, Manrope, Plus Jakarta Sans, Outfit, Sora, Geist, Hanken Grotesk |
 | Grotesques variables « expressives » | **Archivo** et son axe de largeur (relevée sur 3 de nos propres pages et sur celle d'Impeccable lors du test à l'aveugle du 3 novembre 2026) ; tout titre étiré ou compressé par l'axe `wdth` sans raison du sujet |
 | Réflexes Fontshare | Satoshi, General Sans, Clash Display, Cabinet Grotesk |
@@ -25,6 +25,17 @@ On ne choisit pas une police dans sa mémoire : on la trouve dans le monde du cl
 3. **Cinq candidates, deux écartées.** Écrire 5 polices qui correspondent aux trois traits, chacune avec la probabilité qu'un modèle la choisisse par défaut. Écarter les 2 plus probables, toute police du tableau 1, et toute police d'affichage utilisée dans les 3 dernières directions du journal (`direction-log.md`).
 4. **Spécimen réel.** Composer le vrai titre, un vrai paragraphe, des chiffres et un bouton aux vraies tailles avec les candidates restantes. Garder celle qui tient le titre en 2 lignes, se lit à 16 px et ressemble au sujet.
 5. **Écrire la raison.** Dans `DESIGN.md` : « Affichage : [police] ([source], [licence]), parce que [trait précis du sujet] ». **Test du concurrent appliqué à la police** : si la même phrase justifie la police du concurrent le plus proche, la raison appartient à la catégorie, pas au sujet ; on recommence.
+
+### 2 bis. Quand l'utilisateur ne fournit pas de police
+
+Ne pas décider en silence. Au cadrage (`intake.md`, tour 2), demander la police de la marque ; s'il n'y en a pas, **proposer** :
+
+1. Lire le trait dominant du sujet et le mode, puis ouvrir `font-catalog.md` à la ligne correspondante (au besoin deux lignes voisines).
+2. Passer les candidates au crible de la méthode ci-dessus (réflexes, journal, test du concurrent).
+3. Présenter **3 paires** affichage + texte, chacune d'une ligne ou d'un esprit différent, avec une phrase qui dit quel trait du sujet elle porte et un risque honnête. La paire recommandée en premier, jamais la plus attendue. Si l'outil de questions à choix existe, les poser comme options ; sinon dans la fiche brief, ligne « Polices proposées ».
+4. L'utilisateur choisit ou corrige. Sans réponse (exécution sans personne, « vas-y »), prendre la paire recommandée et l'écrire comme hypothèse dans la fiche brief et le rapport.
+
+L'échelle s'adapte de la même façon au besoin : le mode fixe le ratio et la taille du texte (§3), le contenu les ajuste (un titre long baisse d'un cran, une page de lecture monte la taille du texte), toujours en changeant de cran ou de ratio, jamais par une valeur locale.
 
 Règles de choix :
 
@@ -84,4 +95,4 @@ Les tailles posées au jugé (38 px ici, 1,25 rem là, cinq `clamp()` différent
 
 ## 6. Vérifier
 
-`node scripts/check-tokens.mjs <fichier ou dossier>` signale chaque `font-size` hors tokens, chaque `font-family` en dur, les polices réflexes du tableau 1, plus de 5 crans utilisés et les tailles trop proches. Une police réflexe gardée pour raison de marque se déclare avec `--allow-font "Nom"` et se note comme défaut levé.
+`node scripts/check-tokens.mjs <fichier ou dossier>` signale chaque `font-size` hors tokens, chaque `font-family` en dur, les polices réflexes du tableau 1, plus de 5 crans utilisés et les tailles trop proches. Une police réflexe gardée pour raison de marque se déclare avec `--allow-font "Nom"` et se note comme défaut levé. En mode Opérer ou Lire, `--mode operate` ou `--mode read` ramène les polices réflexes à un avertissement.

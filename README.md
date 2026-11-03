@@ -162,7 +162,8 @@ skills/julio-antislop-design/
 │   ├── redesign.md              refonte en 9 passes
 │   ├── color.md                 construire une palette en OKLCH
 │   ├── typography.md            polices réflexes, choisir depuis le sujet, échelle modulaire
-│   ├── spacing.md               échelle d'espacement à trois niveaux
+│   ├── font-catalog.md          polices vérifiées par trait du sujet, à proposer
+│   ├── spacing.md               échelle d’espacement à trois niveaux
 │   ├── motion-and-video.md      mouvement, effets GPU, vidéo en code
 │   ├── performance.md           budget par mode
 │   ├── tells.md                 tics de pages générées, datés par vague
