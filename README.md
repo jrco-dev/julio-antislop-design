@@ -55,28 +55,37 @@ Ce qui le distingue :
 
 ## Exemples
 
-Pages faites par des agents neufs qui suivaient le skill, sans personne pour répondre ni photo fournie, puis notées sur 10 par un juge indépendant qui ne voyait que les captures ([briefs et notes détaillées](evals/README.md)). Tout le contenu vient des briefs de test ; rien n'est inventé.
+Toutes les pages ci-dessous ont été faites par des agents neufs qui suivaient le skill, sans photo fournie, puis notées sur 10 par un juge indépendant qui ne voyait que les captures. Le contenu vient de briefs de test ; rien n'est inventé.
 
-**Même brief, version 0.24 puis 0.25** : la 0.25 ajoute la règle « une ancre visuelle du sujet dans les deux premiers écrans », les visuels sans photo classés par note et le contrôle de la page rendue.
+### Galerie des styles
+
+Le skill ne produit pas un style maison : le style vient de vos réponses au cadrage (tour Goût). Six briefs, six styles demandés, classés par note.
+
+| Pointé · **SaaS clair** · 8,3 | Atelier Lua · **Minimaliste** · 8,3 |
+| --- | --- |
+| ![Pointé : « Le relevé, pointé. », vraie table de rapprochement bancaire en vedette, montants en monospace](docs/examples/style-saas.jpg) | ![Atelier Lua : « Grès tourné à la main, à Graça », tasse, bol et assiette dessinés en coupe sur une étagère](docs/examples/style-minimal.jpg) |
+| Outil de rapprochement bancaire. L'interface réelle prouve la fiabilité au lieu de l'affirmer. | Céramiste à Lisbonne. Les pièces dessinées en coupe disent « tourné à la main » sans aucune photo. |
+
+| Teny · **Ludique** · 7,8 | Nuit Basse · **Sombre et immersif** · 7,3 |
+| --- | --- |
+| ![Teny : cartes-mots illustrées trano, akoho, voankazo, reny sur fond jaune](docs/examples/style-ludique.jpg) | ![Nuit Basse : titre pochoir orange sur noir, reflets des lumières du port en barres sonores](docs/examples/style-immersif.jpg) |
+| App pour apprendre le malgache aux enfants. Illustrations cohérentes et vrai jeu de mémoire jouable. | Festival électronique sur le port de Marseille. Les reflets du quai tremblent au rythme d'une basse. |
+
+| Terres · **Éditorial** · 6,8 | Villa Ambanja · **Luxe discret** · 6,1 |
+| --- | --- |
+| ![Terres : couverture bleu d'eau de la revue, parcelles hachurées traversées par une rivière](docs/examples/style-editorial.jpg) | ![Villa Ambanja : « Face à la baie d'Ambanja », bleu nuit et brun chaud, ligne d'horizon dessinée](docs/examples/style-luxe.jpg) |
+| Revue papier sur l'agriculture paysanne. Le cliché crème + serif + terracotta est évité ; il manque les photos des reportages. | Maison d'hôtes à Nosy Be. Typographie lente et sobre, pas de noir et or ; sans photo, un luxe intime reste trop vide. |
+
+Leçon : le skill est à son meilleur quand le sujet se montre en code (une interface, des objets dessinés, un jeu) ; les styles qui vivent de la photographie (luxe, éditorial) ont besoin de vraies images, que le cadrage demande.
+
+### Même brief, version 0.24 puis 0.25
 
 | Atelier vélo, 0.24 : 6,7 | Atelier vélo, 0.25 : **7,6** |
 | --- | --- |
 | ![Les Rayons en 0.24 : « 65 € » géant sur aplat rouge, aucun vélo à l'écran](docs/examples/velo-024.jpg) | ![Les Rayons en 0.25 : « On répare. Ou vous réparez. », vélo au trait et étiquette de prix en kraft](docs/examples/velo-025.jpg) |
-| Le prix en grand, mais aucun vélo : le juge y voyait un garage auto. | Le vélo et les étiquettes de prix en kraft portent toute la page ; premier écran 9/10. |
+| Le prix en grand, mais aucun vélo : le juge y voyait un garage auto. | La règle « une ancre visuelle du sujet dans les deux premiers écrans » : le vélo et les étiquettes en kraft portent la page. |
 
-| Guide compostage, 0.24 : 6,5 | Guide compostage, 0.25 : **7,3** |
-| --- | --- |
-| ![Guide compostage en 0.24 : « 3 à 4 mois » en très grand, aucun visuel du bac](docs/examples/compost-024.jpg) | ![Guide compostage en 0.25 : liste oui/non et schéma coté du bac sous l'évier](docs/examples/compost-025.jpg) |
-| Un chiffre géant avant le sujet, aucun visuel du lombricomposteur (visuels 4/10). | Un schéma coté du bac sous l'évier, 40 × 30 × 50 cm (visuels 8/10). |
-
-**Autres pages de la 0.25**
-
-| Vanille Lavanila : 7,0 | App de trésorerie Fanilo : 7,1 |
-| --- | --- |
-| ![Lavanila : la page est l'étiquette numérotée du lot, gousse posée sur une règle](docs/examples/lavanila-025.jpg) | ![Fanilo : solde de 2 418,60 € en grand, grille des cotisations, ajout de dépense en 3 champs](docs/examples/tresorerie-025.jpg) |
-| La page est l'étiquette du lot ; la gousse sur sa règle de 0 à 18 cm. | Mode Opérer : le solde, les 34 cotisations sur 52, les justificatifs manquants, tout juste à l'euro près. |
-
-Ce ne sont pas des pages finies : les juges y relèvent encore des vides sur desktop, des listes trop grandes et une originalité moyenne (6,0). Les défauts mesurés sont la liste de travail des prochaines versions.
+Notes détaillées et briefs : [`evals/README.md`](evals/README.md).
 
 ## Nouveautés
 
@@ -325,4 +334,4 @@ Install the English edition:
 npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
 ```
 
-Current score: 7.0/10 in 0.25 (6.8 in 0.24) on 5 blind-judged briefs (`evals/`); strongest on honesty (9.0), weakest on spacing (6.2) and originality (6.0). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
+Style gallery in the README: clean SaaS and minimalist (8.3), playful (7.8), dark immersive (7.3), editorial (6.8), quiet luxury (6.1); the style comes from your intake answers, not a house style. Current score: 7.0/10 in 0.25 (6.8 in 0.24) on 5 blind-judged briefs (`evals/`); strongest on honesty (9.0), weakest on spacing (6.2) and originality (6.0). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
