@@ -27,7 +27,8 @@ Liste établie le 3 novembre 2026 ; les entrées non vérifiées sont signalées
 
 | Besoin | Outil | Licence | En mission |
 | --- | --- | --- | --- |
-| Polices | [Google Fonts](https://fonts.google.com), [Fontshare](https://www.fontshare.com) | Libres ; Fontshare sous EULA ITF | Oui |
+| Polices | [Google Fonts](https://fonts.google.com) (filtré par catégorie, jamais trié par popularité), [Fontshare](https://www.fontshare.com), [Velvetyne](https://velvetyne.fr), [Collletttivo](https://www.collletttivo.it), [Use & Modify](https://usemodify.com) | Libres ; Fontshare sous EULA ITF ; pour les fonderies libres, vérifier la licence de chaque police | Oui |
+| Échelles fluides | [Utopia](https://utopia.fyi) : calculateurs d'échelle typographique et d'espacement en `clamp()` | Outil en ligne gratuit | Oui |
 | Images libres de droits | Openverse, Wikimedia Commons, collections ouvertes de musées | Licence par image | Oui, avec licence commerciale et crédit |
 | Composants animés | [Kokonut UI](https://kokonutui.com), [Cult UI](https://cult-ui.com), [Animata](https://animata.design), [Motion Primitives](https://github.com/ibelick/motion-primitives) | MIT | Oui, crédités et restylés |
 | Illustration produit, bento | [Stageshow](https://github.com/benjitaylor/skills/tree/main/stageshow) | MIT (icônes d'apps exclues) | Oui |

@@ -140,6 +140,7 @@ Le skill fonctionne seul, mais ses contrôles sont meilleurs avec :
 
 | Outil | Rôle | Installation |
 | --- | --- | --- |
+| `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Détecteur de tics et de défauts, sans LLM | `npx impeccable detect <fichier ou URL>` |
 | Chrome ou Chromium + Node.js | Captures à 390, 768, 1440 et 1920 px | Déjà présents sur la plupart des postes |
 | Lighthouse | Performance en laboratoire | Intégré à Chrome DevTools |
@@ -160,13 +161,15 @@ skills/julio-antislop-design/
 │   ├── read-and-experience.md   docs, articles, portfolios
 │   ├── redesign.md              refonte en 9 passes
 │   ├── color.md                 construire une palette en OKLCH
-│   ├── typography.md            choisir et échelonner les polices
+│   ├── typography.md            polices réflexes, choisir depuis le sujet, échelle modulaire
+│   ├── spacing.md               échelle d'espacement à trois niveaux
 │   ├── motion-and-video.md      mouvement, effets GPU, vidéo en code
 │   ├── performance.md           budget par mode
 │   ├── tells.md                 tics de pages générées, datés par vague
 │   ├── ux-principles.md         principes de l'UX et leurs sources d'origine
 │   ├── resources.md             références, bibliothèques, outils, licences
 │   └── critique.md              grille de critique sur 6 axes
+├── scripts/check-tokens.mjs     contrôle : tailles, espacements, polices hors tokens, polices réflexes
 ├── templates/                   DESIGN.md, PRODUCT.md, journal des directions
 ├── CREDITS.md
 └── LICENSE
@@ -174,7 +177,7 @@ skills/julio-antislop-design/
 
 ## Limites connues
 
-- **Pas encore mesuré.** Le skill n'a pas encore été comparé à un agent sans skill sur un jeu de briefs. C'est la prochaine étape ; les résultats seront publiés ici.
+- **Peu mesuré.** Un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis par `typography.md`, `spacing.md` et `check-tokens.mjs`. Un jeu de 5 briefs reste à faire.
 - **Rédigé en français.** Les agents le suivent très bien quelle que soit la langue de la demande, et la description déclenche aussi sur des demandes en anglais.
 - **Les ressources externes vieillissent.** Sites, bibliothèques et licences cités ont été vérifiés le 3 novembre 2026 ; revérifiez une licence avant un usage commercial.
 - **Il ne remplace pas un designer.** Il évite les défauts et force les décisions ; la qualité finale dépend toujours de la matière réelle que vous fournissez (photos, textes, données).
@@ -227,7 +230,7 @@ Exception : `references/redesign.md` est adapté d'unslop et reste sous licence 
 - **Out of the average**: the agent writes 5 directions with their default probability, drops the 2 most likely, and keeps a log so projects don't repeat each other.
 - **Rules depend on the mode**: Persuade, Operate, Read, Experience, plus a redesign variant in 9 ordered passes.
 - **An absolute floor**: WCAG 2.2 AA accessibility, honesty, traceability, client confidentiality, Core Web Vitals, technical hygiene.
-- **Checked, not promised**: automatic detector, screenshots at 4 widths, fresh-eyes critique, and a report that names any check that did not run.
+- **Checked, not promised**: token checker (no raw sizes, spacing or fonts; reflex fonts flagged), automatic detector, screenshots at 4 widths, fresh-eyes critique, and a report that names any check that did not run.
 
 Install:
 

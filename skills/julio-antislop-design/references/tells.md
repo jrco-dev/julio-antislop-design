@@ -45,9 +45,9 @@ Fréquents sur des sites primés, mais ce sont les premières choses qu'un gén�
 
 ## Vague 4 — 2026 : défauts de framework
 
-Space Grotesk comme repli « original » ; shadcn `zinc` ou `slate` non retouché ; bouton `blue-600` de Tailwind ; `rounded-2xl shadow-lg` partout ; icônes Lucide réflexes (Sparkles, ArrowRight, Zap) ; avatars DiceBear ; placeholders en dégradé ; `gap-4` et `p-6` uniformes ; footer à 4 colonnes ; trois offres tarifaires avec un anneau sur celle du milieu ; nom de la marque géant en pleine largeur dans le footer, par réflexe (relevé par un juge à l'aveugle lors du test du 3 novembre 2026) ; papier écru, serif d'affichage classique et une seule couleur sombre, variante « atelier » de la vague 3.
+Space Grotesk comme repli « original », puis ses remplaçants (DM Sans, Manrope, Plus Jakarta Sans, Satoshi, Geist) ; **Archivo et son axe de largeur**, nouvelle convergence relevée sur trois de nos pages et sur celle d'Impeccable lors du test à l'aveugle du 3 novembre 2026 ; tailles posées au jugé hors de toute échelle (38 px, 1,25 rem, plusieurs `clamp()` presque égaux) ; espacements bruts différents dans chaque bloc (0,35 rem, 0,6 rem 0,55 rem, 3 rem 5 rem) ; shadcn `zinc` ou `slate` non retouché ; bouton `blue-600` de Tailwind ; `rounded-2xl shadow-lg` partout ; icônes Lucide réflexes (Sparkles, ArrowRight, Zap) ; avatars DiceBear ; placeholders en dégradé ; `gap-4` et `p-6` uniformes ; footer à 4 colonnes ; trois offres tarifaires avec un anneau sur celle du milieu ; nom de la marque géant en pleine largeur dans le footer, par réflexe (relevé par un juge à l'aveugle lors du test du 3 novembre 2026) ; papier écru, serif d'affichage classique et une seule couleur sombre, variante « atelier » de la vague 3.
 
-À la place : tokens composés pour le projet, échelle d'espacement hiérarchisée, icônes du produit ou d'un jeu choisi, vrais avatars ou initiales, footer et tarifs construits d'après le contenu réel.
+À la place : police trouvée dans le monde du sujet (`typography.md` §2), échelle typographique modulaire et échelle d'espacement à trois niveaux, sans valeur hors tokens (`spacing.md`), tokens composés pour le projet, icônes du produit ou d'un jeu choisi, vrais avatars ou initiales, footer et tarifs construits d'après le contenu réel.
 
 ## Autres tics fréquents
 
