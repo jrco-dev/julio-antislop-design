@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 .julio/
 *.log
 .DS_Store
