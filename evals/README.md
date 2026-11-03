@@ -21,3 +21,21 @@ Cinq briefs fixes, un par mode et un de plus en Persuader, pour mesurer chaque v
 
 | Version | Date | 1 Lavanila | 2 Les Rayons | 3 Fanilo | 4 Compost | 5 Portfolio | Moyenne | Conditions |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0.24 | 3 nov. 2026 | 7,1 | 6,7 | 7,4 | 6,5 | 6,5 | **6,8** | Skill seul, agent neuf par brief, sans personne pour répondre, bac à sable sans réseau (pas de planche de références), pas de sous-agent de critique ; un juge indépendant par page, sur captures |
+
+### Par critère (v0.24, moyenne des 5 pages)
+
+| Critère | Moyenne | Lecture |
+| --- | --- | --- |
+| Honnêteté | 8,8 | Point fort : rien d'inventé, contenu d'exemple signalé |
+| Typographie et hiérarchie | 7,4 | Solide depuis la 0.17 |
+| Clarté du premier écran | 7,2 | |
+| Absence de tics d'IA | 7,2 | Un eyebrow est encore passé (brief 1) |
+| Mobile | 7,0 | |
+| Singularité | 6,8 | |
+| Espacement et rythme | 6,2 | Vides irréguliers, marges qui changent |
+| Finition | 6,0 | Textes provisoires visibles, formats de date |
+| Originalité | 6,4 | Les juges reconnaissent encore un « éditorial suisse » |
+| Visuels | 5,4 | Point faible : sans photo fournie, le skill ne compense pas assez |
+
+À améliorer en priorité : visuels sans photo, régularité de l'espacement, finition, détection automatique des eyebrows.

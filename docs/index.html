@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>julio-antislop-design : des interfaces conçues, pas générées</title>
+<meta name="description" content="Un skill open source pour agents de code (Claude Code, Codex, Cursor) qui remplace les défauts des pages générées par des décisions. Installation en une commande.">
+<meta name="theme-color" content="#1f2a5c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@500;800&family=Bitter:wght@400;700&display=swap">
+<style>
+/* ---------- Tokens ---------- */
+:root {
+  /* Couleurs : la relecture. Encre bleue de la copie, rouge du correcteur, pierre du papier de travail. */
+  --navy: oklch(30% 0.09 265);
+  --navy-deep: oklch(21% 0.05 265);
+  --stone: oklch(93% 0.012 250);
+  --stone-2: oklch(88% 0.014 250);
+  --cream: oklch(95% 0.02 90);
+  --muted-on-navy: oklch(76% 0.05 265);
+  --muted-on-stone: oklch(42% 0.04 265);
+  --red: oklch(66% 0.2 30);
+  --red-ink: oklch(52% 0.19 30);
+
+  /* Polices */
+  --font-display: "Rokkitt", "Rockwell", "Courier New", serif;
+  --font-text: "Bitter", "Georgia", serif;
+  --font-code: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+  --weight-text: 400;
+  --weight-strong: 700;
+  --weight-display: 800;
+  --weight-display-light: 500;
+
+  /* Échelle typographique, Persuader : 17 → 19 px, ratio 1,2 → 1,333 (Utopia). Crans utilisés : -1, 0, 2, 4, 6 */
+  --step--1: clamp(0.8854rem, 0.8836rem + 0.008vw, 0.8908rem);
+  --step-0:  clamp(1.0625rem, 1.0208rem + 0.1852vw, 1.1875rem);
+  --step-2:  clamp(1.53rem, 1.3366rem + 0.8593vw, 2.1101rem);
+  --step-4:  clamp(2.2032rem, 1.6878rem + 2.2906vw, 3.7493rem);
+  --step-6:  clamp(3.1726rem, 2.0094rem + 5.1697vw, 6.6622rem);
+
+  /* Espacement, base 4 px, trois niveaux */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: clamp(4rem, 2.67rem + 5.93vw, 8rem);
+  --space-section: clamp(6rem, 4rem + 8.89vw, 12rem);
+
+  --gap-inner: var(--space-xs);
+  --gap-stack: var(--space-m);
+  --gap-group: var(--space-xl);
+  --gap-section: var(--space-section);
+  --gutter: clamp(1rem, 0.33rem + 2.96vw, 3rem);
+  --measure-page: 90rem;
+  --measure-text: 62ch;
+
+  --strike: 0.09em;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-draw: 520ms;
+  --dur-fast: 160ms;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scrollbar-color: var(--red) var(--navy-deep); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-text);
+  font-weight: var(--weight-text);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+::selection { background: var(--red); color: var(--navy-deep); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-thickness: 0.08em; text-underline-offset: 0.22em; }
+a:hover { text-decoration-color: var(--red); }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-display); margin: 0; text-wrap: balance; overflow-wrap: break-word; min-width: 0; }
+h2 { font-size: var(--step-4); line-height: 1; letter-spacing: -0.02em; }
+h3 { font-size: var(--step-2); line-height: 1.15; }
+p { margin: 0; text-wrap: pretty; max-width: var(--measure-text); }
+code, pre { font-family: var(--font-code); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; transform: translateY(-200%); background: var(--cream); color: var(--navy-deep); padding: var(--space-2xs) var(--space-s); }
+.skip:focus { transform: none; }
+
+.wrap { max-width: var(--measure-page); margin: 0 auto; padding: 0 var(--gutter); }
+.grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: var(--space-m); }
+section { padding: var(--gap-section) 0; }
+section > .wrap > h2 { margin-bottom: var(--gap-group); }
+
+/* Bandes de couleur, une par section */
+.on-stone { background: var(--stone); color: var(--navy-deep); }
+.on-deep { background: var(--navy-deep); color: var(--cream); }
+.on-red { background: var(--red); color: var(--navy-deep); }
+.on-navy { background: var(--navy); color: var(--cream); }
+
+/* Barré du correcteur */
+.k { position: relative; display: inline-block; white-space: nowrap; }
+.k::after {
+  content: ""; position: absolute; left: -0.04em; right: -0.04em; top: 52%;
+  height: var(--strike); background: var(--red);
+  transform-origin: left center;
+}
+.on-red .k::after { background: var(--navy-deep); }
+
+/* Commande d'installation */
+.cmd { display: flex; flex-wrap: wrap; align-items: stretch; gap: var(--space-2xs); }
+.cmd pre {
+  flex: 1 1 28rem; margin: 0; min-width: 0;
+  background: var(--navy-deep); color: var(--cream);
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--step--1); line-height: 1.6;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.on-deep .cmd pre { background: var(--navy); }
+.cmd pre::before { content: "$ "; color: var(--red); }
+.btn {
+  appearance: none; border: 0; cursor: pointer;
+  background: var(--red); color: var(--navy-deep);
+  font-family: var(--font-text); font-weight: var(--weight-strong); font-size: var(--step-0);
+  padding: var(--space-s) var(--space-m); min-height: 2.75rem;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.btn:hover { background: var(--cream); }
+.btn:active { transform: scale(0.97); }
+.on-red .btn { background: var(--navy-deep); color: var(--cream); }
+.on-red .btn:hover { background: var(--navy); }
+.copied { font-size: var(--step--1); min-height: 1.6em; margin-top: var(--space-2xs); }
+
+/* ---------- Navigation N1 ---------- */
+.nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-2xs) var(--space-l); padding-top: var(--space-m); }
+.nav strong { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--step-2); line-height: 1; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-3xs) var(--space-m); }
+.nav a { display: inline-block; padding: var(--space-2xs) 0; text-decoration: none; }
+.nav a:hover { text-decoration: underline; text-decoration-color: var(--red); }
+
+/* ---------- Hero : l'affiche barrée ---------- */
+.hero { min-height: 100svh; display: flex; flex-direction: column; padding: 0; }
+.hero .wrap { flex: 1; display: flex; flex-direction: column; width: 100%; }
+.hero-body { flex: 1; align-content: end; row-gap: var(--space-l); padding: var(--space-xl) 0; }
+.slop {
+  grid-column: 1 / -1; max-width: none;
+  font-family: var(--font-display); font-weight: var(--weight-display-light);
+  font-size: var(--step-2); line-height: 1.12; color: var(--muted-on-navy);
+}
+.hero h1 {
+  grid-column: 2 / -1;
+  font-size: var(--step-6); line-height: 0.95; letter-spacing: -0.02em;
+  transform: rotate(-2deg); transform-origin: left bottom;
+}
+.hero-foot { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: var(--space-m); row-gap: var(--space-m); align-items: end; padding-bottom: var(--space-xl); }
+.hero-foot .lede { grid-column: 1 / 4; }
+.hero-foot .lede p + p { margin-top: var(--space-xs); color: var(--muted-on-navy); font-size: var(--step--1); }
+.hero-foot .act { grid-column: 4 / -1; }
+.hero-foot .alt { margin-top: var(--space-xs); font-size: var(--step--1); }
+
+/* ---------- Exemples ---------- */
+.ex-intro { grid-column: 1 / 5; margin-bottom: var(--gap-group); }
+.compare { grid-column: 1 / 6; margin: 0; }
+.compare-stage { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs); }
+.compare-stage figure { margin: 0; }
+.compare-stage figcaption { font-size: var(--step--1); margin-top: var(--space-2xs); }
+.compare.live .compare-stage { grid-template-columns: 1fr; position: relative; gap: 0; overflow: hidden; }
+.compare.live .compare-stage figure { grid-area: 1 / 1; }
+.compare.live .compare-stage figcaption { display: none; }
+.compare.live .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+.handle { display: none; }
+.compare.live .handle {
+  display: block; grid-area: 1 / 1; pointer-events: none; position: relative;
+  transform: translateX(var(--pos, 50%));
+}
+.compare.live .handle::before { content: ""; position: absolute; top: 0; bottom: 0; left: -2px; width: 4px; background: var(--red); }
+.compare-ctl { display: none; }
+.compare.live .compare-ctl { display: flex; align-items: center; gap: var(--space-s); margin-top: var(--space-s); font-size: var(--step--1); }
+.compare-ctl input { flex: 1; accent-color: var(--red-ink); min-height: 2.75rem; }
+.compare-note { grid-column: 6 / -1; align-self: end; font-size: var(--step--1); color: var(--muted-on-stone); }
+.compare-note strong { display: block; color: var(--navy-deep); font-size: var(--step-0); margin-bottom: var(--space-2xs); }
+.shot { margin: 0; }
+.shot img { box-shadow: none; outline: 1px solid var(--stone-2); }
+.shot figcaption { font-size: var(--step--1); margin-top: var(--space-s); color: var(--muted-on-stone); max-width: 52ch; }
+.shot figcaption strong { color: var(--navy-deep); }
+.shot-a { grid-column: 1 / 5; margin-top: var(--space-3xl); }
+.shot-b { grid-column: 5 / -1; margin-top: var(--space-3xl); position: relative; transform: translateY(var(--space-3xl)); }
+
+/* ---------- Fonctionnement ---------- */
+.verbs { grid-column: 1 / -1; list-style: none; margin: 0 0 var(--space-3xl); padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-m) var(--space-xl); }
+.verbs li { flex: 1 1 14rem; max-width: 24rem; }
+.verbs b { display: block; font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--step-2); line-height: 1.1; color: var(--red); margin-bottom: var(--space-3xs); }
+.cadre { grid-column: 1 / 4; }
+.cadre h3, .steps h3, .modes h3 { margin-bottom: var(--space-s); }
+.cadre p + p { margin-top: var(--space-s); }
+.quote { font-family: var(--font-code); font-size: var(--step--1); background: var(--navy); padding: var(--space-s) var(--space-m); margin-top: var(--space-m); max-width: none; }
+.steps { grid-column: 4 / -1; }
+.steps ol { list-style: none; margin: 0; padding: 0; font-family: var(--font-display); font-weight: var(--weight-display-light); font-size: var(--step-2); line-height: 1.25; }
+.steps li { display: inline; }
+.steps li:not(:last-child)::after { content: " → "; color: var(--red); }
+.steps .before { color: var(--muted-on-navy); font-size: var(--step--1); font-family: var(--font-text); margin-top: var(--space-s); }
+.modes { grid-column: 1 / -1; margin-top: var(--space-3xl); }
+.modes dl { margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-l) var(--space-m); }
+.modes dl > div:nth-child(even) { transform: translateY(var(--space-xl)); }
+.modes dt { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--step-2); line-height: 1.1; }
+.modes dd { margin: var(--space-2xs) 0 0; }
+.modes dd + dd { color: var(--muted-on-navy); font-size: var(--step--1); }
+.modes .redo { margin-top: var(--space-2xl); color: var(--muted-on-navy); }
+
+/* ---------- Interdits ---------- */
+.ban { padding: var(--space-3xl) 0; }
+.ban-names { grid-column: 1 / -1; max-width: none; font-family: var(--font-display); font-weight: var(--weight-display-light); font-size: var(--step-6); line-height: 1.05; display: flex; flex-wrap: wrap; gap: 0 var(--space-l); }
+.ban h2 { grid-column: 3 / -1; margin-top: var(--space-xl); }
+.ban p.after-ban { grid-column: 3 / 7; margin-top: var(--space-m); }
+
+/* ---------- Plancher ---------- */
+.floor-intro { grid-column: 1 / 4; margin-bottom: var(--gap-group); }
+.floor { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-xl) var(--space-m); }
+.floor li { grid-column: span 3; display: grid; grid-template-columns: 4ch 1fr; column-gap: var(--space-s); align-items: baseline; }
+.floor li:nth-child(even) { grid-column: 5 / span 3; }
+.floor b { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--step-4); line-height: 1; color: var(--red-ink); font-variant-numeric: tabular-nums; }
+.floor h3 { font-size: var(--step-0); font-family: var(--font-text); font-weight: var(--weight-strong); line-height: 1.6; }
+
+/* ---------- Installer ---------- */
+.inst-main { grid-column: 1 / -1; }
+.inst-main .hint { margin-top: var(--space-s); color: var(--muted-on-navy); }
+.ways { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-xl) var(--space-m); margin-top: var(--space-3xl); }
+.way-a { grid-column: 1 / 5; }
+.way-b { grid-column: 5 / -1; }
+.ways h3 { margin-bottom: var(--space-s); }
+.ways pre { margin: var(--space-s) 0 0; background: var(--navy-deep); padding: var(--space-s) var(--space-m); font-size: var(--step--1); white-space: pre-wrap; overflow-wrap: anywhere; }
+.tools { grid-column: 1 / -1; margin-top: var(--space-3xl); }
+.tools h3 { margin-bottom: var(--space-m); }
+.tools dl { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m) var(--space-xl); }
+.tools dt { font-family: var(--font-code); font-size: var(--step--1); color: var(--cream); }
+.tools dd { margin: var(--space-3xs) 0 0; color: var(--muted-on-navy); font-size: var(--step--1); }
+
+/* ---------- Limites ---------- */
+.lim-intro { grid-column: 1 / 4; }
+.lim { grid-column: 4 / -1; list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-l); }
+.lim b { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--step-2); display: block; line-height: 1.1; margin-bottom: var(--space-2xs); }
+
+/* ---------- English ---------- */
+.en-head { grid-column: 1 / 3; }
+.en-body { grid-column: 3 / -1; }
+.en-body > p:first-child { font-size: var(--step-2); font-family: var(--font-display); font-weight: var(--weight-display-light); line-height: 1.2; max-width: 34ch; }
+.en-body ul { margin: var(--space-l) 0; padding-left: var(--space-m); display: grid; gap: var(--space-xs); max-width: var(--measure-text); }
+.en-body .cmd { margin-top: var(--space-l); }
+
+/* ---------- Pied de page : F2 + F8 ---------- */
+.end { padding: var(--space-3xl) 0 var(--space-xl); }
+.end h2 { grid-column: 1 / 6; }
+.end .cmd { grid-column: 1 / -1; margin-top: var(--space-l); }
+.colophon { grid-column: 1 / -1; margin-top: var(--space-3xl); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m) var(--space-xl); font-size: var(--step--1); }
+.colophon p { max-width: 44ch; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 52rem) {
+  .grid > *, .hero-foot > *, .floor li, .floor li:nth-child(even), .ways > *, .colophon { grid-column: 1 / -1; }
+  .hero h1 { grid-column: 1 / -1; }
+  .ban-names { font-size: var(--step-4); }
+  .shot-b { transform: none; }
+  .modes dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .modes dl > div:nth-child(even) { transform: none; }
+  .tools dl, .colophon { grid-template-columns: 1fr; }
+  .compare-note { margin-top: var(--space-m); }
+  .verbs { margin-bottom: var(--space-2xl); }
+  .steps, .modes { margin-top: var(--space-2xl); }
+}
+@media (min-width: 52.01rem) {
+  .slop { font-size: var(--step-4); }
+}
+
+/* ---------- Mouvement : le correcteur barre, une fois ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .k::after { animation: draw var(--dur-draw) var(--ease-out) both; }
+  .hero .k:nth-child(2)::after { animation-delay: 140ms; }
+  .hero .k:nth-child(3)::after { animation-delay: 280ms; }
+  .hero .k:nth-child(4)::after { animation-delay: 420ms; }
+  .hero .k:nth-child(5)::after { animation-delay: 560ms; }
+  .hero .k:nth-child(6)::after { animation-delay: 700ms; }
+  @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="hero on-navy">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principale">
+      <strong>julio-antislop-design</strong>
+      <ul>
+        <li><a href="#exemples">Exemples</a></li>
+        <li><a href="#fonctionnement">Fonctionnement</a></li>
+        <li><a href="#installer">Installer</a></li>
+        <li><a href="#english" hreflang="en">English</a></li>
+        <li><a href="https://github.com/jrco-dev/julio-antislop-design">GitHub</a></li>
+      </ul>
+    </nav>
+
+    <div class="grid hero-body" id="contenu">
+      <p class="slop"><span class="sr">Ce que donne une page faite par un modèle, barré : </span><span class="k">Titre centré,</span> <span class="k">petit label au-dessus,</span> <span class="k">trois cartes à icône,</span> <span class="k">un dégradé violet,</span> <span class="k">Inter.</span></p>
+      <h1>Conçu, pas généré.</h1>
+      <div class="hero-foot">
+        <div class="lede">
+          <p>Un skill pour agents de code qui remplace les défauts par des décisions.</p>
+          <p>Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible Agent Skills. Open source, MIT.</p>
+        </div>
+        <div class="act">
+          <div class="cmd">
+            <pre id="cmd-hero">npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design</pre>
+            <button class="btn" type="button" data-copy="cmd-hero" hidden>Copier la commande</button>
+          </div>
+          <p class="copied" aria-live="polite"></p>
+          <p class="alt"><a href="https://github.com/jrco-dev/julio-antislop-design">Lire le code sur GitHub</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="on-stone" id="exemples" aria-labelledby="t-ex">
+    <div class="wrap grid">
+      <div class="ex-intro">
+        <h2 id="t-ex">Ce que des agents en ont fait</h2>
+        <p style="margin-top: var(--space-m)">Quatre captures de tests, faits par des agents qui suivaient le skill. Ce sont des essais, avec leurs défauts : c'est d'eux que viennent plusieurs règles.</p>
+      </div>
+
+      <div class="compare" data-compare>
+        <div class="compare-stage">
+          <figure>
+            <img src="examples/lavanila-avant.jpg" width="1200" height="750" alt="Landing Lavanila, avant : grand titre « Vanille Bourbon, au centimètre » en grotesque étroite, phrase d'appui et bouton vert à droite, règle graduée de 0 à 20 cm avec une gousse dessinée et la zone 16 à 18 cm surlignée.">
+            <figcaption>Avant</figcaption>
+          </figure>
+          <figure class="after">
+            <img src="examples/lavanila-apres.jpg" width="1200" height="750" alt="Landing Lavanila, après : même page, titre composé en lettres pochoir, tailles et écarts recalés, même règle graduée et même gousse.">
+            <figcaption>Après</figcaption>
+          </figure>
+          <div class="handle" aria-hidden="true"></div>
+        </div>
+        <label class="compare-ctl">Glisser : avant à gauche, après à droite
+          <input type="range" min="0" max="100" value="50" aria-label="Position du curseur entre avant et après">
+        </label>
+      </div>
+      <p class="compare-note"><strong>Lavanila, la même landing deux fois</strong>Brief de test : une coopérative de vanille. Avant, puis après l'application des règles de typographie et d'espacement du skill : la police d'affichage change, les tailles et les écarts passent sur une échelle.</p>
+
+      <figure class="shot shot-a">
+        <img src="examples/brume.jpg" width="1200" height="750" loading="lazy" alt="Page Brume : titre centré « Le son passe le verre. », sous-titre « l'enceinte de salon en verre dépoli, 349 € », boutons Précommander et Choisir son verre, puis une enceinte en verre floutée sur un fond de taches orange et bleues, avec une légende en verre.">
+        <figcaption><strong>Brume, test « style Apple » avec du verre.</strong> Produit fictif. Ce test a montré ce qui ne va pas : des taches de couleur posées derrière le verre, un objet dessiné qu'on lit mal. Ces leçons sont devenues des règles en version 0.20.</figcaption>
+      </figure>
+      <figure class="shot shot-b">
+        <img src="examples/jrco-v1.jpg" width="1200" height="750" loading="lazy" alt="Page d'accueil JR &amp; Co : titre « Automatiser la production des études. », bouton jaune « Présenter un livrable », puis un tableau Excel dont une cellule surlignée alimente un graphique en barres de notoriété par âge.">
+        <figcaption><strong>JR &amp; Co, première refonte d'une page d'accueil de société.</strong> Une première version, pas un résultat final : la cellule surlignée du tableau reconstruit le graphique.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="on-deep" id="fonctionnement" aria-labelledby="t-fn">
+    <div class="wrap grid">
+      <h2 id="t-fn" style="grid-column: 1 / -1">Il cadre avant de coder</h2>
+      <ul class="verbs">
+        <li><b>Crée</b>landing pages, sites, écrans d'app, dashboards, docs et portfolios.</li>
+        <li><b>Refond</b>un écran qui « fait IA », sans changer ce que fait le produit.</li>
+        <li><b>Relit</b>un design et dit ce qui trahit une page générée, avec les corrections.</li>
+        <li><b>Choisit</b>palette, typographie et animations à partir de sources réelles.</li>
+        <li><b>Produit</b>des vidéos produit et du motion design en code.</li>
+      </ul>
+
+      <div class="cadre">
+        <h3>Toutes les questions d'un coup</h3>
+        <p>Un tour sur le projet, un sur le goût, un sur la matière : 12 questions au plus, puis plus d'aller-retour. Sans police de marque, il propose 3 paires tirées du sujet.</p>
+        <p>Il montre ensuite une fiche brief à valider une fois. Dites « carte blanche » et il décide tout lui-même, en annonçant ses hypothèses.</p>
+        <p class="quote">Je lis ce projet comme : …</p>
+      </div>
+
+      <div class="steps">
+        <h3>Douze étapes, dans cet ordre</h3>
+        <ol>
+          <li>Lire le projet</li>
+          <li>cadrer</li>
+          <li>inventorier le sujet</li>
+          <li>écrire l'argument</li>
+          <li>voir des références réelles</li>
+          <li>tirer une direction hors de la moyenne</li>
+          <li>formuler l'idée</li>
+          <li>écrire tous les textes</li>
+          <li>construire sans mouvement</li>
+          <li>contrôler</li>
+          <li>faire juger par un regard neuf</li>
+          <li>ajouter le mouvement et livrer</li>
+        </ol>
+        <p class="before">Les huit premières se font avant la première ligne de code.</p>
+      </div>
+
+      <div class="modes">
+        <h3>Les règles changent selon ce que le visiteur doit réussir</h3>
+        <dl>
+          <div><dt>Persuader</dt><dd>Il décide et agit.</dd><dd>Landing, marketing, tarifs</dd></div>
+          <div><dt>Opérer</dt><dd>Il termine une tâche.</dd><dd>App, dashboard, admin</dd></div>
+          <div><dt>Lire</dt><dd>Il comprend.</dd><dd>Docs, articles, guides</dd></div>
+          <div><dt>Expérience</dt><dd>Il est dans l'œuvre.</dd><dd>Portfolio, galerie</dd></div>
+        </dl>
+        <p class="redo">Un filet discret est normal dans un dashboard et un tic sur une landing. La refonte n'est pas un mode : audit écrit, diagnostic, direction en 5 lignes que vous validez, puis 9 passes dans un ordre fixe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-red ban" aria-labelledby="t-ban">
+    <div class="wrap grid">
+      <p class="ban-names"><span class="sr">Polices réflexes, refusées sans raison de marque : </span><span class="k">Inter</span> <span class="k">Space Grotesk</span> <span class="k">DM Sans</span> <span class="k">Archivo</span> <span class="k">Satoshi</span> <span class="k">Fraunces</span></p>
+      <h2 id="t-ban">Les interdits ne sont pas un style</h2>
+      <p class="after-ban">Pas d'eyebrow, pas de dégradé violet, pas de rangée de cartes identiques, pas de police réflexe. Chaque défaut se lève avec une raison écrite liée au projet. Une page qui respecte les interdits sans rien affirmer est rejetée.</p>
+    </div>
+  </section>
+
+  <section class="on-stone" aria-labelledby="t-floor">
+    <div class="wrap grid">
+      <div class="floor-intro">
+        <h2 id="t-floor">Sept règles qui ne se lèvent jamais</h2>
+        <p style="margin-top: var(--space-m)">Ni par goût, ni par le brief, ni par une ressource externe.</p>
+      </div>
+      <ol class="floor">
+        <li><b>A1</b><div><h3>Accessibilité</h3><p>WCAG 2.2 AA : contrastes, focus, clavier, cibles, mouvement réduit.</p></div></li>
+        <li><b>A2</b><div><h3>Honnêteté</h3><p>Aucune preuve, aucun chiffre, aucune fonctionnalité inventés.</p></div></li>
+        <li><b>A3</b><div><h3>Traçabilité</h3><p>Chaque police, composant, image et référence a une source réelle.</p></div></li>
+        <li><b>A4</b><div><h3>Confidentialité</h3><p>Aucune donnée client envoyée à un service tiers sans accord écrit.</p></div></li>
+        <li><b>A5</b><div><h3>Performance</h3><p>LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1.</p></div></li>
+        <li><b>A6</b><div><h3>Technique</h3><p>Couleurs, polices, tailles et espacements uniquement en tokens ; pas de <code>transition: all</code>, pas de défilement horizontal.</p></div></li>
+        <li><b>A7</b><div><h3>Le brief</h3><p>Il l'emporte sur les défauts, jamais sur A1 à A6.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="on-navy" id="installer" aria-labelledby="t-inst">
+    <div class="wrap grid">
+      <h2 id="t-inst" style="grid-column: 1 / -1"><span class="k" aria-hidden="true">Get started</span> Installer en une commande</h2>
+      <div class="inst-main">
+        <div class="cmd">
+          <pre id="cmd-inst">npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design</pre>
+          <button class="btn" type="button" data-copy="cmd-inst" hidden>Copier la commande</button>
+        </div>
+        <p class="copied" aria-live="polite"></p>
+        <p class="hint">Avec le CLI <code>skills</code> : Claude Code, Codex, Cursor et les autres agents détectés. Ajoutez <code>-g</code> pour l'installer pour tous vos projets. Redémarrez votre agent après l'installation.</p>
+      </div>
+
+      <div class="ways">
+        <div class="way-a">
+          <h3>À la main, pour Claude Code</h3>
+<pre>git clone https://github.com/jrco-dev/julio-antislop-design
+cp -r julio-antislop-design/skills/julio-antislop-design ~/.claude/skills/</pre>
+          <p style="margin-top: var(--space-s)">Ou dans <code>.claude/skills/</code> d'un seul projet.</p>
+        </div>
+        <div class="way-b">
+          <h3>Sur Claude.ai</h3>
+          <p>Téléchargez <code>dist/julio-antislop-design.skill</code> depuis <a href="https://github.com/jrco-dev/julio-antislop-design">le dépôt</a> et ajoutez-le dans vos paramètres de skills.</p>
+        </div>
+      </div>
+
+      <div class="tools">
+        <h3>Les contrôles, inclus ou recommandés</h3>
+        <dl>
+          <div><dt>scripts/check-tokens.mjs</dt><dd>Tailles, espacements et polices hors tokens, polices réflexes. Node seul, inclus.</dd></div>
+          <div><dt>scripts/roll.mjs</dt><dd>Tire la direction : archétype, cartes de contrainte, couleur, polices, risques. Inclus.</dd></div>
+          <div><dt>scripts/board.mjs, scripts/explore.mjs</dt><dd>Planche des sites de référence ; comparaison de trois premiers écrans. Demandent Playwright.</dd></div>
+          <div><dt>npx impeccable detect</dt><dd>Détecteur de tics et de défauts, sans LLM (<a href="https://github.com/pbakaus/impeccable">Impeccable</a>).</dd></div>
+        </dl>
+        <p style="margin-top: var(--space-l); color: var(--muted-on-navy)">Sans ces outils, l'agent le dit dans son rapport au lieu de prétendre avoir vérifié.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-stone" aria-labelledby="t-lim">
+    <div class="wrap grid">
+      <div class="lim-intro">
+        <h2 id="t-lim">Limites connues</h2>
+      </div>
+      <ul class="lim">
+        <li><b>Peu mesuré.</b><p>Un seul test à l'aveugle, sur une landing, contre Hallmark et Impeccable, le 3 novembre 2026. Il a révélé une police réflexe et des tailles hors échelle, corrigées depuis. Un second test est en préparation.</p></li>
+        <li><b>Des sites modèles décrits en texte.</b><p>Les 110 sites ont été confirmés en ligne, mais certaines descriptions visuelles restent à confirmer en ouvrant le site, ce que le skill demande à l'agent de faire.</p></li>
+        <li><b>Rédigé en français.</b><p>Les agents le suivent quelle que soit la langue de la demande. Une édition anglaise est dans le dépôt.</p></li>
+        <li><b>Il ne remplace pas un designer.</b><p>Il évite les défauts et force les décisions ; la qualité finale dépend de la matière réelle que vous fournissez.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="on-deep" id="english" lang="en" aria-labelledby="t-en">
+    <div class="wrap grid">
+      <div class="en-head"><h2 id="t-en">In English</h2></div>
+      <div class="en-body">
+        <p>An agent skill that makes interfaces look designed, not generated.</p>
+        <ul>
+          <li><strong>The idea comes from the subject</strong>: an inventory of what belongs only to this client, an idea sentence, a competitor test.</li>
+          <li><strong>Nothing is invented</strong>: no made-up fonts, components, numbers, quotes or features.</li>
+          <li><strong>Out of the average</strong>: a local roll assigns a composition archetype, constraint cards and two risk levers; three heroes are compared before the full build.</li>
+          <li><strong>Rules depend on the mode</strong>: Persuade, Operate, Read, Experience, plus a redesign variant in 9 passes.</li>
+          <li><strong>An absolute floor</strong>: WCAG 2.2 AA, honesty, traceability, client confidentiality, Core Web Vitals, technical hygiene.</li>
+          <li><strong>Checked, not promised</strong>: token checker, detector, screenshots at 4 widths, fresh-eyes critique.</li>
+        </ul>
+        <p>The skill is written in French and triggers on English requests too. An English edition, <code>julio-antislop-design-en</code>, is in the repository.</p>
+        <div class="cmd">
+          <pre id="cmd-en">npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design</pre>
+          <button class="btn" type="button" data-copy="cmd-en" data-done="Command copied" hidden>Copy the command</button>
+        </div>
+        <p class="copied" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="on-red end" aria-labelledby="t-end">
+  <div class="wrap grid">
+    <h2 id="t-end">Une commande, puis redémarrez votre agent</h2>
+    <div class="cmd">
+      <pre id="cmd-end">npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design</pre>
+      <button class="btn" type="button" data-copy="cmd-end" hidden>Copier la commande</button>
+    </div>
+    <p class="copied" aria-live="polite" style="grid-column: 1 / -1"></p>
+    <div class="colophon">
+      <p><a href="https://github.com/jrco-dev/julio-antislop-design">github.com/jrco-dev/julio-antislop-design</a><br>Licence MIT © 2026 Jimmy Julio. <code>references/redesign.md</code> est adapté d'unslop de Damir Sokolovsky, sous CC BY 4.0.</p>
+      <p>Synthèse de projets ouverts et de travaux de recherche : Hallmark, Taste Skill, Impeccable, UI/UX Pro Max, Stageshow, Design Taste, avoid-ai-design, unslop. Aucun code de ces projets n'est inclus.</p>
+      <p>Cette page a été faite avec le skill. Polices : Rokkitt et Bitter (Google Fonts, licence OFL). Captures : tests faits par des agents ; Lavanila et Brume sont des briefs de test.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Copier la commande
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.hidden = false;
+    const label = btn.textContent;
+    const status = btn.closest(".cmd").nextElementSibling;
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).textContent.trim();
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; } catch (e) { ok = false; }
+      const lang = btn.closest("[lang]").getAttribute("lang");
+      if (status && status.classList.contains("copied")) {
+        status.textContent = ok ? (lang === "en" ? "Copied. Paste it in your terminal." : "Copiée. Collez-la dans votre terminal.")
+                                : (lang === "en" ? "Copy failed: select the command by hand." : "Copie impossible : sélectionnez la commande à la main.");
+      }
+      btn.textContent = ok ? (btn.dataset.done || "Commande copiée") : label;
+      setTimeout(() => { btn.textContent = label; }, 2400);
+    });
+  });
+
+  // Avant / après : la chose vivante
+  document.querySelectorAll("[data-compare]").forEach((fig) => {
+    fig.classList.add("live");
+    const input = fig.querySelector("input[type=range]");
+    const set = (v) => fig.style.setProperty("--pos", v + "%");
+    set(input.value);
+    input.addEventListener("input", () => set(input.value));
+  });
+})();
+</script>
+</body>
+</html>

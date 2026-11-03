@@ -72,6 +72,16 @@ for (const file of files) {
   }
   for (const m of src.matchAll(/api\.fontshare\.com[^"']*?f\[\]=([a-z-]+)/gi)) fontsLoaded.set(m[1].replace(/-/g, " "), file);
   const lineAt = (idx) => src.slice(0, idx).split("\n").length;
+  // Eyebrow : court texte posé juste au-dessus d'un titre, ou capitales espacées (tells.md, vague 2)
+  if (ext !== ".css") {
+    for (const m of src.matchAll(/<(p|span|div|small|strong)\b[^>]*>([^<]{1,48})<\/\1>\s*<h[1-3]\b/gi))
+      add(process.argv.includes("--allow-eyebrow") ? "warning" : "error", file, lineAt(m.index), "eyebrow", `« ${m[2].trim()} » juste au-dessus d'un titre : intégrer au titre ou supprimer (défaut le plus fort)`);
+  }
+  for (const m of src.matchAll(/\{[^{}]*text-transform\s*:\s*uppercase[^{}]*letter-spacing\s*:\s*(0?\.\d+|\d+(\.\d+)?)(em|rem|px)[^{}]*\}|\{[^{}]*letter-spacing\s*:\s*(0?\.\d+|\d+(\.\d+)?)(em|rem|px)[^{}]*text-transform\s*:\s*uppercase[^{}]*\}/gi)) {
+    const v = parseFloat(m[1] || m[4]), u = m[3] || m[6];
+    if ((u === "em" && v >= 0.05) || (u === "px" && v >= 1) || (u === "rem" && v >= 0.05))
+      add("warning", file, lineAt(m.index), "capitales-espacees", "Capitales espacées : label en capitales et interlettrage large (tells.md, vague 2)");
+  }
 
   for (const { css, offset, inline } of chunks) {
     const clean = css.replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, " "));
