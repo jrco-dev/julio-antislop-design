@@ -73,7 +73,7 @@ else {
   let rules = [];
   try { rules = JSON.parse(b.out).map((i) => i.rule); } catch {}
   ok("check-render refuse la page fautive", b.code === 1);
-  for (const r of ["defilement-horizontal", "contraste", "alt", "mots-coupes", "textes-provisoires"]) ok(`check-render signale ${r}`, rules.includes(r), JSON.stringify(rules));
+  for (const r of ["defilement-horizontal", "contraste", "alt", "mots-coupes", "textes-provisoires", "hick-navigation", "miller-formulaire"]) ok(`check-render signale ${r}`, rules.includes(r), JSON.stringify(rules));
 }
 
 console.log(`\n${passes} réussis, ${fails} échoués, ${skips} sautés`);

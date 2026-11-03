@@ -88,6 +88,29 @@ Hypothèses prises faute de réponse : …
 
 Une fois validée : le projet va dans `PRODUCT.md`, le goût dans `DESIGN.md` (sections 1 à 9 pré-remplies avec les réponses, le reste complété aux étapes 6 et 7). Si l'utilisateur corrige, mettre à jour la fiche une fois et commencer, sans nouveau tour de questions.
 
-## Ce que le cadrage ne négocie pas
+## Rythme : demander, suggérer, montrer tôt
+
+Une personne qui attend sans rien voir finit par corriger tard ce qu'elle aurait corrigé en une phrase au début. L'agent avance donc par échanges courts, avec toujours une proposition sur la table.
+
+**Ne jamais demander à vide.** Chaque question arrive avec une réponse recommandée et sa raison en une demi-phrase (« Clair, recommandé : on lit la page au bureau, de jour »). Quand un fait manque, proposer une valeur par défaut et la faire confirmer (« Je pars sur un échantillon à 12 € livré en 5 jours ? ») plutôt que de s'arrêter.
+
+**Premier message rapide.** Avant tout travail long : lire le projet, puis envoyer tout de suite le tour 1 des questions, ou la fiche brief si tout est déjà connu. Pas de recherche ni de construction silencieuse avant ce premier échange.
+
+**Quatre rendez-vous sur le chemin complet**, chacun court, avec une proposition recommandée et la possibilité de répondre en un mot :
+
+| Rendez-vous | Ce que l'agent montre | Ce qu'il propose |
+| --- | --- | --- |
+| 1. Fiche brief | La lecture du projet, le goût retenu, les hypothèses | « Je lance ? » ou une correction |
+| 2. Trois premiers écrans | La comparaison de `explore.mjs`, dès qu'elle existe | Le hero recommandé, ou un mélange (« la couleur de B sur la structure de A ») |
+| 3. Première version entière | La page complète dès qu'elle tient, avant le polissage, avec les captures | 3 améliorations possibles, la recommandée en premier |
+| 4. Livraison | Le rapport court et les captures | 2 ou 3 suites possibles (une section de plus, une variante, la version mobile poussée) |
+
+**Pas plus d'une dizaine d'actions sans rien montrer** quand la personne est présente : au-delà, envoyer un point d'étape d'une ou deux lignes (ce qui est fait, ce qui vient, une question si elle débloque quelque chose).
+
+**Sans réponse, ne pas attendre.** Si la personne ne répond pas à un rendez-vous, prendre l'option recommandée, l'écrire comme hypothèse et continuer. Sans personne du tout (tâche planifiée, lot), il n'y a pas de rendez-vous : tout se décide et se trace dans le rapport.
+
+**Sur le chemin rapide**, un seul échange : la modification faite, les captures, et une ou deux suggestions en une ligne.
+
+
 
 Les réponses orientent les défauts levables, jamais le plancher absolu. Si une réponse le contredit (« invente quelques témoignages », « mets le logo de ce client sans son accord », « envoie les maquettes du client sur tel service »), le dire en une phrase, expliquer la règle et proposer l'alternative honnête : un emplacement pour de vrais témoignages, une demande d'accord, un outil local. Un goût exprimé (« je veux du verre », « je veux une serif ») lève le défaut correspondant (A7) : l'appliquer avec ses règles, sans le discuter.

@@ -91,6 +91,7 @@ Notes détaillées et briefs : [`evals/README.md`](evals/README.md).
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.26 | 3 nov. 2026 | **Les 30 lois de l'UX** du catalogue Laws of UX, réécrites depuis leurs sources d'origine, chacune avec une règle, un seuil, les modes concernés et un contrôle UX avant livraison ; `check-render` vérifie aussi la loi de Hick (liens de navigation), la loi de Miller (formulaires longs) et l'effet de Von Restorff (une seule action principale) ; **rythme avec la personne** : chaque question vient avec une réponse recommandée, quatre rendez-vous courts (fiche brief, trois premiers écrans, première version, livraison), jamais d'attente silencieuse |
 | 0.25 | 3 nov. 2026 | `check-render.mjs` contrôle la page rendue (mots coupés, contraste, cibles, rythme des sections, marges, textes provisoires) ; `visuals.md` (visuels sans photo classés d'après les notes, test du sujet sans texte) ; `finish.md` (défauts de finition et leurs contrôles) ; scripts bilingues ; tests automatiques et intégration continue ; kit de comparaison dans `benchmark/` ; `CHANGELOG.md` |
 | 0.24 | 3 nov. 2026 | Plus léger : `SKILL.md` de 9 Ko avec un **chemin rapide** pour les petites demandes, le détail dans `process.md` ; **édition anglaise** complète ; **évaluation** sur 5 briefs (6,8/10) publiée dans `evals/` ; « l'originalité ne remplace jamais la preuve » ; `check-tokens` détecte les eyebrows ; modèles de tickets, guide de contribution, revue trimestrielle automatique ; page d'accueil du projet dans `docs/`, faite avec le skill |
 | 0.23 | 3 nov. 2026 | Originalité : `originality.md` (24 archétypes de composition, 16 cartes de contrainte, 8 leviers de risque, test du déjà-vu, vague 5 « clean anti-slop ») ; `roll.mjs` tire la direction au lieu de laisser l'agent prendre son premier choix ; `board.mjs` capture les sites de référence pour les voir ; `explore.mjs` compare trois premiers écrans avant de construire la page ; axe Originalité éliminatoire dans la critique ; audit du contenu creux en refonte |
@@ -155,6 +156,8 @@ Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
 ```
 
 Avant de créer, l'agent cadre le projet avec vous **en une fois**, pour connaître votre goût avant la première ligne de code et éviter les allers-retours : un tour sur le projet (surface, audience, action visée, ce qui doit exister), un tour sur le goût (caractère, clair ou sombre, couleur, polices, densité, formes, images, mouvement, sites que vous aimez parmi ses modèles, ce que vous ne voulez surtout pas), un tour sur la matière (marque, images, preuves avec leur source, textes, contraintes). 12 questions au plus, à choix, avec aperçus quand c'est possible. Sans police de marque, il vous propose 3 paires. Il vous montre ensuite une fiche brief qui commence par « Je lis ce projet comme : … », la fait valider une fois, remplit `DESIGN.md` avec vos réponses, puis construit sans revenir vers vous. Dites « carte blanche » pour qu'il décide tout lui-même en annonçant ses hypothèses.
+
+Il ne vous fait jamais attendre en silence : chaque question arrive avec une réponse recommandée, et il vous montre son travail à quatre moments (fiche brief, trois premiers écrans, première version, livraison), avec à chaque fois une proposition à valider d'un mot.
 
 Pour une **petite demande** (un composant, une section, une correction, « fais vite »), il prend le **chemin rapide** : pas de questions sauf blocage, il respecte votre `DESIGN.md`, le plancher et les tokens, vérifie, et rend un rapport en trois lignes.
 
@@ -245,7 +248,7 @@ skills/julio-antislop-design/
 │   ├── motion-and-video.md      mouvement, effets GPU, vidéo en code
 │   ├── performance.md           budget par mode
 │   ├── tells.md                 tics de pages générées, datés par vague
-│   ├── ux-principles.md         principes de l'UX et leurs sources d'origine
+│   ├── ux-principles.md         les 30 lois de l'UX appliquées, contrôle UX
 │   ├── site-models.md           sites modèles réels par mode, qualité à emprunter
 │   ├── resources.md             galeries, bibliothèques, outils, licences
 │   └── critique.md              grille de critique sur 6 axes

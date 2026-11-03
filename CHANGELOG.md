@@ -2,6 +2,12 @@
 
 Toutes les versions, la plus récente en haut. Le détail des règles est dans le skill ; les scores sont dans `evals/README.md`.
 
+## 0.26.0 — 3 novembre 2026
+
+- `ux-principles.md` : les 30 lois du catalogue Laws of UX (Jon Yablonski), réécrites depuis leurs sources d'origine, chacune avec règle, seuil, modes et vérification ; garde-fou contre les manipulations ; contrôle UX en 10 points avant livraison.
+- `check-render.mjs` : loi de Hick (plus de 7 liens de navigation), loi de Miller (formulaire de plus de 8 champs sans groupes), effet de Von Restorff (plusieurs couleurs de boutons pleins au premier écran).
+- Rythme avec la personne (`intake.md`) : questions toujours accompagnées d'une réponse recommandée, premier message rapide, quatre rendez-vous courts, point d'étape au-delà d'une dizaine d'actions, l'option recommandée prise si personne ne répond.
+
 ## 0.25.0 — 3 novembre 2026
 
 - `check-render.mjs` : contrôle de la page rendue (défilement, mots coupés, contraste, texte minuscule, cibles, alt, h1 et niveaux de titres, rythme des sections, marges, textes provisoires) dans la langue de la page, avec captures.

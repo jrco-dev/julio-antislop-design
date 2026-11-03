@@ -1,5 +1,7 @@
 # Processus complet
 
+À chaque étape, avancer avec la personne : questions avec une réponse recommandée, quatre rendez-vous (fiche brief, trois premiers écrans, première version, livraison), jamais une longue attente silencieuse (`intake.md`, « Rythme »).
+
 `SKILL.md` donne la version courte et le chemin rapide. Ce fichier détaille chaque étape du chemin complet, la liste de livraison et le format du rapport.
 
 ## Les 12 étapes en détail
@@ -28,6 +30,7 @@ Ne pas livrer tant qu'une case reste vide :
 
 - [ ] Plancher A1 à A7 respecté.
 - [ ] `check-render.mjs` à zéro erreur à 390, 768, 1440 et 1920 px ; chaque avertissement corrigé ou justifié ; liste de `references/finish.md` passée.
+- [ ] Contrôle UX des 30 lois passé (`ux-principles.md`, liste finale) ; aucune manipulation (fausse rareté, option piège, culpabilisation).
 - [ ] Test du sujet sans texte réussi : l'image seule du premier écran dit de quoi il s'agit.
 - [ ] `check-tokens.mjs` à zéro erreur : aucune taille, aucun espacement, aucune police hors tokens ; police d'affichage hors de la liste réflexe, ou levée avec sa raison de marque.
 - [ ] Détecteur à zéro échec sur le code et l'URL rendue ; inspection à 390, 768, 1440 et 1920 px ; chaque capture ouverte après la dernière modification.

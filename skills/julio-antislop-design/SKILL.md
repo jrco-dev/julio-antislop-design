@@ -30,6 +30,10 @@ Toute règle dépend de ce que le visiteur doit réussir sur cette surface, pas 
 
 Deux surfaces dans une demande : chacune dans son mode, palette et typographie partagées.
 
+## Avancer avec la personne
+
+Ne jamais la faire attendre en silence : demander tôt, suggérer à chaque question, montrer dès que quelque chose tient. Quatre rendez-vous sur le chemin complet (fiche brief, trois premiers écrans, première version, livraison), chacun avec une proposition recommandée ; entre deux, jamais plus d'une dizaine d'actions sans rien montrer. Détail : `references/intake.md`, « Rythme ».
+
 ## 3. Chemin rapide
 
 1. Lire `DESIGN.md` et `PRODUCT.md` s'ils existent et les respecter. Une question au plus, seulement si un fait bloque.
@@ -52,7 +56,7 @@ Détail de chaque étape : `references/process.md`. Les étapes 1 à 8 se font a
 7. **Formuler l'idée** (« [une chose du sujet] devient [un procédé] », test du concurrent), la chose vivante, `DESIGN.md` ; **trois premiers écrans** comparés avec `scripts/explore.mjs`, un seul choisi.
 8. **Écrire tous les textes** avant le code ; titres de 2 lignes au plus à 320 px.
 9. **Construire sans mouvement** : tokens d'abord (couleurs, polices, échelle typographique, échelle d'espacement), puis hero, sections, visuels (sans photo : `references/visuals.md`, une ancre visuelle du sujet dans les deux premiers écrans), chose vivante.
-10. **Contrôler** : `check-tokens.mjs` (le code), `check-render.mjs --shots` (la page rendue : mots coupés, contraste, cibles, rythme, marges, textes provisoires), `npx impeccable detect`, performance ; puis la finition avec `references/finish.md`.
+10. **Contrôler** : `check-tokens.mjs` (le code), `check-render.mjs --shots` (la page rendue), `npx impeccable detect`, performance ; puis la finition (`references/finish.md`) et le contrôle UX des 30 lois (`references/ux-principles.md`).
 11. **Faire juger par un regard neuf** : grille de `references/critique.md`, axe Originalité et test du déjà-vu ; corriger, trois tours au plus.
 12. **Ajouter le mouvement**, réinspecter, livrer avec le rapport.
 
@@ -101,7 +105,7 @@ Chacun se lève avec une raison écrite liée à l'idée ou au brief. Tableau co
 | Mouvement, effets, vidéo en code | `references/motion-and-video.md` |
 | Performance par mode | `references/performance.md` |
 | Tics d'IA datés | `references/tells.md` |
-| Principes d'UX | `references/ux-principles.md` |
+| Les 30 lois de l'UX, appliquées, et le contrôle UX | `references/ux-principles.md` |
 | Sites modèles réels ; galeries, bibliothèques, licences | `references/site-models.md`, `references/resources.md` |
 | Critique par un regard neuf | `references/critique.md` |
 

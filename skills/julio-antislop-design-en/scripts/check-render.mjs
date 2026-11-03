@@ -49,7 +49,7 @@ for (const w of widths) {
   await page.waitForTimeout(400);
 
   const r = await page.evaluate(() => {
-    const out = { overflow: 0, broken: [], hyphenBreaks: [], contrast: [], tiny: [], targets: [], noAlt: 0, noName: [], headingSkips: [], gaps: [], lefts: [], placeholders: [], h1: 0, vh: innerHeight };
+    const out = { navLinks: 0, longForms: [], primaryCtas: 0, overflow: 0, broken: [], hyphenBreaks: [], contrast: [], tiny: [], targets: [], noAlt: 0, noName: [], headingSkips: [], gaps: [], lefts: [], placeholders: [], h1: 0, vh: innerHeight };
     out.overflow = document.documentElement.scrollWidth - innerWidth;
     const visible = (el) => { const s = getComputedStyle(el); if (s.visibility === "hidden" || s.display === "none" || +s.opacity === 0) return false; const b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0; };
     const label = (el) => (el.innerText || el.getAttribute("aria-label") || el.tagName).trim().replace(/\s+/g, " ").slice(0, 40);
@@ -109,6 +109,23 @@ for (const w of widths) {
       const ms = body.match(re); if (ms) out.placeholders.push(...[...new Set(ms)].slice(0, 4));
     }
 
+    // Lois de l'UX : Hick (navigation), Miller (formulaires), Von Restorff (actions principales au premier écran)
+    const nav = [...document.querySelectorAll("nav")].find((n) => visible(n));
+    if (nav) out.navLinks = [...nav.querySelectorAll("a[href], button")].filter(visible).length;
+    for (const f of document.querySelectorAll("form")) {
+      const fields = [...f.querySelectorAll("input:not([type=hidden]):not([type=submit]):not([type=button]), select, textarea")].filter((x) => visible(x) && x.getBoundingClientRect().width > 2);
+      const grouped = f.querySelectorAll("fieldset, [role=group], [data-step]").length > 1;
+      if (fields.length > 8 && !grouped) out.longForms.push(fields.length);
+    }
+    {
+      const btnBg = (el) => { const c = parse(getComputedStyle(el).backgroundColor); return c && c.a > 0.5 ? `${c.r},${c.g},${c.b}` : null; };
+      const fold = [...document.querySelectorAll("a[href], button")].filter((b) => visible(b) && b.getBoundingClientRect().top < innerHeight && b.getBoundingClientRect().height >= 32 && btnBg(b));
+      const pageBg = bgOf(document.body); const pb = pageBg ? `${Math.round(pageBg.r)},${Math.round(pageBg.g)},${Math.round(pageBg.b)}` : "";
+      const filled = new Set(fold.map((b) => btnBg(b)).filter((c) => c !== pb));
+      out.primaryCtas = fold.filter((b) => btnBg(b) !== pb).length;
+      out.ctaColors = filled.size;
+    }
+
     // Images, contrôles, titres
     for (const img of document.querySelectorAll("img")) if (!img.hasAttribute("alt") && visible(img)) out.noAlt++;
     for (const c of document.querySelectorAll("a[href], button, input:not([type=hidden]), select, textarea, [role=button]")) {
@@ -160,6 +177,9 @@ for (const w of widths) {
   if (w === widths[0]) {
     if (r.h1 !== 1) add("error", W, "h1", T(`${r.h1} titre(s) h1 visible(s) : il en faut un`, `${r.h1} visible h1: there must be exactly one`));
     if (r.headingSkips.length) add("warning", W, "niveaux-de-titres", T(`Sauts de niveau : ${r.headingSkips.join(" ; ")}`, `Heading level skips: ${r.headingSkips.join("; ")}`));
+    if (r.navLinks > 7) add("warning", W, "hick-navigation", T(`${r.navLinks} liens dans la navigation : 5 au plus en Persuader, 7 ailleurs (loi de Hick, ux-principles.md)`, `${r.navLinks} navigation links: 5 at most in Persuade, 7 elsewhere (Hick's law, ux-principles.md)`));
+    if (r.longForms.length) add("warning", W, "miller-formulaire", T(`Formulaire de ${r.longForms.join(", ")} champs sans groupes ni étapes : grouper par sens ou découper (loi de Miller, persuade.md §3 bis)`, `Form with ${r.longForms.join(", ")} fields and no groups or steps: group by meaning or split (Miller's law, persuade.md §3a)`));
+    if (r.ctaColors > 2) add("warning", W, "von-restorff", T(`${r.ctaColors} couleurs de boutons pleins au premier écran : une seule action principale doit ressortir (effet de Von Restorff)`, `${r.ctaColors} filled button colours in the first screen: one primary action should stand out (Von Restorff effect)`));
     if (r.placeholders.length) add("warning", W, "textes-provisoires", T(`Textes provisoires visibles, à remplacer ou à lister dans le rapport : ${[...new Set(r.placeholders)].join(", ")}`, `Visible placeholder text, replace or list in the report: ${[...new Set(r.placeholders)].join(", ")}`));
   }
   const gaps = r.gaps.filter((g) => g > 24);

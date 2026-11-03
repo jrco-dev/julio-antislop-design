@@ -29,9 +29,10 @@ Noter de 1 à 5. Une note sous 3 impose une révision avant de continuer.
 5. Le reste de la page tient-il la promesse du premier écran, ou retombe-t-il en blocs standard ?
 6. Test de l'étranger : la page aurait-elle pu sortir du même agent sans ce skill ?
 7. Test du concurrent : avec le nom d'un concurrent, la page fonctionnerait-elle encore ?
-8. Test du sujet sans texte : texte masqué, l'image du premier écran dit-elle de quoi il s'agit ?
-9. Le produit se voit-il, en vrai, dans les deux premiers écrans ? L'originalité ne compense jamais son absence.
-10. Test du déjà-vu : décrite en 12 mots, à quel style connu ressemble-t-elle ? Si un nom vient tout de suite, changer d'abord le levier de risque le plus visible.
+8. Lois de l'UX : une seule action principale ressort-elle (Hick, Von Restorff) ? Les groupes se lisent-ils sans le texte (proximité, région commune) ? L'action principale est-elle au pouce sur mobile (Fitts) ?
+9. Test du sujet sans texte : texte masqué, l'image du premier écran dit-elle de quoi il s'agit ?
+10. Le produit se voit-il, en vrai, dans les deux premiers écrans ? L'originalité ne compense jamais son absence.
+11. Test du déjà-vu : décrite en 12 mots, à quel style connu ressemble-t-elle ? Si un nom vient tout de suite, changer d'abord le levier de risque le plus visible.
 
 ## Format de la critique écrite
 
