@@ -2,7 +2,7 @@
 // roll.mjs — julio-antislop-design
 // Tire une direction hors de la moyenne : archétype, cartes de contrainte, stratégie de couleur,
 // ligne de polices, leviers de risque. Évite ce que les 3 dernières lignes du journal ont utilisé.
-// Usage : node scripts/roll.mjs --mode persuader|operer|lire|experience --brief "..." [--log direction-log.md] [--reroll] [--out .julio/roll.json] [--json]
+// Usage : node scripts/roll.mjs --mode persuader|operer|lire|experience --brief "..." [--log direction-log.md] [--reroll] [--out .julio/roll.json] [--lang fr|en] [--json]
 import { createHash, randomBytes } from "node:crypto";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
@@ -40,13 +40,29 @@ const COLORS = { P: [["Engagée : une couleur porte 30 à 60 % de la surface", 3
 const FONTLINES = { A: "Marquage", B: "Technique", C: "Humain", D: "Lecture", E: "Robuste", F: "Construit", G: "Énergie", H: "Écrit" };
 const LEVERS = ["Échelle extrême", "Couleur qui porte la page", "La matière du sujet comme structure", "La grille cassée exprès", "La typographie comme image", "L'interaction comme argument", "Un rythme inattendu", "Une image originale"];
 
+// Édition anglaise : --lang en, JULIO_LANG=en, ou script lancé depuis julio-antislop-design-en
+const LANG = (A("--lang") || process.env.JULIO_LANG || (import.meta.url.includes("julio-antislop-design-en") ? "en" : "fr")).startsWith("en") ? "en" : "fr";
+if (LANG === "en") {
+  const AN = ["The object page", "The instrument", "The single scale", "The sequence", "The index", "The poster", "The permanent split", "The map", "The timeline", "The collage", "The conversation", "The technical document", "The almanac", "The showcase", "Type only", "The feed", "The comparison", "The board game", "The handmade print", "The scene", "The specimen", "The workbench", "The archive", "The control room"];
+  ARCH.forEach((a, i) => { a[1] = AN[i]; });
+  const CN = ["One colour plus black (or white)", "No rounded rectangles, no cards", "One text size apart from the main heading", "The main content at the bottom of the first screen", "Navigation lives in the content (N18)", "Nothing is centred", "The background colour changes with each section", "The subject's figures are the display type", "One single image, cropped several ways", "A texture taken from the subject's real material", "Two typefaces of opposite structure", "An asymmetric grid (5 or 7 columns)", "The main heading is wider than half the screen", "The interaction is the first screen", "Borrow the visual vocabulary of another trade: ", "Text reads along two axes, for one moment of the page"];
+  CN.forEach((c, i) => { CARDS[i] = c; });
+  const TN = ["railway signage", "pharmacy", "cartography", "sheet music", "assembly instructions", "theatre programme", "weather bulletin", "till receipt", "playing card", "laboratory label"];
+  TN.forEach((t, i) => { TRADES[i] = t; });
+  const CC = { "Engagée : une couleur porte 30 à 60 % de la surface": "Committed: one colour carries 30 to 60% of the surface", "Aplats francs, une couleur par section": "Flat fields, one colour per section", "Saturée : la page est la couleur": "Drenched: the page is the colour", "Palette complète : 3 ou 4 rôles nommés": "Full palette: 3 or 4 named roles", "Retenue : neutres et un accent": "Restrained: neutrals and one accent", "Engagée sur une zone (navigation ou en-tête)": "Committed on one zone (navigation or header)", "Palette de données : 4 à 6 couleurs de séries": "Data palette: 4 to 6 series colours", "Engagée : une couleur porte titres et liens": "Committed: one colour carries headings and links", "Aplats par chapitre": "Flat fields per chapter", "Monochrome extrême": "Extreme monochrome", "Palette de l'œuvre": "The work's own palette" };
+  for (const k of Object.keys(COLORS)) COLORS[k] = COLORS[k].map(([v, w]) => [CC[v] || v, w]);
+  Object.assign(FONTLINES, { A: "Marking", B: "Technical", C: "Human", D: "Reading", E: "Sturdy", F: "Built", G: "Energy", H: "Written" });
+  const LN = ["Extreme scale", "Colour carries the page", "The subject's material as structure", "The grid broken on purpose", "Type as image", "The interaction as the argument", "An unexpected rhythm", "An original image"];
+  LN.forEach((l, i) => { LEVERS[i] = l; });
+}
+
 // Ce que le journal a déjà utilisé (3 dernières lignes de données)
 let recent = "";
 if (existsSync(logPath)) {
   const rows = readFileSync(logPath, "utf8").split("\n").filter((l) => /^\|/.test(l) && !/^\|\s*-/.test(l) && !/Date\s*\|/.test(l) && l.replace(/[|\s]/g, ""));
   recent = rows.slice(0, 3).join(" ").toLowerCase();
 }
-const usedArch = new Set(ARCH.filter(([id, name]) => recent.includes(id.toLowerCase() + " ") || recent.includes(name.toLowerCase())).map(([id]) => id));
+const usedArch = new Set(ARCH.filter(([id, name]) => recent.includes(id.toLowerCase() + " ") || recent.includes(id.toLowerCase() + "|") || recent.includes(id.toLowerCase() + " ") || recent.includes(name.toLowerCase())).map(([id]) => id));
 
 // Graine : le brief et un sel aléatoire (un tirage par run), enregistrée pour être rejouée
 const prev = existsSync(out) ? JSON.parse(readFileSync(out, "utf8")) : null;
@@ -70,6 +86,15 @@ const result = { date: new Date().toISOString().slice(0, 10), mode: M, salt, arc
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, JSON.stringify(result, null, 2));
 if (has("--json")) console.log(JSON.stringify(result, null, 2));
+else if (LANG === "en") console.log(`ROLL (${result.date}, mode ${M}, seed ${salt}${result.rerolled ? ", reroll" : ""})
+Archetype: ${result.archetype}   → originality.md §3
+Cards (keep at least one):
+  - ${cards.join("\n  - ")}
+Colour: ${color}
+Fonts: line ${result.fontLine} of font-catalog.md
+Risk levers: ${levers.join("; ")}
+${usedArch.size ? "Excluded as recent in the log: " + [...usedArch].join(", ") + "\n" : ""}Build the direction WITH this roll. Reroll (--reroll) only for a factual reason, recorded in the report.
+Written to ${out}`);
 else console.log(`TIRAGE (${result.date}, mode ${M}, graine ${salt}${result.rerolled ? ", re-tirage" : ""})
 Archétype : ${result.archetype}   → originality.md §3
 Cartes (en garder au moins une) :

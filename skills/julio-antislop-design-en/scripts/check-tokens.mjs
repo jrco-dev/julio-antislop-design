@@ -23,6 +23,8 @@ const SPACE_PROPS = /^(margin|padding|gap|row-gap|column-gap|inset|grid-gap|grid
 const LENGTH = /(-?\d*\.?\d+)(px|rem|em|vw|vh|svh|dvh|lvh|ch|ex|vmin|vmax|cqi|cqw|%)\b/;
 
 const args = process.argv.slice(2);
+const langArg = args.indexOf("--lang") > -1 ? args[args.indexOf("--lang") + 1] : (process.env.JULIO_LANG || (import.meta.url.includes("julio-antislop-design-en") ? "en" : "fr"));
+const T = (fr, en) => (String(langArg).startsWith("en") ? en : fr);
 const allow = new Set();
 const targets = [];
 let json = false;
@@ -31,10 +33,12 @@ for (let i = 0; i < args.length; i++) {
   if (args[i] === "--allow-font") allow.add(args[++i].toLowerCase());
   else if (args[i] === "--mode") mode = args[++i];
   else if (args[i] === "--json") json = true;
+  else if (args[i] === "--lang") i++;
+  else if (args[i] === "--allow-eyebrow") {}
   else targets.push(args[i]);
 }
 if (!targets.length) {
-  console.error('Usage : node check-tokens.mjs <fichier|dossier>... [--allow-font "Nom"] [--json]');
+  console.error(T('Usage : node check-tokens.mjs <fichier|dossier>... [--allow-font "Nom"] [--mode persuade|operate|read|experience] [--allow-eyebrow] [--lang fr|en] [--json]', 'Usage: node check-tokens.mjs <file|folder>... [--allow-font "Name"] [--mode persuade|operate|read|experience] [--allow-eyebrow] [--lang fr|en] [--json]'));
   process.exit(2);
 }
 
@@ -75,12 +79,12 @@ for (const file of files) {
   // Eyebrow : court texte posé juste au-dessus d'un titre, ou capitales espacées (tells.md, vague 2)
   if (ext !== ".css") {
     for (const m of src.matchAll(/<(p|span|div|small|strong)\b[^>]*>([^<]{1,48})<\/\1>\s*<h[1-3]\b/gi))
-      add(process.argv.includes("--allow-eyebrow") ? "warning" : "error", file, lineAt(m.index), "eyebrow", `« ${m[2].trim()} » juste au-dessus d'un titre : intégrer au titre ou supprimer (défaut le plus fort)`);
+      add(process.argv.includes("--allow-eyebrow") ? "warning" : "error", file, lineAt(m.index), "eyebrow", T(`« ${m[2].trim()} » juste au-dessus d'un titre : intégrer au titre ou supprimer (défaut le plus fort)`, `"${m[2].trim()}" sits right above a heading (eyebrow): merge it into the heading or remove it (strongest default)`));
   }
   for (const m of src.matchAll(/\{[^{}]*text-transform\s*:\s*uppercase[^{}]*letter-spacing\s*:\s*(0?\.\d+|\d+(\.\d+)?)(em|rem|px)[^{}]*\}|\{[^{}]*letter-spacing\s*:\s*(0?\.\d+|\d+(\.\d+)?)(em|rem|px)[^{}]*text-transform\s*:\s*uppercase[^{}]*\}/gi)) {
     const v = parseFloat(m[1] || m[4]), u = m[3] || m[6];
     if ((u === "em" && v >= 0.05) || (u === "px" && v >= 1) || (u === "rem" && v >= 0.05))
-      add("warning", file, lineAt(m.index), "capitales-espacees", "Capitales espacées : label en capitales et interlettrage large (tells.md, vague 2)");
+      add("warning", file, lineAt(m.index), "capitales-espacees", T("Capitales espacées : label en capitales et interlettrage large (tells.md, vague 2)", "Tracked caps: uppercase label with wide letter-spacing (tells.md, wave 2)"));
   }
 
   for (const { css, offset, inline } of chunks) {
@@ -96,14 +100,14 @@ for (const file of files) {
       if (prop === "font-size") {
         for (const v of value.matchAll(/var\((--[a-z0-9-]+)/gi)) sizeTokensUsed.set(v[1], (sizeTokensUsed.get(v[1]) || 0) + 1);
         if (LENGTH.test(rest) || /\b(small|medium|large|x-large|xx-large|larger|smaller)\b/.test(rest))
-          add("error", file, line, "taille-hors-token", `font-size: ${value} — utiliser un cran de l'échelle (var(--step-n))`);
+          add("error", file, line, "taille-hors-token", T(`font-size: ${value} — utiliser un cran de l'échelle (var(--step-n))`, `font-size: ${value} — use a step of the scale (var(--step-n))`));
       } else if (SPACE_PROPS.test(prop)) {
         const raw = rest.split(/\s+/).filter((t) => LENGTH.test(t) && !/^-?0+(\.0+)?[a-z%]*$/.test(t));
-        if (raw.length) add("error", file, line, "espace-hors-token", `${prop}: ${value} — utiliser l'échelle d'espacement (var(--space-*) ou un token de rôle)`);
+        if (raw.length) add("error", file, line, "espace-hors-token", T(`${prop}: ${value} — utiliser l'échelle d'espacement (var(--space-*) ou un token de rôle)`, `${prop}: ${value} — use the spacing scale (var(--space-*) or a role token)`));
       } else if (prop === "font-family" && !inline) {
-        if (!/var\(/.test(value)) add("error", file, line, "police-hors-token", `font-family: ${value} — déclarer la police dans un token`);
+        if (!/var\(/.test(value)) add("error", file, line, "police-hors-token", T(`font-family: ${value} — déclarer la police dans un token`, `font-family: ${value} — declare the font in a token`));
       } else if (prop === "font") {
-        if (LENGTH.test(rest)) add("error", file, line, "taille-hors-token", `font: ${value} — taille et police via tokens`);
+        if (LENGTH.test(rest)) add("error", file, line, "taille-hors-token", T(`font: ${value} — taille et police via tokens`, `font: ${value} — size and family through tokens`));
       }
     }
   }
@@ -120,7 +124,7 @@ for (const [name, value] of tokenDefs) {
 for (const [fam, file] of fontsLoaded) {
   const hit = REFLEX_FONTS.find((r) => r.toLowerCase() === fam.toLowerCase());
   if (hit && !allow.has(fam.toLowerCase()))
-    add(["operate", "read"].includes(mode) ? "warning" : "error", file, 0, "police-reflexe", `« ${fam} » est une police réflexe (typography.md §1). La remplacer par une police tirée du sujet, ou la garder pour raison de marque avec --allow-font "${fam}" et la noter comme défaut levé`);
+    add(["operate", "read"].includes(mode) ? "warning" : "error", file, 0, "police-reflexe", T(`« ${fam} » est une police réflexe (typography.md §1). La remplacer par une police tirée du sujet, ou la garder pour raison de marque avec --allow-font "${fam}" et la noter comme défaut levé`, `"${fam}" is a reflex font (typography.md §1). Replace it with a face drawn from the subject, or keep it for a brand reason with --allow-font "${fam}" and record it as a lifted default`));
 }
 
 // Échelle : nombre de crans et écarts
@@ -141,22 +145,23 @@ const evalLen = (v, vw) => {
 };
 // Les petites échelles locales (faux UI, texte de dessin SVG) ne comptent pas dans l'échelle de la page.
 const used = [...sizeTokensUsed.keys()].filter((n) => !/^--(ui|svg)-/.test(n));
-if (used.length > 5) add("warning", "page", 0, "trop-de-crans", `${used.length} tailles utilisées (${used.join(", ")}) — 5 au plus`);
+if (used.length > 5) add("warning", "page", 0, "trop-de-crans", T(`${used.length} tailles utilisées (${used.join(", ")}) — 5 au plus`, `${used.length} sizes used (${used.join(", ")}) — 5 at most`));
 for (const vw of [390, 1440]) {
   const sizes = used.map((n) => ({ n, px: tokenDefs.has(n) ? evalLen(tokenDefs.get(n), vw) : null })).filter((s) => s.px != null).sort((a, b) => a.px - b.px);
   for (let i = 1; i < sizes.length; i++) {
     const r = sizes[i].px / sizes[i - 1].px;
-    if (r < 1.15) add("warning", "page", 0, "tailles-trop-proches", `À ${vw} px, ${sizes[i - 1].n} (${sizes[i - 1].px.toFixed(1)} px) et ${sizes[i].n} (${sizes[i].px.toFixed(1)} px) ont un rapport de ${r.toFixed(2)} — sauter un cran`);
+    if (r < 1.15) add("warning", "page", 0, "tailles-trop-proches", T(`À ${vw} px, ${sizes[i - 1].n} (${sizes[i - 1].px.toFixed(1)} px) et ${sizes[i].n} (${sizes[i].px.toFixed(1)} px) ont un rapport de ${r.toFixed(2)} — sauter un cran`, `At ${vw} px, ${sizes[i - 1].n} (${sizes[i - 1].px.toFixed(1)} px) and ${sizes[i].n} (${sizes[i].px.toFixed(1)} px) have a ratio of ${r.toFixed(2)} — skip a step`));
   }
 }
 
+process.exitCode = issues.some((i) => i.level === "error") ? 1 : 0;
 if (json) { console.log(JSON.stringify(issues, null, 2)); }
 else {
   const errors = issues.filter((i) => i.level === "error");
   const byRule = {};
   for (const i of issues) byRule[i.rule] = (byRule[i.rule] || 0) + 1;
   for (const i of issues) console.log(`${i.level === "error" ? "✗" : "!"} ${i.file}${i.line ? ":" + i.line : ""}  [${i.rule}]  ${i.msg}`);
-  console.log(`\n${files.length} fichier(s) · polices : ${[...fontsLoaded.keys()].join(", ") || "aucune détectée"} · crans de texte utilisés : ${used.length}`);
-  console.log(Object.keys(byRule).length ? `Résumé : ${Object.entries(byRule).map(([k, v]) => `${k} ${v}`).join(" · ")}` : "Aucun signalement.");
+  console.log(T(`\n${files.length} fichier(s) · polices : ${[...fontsLoaded.keys()].join(", ") || "aucune détectée"} · crans de texte utilisés : ${used.length}`, `\n${files.length} file(s) · fonts: ${[...fontsLoaded.keys()].join(", ") || "none detected"} · type steps used: ${used.length}`));
+  console.log(Object.keys(byRule).length ? T("Résumé : ", "Summary: ") + Object.entries(byRule).map(([k, v]) => `${k} ${v}`).join(" · ") : T("Aucun signalement.", "Nothing flagged."));
   process.exitCode = errors.length ? 1 : 0;
 }

@@ -1,0 +1,3 @@
+# Brief A — Lavanila (le brief du premier test, pour comparer)
+
+Landing page pour Lavanila, une coopérative de 42 familles de producteurs de vanille à Antalaha (région SAVA, nord-est de Madagascar). Elle vend des gousses de vanille Bourbon gourmet (16 à 18 cm, 30 à 35 % d'humidité) directement aux pâtissiers et aux restaurants en Europe, par lots de 250 g et de 1 kg. Prix : 250 g à 89 €, 1 kg à 320 €, livraison DHL en 4 à 6 jours ouvrés. Une seule récolte par an (juin-juillet), puis 6 mois d'affinage à l'ombre ; chaque lot est numéroté et porte le nom de la famille qui l'a préparé. Action visée : commander un échantillon de 3 gousses à 12 €. Ton souhaité : chaud et exact. Aucune photo fournie. Aucun avis client fourni. Langue de la page : français.

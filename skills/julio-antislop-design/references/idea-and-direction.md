@@ -73,6 +73,8 @@ Une seule chose que le visiteur peut faire, ou qui change à chaque visite, tir�
 3. De vraies images du monde du sujet dans des collections ouvertes (Openverse, Wikimedia Commons, musées), sous licence permettant l'usage commercial, téléchargées dans le projet et créditées. Chercher l'inventaire, pas la catégorie : la rue en cartes postales anciennes, une carte ancienne du quartier, la matière en gros plan, un objet de musée de son genre. Une image trouvée montre le monde autour du client, jamais son produit, sa salle ou son équipe.
 4. Des dessins en code d'objets du sujet, dans un langage graphique plat unique et les vraies couleurs de la palette, pour ce dont aucune image honnête n'existe. Jamais de « photo » imitée en SVG ou CSS, jamais d'illustration décorative.
 
+Registres classés d'après les notes obtenues et test du sujet sans texte : `visuals.md`.
+
 **Produit physique sans photo ni rendu.** C'est le cas le plus risqué : un objet dessiné en quelques formes plates ressemble à un pictogramme ou à autre chose (test du 3 novembre 2026 : une enceinte en verre lue comme un thermomètre par le juge). Dans l'ordre :
 
 - Demander au cadrage des photos ou des rendus 3D du produit ; c'est la matière qui décide le plus de la page.

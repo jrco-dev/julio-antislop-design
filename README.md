@@ -9,7 +9,7 @@ Une page faite par un modèle ressemble à la moyenne de toutes les pages qu'il 
 
 Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible [Agent Skills](https://agentskills.io). Deux éditions : **française** (`julio-antislop-design`) et **anglaise** (`julio-antislop-design-en`), mêmes règles et mêmes scripts.
 
-**Score actuel : 6,8 sur 10** sur 5 briefs jugés à l'aveugle ([détail](evals/README.md)). Honnêteté 8,8 ; visuels sans photo 5,4, le prochain chantier.
+**Score : 6,8 sur 10** en version 0.24, sur 5 briefs jugés à l’aveugle ([détail](evals/README.md)). Honnêteté 8,8 ; visuels sans photo 5,4, chantier de la 0.25.
 
 ---
 
@@ -75,6 +75,7 @@ Le test « style Apple + verre » (0.19) : registre 7/10, mais un produit dessin
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.25 | 3 nov. 2026 | `check-render.mjs` contrôle la page rendue (mots coupés, contraste, cibles, rythme des sections, marges, textes provisoires) ; `visuals.md` (visuels sans photo classés d'après les notes, test du sujet sans texte) ; `finish.md` (défauts de finition et leurs contrôles) ; scripts bilingues ; tests automatiques et intégration continue ; kit de comparaison dans `benchmark/` ; `CHANGELOG.md` |
 | 0.24 | 3 nov. 2026 | Plus léger : `SKILL.md` de 9 Ko avec un **chemin rapide** pour les petites demandes, le détail dans `process.md` ; **édition anglaise** complète ; **évaluation** sur 5 briefs (6,8/10) publiée dans `evals/` ; « l'originalité ne remplace jamais la preuve » ; `check-tokens` détecte les eyebrows ; modèles de tickets, guide de contribution, revue trimestrielle automatique ; page d'accueil du projet dans `docs/`, faite avec le skill |
 | 0.23 | 3 nov. 2026 | Originalité : `originality.md` (24 archétypes de composition, 16 cartes de contrainte, 8 leviers de risque, test du déjà-vu, vague 5 « clean anti-slop ») ; `roll.mjs` tire la direction au lieu de laisser l'agent prendre son premier choix ; `board.mjs` capture les sites de référence pour les voir ; `explore.mjs` compare trois premiers écrans avant de construire la page ; axe Originalité éliminatoire dans la critique ; audit du contenu creux en refonte |
 | 0.22 | 3 nov. 2026 | Cadrage en une fois : un tour Goût ajouté (caractère, lumière et couleur, polices, densité, formes, images, mouvement, références aimées et rejets) qui remplit `DESIGN.md` avant le code ; 12 questions au plus, puis plus d'aller-retour ; seule une délégation explicite (« carte blanche ») dispense de ce tour |
@@ -194,6 +195,7 @@ Le skill fonctionne seul, mais ses contrôles sont meilleurs avec :
 | Outil | Rôle | Installation |
 | --- | --- | --- |
 | `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ou trop serrée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` ; `--mode operate` en app, `--allow-font "Nom"` pour une police de marque |
+| `scripts/check-render.mjs` (inclus) | La page rendue : défilement, mots coupés, contraste, texte minuscule, cibles, alt, titres, rythme des sections, marges, textes provisoires ; captures | `node scripts/check-render.mjs index.html --widths 390,1440 --shots .julio/shots` (Playwright) |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Détecteur de tics et de défauts, sans LLM | `npx impeccable detect <fichier ou URL>` |
 | `scripts/roll.mjs` (inclus) | Tire la direction : archétype, cartes de contrainte, couleur, polices, risques ; Node seul | `node scripts/roll.mjs --mode persuader --brief "…"` |
 | `scripts/board.mjs`, `scripts/explore.mjs` (inclus) | Planche des sites de référence ; comparaison de trois premiers écrans | `npm i -D playwright && npx playwright install chromium` |
@@ -211,6 +213,9 @@ skills/julio-antislop-design/
 │   ├── intake.md                cadrage : questions, matière, fiche brief
 │   ├── defaults-by-mode.md      règles anti-slop par mode
 │   ├── idea-and-direction.md    inventaire, argument, directions, images
+│   ├── visuals.md               visuels sans photo, classés d'après les notes obtenues
+│   ├── finish.md                finition : défauts relevés par les juges et contrôles
+│   ├── process.md               les 12 étapes en détail, livraison, rapport
 │   ├── originality.md           tirage, 24 archétypes, contraintes, risques, test du déjà-vu
 │   ├── persuade.md              landing pages, hero, illustration produit, bento
 │   ├── nav-footer.md            18 modèles de navigation, 15 de pied de page
@@ -229,7 +234,8 @@ skills/julio-antislop-design/
 │   ├── resources.md             galeries, bibliothèques, outils, licences
 │   └── critique.md              grille de critique sur 6 axes
 ├── scripts/
-│   ├── check-tokens.mjs         contrôle : tailles, espacements, polices hors tokens, polices réflexes
+│   ├── check-tokens.mjs         contrôle du code : tokens, polices réflexes, eyebrows
+│   ├── check-render.mjs         contrôle de la page rendue : mots coupés, contraste, rythme, marges
 │   ├── roll.mjs                 tirage de la direction (archétype, contraintes, couleur, polices, risques)
 │   ├── board.mjs                capture des sites de référence en planche
 │   └── explore.mjs              comparaison de trois premiers écrans
@@ -238,6 +244,8 @@ skills/julio-antislop-design/
 └── LICENSE
 skills/julio-antislop-design-en/  édition anglaise, même structure
 evals/                            5 briefs, consigne du juge, scores par version
+benchmark/                        kit de comparaison à l'aveugle avec d'autres skills
+tests/, tools/                    tests des scripts et de la structure (npm test), empaquetage
 docs/                             page d'accueil du projet, exemples, revue trimestrielle
 .github/                          formulaires d'issue, revue trimestrielle automatique
 ```
@@ -275,7 +283,7 @@ Oui. Le skill dit quoi décider ; le code suit votre stack.
 
 ## Contribuer
 
-Le slop change vite : une communauté le suit mieux qu'une seule personne. Trois formulaires d'issue sont prêts : **page qui fait IA** (le plus utile : le brief exact, l'agent, des captures), **nouveau tic repéré** (deux exemples sans lien), **site modèle à ajouter** (la qualité précise à emprunter). Règles et hiérarchie des sources : [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Le slop change vite : une communauté le suit mieux qu'une seule personne. Trois formulaires d'issue sont prêts : **page qui fait IA** (le plus utile : le brief exact, l'agent, des captures), **nouveau tic repéré** (deux exemples sans lien), **site modèle à ajouter** (la qualité précise à emprunter). Règles et hiérarchie des sources : [`CONTRIBUTING.md`](CONTRIBUTING.md). Avant une pull request : `npm install && npx playwright install chromium && npm test`. Historique : [`CHANGELOG.md`](CHANGELOG.md).
 
 Chaque trimestre, une issue « Revue trimestrielle » s'ouvre automatiquement pour mettre à jour les tics, les polices réflexes, les sites modèles et les scores ([procédure](docs/quarterly-review.md)).
 

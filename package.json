@@ -1,0 +1,15 @@
+{
+  "name": "julio-antislop-design",
+  "version": "0.25.0",
+  "private": true,
+  "description": "Agent skill for interfaces that look designed, not generated (French and English editions).",
+  "license": "MIT",
+  "author": "Jimmy Julio",
+  "type": "module",
+  "engines": { "node": ">=20.11" },
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "package": "python3 tools/package.py"
+  },
+  "devDependencies": { "playwright": "^1.48.0" }
+}

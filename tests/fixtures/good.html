@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atelier test</title>
+<style>
+:root{
+  --bg: #f4f1ea; --ink: #1d1b18; --ink-2: #4a463f; --accent: #8a2c12; --accent-ink: #fff;
+  --font-display: "Rokkitt", Georgia, serif; --font-text: "Bitter", Georgia, serif;
+  --step-0: clamp(1.0625rem, 1.0208rem + 0.1852vw, 1.1875rem);
+  --step-2: clamp(1.53rem, 1.3366rem + 0.8593vw, 2.1101rem);
+  --step-5: clamp(2.6438rem, 1.8592rem + 3.4874vw, 4.9979rem);
+  --space-s: 1rem; --space-m: 1.5rem; --space-xl: 3rem; --space-section: clamp(6rem, 4rem + 8.8889vw, 12rem);
+  --gutter: clamp(1rem, 0.4rem + 2.6667vw, 3rem);
+}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-text);font-size:var(--step-0);line-height:1.55}
+main{max-width:70rem;margin-inline:auto;padding-inline:var(--gutter)}
+h1,h2{font-family:var(--font-display);margin:0}
+h1{font-size:var(--step-5);line-height:1}
+h2{font-size:var(--step-2)}
+section{padding-block:var(--space-section) 0}
+p{margin:var(--space-m) 0 0;max-width:60ch;color:var(--ink-2)}
+a.btn{display:inline-block;margin-top:var(--space-m);padding:var(--space-s) var(--space-m);background:var(--accent);color:var(--accent-ink);text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<section><h1>Réparer son vélo</h1><p>Révision complète en quarante-huit heures, à Lyon.</p><a class="btn" href="#rdv">Réserver une révision</a></section>
+<section><h2>Les tarifs</h2><p>Révision complète, réglage des freins, accès à l'atelier.</p></section>
+<section id="rdv"><h2>Réserver</h2><p>Du mardi au samedi, de neuf heures à dix-neuf heures.</p></section>
+<section><h2>Nous trouver</h2><p>Quatorze rue de Marseille, septième arrondissement.</p></section>
+</main>
+</body>
+</html>

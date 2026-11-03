@@ -7,13 +7,15 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
+const LANG = (process.argv.includes("--lang") ? process.argv[process.argv.indexOf("--lang") + 1] : (process.env.JULIO_LANG || (import.meta.url.includes("julio-antislop-design-en") ? "en" : "fr"))).startsWith("en") ? "en" : "fr";
+const T = (fr, en) => (LANG === "en" ? en : fr);
 let chromium;
-try { ({ chromium } = await import("playwright")); } catch { console.error("Playwright introuvable : npm i -D playwright && npx playwright install chromium"); process.exit(2); }
+try { ({ chromium } = await import("playwright")); } catch { console.error(T("Playwright introuvable : npm i -D playwright && npx playwright install chromium", "Playwright not found: npm i -D playwright && npx playwright install chromium")); process.exit(2); }
 const args = process.argv.slice(2);
 const oi = args.indexOf("--out");
 const out = resolve(oi > -1 ? args[oi + 1] : ".julio/board");
 const urls = args.filter((a, i) => a.startsWith("http") && args[i - 1] !== "--out");
-if (!urls.length) { console.error("Usage : node scripts/board.mjs <url>... [--out dossier]"); process.exit(2); }
+if (!urls.length) { console.error(T("Usage : node scripts/board.mjs <url>... [--out dossier] [--lang fr|en]", "Usage: node scripts/board.mjs <url>... [--out folder] [--lang fr|en]")); process.exit(2); }
 mkdirSync(out, { recursive: true });
 
 const browser = await chromium.launch();
@@ -44,4 +46,5 @@ await p.waitForTimeout(500);
 await p.screenshot({ path: join(out, "board.png"), fullPage: true });
 await browser.close();
 writeFileSync(join(out, "board.json"), JSON.stringify(shots, null, 2));
-console.log(`Planche : ${join(out, "board.png")} (la regarder avant d'écrire les directions)`);
+console.log(T(`Planche : ${join(out, "board.png")} (la regarder avant d'écrire les directions)`, `Board: ${join(out, "board.png")} (look at it before writing the directions)`));
+if (!shots.some((s) => s.ok)) { console.log(T("Aucun site capturé : pas d'accès réseau ? Le dire dans le rapport.", "No site captured: no network access? Say so in the report.")); process.exitCode = 1; }

@@ -29,8 +29,9 @@ Score from 1 to 5. A score below 3 requires a revision before continuing.
 5. Does the rest of the page keep the promise of the first screen, or does it fall back into standard blocks?
 6. Stranger test: could the page have come out of the same agent without this skill?
 7. Competitor test: with a competitor's name, would the page still work?
-8. Is the product visible, for real, in the first two screens? Originality never makes up for its absence.
-9. Déjà-vu test: described in 12 words, which known style does it look like? If a name comes to mind immediately, first change the most visible risk lever.
+8. Subject-without-text test: with the text masked, does the image of the first screen say what it is about?
+9. Is the product visible, for real, in the first two screens? Originality never makes up for its absence.
+10. Déjà-vu test: described in 12 words, which known style does it look like? If a name comes to mind immediately, first change the most visible risk lever.
 
 ## Format of the written critique
 

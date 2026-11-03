@@ -1,0 +1,12 @@
+{
+  "name": "julio-antislop-benchmark-kit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "shoot": "node scripts/shoot.mjs",
+    "blind": "node scripts/blind.mjs",
+    "metrics": "node scripts/metrics.mjs",
+    "reveal": "node scripts/reveal.mjs"
+  },
+  "devDependencies": { "playwright": "^1.48.0" }
+}

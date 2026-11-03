@@ -10,7 +10,7 @@ English edition. The French original is `julio-antislop-design`; both share the 
 
 A generated page looks like the average of every page ever seen: nothing in it is wrong, nothing in it was decided. This skill replaces defaults with decisions: **the idea comes from the subject**, **the direction comes from real references and a roll away from the average**, **a floor protects** accessibility, honesty and performance, and **you look** at what you made before delivering. Removing the tells is not enough: a clean, empty page is a tell too (`references/originality.md`).
 
-Note: the scripts in `scripts/` print their output in French; read it as is. `--mode` takes the French values `persuader`, `operer`, `lire`, `experience` (the English `persuade`, `operate`, `read` also work).
+Note: `--mode` takes `persuade`, `operate`, `read` or `experience` (the French values `persuader`, `operer`, `lire` also work).
 
 ## 1. Choose the path
 
@@ -38,7 +38,7 @@ Two surfaces in one request: each in its own mode, with shared palette and typog
 
 1. Read `DESIGN.md` and `PRODUCT.md` if they exist and follow them. One question at most, only if a fact is blocking.
 2. Apply the floor (§5) and the mode defaults (`references/defaults-by-mode.md`); everything goes through the existing tokens, or a small declared scale if there are none.
-3. `node scripts/check-tokens.mjs <file>` at zero errors; one screenshot looked at at 390 and 1440 px.
+3. `node scripts/check-tokens.mjs <file>` and `node scripts/check-render.mjs <file>` at zero errors; the screenshots looked at at 390 and 1440 px.
 4. Three-line report: what changed, checks passed, what could not run.
 
 No full intake, no roll, no three heroes. If the request grows (a whole page), switch to the full path.
@@ -55,8 +55,8 @@ Detail of each step: `references/process.md`. Steps 1 to 8 happen before any cod
 6. **Roll the direction**: `node scripts/roll.mjs --mode <mode> --brief "…" --log direction-log.md` (archetype, cards, color, fonts, risks), then 5 directions, the 2 most likely discarded. `references/originality.md`.
 7. **State the idea** ("[a thing from the subject] becomes [a device]", competitor test), the living thing, `DESIGN.md`; **three first screens** compared with `scripts/explore.mjs`, only one chosen.
 8. **Write all the copy** before the code; headlines of 2 lines at most at 320 px.
-9. **Build without motion**: tokens first (colors, fonts, type scale, spacing scale), then hero, sections, images, living thing.
-10. **Check**: `check-tokens.mjs`, `npx impeccable detect`, screenshots at 390, 768, 1440 and 1920 px, performance.
+9. **Build without motion**: tokens first (colors, fonts, type scale, spacing scale), then hero, sections, visuals (without photos: `references/visuals.md`, a visual anchor of the subject in the first two screens), living thing.
+10. **Check**: `check-tokens.mjs` (the code), `check-render.mjs --shots` (the rendered page: broken words, contrast, targets, rhythm, margins, placeholder text), `npx impeccable detect`, performance; then the finish with `references/finish.md`.
 11. **Get a fresh pair of eyes to judge**: grid in `references/critique.md`, Originality axis and déjà-vu test; fix, three rounds at most.
 12. **Add motion**, re-inspect, deliver with the report.
 
@@ -91,6 +91,8 @@ Each one is lifted with a written reason tied to the idea or the brief. Full tab
 | Intake: questions, taste, material, brief sheet | `references/intake.md` |
 | Rules per mode | `references/defaults-by-mode.md` |
 | Inventory, idea, images, product without photos | `references/idea-and-direction.md` |
+| Visuals without photos, ranked by score obtained; subject-without-text test | `references/visuals.md` |
+| Finish: defects spotted by the judges and their checks | `references/finish.md` |
 | Roll, archetypes, constraints, risks, three heroes, déjà-vu | `references/originality.md` |
 | Landing, hero, forms, glass, product illustration, bento | `references/persuade.md` |
 | Navigation and footer (18 + 15 patterns) | `references/nav-footer.md` |
@@ -111,4 +113,4 @@ Load only what the task needs.
 
 ## 8. Deliver
 
-Do not deliver until the floor, `check-tokens.mjs`, the detector, the screenshots, the critique (Originality at least 4 out of 5, no known style named in the déjà-vu test) and the direction log have all passed. Full checklist and report format: `references/process.md`. Never claim a check that did not run.
+Do not deliver until the floor, `check-tokens.mjs`, `check-render.mjs`, the detector, the screenshots, the critique (Originality at least 4 out of 5, no known style named in the déjà-vu test) and the direction log have all passed. Full checklist and report format: `references/process.md`. Never claim a check that did not run.

@@ -34,7 +34,7 @@ Deux surfaces dans une demande : chacune dans son mode, palette et typographie p
 
 1. Lire `DESIGN.md` et `PRODUCT.md` s'ils existent et les respecter. Une question au plus, seulement si un fait bloque.
 2. Appliquer le plancher (§5) et les défauts du mode (`references/defaults-by-mode.md`) ; tout passe par les tokens existants, ou une petite échelle déclarée s'il n'y en a pas.
-3. `node scripts/check-tokens.mjs <fichier>` à zéro erreur ; une capture regardée à 390 et 1440 px.
+3. `node scripts/check-tokens.mjs <fichier>` et `node scripts/check-render.mjs <fichier>` à zéro erreur ; les captures regardées à 390 et 1440 px.
 4. Rapport en 3 lignes : ce qui a changé, contrôles passés, ce qui n'a pas pu tourner.
 
 Pas de cadrage complet, pas de tirage, pas de trois heroes. Si la demande grandit (une page entière), passer au chemin complet.
@@ -51,8 +51,8 @@ Détail de chaque étape : `references/process.md`. Les étapes 1 à 8 se font a
 6. **Tirer la direction** : `node scripts/roll.mjs --mode <mode> --brief "…" --log direction-log.md` (archétype, cartes, couleur, polices, risques), puis 5 directions, les 2 plus probables écartées. `references/originality.md`.
 7. **Formuler l'idée** (« [une chose du sujet] devient [un procédé] », test du concurrent), la chose vivante, `DESIGN.md` ; **trois premiers écrans** comparés avec `scripts/explore.mjs`, un seul choisi.
 8. **Écrire tous les textes** avant le code ; titres de 2 lignes au plus à 320 px.
-9. **Construire sans mouvement** : tokens d'abord (couleurs, polices, échelle typographique, échelle d'espacement), puis hero, sections, images, chose vivante.
-10. **Contrôler** : `check-tokens.mjs`, `npx impeccable detect`, captures à 390, 768, 1440 et 1920 px, performance.
+9. **Construire sans mouvement** : tokens d'abord (couleurs, polices, échelle typographique, échelle d'espacement), puis hero, sections, visuels (sans photo : `references/visuals.md`, une ancre visuelle du sujet dans les deux premiers écrans), chose vivante.
+10. **Contrôler** : `check-tokens.mjs` (le code), `check-render.mjs --shots` (la page rendue : mots coupés, contraste, cibles, rythme, marges, textes provisoires), `npx impeccable detect`, performance ; puis la finition avec `references/finish.md`.
 11. **Faire juger par un regard neuf** : grille de `references/critique.md`, axe Originalité et test du déjà-vu ; corriger, trois tours au plus.
 12. **Ajouter le mouvement**, réinspecter, livrer avec le rapport.
 
@@ -87,6 +87,8 @@ Chacun se lève avec une raison écrite liée à l'idée ou au brief. Tableau co
 | Cadrage : questions, goût, matière, fiche brief | `references/intake.md` |
 | Règles par mode | `references/defaults-by-mode.md` |
 | Inventaire, idée, images, produit sans photo | `references/idea-and-direction.md` |
+| Visuels sans photo, classés par note obtenue ; test du sujet sans texte | `references/visuals.md` |
+| Finition : défauts relevés par les juges et leurs contrôles | `references/finish.md` |
 | Tirage, archétypes, contraintes, risques, trois heroes, déjà-vu | `references/originality.md` |
 | Landing, hero, formulaires, verre, illustration produit, bento | `references/persuade.md` |
 | Navigation et pied de page (18 + 15 modèles) | `references/nav-footer.md` |
@@ -107,4 +109,4 @@ Ne charger que ce dont la tâche a besoin.
 
 ## 8. Livrer
 
-Ne pas livrer tant que le plancher, `check-tokens.mjs`, le détecteur, les captures, la critique (Originalité 4 sur 5 au moins, aucun style connu au test du déjà-vu) et le journal des directions ne sont pas passés. Liste complète et format du rapport : `references/process.md`. Ne jamais déclarer un contrôle qui n'a pas tourné.
+Ne pas livrer tant que le plancher, `check-tokens.mjs`, `check-render.mjs`, le détecteur, les captures, la critique (Originalité 4 sur 5 au moins, aucun style connu au test du déjà-vu) et le journal des directions ne sont pas passés. Liste complète et format du rapport : `references/process.md`. Ne jamais déclarer un contrôle qui n'a pas tourné.

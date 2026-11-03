@@ -1,0 +1,4 @@
+node_modules/
+.julio/
+*.log
+.DS_Store
