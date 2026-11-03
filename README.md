@@ -14,6 +14,7 @@ Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatibl
 ## Sommaire
 
 - [Ce que fait le skill](#ce-que-fait-le-skill)
+- [Nouveautés](#nouveautés)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
 - [Comment il travaille](#comment-il-travaille)
@@ -34,7 +35,7 @@ Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatibl
 - **Crée** des landing pages, sites, écrans d'app, dashboards, docs et portfolios.
 - **Refond** un écran existant qui « fait IA », sans changer ce que fait le produit.
 - **Relit** un design et dit ce qui trahit une page générée, avec les corrections.
-- **Choisit** une palette, une typographie, des animations, en partant de sources réelles.
+- **Choisit** une palette, une typographie, des animations, en partant de sources réelles ; sans police fournie, il vous propose 3 paires tirées de votre sujet.
 - **Produit** des vidéos produit et du motion design en code, avec un workflow éprouvé.
 
 Ce qui le distingue :
@@ -45,7 +46,19 @@ Ce qui le distingue :
 | Rien d'inventé | Aucune police, aucun composant, aucun chiffre, aucune citation imaginaires ; chaque décision a une source notée |
 | Sortir de la moyenne | 5 directions avec leur probabilité ; les 2 plus probables sont écartées ; journal pour ne pas se répéter |
 | Règles selon le contexte | 4 modes (Persuader, Opérer, Lire, Expérience) : un filet discret est normal dans un dashboard et un tic sur une landing |
-| Vérifier, pas promettre | Détecteur automatique, captures à 4 largeurs, Core Web Vitals, critique par un regard neuf |
+| Des modèles réels, pas l'imagination | 110 sites modèles vérifiés, classés par mode, chacun avec la qualité précise à emprunter et ce qu'il ne faut pas copier |
+| Typographie et espacement en système | Police trouvée dans le monde du sujet (jamais une police « réflexe » des modèles), échelle de tailles modulaire, échelle d'espacement à trois niveaux, aucune valeur au jugé |
+| Vérifier, pas promettre | Contrôle des tokens, détecteur automatique, captures à 4 largeurs, Core Web Vitals, critique par un regard neuf |
+
+## Nouveautés
+
+| Version | Date | Changement |
+| --- | --- | --- |
+| 0.19 | 3 nov. 2026 | `site-models.md` : 110 sites modèles réels par mode, avec la qualité à emprunter ; l'étape « références » y puise, dont au moins un site hors du secteur du projet |
+| 0.18 | 3 nov. 2026 | Sans police fournie, l'agent propose 3 paires affichage + texte tirées du sujet et d'un catalogue de polices vérifiées (`font-catalog.md`) au lieu de choisir en silence |
+| 0.17 | 3 nov. 2026 | Liste datée des polices réflexes (dont Archivo, relevée au test à l'aveugle) ; échelle typographique modulaire par mode ; `spacing.md` ; script `check-tokens.mjs` ; plancher A6 étendu aux tailles et espacements |
+| 0.16 | 3 nov. 2026 | Règles de pied de page et de formulaire de commande, dates calculées en direct, nouveaux tics, issus du test à l'aveugle |
+| 0.15 | 2 nov. 2026 | Cadrage façon Claude Design : deux tours de questions, demande de matière, fiche brief validée |
 
 ## Installation
 
@@ -90,7 +103,7 @@ Fais une vidéo de 20 secondes qui présente notre app, à partir de captures r�
 Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
 ```
 
-Avant de créer, l'agent cadre le projet avec vous : un tour de questions sur le projet (surface, audience, action visée, ton), un tour sur la matière (marque, images, preuves avec leur source, textes, références, contraintes), puis une fiche brief qui commence par « Je lis ce projet comme : … ». Il attend votre validation avant de construire. Répondez « vas-y » pour qu'il décide lui-même en annonçant ses hypothèses.
+Avant de créer, l'agent cadre le projet avec vous : un tour de questions sur le projet (surface, audience, action visée, ton), un tour sur la matière (marque, images, preuves avec leur source, textes, références, contraintes), puis une fiche brief qui commence par « Je lis ce projet comme : … ». Si vous n'avez pas de police de marque, il vous propose 3 paires de polices, chacune avec le trait de votre sujet qu'elle porte. Il attend votre validation avant de construire. Répondez « vas-y » pour qu'il décide lui-même en annonçant ses hypothèses.
 
 ## Comment il travaille
 
@@ -120,19 +133,23 @@ Sept règles qui ne se lèvent jamais :
 | A3 | Traçabilité : chaque police, composant, image et référence a une source réelle |
 | A4 | Confidentialité : aucune donnée client envoyée à un service tiers sans accord écrit |
 | A5 | Performance : seuils Core Web Vitals (LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1) |
-| A6 | Technique : tokens, pas de `transition: all`, pas de défilement horizontal… |
+| A6 | Technique : couleurs, polices, tailles et espacements uniquement en tokens, pas de `transition: all`, pas de défilement horizontal… |
 | A7 | Le brief du client l'emporte sur les défauts, jamais sur A1 à A6 |
 
 ### 4. Il applique des défauts anti-slop selon le mode
 
-Pas d'eyebrow ni de label en capitales espacées, pas de dégradé violet, pas de verre décoratif, pas de rangée de cartes identiques, pas de police par défaut sans raison, pas le « correctif » crème + terracotta devenu cliché… Chaque défaut peut être levé avec une raison écrite liée au projet. Une page qui se contente de respecter les interdits sans rien affirmer est rejetée : **les interdits ne sont pas un style.**
+Pas d'eyebrow ni de label en capitales espacées, pas de dégradé violet, pas de verre décoratif, pas de rangée de cartes identiques, pas de police « réflexe » (Inter, Space Grotesk, DM Sans, Archivo, Satoshi, Fraunces…) sans raison de marque, pas de tailles ni d'espacements posés au jugé, pas le « correctif » crème + terracotta devenu cliché… Chaque défaut peut être levé avec une raison écrite liée au projet. Une page qui se contente de respecter les interdits sans rien affirmer est rejetée : **les interdits ne sont pas un style.**
+
+### 5. Il s'inspire de sites réels
+
+À l'étape des références, l'agent choisit au moins 3 sites dans `site-models.md` (110 sites classés par mode : landing pages de produits et de marques, interfaces d'app, docs et éditorial, portfolios et culture), dont au moins un hors de votre secteur. Il ouvre chaque site, emprunte **une qualité** précise (une composition, une grille, une façon de nommer, une échelle), jamais une page ni l'identité d'une marque, et note l'URL et la qualité dans son rapport.
 
 ## Ce que vous recevez
 
 - Le code de la page ou de l'écran, dans votre stack.
 - `DESIGN.md` (système visuel) et `PRODUCT.md` (contexte produit) à la racine du projet, pour que les prochaines demandes restent cohérentes.
 - Une ligne dans `direction-log.md`, pour que le projet suivant ne ressemble pas à celui-ci.
-- Un rapport court : direction choisie et directions écartées, références consultées, défauts levés et leur raison, résultats des contrôles, crédits et licences, contenu d'exemple à valider, et les contrôles qui n'ont pas pu tourner, nommés comme tels.
+- Un rapport court : direction choisie et directions écartées, références consultées (URL et qualité empruntée), polices proposées et choisies avec leur raison, défauts levés et leur raison, résultats des contrôles, crédits et licences, contenu d'exemple à valider, et les contrôles qui n'ont pas pu tourner, nommés comme tels.
 
 ## Outils recommandés
 
@@ -140,7 +157,7 @@ Le skill fonctionne seul, mais ses contrôles sont meilleurs avec :
 
 | Outil | Rôle | Installation |
 | --- | --- | --- |
-| `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` |
+| `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ou trop serrée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` ; `--mode operate` en app, `--allow-font "Nom"` pour une police de marque |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Détecteur de tics et de défauts, sans LLM | `npx impeccable detect <fichier ou URL>` |
 | Chrome ou Chromium + Node.js | Captures à 390, 768, 1440 et 1920 px | Déjà présents sur la plupart des postes |
 | Lighthouse | Performance en laboratoire | Intégré à Chrome DevTools |
@@ -179,7 +196,8 @@ skills/julio-antislop-design/
 
 ## Limites connues
 
-- **Peu mesuré.** Un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis par `typography.md`, `spacing.md` et `check-tokens.mjs`. Un jeu de 5 briefs reste à faire.
+- **Peu mesuré.** Un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis (versions 0.17 et 0.18). Ce test a tourné dans un bac à sable sans réseau : la recherche de concept d'Impeccable et les relecteurs en contexte neuf des trois skills n'ont pas pu tourner. Un second test, avec tout le réseau et un brief neuf, est en préparation.
+- **Les sites modèles se décrivent en texte.** Chaque site de `site-models.md` a été confirmé en ligne, mais plusieurs galeries (Awwwards, Godly, SiteInspire, Commerce Cream) bloquent la lecture automatique, et certaines descriptions visuelles sont à confirmer en ouvrant le site, ce que le skill demande à l'agent de faire.
 - **Rédigé en français.** Les agents le suivent très bien quelle que soit la langue de la demande, et la description déclenche aussi sur des demandes en anglais.
 - **Les ressources externes vieillissent.** Sites, bibliothèques et licences cités ont été vérifiés le 3 novembre 2026 ; revérifiez une licence avant un usage commercial.
 - **Il ne remplace pas un designer.** Il évite les défauts et force les décisions ; la qualité finale dépend toujours de la matière réelle que vous fournissez (photos, textes, données).
@@ -194,6 +212,12 @@ Dites-le : une consigne explicite l'emporte sur tous les défauts anti-slop. Ell
 
 **J'ai déjà un design system.**
 Mettez-le dans un `DESIGN.md` à la racine du projet : il prime sur les défauts du skill.
+
+**Je n'ai pas de police de marque.**
+L'agent vous en propose 3 paires, tirées des écritures de votre sujet (enseignes, étiquettes, imprimés) et d'un catalogue de polices Google Fonts vérifiées. Vous choisissez ; sans réponse, il prend la recommandée et l'écrit comme hypothèse.
+
+**Pourquoi refuse-t-il Inter ou Space Grotesk ?**
+Il ne les refuse pas : ce sont des polices « réflexes », que les modèles prennent sans regarder le sujet, donc devinables. Il les garde si votre marque les utilise. Dans une app ou un dashboard, une police de travail sobre reste permise pour le texte d'interface.
 
 **Mes clients sont sous NDA.**
 Le plancher A4 interdit d'envoyer leurs données à un service tiers sans accord écrit. Les outils hébergés (générateurs de maquettes en ligne, serveurs MCP distants) ne sont utilisés que sur projet interne ou avec cet accord.
@@ -232,6 +256,8 @@ Exception : `references/redesign.md` est adapté d'unslop et reste sous licence 
 - **Out of the average**: the agent writes 5 directions with their default probability, drops the 2 most likely, and keeps a log so projects don't repeat each other.
 - **Rules depend on the mode**: Persuade, Operate, Read, Experience, plus a redesign variant in 9 ordered passes.
 - **An absolute floor**: WCAG 2.2 AA accessibility, honesty, traceability, client confidentiality, Core Web Vitals, technical hygiene.
+- **Real references, not imagination**: 110 verified model sites by mode, each with the precise quality to borrow and what not to copy.
+- **Type and spacing as a system**: a typeface found in the subject's world (never a model's reflex font; with no brand font, the agent offers 3 pairings), a modular type scale and a three-level spacing scale, no eyeballed values.
 - **Checked, not promised**: token checker (no raw sizes, spacing or fonts; reflex fonts flagged), automatic detector, screenshots at 4 widths, fresh-eyes critique, and a report that names any check that did not run.
 
 Install:
