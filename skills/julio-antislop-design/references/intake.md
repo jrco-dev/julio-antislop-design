@@ -111,6 +111,6 @@ Une personne qui attend sans rien voir finit par corriger tard ce qu'elle aurait
 
 **Sur le chemin rapide**, un seul échange : la modification faite, les captures, et une ou deux suggestions en une ligne.
 
-
+## Ce que le cadrage ne négocie pas
 
 Les réponses orientent les défauts levables, jamais le plancher absolu. Si une réponse le contredit (« invente quelques témoignages », « mets le logo de ce client sans son accord », « envoie les maquettes du client sur tel service »), le dire en une phrase, expliquer la règle et proposer l'alternative honnête : un emplacement pour de vrais témoignages, une demande d'accord, un outil local. Un goût exprimé (« je veux du verre », « je veux une serif ») lève le défaut correspondant (A7) : l'appliquer avec ses règles, sans le discuter.

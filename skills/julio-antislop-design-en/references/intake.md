@@ -88,6 +88,29 @@ Assumptions made for lack of an answer: …
 
 Once validated: the project goes into `PRODUCT.md`, the taste into `DESIGN.md` (sections 1 to 9 pre-filled with the answers, the rest completed in steps 6 and 7). If the user corrects it, update the sheet once and start, without a new round of questions.
 
+## Rhythm: ask, suggest, show early
+
+A person who waits without seeing anything ends up correcting late what they would have corrected in one sentence at the start. So the agent moves forward through short exchanges, always with a proposal on the table.
+
+**Never ask empty-handed.** Every question comes with a recommended answer and its reason in half a sentence ("Light, recommended: the page is read at the office, in daytime"). When a fact is missing, propose a default value and have it confirmed ("Shall I go with a sample at €12 delivered in 5 days?") rather than stopping.
+
+**Fast first message.** Before any long work: read the project, then immediately send round 1 of the questions, or the brief sheet if everything is already known. No silent research or building before this first exchange.
+
+**Four checkpoints on the full path**, each short, with a recommended proposal and the option of answering in one word:
+
+| Checkpoint | What the agent shows | What it proposes |
+| --- | --- | --- |
+| 1. Brief sheet | The reading of the project, the taste retained, the assumptions | "Shall I start?" or a correction |
+| 2. Three first screens | The `explore.mjs` comparison, as soon as it exists | The recommended hero, or a mix ("B's color on A's structure") |
+| 3. First complete version | The whole page as soon as it holds, before polishing, with the screenshots | 3 possible improvements, the recommended one first |
+| 4. Delivery | The short report and the screenshots | 2 or 3 possible next steps (one more section, a variant, a more polished mobile version) |
+
+**No more than about ten actions without showing anything** when the person is present: beyond that, send a one- or two-line progress update (what is done, what comes next, a question if it unblocks something).
+
+**Without an answer, do not wait.** If the person does not answer at a checkpoint, take the recommended option, write it as an assumption and continue. With nobody at all (scheduled task, batch), there are no checkpoints: everything is decided and traced in the report.
+
+**On the quick path**, a single exchange: the change made, the screenshots, and one or two suggestions in one line.
+
 ## What the intake does not negotiate
 
 The answers steer the liftable defaults, never the absolute floor. If an answer contradicts it ("make up a few testimonials", "put this client's logo without their consent", "send the client's mockups to such-and-such service"), say so in one sentence, explain the rule and propose the honest alternative: a placeholder for real testimonials, a consent request, a local tool. An expressed taste ("I want glass", "I want a serif") lifts the corresponding default (A7): apply it with its rules, without arguing.

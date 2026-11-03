@@ -1,5 +1,7 @@
 # Full process
 
+At every step, move forward with the person: questions with a recommended answer, four checkpoints (brief sheet, three first screens, first version, delivery), never a long silent wait (`intake.md`, "Rhythm").
+
 `SKILL.md` gives the short version and the quick path. This file details each step of the full path, the delivery checklist and the report format.
 
 ## The 12 steps in detail
@@ -28,6 +30,7 @@ Do not deliver while any box is still empty:
 
 - [ ] Floor A1 to A7 respected.
 - [ ] `check-render.mjs` at zero errors at 390, 768, 1440 and 1920 px; every warning fixed or justified; list in `references/finish.md` passed.
+- [ ] UX check of the 30 laws passed (`ux-principles.md`, final list); no manipulation (false scarcity, trick option, guilt-tripping).
 - [ ] Subject-without-text test passed: the image of the first screen alone says what it is about.
 - [ ] `check-tokens.mjs` at zero errors: no size, no spacing, no font outside tokens; display font outside the reflex list, or lifted with its brand reason.
 - [ ] Detector at zero failures on the code and the rendered URL; inspection at 390, 768, 1440 and 1920 px; every screenshot opened after the last change.

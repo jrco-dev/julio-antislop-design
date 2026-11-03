@@ -34,6 +34,10 @@ Every rule depends on what the visitor must succeed at on this surface, not on t
 
 Two surfaces in one request: each in its own mode, with shared palette and typography.
 
+## Moving forward with the person
+
+Never make them wait in silence: ask early, suggest with every question, show as soon as something holds. Four checkpoints on the full path (brief sheet, three first screens, first version, delivery), each with a recommended proposal; between two, never more than about ten actions without showing anything. Detail: `references/intake.md`, "Rhythm".
+
 ## 3. Quick path
 
 1. Read `DESIGN.md` and `PRODUCT.md` if they exist and follow them. One question at most, only if a fact is blocking.
@@ -56,7 +60,7 @@ Detail of each step: `references/process.md`. Steps 1 to 8 happen before any cod
 7. **State the idea** ("[a thing from the subject] becomes [a device]", competitor test), the living thing, `DESIGN.md`; **three first screens** compared with `scripts/explore.mjs`, only one chosen.
 8. **Write all the copy** before the code; headlines of 2 lines at most at 320 px.
 9. **Build without motion**: tokens first (colors, fonts, type scale, spacing scale), then hero, sections, visuals (without photos: `references/visuals.md`, a visual anchor of the subject in the first two screens), living thing.
-10. **Check**: `check-tokens.mjs` (the code), `check-render.mjs --shots` (the rendered page: broken words, contrast, targets, rhythm, margins, placeholder text), `npx impeccable detect`, performance; then the finish with `references/finish.md`.
+10. **Check**: `check-tokens.mjs` (the code), `check-render.mjs --shots` (the rendered page), `npx impeccable detect`, performance; then the finish (`references/finish.md`) and the UX check of the 30 laws (`references/ux-principles.md`).
 11. **Get a fresh pair of eyes to judge**: grid in `references/critique.md`, Originality axis and déjà-vu test; fix, three rounds at most.
 12. **Add motion**, re-inspect, deliver with the report.
 
@@ -105,7 +109,7 @@ Each one is lifted with a written reason tied to the idea or the brief. Full tab
 | Motion, effects, video in code | `references/motion-and-video.md` |
 | Performance per mode | `references/performance.md` |
 | Dated AI tells | `references/tells.md` |
-| UX principles | `references/ux-principles.md` |
+| The 30 laws of UX, applied, and the UX check | `references/ux-principles.md` |
 | Real model sites; galleries, libraries, licenses | `references/site-models.md`, `references/resources.md` |
 | Critique by a fresh pair of eyes | `references/critique.md` |
 
