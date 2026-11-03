@@ -8,7 +8,7 @@ Trouver les fichiers qui le rendent. Si possible, lancer l'app ou ouvrir la page
 
 ## 2. Audit écrit
 
-Parcourir `tells.md` et lister chaque signe trouvé, une ligne chacun, avec l'endroit où il se trouve. Tenir compte du mode : en Opérer, des filets discrets ou une monospace sur les compteurs sont permis par `defaults-by-mode.md` et ne sont pas des signes.
+Parcourir `tells.md` et lister chaque signe trouvé, une ligne chacun, avec l'endroit où il se trouve. Auditer aussi **le contenu** : marquer chaque bloc creux de l'existant (grille d'adjectifs sans preuve, liste d'étapes sans contenu, promesse non chiffrée, bouton qui ne dit pas ce qui se passe) et dresser la liste des preuves qui manquent (chiffres, clients, cas, visages, identité cohérente). Ces blocs ne sont ni gardés tels quels ni réécrits avec des faits inventés : proposer au propriétaire une reformulation vérifiable ou la suppression, et lui demander les preuves au cadrage (tour 3) avant de construire. Tenir compte du mode : en Opérer, des filets discrets ou une monospace sur les compteurs sont permis par `defaults-by-mode.md` et ne sont pas des signes.
 
 ## 3. Diagnostic
 

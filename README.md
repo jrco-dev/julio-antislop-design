@@ -44,7 +44,7 @@ Ce qui le distingue :
 | --- | --- |
 | L'idée vient du sujet | Inventaire de 8 à 12 éléments propres au client, phrase d'idée, test du concurrent |
 | Rien d'inventé | Aucune police, aucun composant, aucun chiffre, aucune citation imaginaires ; chaque décision a une source notée |
-| Sortir de la moyenne | 5 directions avec leur probabilité ; les 2 plus probables sont écartées ; journal pour ne pas se répéter |
+| Sortir de la moyenne | Un tirage attribue l'archétype de composition, des contraintes et deux risques ; trois premiers écrans comparés avant de construire ; test du déjà-vu ; journal pour ne pas se répéter |
 | Règles selon le contexte | 4 modes (Persuader, Opérer, Lire, Expérience) : un filet discret est normal dans un dashboard et un tic sur une landing |
 | Des modèles réels, pas l'imagination | 110 sites modèles vérifiés, classés par mode, chacun avec la qualité précise à emprunter et ce qu'il ne faut pas copier |
 | Typographie et espacement en système | Police trouvée dans le monde du sujet (jamais une police « réflexe » des modèles), échelle de tailles modulaire, échelle d'espacement à trois niveaux, aucune valeur au jugé |
@@ -54,6 +54,7 @@ Ce qui le distingue :
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.23 | 3 nov. 2026 | Originalité : `originality.md` (24 archétypes de composition, 16 cartes de contrainte, 8 leviers de risque, test du déjà-vu, vague 5 « clean anti-slop ») ; `roll.mjs` tire la direction au lieu de laisser l'agent prendre son premier choix ; `board.mjs` capture les sites de référence pour les voir ; `explore.mjs` compare trois premiers écrans avant de construire la page ; axe Originalité éliminatoire dans la critique ; audit du contenu creux en refonte |
 | 0.22 | 3 nov. 2026 | Cadrage en une fois : un tour Goût ajouté (caractère, lumière et couleur, polices, densité, formes, images, mouvement, références aimées et rejets) qui remplit `DESIGN.md` avant le code ; 12 questions au plus, puis plus d'aller-retour ; seule une délégation explicite (« carte blanche ») dispense de ce tour |
 | 0.21 | 3 nov. 2026 | `nav-footer.md` : 18 modèles de navigation et 15 modèles de pied de page relevés sur navbar.gallery, footer.design et unsection.com, avec le cas d'usage, les règles et un exemple réel ; choix noté dans le rapport |
 | 0.20 | 3 nov. 2026 | Leçons du test « style Apple » : produit physique sans photo (registre que le code sait faire, objet entier), règles du verre demandé par le brief (flouter du réel, jamais des blobs), une seule mention du contenu d'exemple, chose vivante qui change l'objet principal, écart entre sections constant |
@@ -162,6 +163,8 @@ Le skill fonctionne seul, mais ses contrôles sont meilleurs avec :
 | --- | --- | --- |
 | `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ou trop serrée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` ; `--mode operate` en app, `--allow-font "Nom"` pour une police de marque |
 | [Impeccable](https://github.com/pbakaus/impeccable) | Détecteur de tics et de défauts, sans LLM | `npx impeccable detect <fichier ou URL>` |
+| `scripts/roll.mjs` (inclus) | Tire la direction : archétype, cartes de contrainte, couleur, polices, risques ; Node seul | `node scripts/roll.mjs --mode persuader --brief "…"` |
+| `scripts/board.mjs`, `scripts/explore.mjs` (inclus) | Planche des sites de référence ; comparaison de trois premiers écrans | `npm i -D playwright && npx playwright install chromium` |
 | Chrome ou Chromium + Node.js | Captures à 390, 768, 1440 et 1920 px | Déjà présents sur la plupart des postes |
 | Lighthouse | Performance en laboratoire | Intégré à Chrome DevTools |
 
@@ -176,6 +179,7 @@ skills/julio-antislop-design/
 │   ├── intake.md                cadrage : questions, matière, fiche brief
 │   ├── defaults-by-mode.md      règles anti-slop par mode
 │   ├── idea-and-direction.md    inventaire, argument, directions, images
+│   ├── originality.md           tirage, 24 archétypes, contraintes, risques, test du déjà-vu
 │   ├── persuade.md              landing pages, hero, illustration produit, bento
 │   ├── nav-footer.md            18 modèles de navigation, 15 de pied de page
 │   ├── operate.md               apps, dashboards, formulaires, graphiques
@@ -192,7 +196,11 @@ skills/julio-antislop-design/
 │   ├── site-models.md           sites modèles réels par mode, qualité à emprunter
 │   ├── resources.md             galeries, bibliothèques, outils, licences
 │   └── critique.md              grille de critique sur 6 axes
-├── scripts/check-tokens.mjs     contrôle : tailles, espacements, polices hors tokens, polices réflexes
+├── scripts/
+│   ├── check-tokens.mjs         contrôle : tailles, espacements, polices hors tokens, polices réflexes
+│   ├── roll.mjs                 tirage de la direction (archétype, contraintes, couleur, polices, risques)
+│   ├── board.mjs                capture des sites de référence en planche
+│   └── explore.mjs              comparaison de trois premiers écrans
 ├── templates/                   DESIGN.md, PRODUCT.md, journal des directions
 ├── CREDITS.md
 └── LICENSE
@@ -257,7 +265,7 @@ Exception : `references/redesign.md` est adapté d'unslop et reste sous licence 
 
 - **The idea comes from the subject**: an inventory of what belongs only to this client, an idea sentence, and a competitor test.
 - **Nothing is invented**: no made-up fonts, components, numbers, quotes or features; every decision has a recorded real source.
-- **Out of the average**: the agent writes 5 directions with their default probability, drops the 2 most likely, and keeps a log so projects don't repeat each other.
+- **Out of the average**: a local roll assigns a composition archetype (24), constraint cards and two risk levers so the agent can't take its first idea; three heroes are compared before the full build; a déjà-vu test and an Originality score gate delivery.
 - **Rules depend on the mode**: Persuade, Operate, Read, Experience, plus a redesign variant in 9 ordered passes.
 - **An absolute floor**: WCAG 2.2 AA accessibility, honesty, traceability, client confidentiality, Core Web Vitals, technical hygiene.
 - **Real references, not imagination**: 110 verified model sites by mode, each with the precise quality to borrow and what not to copy.

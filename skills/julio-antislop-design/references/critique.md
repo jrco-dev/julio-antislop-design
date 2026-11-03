@@ -6,7 +6,7 @@ Passer les contrôles automatiques veut dire que rien d'interdit n'a été mesur
 
 Un sous-agent en contexte vierge, qui n'a pas vu la construction : celui qui a fait la page a tendance à défendre ce qu'il vient d'écrire. Lui donner le brief, le mode, la phrase d'idée et les captures à 390, 768, 1440 et 1920 px. Sans sous-agent, relire les captures comme un designer exigeant qui découvre la page.
 
-## Grille sur six axes
+## Grille sur sept axes
 
 Noter de 1 à 5. Une note sous 3 impose une révision avant de continuer.
 
@@ -18,6 +18,7 @@ Noter de 1 à 5. Une note sous 3 impose une révision avant de continuer.
 | Spécificité | Elle colle à la catégorie | Elle n'appartient à aucun autre produit |
 | Retenue | Une décoration de trop | On a sacrifié quelque chose qu'on aimait |
 | Variété | Elle diffère des pages précédentes du journal sur 3 axes sur 6 | Elle ne partage presque rien avec les 3 dernières (non noté si le journal est vide) |
+| Originalité | Propre, mais on reconnaît un style connu (`originality.md` §1 et §8) | On ne l'a jamais vue ; deux risques visibles et tenus. **Sous 4, la page n'est pas livrée** |
 
 ## Questions à poser sur chaque capture
 
@@ -28,11 +29,13 @@ Noter de 1 à 5. Une note sous 3 impose une révision avant de continuer.
 5. Le reste de la page tient-il la promesse du premier écran, ou retombe-t-il en blocs standard ?
 6. Test de l'étranger : la page aurait-elle pu sortir du même agent sans ce skill ?
 7. Test du concurrent : avec le nom d'un concurrent, la page fonctionnerait-elle encore ?
+8. Test du déjà-vu : décrite en 12 mots, à quel style connu ressemble-t-elle ? Si un nom vient tout de suite, changer d'abord le levier de risque le plus visible.
 
 ## Format de la critique écrite
 
 ```
-Notes : parti pris X, hiérarchie X, exécution X, spécificité X, retenue X, variété X
+Notes : parti pris X, hiérarchie X, exécution X, spécificité X, retenue X, variété X, originalité X
+Déjà-vu : « … » (style reconnu ou aucun)
 Axe le plus faible : … — cause : …
 Trois problèmes à corriger, du plus grave au moins grave :
 1. … (capture, zone) → correction

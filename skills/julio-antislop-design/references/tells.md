@@ -49,6 +49,10 @@ Space Grotesk comme repli « original », puis ses remplaçants (DM Sans, Manrop
 
 À la place : police trouvée dans le monde du sujet (`typography.md` §2), échelle typographique modulaire et échelle d'espacement à trois niveaux, sans valeur hors tokens (`spacing.md`), tokens composés pour le projet, icônes du produit ou d'un jeu choisi, vrais avatars ou initiales, footer et tarifs construits d'après le contenu réel.
 
+## Vague 5 — novembre 2026 : le clean anti-slop
+
+Le style vers lequel convergent les agents qui évitent tous les tics, ce skill compris (relevé sur nos quatre pages du 2 et 3 novembre 2026) : fond papier clair, titre en grotesque condensée aligné à gauche avec la phrase d'appui à droite, filets fins et tableaux, un seul accent, sections aérées empilées, listes numérotées ; et, en refonte, des blocs génériques de l'existant (grille d'adjectifs « Sur mesure / Souplesse / Expertise ») gardés tels quels. À la place : le tirage, un archétype et deux leviers de risque (`originality.md`).
+
 ## Autres tics fréquents
 
 - **Structure** : titre-phrase de 3 ou 4 lignes ; ordre hero, logos, features, témoignage, tarifs, CTA ; même mise en page pour toutes les sections ; tout centré ; même rayon moyen partout ; neuf tailles de police presque égales ; fausse preuve sociale (« 10 000+ équipes », rangées d'étoiles sans source).
