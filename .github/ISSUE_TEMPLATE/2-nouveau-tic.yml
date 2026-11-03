@@ -1,0 +1,28 @@
+name: "Nouveau tic repéré / New tell spotted"
+description: "Un procédé visuel que les pages générées répètent. A visual habit that generated pages keep repeating."
+title: "[tic] "
+labels: ["tic", "triage"]
+body:
+  - type: textarea
+    id: tell
+    attributes:
+      label: "Le tic / The tell"
+      description: "En une phrase, précis et visible. One precise, visible sentence."
+    validations: { required: true }
+  - type: textarea
+    id: examples
+    attributes:
+      label: "Exemples / Examples"
+      description: "Au moins deux pages générées sans lien entre elles (liens ou captures). At least two unrelated generated pages."
+    validations: { required: true }
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Mode concerné / Mode"
+      multiple: true
+      options: ["Persuader / Persuade", "Opérer / Operate", "Lire / Read", "Expérience / Experience"]
+  - type: textarea
+    id: instead
+    attributes:
+      label: "À la place / Instead"
+      description: "Une méthode, pas une police ou une couleur de remplacement (sinon elle devient le tic suivant). A method, not a replacement font or colour."

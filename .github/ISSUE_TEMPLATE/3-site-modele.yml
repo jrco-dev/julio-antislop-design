@@ -1,0 +1,36 @@
+name: "Site modèle à ajouter / Model site to add"
+description: "Un site réel dont le design vient de son sujet. A real site whose design comes from its subject."
+title: "[site] "
+labels: ["site-modele", "triage"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: "URL"
+    validations: { required: true }
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Mode"
+      options: ["Persuader / Persuade", "Opérer / Operate", "Lire / Read", "Expérience / Experience"]
+    validations: { required: true }
+  - type: input
+    id: sector
+    attributes:
+      label: "Secteur / Sector"
+    validations: { required: true }
+  - type: textarea
+    id: borrow
+    attributes:
+      label: "Qualité à emprunter / Quality to borrow"
+      description: "Une phrase concrète (une composition, une grille, une échelle), jamais « beau design ». One concrete sentence."
+    validations: { required: true }
+  - type: textarea
+    id: avoid
+    attributes:
+      label: "À ne pas copier / Don't copy"
+  - type: input
+    id: evidence
+    attributes:
+      label: "Où il est présenté / Where it's featured"
+      description: "Galerie et date si possible. Gallery and date if known."

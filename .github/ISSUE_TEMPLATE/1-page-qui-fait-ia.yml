@@ -1,0 +1,54 @@
+name: "Page qui fait IA / Page that looks AI-made"
+description: "Le skill a produit une page générique ou ratée. The skill produced a generic or broken page."
+title: "[page] "
+labels: ["page-ia", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Merci ! Chaque cas raté aide à corriger le skill. Ne joignez aucune donnée client confidentielle. / Thanks! Never attach confidential client data."
+  - type: input
+    id: version
+    attributes:
+      label: "Version du skill / Skill version"
+      description: "Voir la section Nouveautés du README. See the changelog in the README."
+      placeholder: "0.24"
+    validations: { required: true }
+  - type: input
+    id: agent
+    attributes:
+      label: "Agent et modèle / Agent and model"
+      placeholder: "Claude Code + Claude Opus, Cursor, Codex…"
+    validations: { required: true }
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Mode"
+      options: ["Persuader / Persuade", "Opérer / Operate", "Lire / Read", "Expérience / Experience", "Refonte / Redesign"]
+    validations: { required: true }
+  - type: textarea
+    id: brief
+    attributes:
+      label: "Brief ou demande / Brief or request"
+      description: "Le texte exact donné à l'agent. The exact text given to the agent."
+    validations: { required: true }
+  - type: textarea
+    id: what
+    attributes:
+      label: "Ce qui fait IA / What looks AI-made"
+      description: "Les tics précis : police, mise en page, couleur, texte, mouvement… Precise tells."
+    validations: { required: true }
+  - type: textarea
+    id: shots
+    attributes:
+      label: "Captures / Screenshots"
+      description: "Desktop et mobile, et le rapport de l'agent s'il existe. Desktop and mobile, plus the agent's report if any."
+  - type: checkboxes
+    id: steps
+    attributes:
+      label: "Étapes qui ont tourné / Steps that ran"
+      options:
+        - label: "Cadrage (questions) / Intake"
+        - label: "Tirage roll.mjs / Roll"
+        - label: "Trois premiers écrans / Three first screens"
+        - label: "check-tokens.mjs"
+        - label: "Critique par un regard neuf / Fresh-eyes critique"

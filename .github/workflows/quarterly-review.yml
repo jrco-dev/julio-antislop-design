@@ -1,0 +1,29 @@
+name: Revue trimestrielle / Quarterly review
+on:
+  schedule:
+    - cron: "17 6 1 1,4,7,10 *"
+  workflow_dispatch:
+permissions:
+  issues: write
+jobs:
+  open-review-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const q = Math.floor(new Date().getUTCMonth() / 3) + 1;
+            const title = `Revue trimestrielle ${new Date().getUTCFullYear()}-T${q} / Quarterly review`;
+            const open = await github.rest.issues.listForRepo({ owner: context.repo.owner, repo: context.repo.repo, state: "open", labels: "revue" });
+            if (open.data.some(i => i.title === title)) return;
+            await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, labels: ["revue"],
+              body: [
+                "Procédure : `docs/quarterly-review.md`.",
+                "",
+                "- [ ] Tics : trier les issues `tic` ; ajouter une vague datée à `tells.md` ; retirer ce qui ne se voit plus",
+                "- [ ] Polices réflexes : mettre à jour `typography.md` §1, retirer de `font-catalog.md` les polices devenues réflexes",
+                "- [ ] Sites modèles : ouvrir chaque site de `site-models.md`, retirer les sites changés ou hors ligne, ajouter les issues `site-modele` validées",
+                "- [ ] Archétypes : signaler ceux que les sorties récentes surutilisent (`originality.md`)",
+                "- [ ] Évaluation : relancer `evals/` sur les 5 briefs et publier les scores",
+                "- [ ] Version : entrée dans les Nouveautés du README, `.skill` reconstruit",
+              ].join("\n") });
