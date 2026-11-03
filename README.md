@@ -55,21 +55,28 @@ Ce qui le distingue :
 
 ## Exemples
 
-Tests faits par des agents qui suivaient le skill, sans personne pour répondre, jugés ensuite par un regard neuf. Ce sont des essais, avec leurs défauts : plusieurs règles viennent d'eux.
+Pages faites par des agents neufs qui suivaient le skill, sans personne pour répondre ni photo fournie, puis notées sur 10 par un juge indépendant qui ne voyait que les captures ([briefs et notes détaillées](evals/README.md)). Tout le contenu vient des briefs de test ; rien n'est inventé.
 
-| Avant les règles de typographie et d'espacement (0.16) | Après (0.17) |
+**Même brief, version 0.24 puis 0.25** : la 0.25 ajoute la règle « une ancre visuelle du sujet dans les deux premiers écrans », les visuels sans photo classés par note et le contrôle de la page rendue.
+
+| Atelier vélo, 0.24 : 6,7 | Atelier vélo, 0.25 : **7,6** |
 | --- | --- |
-| ![Landing Lavanila avant : police Archivo, tailles au jugé](docs/examples/lavanila-avant.jpg) | ![Landing Lavanila après : Big Shoulders Stencil et Chivo, échelles en tokens](docs/examples/lavanila-apres.jpg) |
+| ![Les Rayons en 0.24 : « 65 € » géant sur aplat rouge, aucun vélo à l'écran](docs/examples/velo-024.jpg) | ![Les Rayons en 0.25 : « On répare. Ou vous réparez. », vélo au trait et étiquette de prix en kraft](docs/examples/velo-025.jpg) |
+| Le prix en grand, mais aucun vélo : le juge y voyait un garage auto. | Le vélo et les étiquettes de prix en kraft portent toute la page ; premier écran 9/10. |
 
-| Refonte de jrcopartners.com, v1 (0.22) | v2 avec le tirage (0.23) |
+| Guide compostage, 0.24 : 6,5 | Guide compostage, 0.25 : **7,3** |
 | --- | --- |
-| ![Refonte JRCO v1 : fichier de tri qui devient une slide](docs/examples/jrco-v1.jpg) | ![Refonte JRCO v2 : le moteur comme ligne de transport](docs/examples/jrco-v2.jpg) |
+| ![Guide compostage en 0.24 : « 3 à 4 mois » en très grand, aucun visuel du bac](docs/examples/compost-024.jpg) | ![Guide compostage en 0.25 : liste oui/non et schéma coté du bac sous l'évier](docs/examples/compost-025.jpg) |
+| Un chiffre géant avant le sujet, aucun visuel du lombricomposteur (visuels 4/10). | Un schéma coté du bac sous l'évier, 40 × 30 × 50 cm (visuels 8/10). |
 
-La v2 est plus originale mais a perdu la démonstration du produit (visuel produit 9 → 2) : d'où la règle « l'originalité ne remplace jamais la preuve » (0.24).
+**Autres pages de la 0.25**
 
-![Test « style Apple » avec verre : Brume, enceinte fictive](docs/examples/brume.jpg)
+| Vanille Lavanila : 7,0 | App de trésorerie Fanilo : 7,1 |
+| --- | --- |
+| ![Lavanila : la page est l'étiquette numérotée du lot, gousse posée sur une règle](docs/examples/lavanila-025.jpg) | ![Fanilo : solde de 2 418,60 € en grand, grille des cotisations, ajout de dépense en 3 champs](docs/examples/tresorerie-025.jpg) |
+| La page est l'étiquette du lot ; la gousse sur sa règle de 0 à 18 cm. | Mode Opérer : le solde, les 34 cotisations sur 52, les justificatifs manquants, tout juste à l'euro près. |
 
-Le test « style Apple + verre » (0.19) : registre 7/10, mais un produit dessiné méconnaissable (4/10), d'où les règles sur le produit physique sans photo et sur le verre (0.20).
+Ce ne sont pas des pages finies : les juges y relèvent encore des vides sur desktop, des listes trop grandes et une originalité moyenne (6,0). Les défauts mesurés sont la liste de travail des prochaines versions.
 
 ## Nouveautés
 
