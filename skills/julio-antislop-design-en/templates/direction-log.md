@@ -1,7 +1,7 @@
-# Journal des directions
+# Direction log
 
-<!-- Garder les 10 dernières directions livrées, la plus récente en haut. À l'étape 6, une nouvelle direction doit différer des 3 dernières sur au moins 3 des 6 axes, et sa police d'affichage ne doit être aucune de celles des 3 dernières lignes. Dans la colonne Police, noter la police d'affichage et la police de texte. Placer ce fichier dans le projet (ou dans un dossier partagé par l'équipe) pour qu'il serve d'un projet à l'autre. -->
+<!-- Keep the last 10 delivered directions, most recent at the top. At step 6, a new direction must differ from the last 3 on at least 3 of the 6 axes, and its display font must be none of those in the last 3 lines. In the Font column, note the display font and the body font. Place this file in the project (or in a folder shared by the team) so it carries from one project to the next. -->
 
-| Date | Projet | Mode | Archétype (C#) | Structure | Thème | Police | Palette | Hero | Signature |
+| Date | Project | Mode | Archetype (C#) | Structure | Theme | Font | Palette | Hero | Signature |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | | | | | | | | | | |

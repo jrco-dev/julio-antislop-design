@@ -6,6 +6,14 @@ Removing the tells does not make a page original. The four pages made with this 
 
 Signature found in our own outputs: light paper background; headline in a condensed grotesque, left-aligned, with the supporting sentence on the right; thin rules and tables; a single accent (yellow, green or blue); airy sections stacked one below the other; numbered lists. Each element is defensible; the whole is guessable. A page that ticks four of these six traits without the rolled archetype requiring it has failed the déjà-vu test (§7).
 
+## 1a. Originality never replaces proof
+
+Measured on 3 November 2026 on the JRCO redesign: the rolled version (archetype "The map") gained distinctiveness but lost the product (product visual 2/10 against 9/10 for the previous version), and with it credibility. Rules:
+
+- **The product stays visible**: if the product can be shown (an interface, a file, an object, a result), the first screen or the next section shows it for real, whatever the archetype. The archetype organizes the page around the product; it never replaces it with a metaphor.
+- **A good living thing is kept**: if a previous version had an interaction that demonstrated the product (the file that becomes a slide), the new direction takes it over in its own form, even if the déjà-vu test penalizes it a little.
+- **One metaphor, once**: the archetype never repeats the same information in three forms (three timelines of the same steps); each section brings new content.
+
 ## 2. The roll (step 6, mandatory)
 
 A model's first choice is every model's choice. The roll takes it away:
@@ -13,8 +21,6 @@ A model's first choice is every model's choice. The roll takes it away:
 ```bash
 node scripts/roll.mjs --mode persuader --brief "<the brief in one sentence>" --log direction-log.md
 ```
-
-(`--mode persuader` can also be written `--mode persuade`.)
 
 It assigns a **composition archetype** (§3), **three constraint cards** (§4, keep at least one), a **color strategy**, a **font line** from `font-catalog.md` and **two risk levers** (§5), avoiding what the last 3 lines of the log already used. It writes everything to `.julio/roll.json`.
 

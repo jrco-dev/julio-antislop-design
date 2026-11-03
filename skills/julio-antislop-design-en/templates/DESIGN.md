@@ -1,63 +1,63 @@
-# DESIGN.md — [Nom du projet]
+# DESIGN.md — [Project name]
 
-<!-- Structure en 9 sections inspirée de la spécification DESIGN.md publiée par Google Labs (Stitch, avril 2026, Apache 2.0), complétée par les champs propres à ce skill. À placer à la racine du projet ; il prime sur les défauts du skill. -->
+<!-- 9-section structure inspired by the DESIGN.md specification published by Google Labs (Stitch, April 2026, Apache 2.0), completed with fields specific to this skill. Place it at the project root; it takes precedence over the skill's defaults. -->
 
-Mode : [Persuader | Opérer | Lire | Expérience]
-Idée : Sur cette page, [une chose propre au sujet] devient [le procédé de composition].
-Signature : [un seul détail propre au produit]
+Mode: [Persuade | Operate | Read | Experience]
+Idea: On this page, [a thing specific to the subject] becomes [the composition device].
+Signature: [a single detail specific to the product]
 
-## 1. Thème visuel et atmosphère
+## 1. Visual theme and atmosphere
 
-[2 ou 3 mots de caractère concrets. Le monde du sujet : lieu, matières, lumière. Ce que la page doit faire ressentir.]
+[2 or 3 concrete character words. The subject's world: place, materials, light. What the page should make people feel.]
 
-## 2. Couleurs et rôles
+## 2. Colors and roles
 
-| Token | Valeur (OKLCH) | Rôle | Contraste vérifié |
+| Token | Value (OKLCH) | Role | Contrast checked |
 | --- | --- | --- | --- |
-| `--bg` | | Fond de page | |
-| `--surface-1` | | Surface surélevée | |
-| `--ink` | | Texte principal | sur `--bg` : |
-| `--ink-2` | | Texte secondaire | sur `--bg` : |
-| `--ink-3` | | Texte atténué | sur `--bg` : |
-| `--accent` | | Action principale, sélection | texte dessus : |
-| `--focus` | | Anneau de focus | |
+| `--bg` | | Page background | |
+| `--surface-1` | | Raised surface | |
+| `--ink` | | Main text | on `--bg`: |
+| `--ink-2` | | Secondary text | on `--bg`: |
+| `--ink-3` | | Muted text | on `--bg`: |
+| `--accent` | | Primary action, selection | text on it: |
+| `--focus` | | Focus ring | |
 
-Origine de la couleur d'ancrage : [marque, matière du sujet, …]
-Variante sombre : [oui / non, et pourquoi selon la scène d'usage]
+Origin of the anchor color: [brand, subject's material, …]
+Dark variant: [yes / no, and why, based on the scene of use]
 
-## 3. Typographie
+## 3. Typography
 
-| Rôle | Police (nom exact) | Source et licence | Taille | Graisse | Interligne | Tracking |
+| Role | Font (exact name) | Source and license | Size | Weight | Line height | Tracking |
 | --- | --- | --- | --- | --- | --- | --- |
-| Affichage | | | | | | |
-| Titre | | | | | | |
-| Texte | | | | | | |
-| Libellé | | | | | | |
+| Display | | | | | | |
+| Heading | | | | | | |
+| Body | | | | | | |
+| Label | | | | | | |
 
-## 4. Composants
+## 4. Components
 
-[Boutons : forme (carrée ou pastille), états. Champs : label, aide, erreur. Cartes ou panneaux selon le mode. Icônes : jeu, taille, trait.]
+[Buttons: shape (square or pill), states. Fields: label, help, error. Cards or panels depending on the mode. Icons: set, size, stroke.]
 
-## 5. Mise en page
+## 5. Layout
 
-[Grille, largeur maximale du conteneur, marges, échelle d'espacement, écart entre sections, alignement par défaut.]
+[Grid, maximum container width, margins, spacing scale, gap between sections, default alignment.]
 
-## 6. Profondeur et élévation
+## 6. Depth and elevation
 
-[Écarts de ton entre surfaces ; ombres réservées à ce qui flotte ; bordure ou ombre, pas les deux.]
+[Tone shifts between surfaces; shadows reserved for what floats; border or shadow, not both.]
 
-## 7. À faire et à ne pas faire
+## 7. Do's and don'ts
 
-- Défauts levés pour ce projet, avec leur raison : …
-- Interdits propres à la marque : …
+- Defaults lifted for this project, with their reason: …
+- Brand-specific prohibitions: …
 
-## 8. Comportement responsive
+## 8. Responsive behavior
 
-[Points de rupture, recomposition mobile, ce qui disparaît ou se simplifie, taille minimale du texte.]
+[Breakpoints, mobile recomposition, what disappears or is simplified, minimum text size.]
 
-## 9. Guide pour les agents
+## 9. Guide for agents
 
-- Utiliser uniquement les tokens ci-dessus ; aucune valeur en dur.
-- Mouvement : [mouvement signature, durées, courbe].
-- Budget : [effets autorisés selon le mode].
-- Sources : références consultées (URL et qualité empruntée), composants et images avec leur licence.
+- Use only the tokens above; no hard-coded values.
+- Motion: [signature motion, durations, curve].
+- Budget: [effects allowed by the mode].
+- Sources: references consulted (URL and quality borrowed), components and images with their license.

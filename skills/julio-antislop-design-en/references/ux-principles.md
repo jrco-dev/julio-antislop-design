@@ -1,29 +1,29 @@
-# Principes de l'UX
+# UX principles
 
-Rédigés à partir des travaux d'origine. Deux nuances de la recherche récente sont signalées : ce sont des principes de conception, pas des lois physiques.
+Written from the original works. Two nuances from recent research are flagged: these are design principles, not physical laws.
 
-| Principe | Origine | Ce qu'il change dans une interface |
+| Principle | Origin | What it changes in an interface |
 | --- | --- | --- |
-| Une cible grande et proche s'atteint plus vite | Paul Fitts, 1954 | Actions fréquentes grandes et près de la main ; actions destructrices éloignées |
-| Le temps de décision croît avec le nombre de choix | William Hick, 1952 ; Ray Hyman, 1953 | Menus courts, options avancées repliées |
-| La mémoire immédiate est limitée | George Miller, 1956 ; Nelson Cowan, 2001, situe plutôt la limite autour de 4 éléments | Ne pas exiger de retenir une information d'un écran à l'autre ; regrouper par blocs |
-| L'effort mental doit servir la tâche | John Sweller, théorie de la charge cognitive, 1988 | Retirer ce qui n'aide pas la tâche ; garder le contexte visible |
-| L'œil regroupe ce qui est proche, semblable ou relié, et simplifie les formes | Gestalt, Max Wertheimer, 1923 ; région commune et connexion uniforme, Stephen Palmer, 1992 et 1994 | La mise en page fait le regroupement : espacement, conteneurs, alignements |
-| L'élément différent est celui qu'on retient | Hedwig von Restorff, 1933 | Une seule couleur d'accent, réservée à ce qui doit ressortir, l'action principale d'abord |
-| On retient le début et la fin d'une série | Hermann Ebbinghaus, 1885 ; Bennet Murdock, 1962 | Actions clés aux extrémités d'une navigation ou d'une liste |
-| Une tâche inachevée reste en tête | Bluma Zeigarnik, 1927 | Progression visible, brouillons sauvegardés |
-| On accélère à l'approche du but | Clark Hull, 1932 ; Ran Kivetz et al., 2006 | Barre de progression, étapes visibles |
-| On juge une expérience sur son pic et sa fin | Daniel Kahneman et al., 1993 | Soigner l'écran de succès et le moment fort |
-| Ce qui est beau paraît plus facile à utiliser | Masaaki Kurosu et Kaori Kashimura, 1995 | Le soin visuel augmente la tolérance aux petits défauts, sans les masquer en test |
-| Sous 400 ms, l'échange reste fluide | Walter J. Doherty et Arvind J. Thadani, IBM, 1982 | Retour immédiat, états de chargement, interface optimiste |
-| Les utilisateurs attendent que votre site marche comme les autres | Jakob Nielsen, 2000 | Conventions sur la navigation et les contrôles ; singularité sur l'idée et la matière |
-| Une part de complexité est irréductible | Larry Tesler | La faire porter par le système : valeurs par défaut, autocomplétion |
-| Être tolérant en entrée, strict en sortie | Jon Postel, RFC 761, 1980 | Accepter les formats variés dans les champs, stocker un format unique |
-| Personne ne lit le mode d'emploi | John Carroll et Mary Beth Rosson, 1987 | Aide en contexte, états vides explicatifs |
-| Trop d'options peut décourager | Sheena Iyengar et Mark Lepper, 2000 ; la méta-analyse de Benjamin Scheibehenne et al., 2010, trouve un effet moyen proche de zéro | Principe de prudence : réduire les options quand elles se ressemblent |
-| L'immersion vient d'un défi à la mesure de la compétence | Mihaly Csikszentmihalyi, 1990 | Retirer les interruptions inutiles ; difficulté progressive |
-| On ne voit que ce qui sert son objectif | Colin Cherry, 1953 ; Daniel Simons et Christopher Chabris, 1999 | Pas d'information critique là où l'œil attend une publicité |
-| Chacun se fait un modèle simplifié du système | Kenneth Craik, 1943 ; Donald Norman, 1983 | Nommer et organiser avec le vocabulaire des utilisateurs, vérifié en test |
-| Le jugement dévie de façon systématique | Amos Tversky et Daniel Kahneman, 1974 | Se méfier de ses intuitions de concepteur ; valider par la donnée |
-| Une petite part des causes produit l'essentiel des effets | Vilfredo Pareto ; Joseph Juran | Concentrer l'effort sur les fonctionnalités les plus utilisées |
-| Une tâche s'étend au temps disponible | Cyril Northcote Parkinson, 1955 | Raccourcir les parcours : autoremplissage, délais affichés |
+| A large, close target is reached faster | Paul Fitts, 1954 | Frequent actions large and within reach; destructive actions far away |
+| Decision time grows with the number of choices | William Hick, 1952; Ray Hyman, 1953 | Short menus, advanced options collapsed |
+| Short-term memory is limited | George Miller, 1956; Nelson Cowan, 2001, places the limit closer to 4 items | Don't require remembering information from one screen to the next; group into chunks |
+| Mental effort should serve the task | John Sweller, cognitive load theory, 1988 | Remove what does not help the task; keep context visible |
+| The eye groups what is close, similar or connected, and simplifies shapes | Gestalt, Max Wertheimer, 1923; common region and uniform connectedness, Stephen Palmer, 1992 and 1994 | Layout does the grouping: spacing, containers, alignments |
+| The different element is the one remembered | Hedwig von Restorff, 1933 | A single accent color, reserved for what must stand out, the primary action first |
+| People remember the beginning and the end of a series | Hermann Ebbinghaus, 1885; Bennet Murdock, 1962 | Key actions at the ends of a navigation or a list |
+| An unfinished task stays on the mind | Bluma Zeigarnik, 1927 | Visible progress, saved drafts |
+| People speed up as they approach the goal | Clark Hull, 1932; Ran Kivetz et al., 2006 | Progress bar, visible steps |
+| An experience is judged by its peak and its end | Daniel Kahneman et al., 1993 | Polish the success screen and the high point |
+| What is beautiful seems easier to use | Masaaki Kurosu and Kaori Kashimura, 1995 | Visual care increases tolerance for small flaws, without hiding them in testing |
+| Under 400 ms, the exchange stays fluid | Walter J. Doherty and Arvind J. Thadani, IBM, 1982 | Immediate feedback, loading states, optimistic UI |
+| Users expect your site to work like the others | Jakob Nielsen, 2000 | Conventions for navigation and controls; singularity in the idea and the material |
+| Some complexity is irreducible | Larry Tesler | Have the system carry it: default values, autocomplete |
+| Be liberal in what you accept, strict in what you send | Jon Postel, RFC 761, 1980 | Accept varied formats in fields, store a single format |
+| Nobody reads the manual | John Carroll and Mary Beth Rosson, 1987 | In-context help, explanatory empty states |
+| Too many options can discourage | Sheena Iyengar and Mark Lepper, 2000; the meta-analysis by Benjamin Scheibehenne et al., 2010, finds an average effect close to zero | Precautionary principle: reduce options when they look alike |
+| Immersion comes from a challenge matched to skill | Mihaly Csikszentmihalyi, 1990 | Remove needless interruptions; progressive difficulty |
+| People see only what serves their goal | Colin Cherry, 1953; Daniel Simons and Christopher Chabris, 1999 | No critical information where the eye expects an ad |
+| Everyone builds a simplified model of the system | Kenneth Craik, 1943; Donald Norman, 1983 | Name and organize with the users' vocabulary, verified in testing |
+| Judgment deviates systematically | Amos Tversky and Daniel Kahneman, 1974 | Distrust your designer intuitions; validate with data |
+| A small share of causes produces most of the effects | Vilfredo Pareto; Joseph Juran | Focus effort on the most used features |
+| A task expands to fill the time available | Cyril Northcote Parkinson, 1955 | Shorten journeys: autofill, displayed lead times |

@@ -1,38 +1,38 @@
-# PRODUCT.md — [Nom du produit]
+# PRODUCT.md — [Product name]
 
-<!-- Le contexte du produit, écrit une fois par projet. Il évite que l'agent invente le produit, son public ou ses preuves. -->
+<!-- The product's context, written once per project. It keeps the agent from inventing the product, its audience or its proofs. -->
 
-## Le produit
+## The product
 
-- Ce qu'il fait, pour qui, en une phrase :
-- L'action unique que chaque page doit provoquer :
-- Langues :
+- What it does, for whom, in one sentence:
+- The single action every page must drive:
+- Languages:
 
-## Les utilisateurs
+## The users
 
-- Qui ils sont et ce qui compte pour eux :
-- Scène d'usage (où, quand, sur quel appareil, sous quelle lumière, quel réseau) :
+- Who they are and what matters to them:
+- Scene of use (where, when, on which device, under what light, what network):
 
-## Le monde du sujet
+## The subject's world
 
-- Nom et ce qu'il veut dire :
-- Lieu, matières, couleurs, rituels, horaires :
-- Contrainte avec laquelle le produit vit :
-- Objets imprimés de son monde :
+- Name and what it means:
+- Place, materials, colors, rituals, hours:
+- Constraint the product lives with:
+- Printed objects of its world:
 
-## Les preuves
+## The proofs
 
-| Réel (fourni) | Images disponibles et source | Absent (ne pas inventer) |
+| Real (supplied) | Available images and source | Missing (do not invent) |
 | --- | --- | --- |
 | | | |
 
-## La marque existante
+## The existing brand
 
-- Logo, couleurs, polices à garder :
-- Ce qui n'est pas de la marque mais du slop à retirer :
+- Logo, colors, fonts to keep:
+- What is not brand but slop to remove:
 
-## Contraintes
+## Constraints
 
-- Confidentialité (NDA, services tiers autorisés ou non) :
-- Accessibilité ou réglementation particulière :
-- Stack technique :
+- Confidentiality (NDA, third-party services allowed or not):
+- Specific accessibility or regulatory requirements:
+- Tech stack:

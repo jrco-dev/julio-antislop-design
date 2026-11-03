@@ -1,67 +1,67 @@
-# Tics de pages générées, datés
+# Tells of generated pages, dated
 
-Un tic est un procédé qui trahit une page générée. Il le devient parce qu'il est produit par défaut, partout, sans raison. Chaque correctif publié finit par devenir le tic suivant : cette liste est donc datée, et elle ne propose jamais une police ou une couleur de remplacement, seulement une méthode (dériver du sujet, consulter des références réelles).
+A tell is a device that gives away a generated page. It becomes one because it is produced by default, everywhere, for no reason. Every published fix ends up becoming the next tell: this list is therefore dated, and it never proposes a replacement font or color, only a method (derive from the subject, consult real references).
 
-## Vague 1 — 2023-2024
+## Wave 1 — 2023-2024
 
-| Tic | À la place |
+| Tell | Instead |
 | --- | --- |
-| Dégradés violet, indigo, violet-rose ou cyan sur sombre ; texte en dégradé | Aplats ; encre pleine |
-| Bouton « Get started » lumineux ou en dégradé | Bouton plat nommé par son action |
-| Verre dépoli (backdrop blur) décoratif | Surfaces opaques, un écart de ton |
-| Ombre grise douce sous chaque carte | Écart de ton, ou pas de boîte |
-| Trois cartes identiques, icône dans un carré arrondi | Composition propre à la section |
-| Emojis comme icônes ou puces | Mots, icônes d'un jeu, ou vraie image |
-| Hero centré : titre, sous-titre, deux boutons, capture en dessous | Hero tiré de l'idée |
+| Purple, indigo, purple-pink or cyan-on-dark gradients; gradient text | Flat fills; solid ink |
+| Glowing or gradient "Get started" button | Flat button named for its action |
+| Decorative frosted glass (backdrop blur) | Opaque surfaces, one tone step |
+| Soft gray shadow under every card | Tone step, or no box |
+| Three identical cards, icon in a rounded square | Composition specific to the section |
+| Emojis as icons or bullets | Words, icons from one set, or a real image |
+| Centered hero: headline, subheadline, two buttons, screenshot below | Hero drawn from the idea |
 
-## Vague 2 — 2025
+## Wave 2 — 2025
 
-| Tic | À la place |
+| Tell | Instead |
 | --- | --- |
-| Eyebrow : petit label en capitales espacées au-dessus de chaque titre | Intégrer au titre ou supprimer |
-| Badge en pastille au-dessus du titre (« New », « Beta », « Introducing ») | Le dire dans la phrase d'appui |
-| Un mot du titre en italique, en couleur ou souligné | Une police, une couleur |
-| Bento de tuiles arrondies comme section de features | Grille composée selon `persuade.md`, ou autre chose |
-| Fond quasi noir, un accent néon et une lueur | Palette sombre construite, sans lueur |
-| Navigation en pastille flottante floutée | Barre simple |
-| Faux dashboard de barres grises et donuts | Vrai fragment d'interface, ou pas d'image |
-| Pastille de statut qui pulse (« Available for work ») | Supprimer |
-| Fondu montant sur chaque section | Un mouvement signature |
+| Eyebrow: small letter-spaced all-caps label above every heading | Fold it into the heading or remove it |
+| Pill badge above the headline ("New", "Beta", "Introducing") | Say it in the supporting sentence |
+| One word of the headline in italic, in color or underlined | One font, one color |
+| Bento of rounded tiles as the features section | Grid composed according to `persuade.md`, or something else |
+| Near-black background, one neon accent and a glow | A constructed dark palette, without glow |
+| Blurred floating pill navigation | Simple bar |
+| Fake dashboard of gray bars and donuts | A real interface fragment, or no image |
+| Pulsing status dot ("Available for work") | Remove |
+| Fade-up on every section | One signature motion |
 
-## Vague 3 — 2025-2026 : le correctif devenu cliché
+## Wave 3 — 2025-2026: the fix turned cliché
 
-Le remède publié contre les deux premières vagues était « réchauffer et faire éditorial ». Les modèles l'ont adopté en bloc.
+The published remedy against the first two waves was "warm it up and go editorial". Models adopted it wholesale.
 
-| Tic | À la place |
+| Tell | Instead |
 | --- | --- |
-| Fond crème + accent terracotta, rouille ou argile | Chaleur par une pierre peu saturée, une encre profonde, une photo ou un aplat chaud |
-| Serif contrastée comme raccourci vers « premium » ; grand titre serif italique | Police choisie pour le caractère du projet |
-| Cosplay de journal : filets partout, angle zéro, colonnes denses | Structure par l'espace et le ton |
-| Labels performatifs (« Field notes », « Quietly trusted by ») | Noms de section simples |
+| Cream background + terracotta, rust or clay accent | Warmth through a low-chroma stone, a deep ink, a photo or a warm flat fill |
+| High-contrast serif as a shortcut to "premium"; large italic serif headline | A font chosen for the project's character |
+| Newspaper cosplay: hairlines everywhere, zero radius, dense columns | Structure through space and tone |
+| Performative labels ("Field notes", "Quietly trusted by") | Plain section names |
 
-## Mode des galeries, refusée ici
+## Gallery fashion, refused here
 
-Fréquents sur des sites primés, mais ce sont les premières choses qu'un générateur copie, et ils ne portent aucune information : micro-labels en monospace, numérotation 01/02/03 (sauf vraie séquence), filets fins et grilles visibles (sauf en mode Opérer, voir `defaults-by-mode.md`), artefacts d'outil de design (repères, marques de coupe), méta d'agence (heure locale, coordonnées, « ©2026 — Scroll », chaînes reliées par des points médians). Les petites capitales espacées sont aussi condamnées par la mesure : 16 % des sites forts contre 57 % des faibles. Certains skills « anti-slop » les recommandent encore pour « faire cher » : c'est précisément le correctif d'une source devenu le cliché d'une autre.
+Common on award-winning sites, but they are the first things a generator copies, and they carry no information: monospace micro-labels, 01/02/03 numbering (except for a real sequence), thin hairlines and visible grids (except in Operate mode, see `defaults-by-mode.md`), design-tool artifacts (guides, crop marks), agency meta (local time, coordinates, "©2026 — Scroll", strings joined by middle dots). Letter-spaced small caps are also condemned by measurement: 16% of strong sites versus 57% of weak ones. Some "anti-slop" skills still recommend them to "look expensive": that is precisely one source's fix turned into another's cliché.
 
-## Vague 4 — 2026 : défauts de framework
+## Wave 4 — 2026: framework defaults
 
-Space Grotesk comme repli « original », puis ses remplaçants (DM Sans, Manrope, Plus Jakarta Sans, Satoshi, Geist) ; **Archivo et son axe de largeur**, nouvelle convergence relevée sur trois de nos pages et sur celle d'Impeccable lors du test à l'aveugle du 3 novembre 2026 ; tailles posées au jugé hors de toute échelle (38 px, 1,25 rem, plusieurs `clamp()` presque égaux) ; espacements bruts différents dans chaque bloc (0,35 rem, 0,6 rem 0,55 rem, 3 rem 5 rem) ; shadcn `zinc` ou `slate` non retouché ; bouton `blue-600` de Tailwind ; `rounded-2xl shadow-lg` partout ; icônes Lucide réflexes (Sparkles, ArrowRight, Zap) ; avatars DiceBear ; placeholders en dégradé ; `gap-4` et `p-6` uniformes ; footer à 4 colonnes ; trois offres tarifaires avec un anneau sur celle du milieu ; nom de la marque géant en pleine largeur dans le footer, par réflexe (relevé par un juge à l'aveugle lors du test du 3 novembre 2026) ; taches de couleur floues (« blobs ») posées derrière un panneau de verre pour que le flou se voie ; étiquettes « à valider » ou « exemple » semées dans la page ; objet physique dessiné en quelques formes plates, méconnaissable ; papier écru, serif d'affichage classique et une seule couleur sombre, variante « atelier » de la vague 3.
+Space Grotesk as the "original" fallback, then its replacements (DM Sans, Manrope, Plus Jakarta Sans, Satoshi, Geist); **Archivo and its width axis**, a new convergence spotted on three of our pages and on Impeccable's during the blind test of November 3, 2026; sizes set by eye outside any scale (38 px, 1.25 rem, several nearly equal `clamp()`s); different raw spacings in every block (0.35 rem, 0.6 rem 0.55 rem, 3 rem 5 rem); untouched shadcn `zinc` or `slate`; Tailwind's `blue-600` button; `rounded-2xl shadow-lg` everywhere; reflex Lucide icons (Sparkles, ArrowRight, Zap); DiceBear avatars; gradient placeholders; uniform `gap-4` and `p-6`; 4-column footer; three pricing plans with a ring on the middle one; giant full-width brand name in the footer, by reflex (spotted by a blind judge during the test of November 3, 2026); blurred color splotches ("blobs") placed behind a glass panel so the blur shows; "to confirm" or "sample" labels scattered through the page; physical object drawn as a few flat shapes, unrecognizable; ecru paper, classic display serif and a single dark color, the "workshop" variant of wave 3.
 
-À la place : police trouvée dans le monde du sujet (`typography.md` §2), échelle typographique modulaire et échelle d'espacement à trois niveaux, sans valeur hors tokens (`spacing.md`), tokens composés pour le projet, icônes du produit ou d'un jeu choisi, vrais avatars ou initiales, footer et tarifs construits d'après le contenu réel.
+Instead: a font found in the subject's world (`typography.md` §2), a modular type scale and a three-level spacing scale, with no value outside the tokens (`spacing.md`), tokens composed for the project, icons from the product or from a chosen set, real avatars or initials, footer and pricing built from the real content.
 
-## Vague 5 — novembre 2026 : le clean anti-slop
+## Wave 5 — November 2026: anti-slop clean
 
-Le style vers lequel convergent les agents qui évitent tous les tics, ce skill compris (relevé sur nos quatre pages du 2 et 3 novembre 2026) : fond papier clair, titre en grotesque condensée aligné à gauche avec la phrase d'appui à droite, filets fins et tableaux, un seul accent, sections aérées empilées, listes numérotées ; et, en refonte, des blocs génériques de l'existant (grille d'adjectifs « Sur mesure / Souplesse / Expertise ») gardés tels quels. À la place : le tirage, un archétype et deux leviers de risque (`originality.md`).
+The style that agents avoiding every tell converge on, this skill included (spotted on our four pages of November 2 and 3, 2026): light paper background, left-aligned condensed grotesque headline with the supporting sentence on the right, thin hairlines and tables, a single accent, airy stacked sections, numbered lists; and, in a redesign, generic blocks from the existing site (a grid of adjectives "Tailor-made / Flexibility / Expertise") kept as they were. Instead: the roll, an archetype and two risk levers (`originality.md`).
 
-## Autres tics fréquents
+## Other common tells
 
-- **Structure** : titre-phrase de 3 ou 4 lignes ; ordre hero, logos, features, témoignage, tarifs, CTA ; même mise en page pour toutes les sections ; tout centré ; même rayon moyen partout ; neuf tailles de police presque égales ; fausse preuve sociale (« 10 000+ équipes », rangées d'étoiles sans source).
-- **Surfaces** : bordure colorée épaisse sur un côté des cartes et alertes ; ombre décalée sans flou (`4px 4px 0`) hors d'un vrai monde néobrutaliste ; « carte fantôme » (bordure de 1 px sous une large ombre douce) ; masque géométrique qui imite le contour d'un sujet photographié ; template « métrique de hero » (gros chiffre, petit label, stats annexes) ; rayures et grilles de fond sans vrai plan derrière.
-- **Texte** : unlock, supercharge, seamless, elevate, effortless, cutting-edge, all-in-one ; « pas seulement X, c'est Y » ; titres en trois temps ; « Get started » et « Learn more » ; tirets cadratins en série ; titre « Bienvenue, Prénom ! 👋 » ; points d'exclamation.
-- **Mouvement** : même fondu partout ; survol qui soulève chaque carte ; easing à rebond ; boucles sans sens ; révélation qui échoue et laisse une bande vide.
+- **Structure**: a sentence-headline of 3 or 4 lines; the hero, logos, features, testimonial, pricing, CTA order; the same layout for every section; everything centered; the same medium radius everywhere; nine nearly equal font sizes; fake social proof ("10,000+ teams", rows of stars with no source).
+- **Surfaces**: thick colored border on one side of cards and alerts; offset shadow with no blur (`4px 4px 0`) outside a real neo-brutalist world; "ghost card" (1 px border under a wide soft shadow); geometric mask imitating the outline of a photographed subject; "hero metric" template (big number, small label, side stats); background stripes and grids with no real plan behind them.
+- **Text**: repeated negation cadence ("Not a script.", "Not the other way round.", "Not an agency."); full stops on every heading; unlock, supercharge, seamless, elevate, effortless, cutting-edge, all-in-one; "not just X, it's Y"; three-beat headlines; "Get started" and "Learn more"; strings of em dashes; "Welcome, Name! 👋" heading; exclamation marks.
+- **Motion**: the same fade everywhere; hover that lifts every card; bouncy easing; meaningless loops; a reveal that fails and leaves an empty band.
 
-## Esthétique d'évitement
+## Avoidance aesthetic
 
-Une page débarrassée de tous ces tics sans rien à la place est une page vide bien élevée, et c'est aussi un tic : n'importe qui la devinerait à partir de la catégorie et de la liste des interdits. Les tics comblaient l'absence d'idée. On comble ce vide avec l'idée, l'échelle, le contenu complet et de vraies images.
+A page stripped of all these tells with nothing in their place is a well-behaved empty page, and that is also a tell: anyone could guess it from the category and the list of bans. The tells were filling the absence of an idea. Fill that void with the idea, the scale, the complete content and real images.
 
-Mettre à jour cette liste chaque trimestre : un procédé devenu courant dans les générations entre ; un tic oublié peut sortir.
+Update this list every quarter: a device that has become common in generations goes in; a forgotten tell can come out.

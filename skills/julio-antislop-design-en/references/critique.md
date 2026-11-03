@@ -1,47 +1,48 @@
-# Critique et notation
+# Critique and scoring
 
-Passer les contrôles automatiques veut dire que rien d'interdit n'a été mesuré, pas que la page est bonne. La critique juge les captures, pas le code : un problème visible sur une capture est réel, quoi que dise le code.
+Passing the automatic checks means nothing forbidden was measured, not that the page is good. The critique judges the screenshots, not the code: a problem visible on a screenshot is real, whatever the code says.
 
-## Qui critique
+## Who critiques
 
-Un sous-agent en contexte vierge, qui n'a pas vu la construction : celui qui a fait la page a tendance à défendre ce qu'il vient d'écrire. Lui donner le brief, le mode, la phrase d'idée et les captures à 390, 768, 1440 et 1920 px. Sans sous-agent, relire les captures comme un designer exigeant qui découvre la page.
+A subagent with a blank context, who has not seen the build: whoever made the page tends to defend what they just wrote. Give it the brief, the mode, the idea sentence and the screenshots at 390, 768, 1440 and 1920 px. Without a subagent, reread the screenshots as a demanding designer discovering the page.
 
-## Grille sur sept axes
+## Grid on seven axes
 
-Noter de 1 à 5. Une note sous 3 impose une révision avant de continuer.
+Score from 1 to 5. A score below 3 requires a revision before continuing.
 
-| Axe | 3 | 5 |
+| Axis | 3 | 5 |
 | --- | --- | --- |
-| Parti pris | La page a un ton | La page a un argument qu'on pourrait contester |
-| Hiérarchie | Il faut un second regard | Elle survit au test des yeux plissés |
-| Exécution | 2 ou 3 détails lâches | Elle passerait les contrôles du premier coup |
-| Spécificité | Elle colle à la catégorie | Elle n'appartient à aucun autre produit |
-| Retenue | Une décoration de trop | On a sacrifié quelque chose qu'on aimait |
-| Variété | Elle diffère des pages précédentes du journal sur 3 axes sur 6 | Elle ne partage presque rien avec les 3 dernières (non noté si le journal est vide) |
-| Originalité | Propre, mais on reconnaît un style connu (`originality.md` §1 et §8) | On ne l'a jamais vue ; deux risques visibles et tenus. **Sous 4, la page n'est pas livrée** |
+| Stance | The page has a tone | The page has an argument someone could dispute |
+| Hierarchy | It takes a second look | It survives the squint test |
+| Execution | 2 or 3 loose details | It would pass the checks on the first try |
+| Specificity | It fits the category | It belongs to no other product |
+| Restraint | One decoration too many | Something we loved was sacrificed |
+| Variety | It differs from the previous pages in the log on 3 axes out of 6 | It shares almost nothing with the last 3 (not scored if the log is empty) |
+| Originality | Clean, but a known style is recognizable (`originality.md` §1 and §8) | Never seen before; two visible risks, carried through. **Below 4, the page is not delivered** |
 
-## Questions à poser sur chaque capture
+## Questions to ask of each screenshot
 
-1. En 5 secondes, un inconnu dit-il ce que c'est et quoi faire ?
-2. Où l'œil se pose-t-il en premier ? Est-ce la bonne chose ?
-3. Une section pourrait-elle être supprimée sans perdre l'argument ?
-4. Une zone vide est-elle voulue et refermée de l'autre côté, ou un manque ?
-5. Le reste de la page tient-il la promesse du premier écran, ou retombe-t-il en blocs standard ?
-6. Test de l'étranger : la page aurait-elle pu sortir du même agent sans ce skill ?
-7. Test du concurrent : avec le nom d'un concurrent, la page fonctionnerait-elle encore ?
-8. Test du déjà-vu : décrite en 12 mots, à quel style connu ressemble-t-elle ? Si un nom vient tout de suite, changer d'abord le levier de risque le plus visible.
+1. Within 5 seconds, does a stranger say what it is and what to do?
+2. Where does the eye land first? Is it the right thing?
+3. Could a section be deleted without losing the argument?
+4. Is an empty area intended and closed off on the other side, or a gap?
+5. Does the rest of the page keep the promise of the first screen, or does it fall back into standard blocks?
+6. Stranger test: could the page have come out of the same agent without this skill?
+7. Competitor test: with a competitor's name, would the page still work?
+8. Is the product visible, for real, in the first two screens? Originality never makes up for its absence.
+9. Déjà-vu test: described in 12 words, which known style does it look like? If a name comes to mind immediately, first change the most visible risk lever.
 
-## Format de la critique écrite
+## Format of the written critique
 
 ```
-Notes : parti pris X, hiérarchie X, exécution X, spécificité X, retenue X, variété X, originalité X
-Déjà-vu : « … » (style reconnu ou aucun)
-Axe le plus faible : … — cause : …
-Trois problèmes à corriger, du plus grave au moins grave :
-1. … (capture, zone) → correction
+Scores: stance X, hierarchy X, execution X, specificity X, restraint X, variety X, originality X
+Déjà-vu: "…" (recognized style or none)
+Weakest axis: … — cause: …
+Three problems to fix, from most to least serious:
+1. … (screenshot, area) → fix
 2. …
 3. …
-Ce qui tient et ne doit pas bouger : …
+What holds and must not move: …
 ```
 
-Corriger les trois problèmes, réinspecter, recommencer. Trois tours au plus ; ce qui reste faible va dans le rapport.
+Fix the three problems, re-inspect, start again. Three rounds at most; whatever remains weak goes into the report.

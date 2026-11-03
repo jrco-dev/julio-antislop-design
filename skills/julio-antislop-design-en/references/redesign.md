@@ -1,51 +1,51 @@
-# Refonte d'un existant
+# Redesigning something that exists
 
-La refonte corrige le métier et garde le produit : ses fonctionnalités, ses contenus et l'ordre de ses sections restent. Elle remplace les étapes 3 à 9 du processus ; les étapes 10 à 12 restent identiques.
+A redesign fixes the craft and keeps the product: its features, its content and the order of its sections stay. It replaces steps 3 to 9 of the process; steps 10 to 12 stay the same.
 
-## 1. Regarder l'écran
+## 1. Look at the screen
 
-Trouver les fichiers qui le rendent. Si possible, lancer l'app ou ouvrir la page et prendre une capture : on juge ce que les gens voient, pas seulement le code. Avec seulement une URL, extraire le système du vrai site (couleurs, polices, espacements) plutôt que le deviner. Avec seulement une capture, reconstruire l'écran en un fichier HTML statique fidèle et le traiter comme l'original.
+Find the files that render it. If possible, run the app or open the page and take a screenshot: you judge what people see, not just the code. With only a URL, extract the system from the real site (colors, fonts, spacing) rather than guessing it. With only a screenshot, rebuild the screen as a faithful static HTML file and treat it as the original.
 
-## 2. Audit écrit
+## 2. Written audit
 
-Parcourir `tells.md` et lister chaque signe trouvé, une ligne chacun, avec l'endroit où il se trouve. Auditer aussi **le contenu** : marquer chaque bloc creux de l'existant (grille d'adjectifs sans preuve, liste d'étapes sans contenu, promesse non chiffrée, bouton qui ne dit pas ce qui se passe) et dresser la liste des preuves qui manquent (chiffres, clients, cas, visages, identité cohérente). Ces blocs ne sont ni gardés tels quels ni réécrits avec des faits inventés : proposer au propriétaire une reformulation vérifiable ou la suppression, et lui demander les preuves au cadrage (tour 3) avant de construire. Tenir compte du mode : en Opérer, des filets discrets ou une monospace sur les compteurs sont permis par `defaults-by-mode.md` et ne sont pas des signes.
+Go through `tells.md` and list each sign found, one line each, with where it is. Also audit **the content**: mark every hollow block of the existing thing (grid of adjectives without proof, list of steps without content, unquantified promise, button that does not say what happens) and draw up the list of missing proofs (figures, clients, cases, faces, consistent identity). These blocks are neither kept as they are nor rewritten with invented facts: propose to the owner a verifiable rewording or deletion, and ask them for the proofs during the intake (round 3) before building. Take the mode into account: in Operate, subtle rules or a monospace on counters are allowed by `defaults-by-mode.md` and are not signs.
 
-## 3. Diagnostic
+## 3. Diagnosis
 
-- **Slop lourd** (signes partout : couleur, typo, icônes, texte) : processus complet.
-- **Slop léger** (écran surtout bien conçu) : corriger seulement ce que l'audit a trouvé ; garder la marque, la palette, la typo, la mise en page et les visuels. Les grandes idées vont dans le rapport comme propositions.
-- **Pas de slop** : le dire, proposer 2 ou 3 retouches chiffrées au plus, n'appliquer qu'avec accord. Ne jamais changer un bon écran pour le plaisir.
+- **Heavy slop** (signs everywhere: color, type, icons, copy): full process.
+- **Light slop** (screen mostly well designed): fix only what the audit found; keep the brand, the palette, the type, the layout and the visuals. Big ideas go into the report as proposals.
+- **No slop**: say so, propose 2 or 3 quantified touch-ups at most, apply only with consent. Never change a good screen for the fun of it.
 
-## 4. Direction en 5 lignes, validée avant toute modification
+## 4. Direction in 5 lines, validated before any change
 
-Montrer l'audit et la direction à l'utilisateur et attendre sa réponse : changer de direction plus tard oblige à tout refaire.
+Show the audit and the direction to the user and wait for their answer: changing direction later means redoing everything.
 
-- **Produit** : ce qu'il fait et pour qui, en une phrase.
-- **Caractère** : 2 ou 3 mots concrets (« calme, exact, un peu chaud »). « Clean », « modern », « sleek », « minimal » et « premium » sont interdits : ils décrivent tous les gabarits.
-- **Monde** : le lieu ou la matière auquel le produit appartient naturellement ; il teinte les neutres, l'accent et le visuel.
-- **Moments** : 1 ou 2 endroits riches en couleur, en matière et en détail, choisis dans ce que le produit montre.
-- **Signature** : un seul petit détail propre au produit, utilisé partout où il a sa place et nulle part ailleurs.
+- **Product**: what it does and for whom, in one sentence.
+- **Character**: 2 or 3 concrete words ("calm, exact, a little warm"). "Clean", "modern", "sleek", "minimal" and "premium" are forbidden: they describe every template.
+- **World**: the place or material the product naturally belongs to; it tints the neutrals, the accent and the visual.
+- **Moments**: 1 or 2 places rich in color, material and detail, chosen from what the product shows.
+- **Signature**: a single small detail specific to the product, used everywhere it belongs and nowhere else.
 
-Une vraie marque (logo, couleur, police qui n'est pas du slop) se garde. Un dégradé violet-bleu, des étincelles ou une lueur dans un logo ne comptent pas comme marque sauf si l'utilisateur le dit. Ne jamais renommer le produit.
+A real brand (logo, color, font that is not slop) is kept. A purple-blue gradient, sparkles or a glow in a logo do not count as brand unless the user says so. Never rename the product.
 
-## 5. Neuf passes, dans cet ordre
+## 5. Nine passes, in this order
 
-Finir chaque passe sur tout l'écran avant la suivante ; l'espacement d'abord, car tout se lit autrement une fois le rythme juste.
+Finish each pass over the whole screen before the next; spacing first, because everything reads differently once the rhythm is right.
 
-1. **Espacement** : grille de 4 px, mêmes éléments mêmes tailles, groupes plus serrés que l'espace entre groupes, alignements en colonnes, suppression des valeurs isolées (`mt-[13px]`).
-2. **Couleur** : une rampe de neutres teintée vers le monde, trois rôles de texte, un accent rare et contrasté ; suppression des dégradés de teinte, lueurs, ombres colorées, halos et bordures néon ; bordures selon le mode (filet à 6-10 % en Opérer, aucun filet décoratif en Persuader).
-3. **Icônes** : chaque emoji devient une icône d'un seul jeu, une taille, un trait, couleur du texte ; suppression des icônes qui n'apportent rien.
-4. **Texte** : titres qui disent ce que fait le produit et pour qui ; pas de point d'exclamation ; pas de titre « Bienvenue, Prénom ! 👋 » ; labels courts ; variations avec leur référence ; pas de point final sur les éléments courts ; promesses invérifiables supprimées ou confirmées par l'utilisateur ; données d'exemple plausibles ; badges « PRO », « New ✨ » retirés sauf nécessité.
-5. **Typo** : police choisie pour le caractère ; graisses 400-500, 600 au plus ; casse de phrase partout ; pas d'interlettrage négatif sur le petit texte ; un format de chiffres en `tabular-nums` ; pas d'italique d'emphase.
-6. **Mise en page** : sections et ordre conservés ; proportions d'app réelles ; hero en scène ou en split asymétrique ; une action principale et une secondaire.
-7. **Détails** : rayons imbriqués ; keycaps ; un graphique principal ; cartes de stats = label, chiffre, variation ; largeurs variées ; logo = nom du produit dans la police principale plus une marque simple.
-8. **Visuels** : suppression des blobs, orbes, nébuleuses, robots et cerveaux lumineux ; un hero montre quelque chose de vrai (scène du monde ou aperçu du produit en code avec un moment).
-9. **Mouvement** : suppression des boucles sans raison, de `transition-all`, de `hover:scale` sur les cartes, des ressorts à rebond, de la parallaxe ; une courbe d'easing, peu de durées ; une entrée au chargement.
+1. **Spacing**: 4 px grid, same elements same sizes, groups tighter than the space between groups, column alignments, removal of isolated values (`mt-[13px]`).
+2. **Color**: a neutral ramp tinted toward the world, three text roles, a rare, high-contrast accent; removal of hue gradients, glows, colored shadows, halos and neon borders; borders according to the mode (rule at 6-10% in Operate, no decorative rule in Persuade).
+3. **Icons**: every emoji becomes an icon from a single set, one size, one stroke, text color; removal of icons that add nothing.
+4. **Copy**: headlines that say what the product does and for whom; no exclamation marks; no "Welcome, Firstname! 👋" headline; short labels; changes with their reference; no trailing period on short elements; unverifiable promises removed or confirmed by the user; plausible sample data; "PRO", "New ✨" badges removed unless necessary.
+5. **Type**: font chosen for character; weights 400-500, 600 at most; sentence case everywhere; no negative letter-spacing on small text; one number format in `tabular-nums`; no italic for emphasis.
+6. **Layout**: sections and order kept; real app proportions; hero as a scene or as an asymmetric split; one primary action and one secondary.
+7. **Details**: nested radii; keycaps; one main chart; stat cards = label, figure, change; varied widths; logo = product name in the main font plus a simple mark.
+8. **Visuals**: removal of blobs, orbs, nebulae, robots and glowing brains; a hero shows something real (a scene from the world or a code preview of the product with a moment).
+9. **Motion**: removal of pointless loops, `transition-all`, `hover:scale` on cards, bouncy springs, parallax; one easing curve, few durations; one entrance on load.
 
-Après les passes : consulter des références si la direction l'exige, et ajouter la direction au journal pour que les projets suivants s'en écartent.
+After the passes: consult references if the direction calls for it, and add the direction to the log so that following projects move away from it.
 
-Test final : en remplaçant le nom du produit par celui d'un autre, l'écran fonctionne-t-il encore ? Si oui, pousser la direction dans le texte, le visuel et la signature.
+Final test: if you replace the product's name with another's, does the screen still work? If so, push the direction further into the copy, the visual and the signature.
 
-Méfiance envers le « look gabarit » qui guette un écran nettoyé : fond gris #161616, Inter, texte blanc et l'ancienne couleur de marque sur un seul bouton. Ce n'est pas du slop, mais c'est l'absence de décision.
+Beware of the "template look" lurking over a cleaned-up screen: #161616 gray background, Inter, white text and the old brand color on a single button. It is not slop, but it is the absence of a decision.
 
-Crédit : passes et direction adaptées d'unslop, par Damir Sokolovsky (@heydamir), licence CC BY 4.0.
+Credit: passes and direction adapted from unslop, by Damir Sokolovsky (@heydamir), CC BY 4.0 license.
