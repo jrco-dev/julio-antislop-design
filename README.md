@@ -54,6 +54,7 @@ Ce qui le distingue :
 
 | Version | Date | Changement |
 | --- | --- | --- |
+| 0.22 | 3 nov. 2026 | Cadrage en une fois : un tour Goût ajouté (caractère, lumière et couleur, polices, densité, formes, images, mouvement, références aimées et rejets) qui remplit `DESIGN.md` avant le code ; 12 questions au plus, puis plus d'aller-retour ; seule une délégation explicite (« carte blanche ») dispense de ce tour |
 | 0.21 | 3 nov. 2026 | `nav-footer.md` : 18 modèles de navigation et 15 modèles de pied de page relevés sur navbar.gallery, footer.design et unsection.com, avec le cas d'usage, les règles et un exemple réel ; choix noté dans le rapport |
 | 0.20 | 3 nov. 2026 | Leçons du test « style Apple » : produit physique sans photo (registre que le code sait faire, objet entier), règles du verre demandé par le brief (flouter du réel, jamais des blobs), une seule mention du contenu d'exemple, chose vivante qui change l'objet principal, écart entre sections constant |
 | 0.19 | 3 nov. 2026 | `site-models.md` : 110 sites modèles réels par mode, avec la qualité à emprunter ; l'étape « références » y puise, dont au moins un site hors du secteur du projet |
@@ -105,7 +106,7 @@ Fais une vidéo de 20 secondes qui présente notre app, à partir de captures r�
 Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
 ```
 
-Avant de créer, l'agent cadre le projet avec vous : un tour de questions sur le projet (surface, audience, action visée, ton), un tour sur la matière (marque, images, preuves avec leur source, textes, références, contraintes), puis une fiche brief qui commence par « Je lis ce projet comme : … ». Si vous n'avez pas de police de marque, il vous propose 3 paires de polices, chacune avec le trait de votre sujet qu'elle porte. Il attend votre validation avant de construire. Répondez « vas-y » pour qu'il décide lui-même en annonçant ses hypothèses.
+Avant de créer, l'agent cadre le projet avec vous **en une fois**, pour connaître votre goût avant la première ligne de code et éviter les allers-retours : un tour sur le projet (surface, audience, action visée, ce qui doit exister), un tour sur le goût (caractère, clair ou sombre, couleur, polices, densité, formes, images, mouvement, sites que vous aimez parmi ses modèles, ce que vous ne voulez surtout pas), un tour sur la matière (marque, images, preuves avec leur source, textes, contraintes). 12 questions au plus, à choix, avec aperçus quand c'est possible. Sans police de marque, il vous propose 3 paires. Il vous montre ensuite une fiche brief qui commence par « Je lis ce projet comme : … », la fait valider une fois, remplit `DESIGN.md` avec vos réponses, puis construit sans revenir vers vous. Dites « carte blanche » pour qu'il décide tout lui-même en annonçant ses hypothèses.
 
 ## Comment il travaille
 
@@ -208,7 +209,7 @@ skills/julio-antislop-design/
 ## FAQ
 
 **Pourquoi mon agent me pose-t-il des questions avant de coder ?**
-Un modèle qui manque d'information comble les trous avec la moyenne, et c'est ce qui produit des pages génériques. Il pose deux tours de questions au plus, ne demande jamais ce que votre projet dit déjà, et vous montre une fiche brief à valider. Répondez « vas-y » et il décide en annonçant ses hypothèses.
+Un modèle qui manque d'information comble les trous avec la moyenne, et c'est ce qui produit des pages génériques ; un goût deviné se corrige ensuite par allers-retours. Il pose toutes ses questions d'un coup (12 au plus), ne demande jamais ce que votre projet ou votre `DESIGN.md` disent déjà, et vous montre une fiche brief à valider une fois. Dites « carte blanche » et il décide tout en annonçant ses hypothèses.
 
 **Je veux un style précis, même s'il figure parmi les « tics ».**
 Dites-le : une consigne explicite l'emporte sur tous les défauts anti-slop. Elle ne l'emporte jamais sur l'accessibilité, l'honnêteté ou la performance.
