@@ -31,5 +31,5 @@ Every page has **one visual anchor specific to the subject in the first two scre
 ## Common rules
 
 - One dominant visual per screen is worth more than several small ones.
-- In Experience mode with photos to come: neutral background, the image first; saturated flat colors go in the interstitial sections, not behind the photos.
+- In Experience mode with photos to come: a neutral background **behind the photos only**, the image first; saturated flat colors go in the interstitial sections. Neutral does not mean grey everywhere: the page keeps an idea drawn from the subject (a place, a material, a sequence) and a colour of its own. Measured on 3 November 2026: an all-mid-grey portfolio dropped from 6.5 to 6.1, originality 4.
 - Every visual has alt text that says what it shows, or `alt=""` if it is decorative.

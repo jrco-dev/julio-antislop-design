@@ -31,5 +31,5 @@ Chaque page a **une ancre visuelle propre au sujet dans les deux premiers écran
 ## Règles communes
 
 - Un visuel dominant par écran vaut mieux que plusieurs petits.
-- En mode Expérience avec des photos à venir : fond neutre, l'image d'abord ; les aplats saturés vont dans les intercalaires, pas derrière les photos.
+- En mode Expérience avec des photos à venir : fond neutre **derrière les photos seulement**, l'image d'abord ; les aplats saturés vont dans les intercalaires. Le neutre n'est pas un gris partout : la page garde une idée tirée du sujet (un lieu, une matière, une séquence) et une couleur qui lui appartient. Mesuré le 3 novembre 2026 : un portfolio tout en gris moyen a reculé de 6,5 à 6,1, originalité 4.
 - Chaque visuel a un texte alternatif qui dit ce qu'il montre, ou `alt=""` s'il est décoratif.
