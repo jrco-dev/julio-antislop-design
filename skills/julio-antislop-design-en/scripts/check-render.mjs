@@ -12,7 +12,7 @@ import { pathToFileURL } from "node:url";
 
 const argv = process.argv.slice(2);
 const opt = (k, d) => { const i = argv.indexOf(k); return i > -1 ? argv[i + 1] : d; };
-const LANG = (opt("--lang", process.env.JULIO_LANG || "fr") || "fr").startsWith("en") ? "en" : "fr";
+const LANG = (opt("--lang", process.env.JULIO_LANG || (import.meta.url.includes("julio-antislop-design-en") ? "en" : "fr")) || "fr").startsWith("en") ? "en" : "fr";
 const T = (fr, en) => (LANG === "en" ? en : fr);
 const target = argv.find((a, i) => !a.startsWith("--") && !["--widths", "--shots", "--lang"].includes(argv[i - 1]));
 if (!target) { console.error(T("Usage : node scripts/check-render.mjs <fichier.html|URL> [--widths 390,1440] [--shots dossier] [--lang fr|en] [--json]", "Usage: node scripts/check-render.mjs <file.html|URL> [--widths 390,1440] [--shots folder] [--lang fr|en] [--json]")); process.exit(2); }
