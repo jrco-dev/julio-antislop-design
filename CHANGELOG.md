@@ -9,6 +9,7 @@ Toutes les versions, la plus récente en haut. Le détail des règles est dans l
 - `finish.md` : les défauts de finition relevés par les juges, chacun avec sa règle et son contrôle.
 - Scripts bilingues (`--lang en`, anglais par défaut dans l'édition anglaise).
 - Tests automatiques (`npm test`), intégration continue, `tools/package.py`, `CHANGELOG.md`, `VERSION`.
+- Évaluation : 7,0 sur 10 (6,8 en 0.24) ; visuels 5,4 → 6,2, premier écran 7,2 → 7,8 ; espacement inchangé à 6,2.
 
 ## 0.24 — 3 nov. 2026
 

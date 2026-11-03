@@ -9,7 +9,7 @@ Une page faite par un modèle ressemble à la moyenne de toutes les pages qu'il 
 
 Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible [Agent Skills](https://agentskills.io). Deux éditions : **française** (`julio-antislop-design`) et **anglaise** (`julio-antislop-design-en`), mêmes règles et mêmes scripts.
 
-**Score : 6,8 sur 10** en version 0.24, sur 5 briefs jugés à l’aveugle ([détail](evals/README.md)). Honnêteté 8,8 ; visuels sans photo 5,4, chantier de la 0.25.
+**Score : 7,0 sur 10** en version 0.25 (6,8 en 0.24), sur 5 briefs jugés à l’aveugle ([détail](evals/README.md)). Honnêteté 9,0 ; espacement 6,2 et originalité 6,0, les prochains chantiers.
 
 ---
 
@@ -318,4 +318,4 @@ Install the English edition:
 npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
 ```
 
-Current score: 6.8/10 on 5 blind-judged briefs (`evals/`); strongest on honesty (8.8), weakest on visuals without photos (5.4). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
+Current score: 7.0/10 in 0.25 (6.8 in 0.24) on 5 blind-judged briefs (`evals/`); strongest on honesty (9.0), weakest on spacing (6.2) and originality (6.0). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.

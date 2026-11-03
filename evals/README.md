@@ -22,20 +22,23 @@ Cinq briefs fixes, un par mode et un de plus en Persuader, pour mesurer chaque v
 | Version | Date | 1 Lavanila | 2 Les Rayons | 3 Fanilo | 4 Compost | 5 Portfolio | Moyenne | Conditions |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0.24 | 3 nov. 2026 | 7,1 | 6,7 | 7,4 | 6,5 | 6,5 | **6,8** | Skill seul, agent neuf par brief, sans personne pour répondre, bac à sable sans réseau (pas de planche de références), pas de sous-agent de critique ; un juge indépendant par page, sur captures |
+| 0.25 | 3 nov. 2026 | 7,0 | 7,6 | 7,1 | 7,3 | 6,1 | **7,0** | Mêmes conditions que la 0.24, avec `check-render.mjs`, `visuals.md` et `finish.md` |
 
-### Par critère (v0.24, moyenne des 5 pages)
+### Par critère (moyenne des 5 pages)
 
-| Critère | Moyenne | Lecture |
-| --- | --- | --- |
-| Honnêteté | 8,8 | Point fort : rien d'inventé, contenu d'exemple signalé |
-| Typographie et hiérarchie | 7,4 | Solide depuis la 0.17 |
-| Clarté du premier écran | 7,2 | |
-| Absence de tics d'IA | 7,2 | Un eyebrow est encore passé (brief 1) |
-| Mobile | 7,0 | |
-| Singularité | 6,8 | |
-| Espacement et rythme | 6,2 | Vides irréguliers, marges qui changent |
-| Finition | 6,0 | Textes provisoires visibles, formats de date |
-| Originalité | 6,4 | Les juges reconnaissent encore un « éditorial suisse » |
-| Visuels | 5,4 | Point faible : sans photo fournie, le skill ne compense pas assez |
+| Critère | 0.24 | 0.25 | Lecture |
+| --- | --- | --- | --- |
+| Honnêteté | 8,8 | 9,0 | Point fort constant : rien d'inventé |
+| Clarté du premier écran | 7,2 | 7,8 | L'ancre visuelle du sujet aide |
+| Absence de tics d'IA | 7,2 | 7,8 | Eyebrows bloqués par `check-tokens` |
+| Typographie et hiérarchie | 7,4 | 7,2 | Stable ; listes en très grand corps mal coupées (brief 4) |
+| Mobile | 7,0 | 7,0 | |
+| Singularité | 6,8 | 6,6 | |
+| Finition | 6,0 | 6,4 | `check-render` attrape les mots coupés et les vides, pas encore les doublons ni les éléments orphelins |
+| Visuels | 5,4 | 6,2 | Nette hausse là où la règle a été suivie (compost 4 → 8, vélo 5 → 7) |
+| Espacement et rythme | 6,2 | 6,2 | Pas de progrès : prochain chantier |
+| Originalité | 6,4 | 6,0 | Le portfolio tout gris (4) tire la moyenne ; règle corrigée après le test |
 
-À améliorer en priorité : visuels sans photo, régularité de l'espacement, finition, détection automatique des eyebrows.
+Lecture honnête : +0,2 en moyenne, avec un seul essai par brief, donc une part de hasard. Les gains viennent des visuels et du premier écran ; l'espacement ne bouge pas et l'originalité reste le point faible.
+
+À améliorer en priorité : espacement et rythme (vides sur desktop, colonnes à moitié vides), originalité en mode Expérience, finition non mesurable automatiquement (doublons, éléments orphelins).
