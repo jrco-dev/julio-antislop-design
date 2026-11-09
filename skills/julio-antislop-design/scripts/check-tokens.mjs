@@ -90,7 +90,10 @@ for (const file of files) {
   for (const { css, offset, inline } of chunks) {
     const clean = css.replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, " "));
     for (const m of clean.matchAll(/@font-face\s*{[^}]*font-family\s*:\s*["']?([^;"'}]+)/g)) fontsLoaded.set(m[1].trim(), file);
+    // Les déclarations d'un bloc @font-face nomment la police qu'il charge : elles ne passent pas par un token.
+    const faceRanges = [...clean.matchAll(/@font-face\s*{[^}]*}/g)].map((f) => [f.index, f.index + f[0].length]);
     for (const m of clean.matchAll(/([a-z-]+)\s*:\s*([^;{}]+)/gi)) {
+      if (faceRanges.some(([a, b]) => m.index >= a && m.index < b)) continue;
       const prop = m[1].toLowerCase();
       const value = m[2].trim();
       const line = lineAt(offset + m.index);

@@ -44,6 +44,12 @@ for (const [k, d] of Object.entries(ed)) {
   try { rules = JSON.parse(b.out).map((i) => i.rule); } catch {}
   for (const r of ["taille-hors-token", "espace-hors-token", "police-hors-token", "police-reflexe", "eyebrow", "capitales-espacees"]) ok(`${k} : check-tokens signale ${r}`, rules.includes(r));
 }
+{
+  const ff = join(mkdtempSync(join(tmpdir(), "julio-ff-")), "ff.html");
+  writeFileSync(ff, readFileSync(good, "utf8").replace("<style>", `<style>\n@font-face{font-family:"Rokkitt";src:url(fonts/rokkitt.woff2) format("woff2");font-display:swap}`));
+  const r = run([join(ed.fr, "scripts/check-tokens.mjs"), ff, "--allow-font", "Rokkitt", "--json"]);
+  ok("check-tokens ignore le font-family d'un bloc @font-face", !JSON.parse(r.out).some((i) => i.rule === "police-hors-token"), r.out.slice(0, 300));
+}
 ok("check-tokens parle anglais dans l'édition anglaise", /Nothing flagged|Summary/.test(run([join(ed.en, "scripts/check-tokens.mjs"), good]).out));
 
 // 3. roll
