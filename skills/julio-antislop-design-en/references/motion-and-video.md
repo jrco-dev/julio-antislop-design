@@ -4,8 +4,8 @@
 
 Build the page without motion first: a page that needs animation to look finished is not finished. Then, by mode (`defaults-by-mode.md`):
 
-- **One signature motion**, just one, done well; in Persuade mode, a product demo or an effect drawn from the material can be that motion.
-- **Entrances**: the hero enters once on load (headline, then text, then image, staggered 60 to 90 ms, rising 16 to 32 px with opacity); below it, nothing enters on scroll except the drawn moment (`references/moments.md`). Content is visible by default: if the script fails, nothing stays hidden.
+- **Signature motion**: one, done well, or two on a long page, counted as in `references/moments.md` §1. In Persuade mode, a product demo or an effect drawn from the material can be one of them.
+- **Entrances**: the hero enters once on load; its sequence and timing live only in `references/moments.md` §2. Below the hero, nothing enters on scroll except the drawn moment. Content is visible by default: if the script fails, nothing stays hidden.
 - **Feedback on every control**: hover, press, focus. A press = slight scale-down (0.95 to 0.98). Visual feedback in under 100 ms.
 - **Durations and curves**: one shared easing curve (decelerating on arrival, accelerating on departure), few durations, as tokens. An exit lasts about 60 to 70% of the entrance.
 - **Interruptible**: a new action cancels the running animation and sets the final state; never an interaction blocked during an animation.

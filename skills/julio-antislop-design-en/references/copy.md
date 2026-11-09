@@ -1,6 +1,6 @@
 # Copy: the words on the page
 
-Text gives a generated page away before color does: the headline is read first, and a model writes every client in one voice with the same devices. The cause, per Taste Skill, is missing facts; the fix is facts and decisions, never synonyms. A slop word swapped for its synonym is the next tic.
+Visitors read the headline before they register the palette, so the words are what first marks a page as generated: a model gives every client the same voice and the same handful of devices. Taste Skill traces this to an empty brief, where a model with no facts fills the gaps with plausible ones. Trading a flagged word for a near equivalent only breeds the next tell; what repairs the text is real information and choices made on purpose.
 
 Scope: every rule holds in all modes unless marked **(Persuade)**; §10 says what changes elsewhere. Dated text tells: `tells.md` (Text). Applied at step 8 of `process.md`.
 
@@ -11,15 +11,15 @@ From the brief, `PRODUCT.md`, the existing site and the client's messages, word 
 | Field | Content | Goes to |
 | --- | --- | --- |
 | What it is | One sentence, no adjective | h1, supporting sentence |
-| For whom, and not for whom | The best-fit buyer; who should look elsewhere | h1 or sentence, one FAQ line |
+| Who it serves, who it doesn't | The buyer it suits best, and the buyer it would disappoint | h1 or supporting sentence; one FAQ answer |
 | What they do today instead | A spreadsheet, the rival, nothing | The problem line |
 | The real difference | What is true here and not elsewhere, with proof | Claiming headings |
 | Hard facts | Price, place, date, count, each with its source | First screen, sentences |
 | Customer words | Phrases from reviews, e-mails, tickets | Problem line, headings |
-| A limit | What it does not do, who it is wrong for | One admission per page |
+| A limit | A task it can't handle, a customer it won't suit | Admitted once on the page |
 | The action | The one transaction and its terms | Buttons, the close |
 
-- **An empty field stays empty**: its section shrinks or goes, and the report lists what the client must supply (A2). Invented specifics (a batch number, an exact minute, an unmeasured percentage) are the current tell.
+- **Never fill a blank field.** A section with nothing true to say gets shorter or is removed, and what is missing goes into the report as a request to the client (A2). Made-up precision is today's giveaway: a serial number nobody issued, a delivery time to the minute, a satisfaction rate never surveyed.
 - **A missing fact the page needs** (a price, the hours): propose a value to the person (`intake.md`, Rhythm). Kept without confirmation, it is sample content under A2: marked in the markup, listed in the report, flagged once on the page. Taste's "assumed" hours and prices on a local business get this treatment, nothing more.
 - **A limit or an enemy** (a habit, never the reader) comes from the brief or a plain fact of the trade.
 - Check: every number, name and quote traces to a line of the sheet.

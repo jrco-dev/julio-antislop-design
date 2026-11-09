@@ -28,7 +28,7 @@ Taste ids are shown so you can open its demos. The "Suits" column uses our modes
 
 | Moment (Taste id) | What happens | Suits | Needs | Under reduced motion | Cost |
 | --- | --- | --- | --- | --- | --- |
-| **Statement lights up** (`word-highlight`) | One large statement starts at half ink, still readable at about 4:1. Each word turns full ink as it crosses the middle of the screen, and one key word takes the accent. Scrolling up reverses it | P, E · local and technical | One true statement of 12 to 40 words, in its own section | The statement in full ink | Colour change per word, no layout work. Runs on phones |
+| **Statement lights up** (`word-highlight`) | One large statement starts in a muted ink that still measures 4.5:1 or more (§5). Each word turns full ink as it crosses the middle of the screen, and one key word takes the accent. Scrolling up reverses it | P, E · local and technical | One true statement of 12 to 40 words, in its own section | The statement in full ink | Colour change per word, no layout work. Runs on phones |
 | **Photo chapters** (`photo-chapters`) | One full-width photograph per chapter. Each new photograph rises from the bottom over the previous one, with a short chapter text on a panel. About two thirds of a screen of scrolling per chapter | P, E · local | 3 to 5 chapters, each with a title, two lines and one real photograph used nowhere else on the page | Chapters side by side, each photograph above its text | Clip and transform. Section 3 to 4 screens tall. Runs on phones held upright |
 | **Pinned steps** (`pinned-chapters`) | A list of steps scrolls beside one frame that stays put. The frame shows the picture or screen of the current step | P · product, service, technical | 2 to 4 real steps (an order, a booking, a setup), one picture or screen each | Plain rows, each step with its picture | `position: sticky`, one scroll read per frame. Two screens tall |
 | **Photograph develops** (`picture-develops`, film look) | One large photograph comes up once, as it enters, from a pale grey print: the darks first, then the colour. About 1.6 to 1.8 s | P, E · local | One strong photograph, at least half the container wide, that is the section's subject | The photograph as it is | Filter on one image, once. Runs on phones |
@@ -58,12 +58,12 @@ Re-draw only for a factual reason, such as a missing need, and write that reason
 
 ## 5. Rules every moment follows
 
-- **It lives in its own section.** A scroll moment is tied to the scrollbar (it runs backwards on the way up) and shows a finished state at both ends. It may pin its own content with `position: sticky`. It never holds or steers the page's scroll.
+- **It stays inside one section.** When a moment follows the scroll, its progress is simply the scrollbar's position: scrolling up plays it in reverse, and its first and last frames are both complete, never a blank. Only its own content may be pinned, and only through `position: sticky`; the page keeps its native scroll, which no script captures or redirects.
 - **The content is whole without it.** The words are live HTML at their final place, with contrast of 4.5:1 or more at every step. Without script, the finished state shows.
 - **Reduced motion**: everything rests in the finished state, and nothing stays hidden (floor A1). Check by taking a screenshot with `prefers-reduced-motion: reduce`.
 - **Pause**: anything that keeps moving more than 5 s after it appears gets a visible pause button (WCAG 2.2.2, Pause, Stop, Hide). A moment tied to the scroll needs none, because it stops when the scroll stops.
 - **Never in a card, a pricing block, an FAQ, a quote or the footer** (Taste Skill).
-- **Timing**: ease-out, no bounce, no overshoot. 600 to 1,000 ms for a reveal, as in Taste Skill.
+- **Timing**: ease-out, no bounce, no overshoot. A section reveal (one that plays once inside a moment's section, such as Figures roll) lasts 600 to 1,000 ms, as in Taste Skill. Explicit exceptions: the hero's entrance (about 1.1 s, §2) and Photograph develops (1.6 to 1.8 s, §3). A moment tied to the scroll has no duration of its own: it follows the scrollbar.
 - **One pointer effect per page**, at most.
 
 ## 6. Shaders, WebGL and big scenes
@@ -72,16 +72,16 @@ Re-draw only for a factual reason, such as a missing need, and write that reason
 - **One effect per Persuade page**: a live background, one WebGL part, one 3D object, or one big scroll scene. A big scene is that effect, not an addition to it.
 - **At most 4 live WebGL contexts** at the same time, counting the effect and every moment with a canvas (Taste Skill).
 - **A still fallback is mandatory** for missing WebGL, a slow device, a phone and reduced motion. Pause the effect off-screen. No text over moving pixels without a scrim and a measured contrast.
-- An effect never stands where the product, the device or the game's world should be. It goes behind it or after it.
+- The subject keeps its slot: where the page should show the product, the hardware or the game's world, it shows them. An effect may only serve as their backdrop or come in a later section.
 
 ## 7. Never
 
 - A fade-in, rise or stagger on every section, card, row or tile as the page scrolls. This narrows the section entrances in `references/motion-and-video.md` §1: outside the hero and the drawn moment, nothing enters on scroll.
 - Text moving at a different speed from the page (parallax on text).
 - Scroll-jacking, scroll-snap across the page, or a smooth-scroll library.
-- A card that tilts, flips, follows the pointer or glows at the cursor; a magnetic button.
-- A carousel, a slider that advances by itself, timed tabs, a rotating notice, a logo marquee.
-- Blinking at random: twinkling dots, glitter, flicker, hue cycling, scrambled text. Every change shows a state, a step or real data.
+- Cards or buttons that react to the pointer beyond the feedback of `references/motion-and-video.md` §1: no tilting or flipping, no card that trails the cursor or lights up under it, no button pulled toward it.
+- Content that changes without the visitor asking: carousels, slides that advance on their own, tabs on a timer, notices taking turns, strips of scrolling logos. The only drifting row allowed is the Word row moment (`marquee-row`, §3), with its pause button.
+- Decorative noise that carries no information: shimmering stars or dots, flickering light, colours on a loop, letters that scramble before settling. When something on screen changes, the change reports something real: a step, a state, a value.
 - A moment on a Read or Operate page; a shader on a local business page.
 
 ## 8. Check

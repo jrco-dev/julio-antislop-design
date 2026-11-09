@@ -14,12 +14,12 @@ Why by mode: the same device is a tell on a landing page and a useful convention
 | Eyebrow, letter-spaced capitals, 01/02 numbering | No. The strongest default: lifted only if the brief requires it; numbering only for a real sequence | Same | Same | Same |
 | Fonts | 1 or 2 families drawn from the subject, no reflex font (`typography.md` §1) without a brand reason | Same; weights 400-500, 600 rare | A real long-reading font | Same as Persuade |
 | Text scale | Modular, body 17 → 19 px, ratio 1.2 → 1.333; 5 steps used at most, skipping steps | Ratio 1.125 → 1.2, body 14 → 16 px; hierarchy also comes from color | Ratio 1.2 → 1.25, body 18 → 20 px | Free, a single scale |
-| Spacing | 4 px base scale, three levels (inner 4-16, group 16-48, section 96-192 px desktop); no raw values | Same scale, section brought down to 48 px; density through smaller steps | Reading rhythm: heading closer to what follows | Like Persuade |
+| Spacing | 4 px base scale, three levels (inner 4-16, group 16-48, section 96-192 px desktop, except the screen-rhythm exception in `references/spacing.md` §3); no raw values | Same scale, section brought down to 48 px; density through smaller steps | Reading rhythm: heading closer to what follows | Like Persuade |
 | Color | One background, one ink, one accent; accent about 4 times at most per screen; full flat color fields allowed per section | Neutral backgrounds and surfaces; color goes into the accent, the charts and the moments | Neutral; accent for links and state | Free, serving the work |
 | Cards and grids | Never a row of identical cards or an icon-title-text tile; bento only per `persuade.md` | Repeated cards and panels are normal; one main chart clearly larger | Rarely useful | The work's grid, one piece in focus |
 | Composition | Left-aligned, a single centered moment; each section differs from its neighbor; order dictated by the argument | Dictated by the task; high density allowed; sections and order kept in a redesign | One reading column | The work on the first screen |
-| Amount of text | Short prose (about 80 words per screen); expected information (menu, pricing, schedule) is complete, as structured content | Short labels | Long prose allowed | Minimal |
-| Motion | One signature motion; entrances staggered by 60 to 90 ms, rising 16 to 32 px, triggered once, never on every section; feedback on every control | One entrance on load; 150 to 300 ms feedback | Almost none | Free within the budget |
+| Amount of text | Short prose within the words-per-screen budget of `references/copy.md` §6 (35 to 50 for a place, a service or a consumer product; 60 to 80 for a technical product; about 900 for the whole page); expected information (menu, pricing, schedule) is complete, as structured content | Short labels | Long prose allowed | Minimal |
+| Motion | One signature motion, two on a long page (`references/moments.md` §1); the hero enters once on load, timed as in `references/moments.md` §2; below the hero nothing enters on scroll except the drawn moment; feedback on every control | One entrance on load; 150 to 300 ms feedback | Almost none | Free within the budget |
 | Animated properties | `transform` and `opacity`; `clip-path` and mask only for the signature moment, if it holds 60 fps on an average phone | `transform` and `opacity` | Same | Like Persuade; never animated blur on a large surface |
 | Words | No hollow words (unlock, seamless, supercharge, elevate, effortless, all-in-one…), no "Get started" or "Learn more", no exclamation mark in the interface | Same; a change says what it compares to ("+12% vs last month"); no trailing period on headings, labels and buttons | Same | Same |
 | Light or dark | By the scene of use (who, where, under what light), never by the category; both variants designed together if both exist | Same | Same | Same |
@@ -35,7 +35,7 @@ Why by mode: the same device is a tell on a landing page and a useful convention
 - Numbers in `tabular-nums` and a single format on the screen.
 - No negative tracking on small text; display headline tracking between -0.02 and -0.04em, never beyond.
 - Browser surfaces themed: text selection, input caret, scrollbars, focus rings, underline offset.
-- **One system** (after Taste Skill): one button pair, one card style, one radius scale, one link look, one heading scale; boxes two deep at most.
+- **Every component exists in a single version** (after Taste Skill): buttons come as one primary and one secondary, cards share a style, links share a look, radii and heading sizes each follow one scale, and a box never sits inside a box inside a box.
 - No violet or lavender accent, ground, tint or gradient unless it is the client's real brand color; third-party logos keep theirs.
 - Sample pages: contacts on `.example`, no phone in a real format, no house number, postcode, registry or VAT number (A2: a realistic fake reads as real).
 

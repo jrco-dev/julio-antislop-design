@@ -28,7 +28,7 @@ Les identifiants de Taste sont indiqués pour ouvrir ses démos. La colonne « C
 
 | Moment (id Taste) | Ce qui se passe | Convient | Il faut | En mouvement réduit | Coût |
 | --- | --- | --- | --- | --- | --- |
-| **La phrase s'allume** (`word-highlight`) | Une grande phrase commence à demi-encre, encore lisible à environ 4:1 ; chaque mot passe à l'encre pleine en croisant le milieu de l'écran, un mot clé prend l'accent ; elle s'inverse quand on remonte | P, E · local et technique | Une phrase vraie de 12 à 40 mots, dans sa propre section | La phrase entière à l'encre | Couleur par mot, aucun calcul de mise en page ; tourne sur mobile |
+| **La phrase s'allume** (`word-highlight`) | Une grande phrase commence dans une encre atténuée qui mesure encore 4,5:1 ou plus (§5) ; chaque mot passe à l'encre pleine en croisant le milieu de l'écran, un mot clé prend l'accent ; elle s'inverse quand on remonte | P, E · local et technique | Une phrase vraie de 12 à 40 mots, dans sa propre section | La phrase entière à l'encre | Couleur par mot, aucun calcul de mise en page ; tourne sur mobile |
 | **Chapitres en photos** (`photo-chapters`) | Une photo pleine largeur par chapitre ; chaque nouvelle photo monte du bas par-dessus la précédente, un court texte de chapitre sur un panneau ; environ deux tiers d'écran de défilement par chapitre | P, E · local | 3 à 5 chapitres, chacun avec un titre, deux lignes et une vraie photo utilisée nulle part ailleurs sur la page | Les chapitres côte à côte, chaque photo au-dessus de son texte | Découpe et transformation ; section haute de 3 à 4 écrans ; tourne sur mobile tenu droit |
 | **Étapes épinglées** (`pinned-chapters`) | Une liste d'étapes défile à côté d'un cadre qui reste en place et montre l'image ou l'écran de l'étape en cours | P · produit, service, technique | 2 à 4 vraies étapes (une commande, une réservation, une installation), une image ou un écran chacune | Des rangées simples, chaque étape avec son image | `position: sticky`, une lecture du défilement par image ; deux écrans de haut |
 | **La photo se révèle** (`picture-develops`, aspect film) | Une grande photo apparaît une fois, à son entrée, depuis un tirage gris pâle : les noirs d'abord, puis la couleur ; environ 1,6 à 1,8 s | P, E · local | Une photo forte, au moins la moitié du conteneur en largeur, qui est le sujet de la section | La photo telle quelle | Filtre sur une image, une fois ; tourne sur mobile |
@@ -58,12 +58,12 @@ On ne retire que pour une raison factuelle, par exemple un besoin non rempli, é
 
 ## 5. Règles pour tout moment
 
-- **Il vit dans sa propre section.** Un moment au défilement suit la barre de défilement (il s'inverse quand on remonte) et montre un état fini à ses deux bouts. Il peut épingler son propre contenu avec `position: sticky` ; il ne retient ni ne pilote jamais le défilement de la page.
+- **Il reste dans une seule section.** Quand un moment suit le défilement, sa progression est simplement la position de la barre : en remontant, il se joue à l'envers, et sa première comme sa dernière image sont complètes, jamais un vide. Seul son propre contenu peut être épinglé, et seulement par `position: sticky` ; la page garde son défilement natif, qu'aucun script ne capture ni ne redirige.
 - **Le contenu est complet sans lui** : les mots sont du HTML vivant à leur place finale, contraste de 4,5:1 ou plus à chaque étape ; sans script, l'état fini s'affiche.
 - **Mouvement réduit** : tout se pose à l'état fini et rien ne reste caché (plancher A1). Vérifier avec une capture sous `prefers-reduced-motion: reduce`.
 - **Pause** : tout ce qui bouge encore plus de 5 s après être apparu a un bouton pause visible (WCAG 2.2.2, Pause, arrêt, masquage). Un moment lié au défilement n'en a pas besoin : il s'arrête quand le défilement s'arrête.
 - **Jamais dans une carte, un bloc de prix, une FAQ, une citation ou le pied de page** (Taste Skill).
-- **Rythme** : décélération, sans rebond ni dépassement ; 600 à 1 000 ms pour une révélation, comme dans Taste Skill.
+- **Rythme** : décélération, sans rebond ni dépassement. Une révélation de section (jouée une fois dans la section d'un moment, comme Les chiffres défilent) dure 600 à 1 000 ms, comme dans Taste Skill. Exceptions explicites : l'entrée du hero (environ 1,1 s, §2) et La photo se révèle (1,6 à 1,8 s, §3). Un moment lié au défilement n'a pas de durée propre : il suit la barre de défilement.
 - **Un seul effet au pointeur par page**, au plus.
 
 ## 6. Shaders, WebGL et grandes scènes
@@ -72,16 +72,16 @@ On ne retire que pour une raison factuelle, par exemple un besoin non rempli, é
 - **Un effet par page Persuader** : un fond vivant, ou une pièce WebGL, ou un objet 3D, ou une grande scène au défilement. Une grande scène est cet effet, pas un ajout.
 - **4 contextes WebGL vivants au plus** en même temps, en comptant l'effet et chaque moment avec un canvas (Taste Skill).
 - **Repli fixe obligatoire** : WebGL absent, appareil lent, mobile, mouvement réduit. L'effet se met en pause hors écran. Pas de texte sur des pixels en mouvement sans voile et contraste mesuré.
-- Un effet ne prend jamais la place du produit, de l'appareil ou du monde du jeu ; il se met derrière ou après.
+- Le sujet garde sa place : là où la page doit montrer le produit, le matériel ou le monde du jeu, elle les montre. Un effet peut seulement leur servir de toile de fond ou venir dans une section suivante.
 
 ## 7. Jamais
 
 - Une apparition en fondu, une montée ou un décalage sur chaque section, carte, rangée ou tuile au défilement. Ceci restreint les entrées de section de `references/motion-and-video.md` §1 : hors du hero et du moment tiré, rien n'entre au défilement.
 - Un texte qui bouge à une autre vitesse que la page (parallaxe sur le texte).
 - Le détournement du défilement, l'aimantation de défilement (`scroll-snap`) sur toute la page, une bibliothèque de défilement lissé.
-- Une carte qui s'incline, se retourne, suit le pointeur ou s'illumine sous le curseur ; un bouton magnétique.
-- Un carrousel, un diaporama qui avance seul, des onglets minutés, une annonce qui tourne, un défilé de logos.
-- Un clignotement au hasard : points scintillants, paillettes, papillotement, couleurs qui tournent, texte brouillé. Chaque changement montre un état, une étape ou une donnée réelle.
+- Des cartes ou des boutons qui réagissent au pointeur au-delà des retours de `references/motion-and-video.md` §1 : ni bascule ni retournement, aucune carte qui suit le curseur ou s'éclaire sous lui, aucun bouton attiré vers lui.
+- Un contenu qui change sans que le visiteur le demande : carrousels, diapositives qui avancent seules, onglets sur minuterie, annonces qui se relaient, bandeaux de logos qui défilent. La seule rangée qui glisse est le moment Rangée de mots (`marquee-row`, §3), avec son bouton pause.
+- Un bruit décoratif qui ne porte aucune information : étoiles ou points qui miroitent, lumière qui vacille, couleurs en boucle, lettres qui se mélangent avant de se poser. Quand quelque chose change à l'écran, le changement rapporte un fait réel : une étape, un état, une valeur.
 - Un moment sur une page Lire ou Opérer ; un shader sur la page d'une activité locale.
 
 ## 8. Contrôle

@@ -39,7 +39,7 @@ Write the kind on the brief sheet's first line, before the roll: it decides what
 
 ## 2. Sections and structures by goal
 
-Common rules: a single goal and a single primary CTA per page, the same one, coming back at the top, after the proof and at the bottom, with no competing action at the same level; 3 to 5 benefits, never in identical tiles; proof, real only, right before the CTA it supports; any carousel, countdown or ticker can be paused and stops on focus or under reduced motion. Sections spaced 120 to 240 px apart on desktop; the gap between sections is clearly larger than any internal gap. Each section has a heading that names it and a composition different from its neighbor. Carry the idea into every section, pricing, FAQ and footer included: the most frequent failure is a singular first screen followed by standard blocks.
+Common rules: a single goal and a single primary CTA per page, the same one, coming back at the top, after the proof and at the bottom, with no competing action at the same level; 3 to 5 benefits, never in identical tiles; proof, real only, right before the CTA it supports; no carousel (`references/moments.md` §7); a ticker only as the Word row moment (`marquee-row`, `references/moments.md` §3), with its pause button; a countdown can be paused and stops on focus or under reduced motion. Sections spaced 120 to 240 px apart on desktop; the gap between sections is clearly larger than any internal gap. Each section has a heading that names it and a composition different from its neighbor. Carry the idea into every section, pricing, FAQ and footer included: the most frequent failure is a singular first screen followed by standard blocks.
 
 | Goal | Structure (section order) | CTA placement |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ A fake UI is allowed when it simplifies a real product; it is forbidden when it 
 - Windows and devices are never drawn by hand: use a kit with real geometry.
 - Words 12 px from the edges; button 8 px from the field above; no near-tangents (two edges 1-3 px apart read as an accident).
 - Icons from one set, never drawn; no invented logo (sparkle, purple, letter in a colored square).
-- **Software** (after Taste Skill): the product whole once, big, in one app frame, its list beside the open item, showing what it really works on (a code-review tool: a red and green diff with its action), never a generic dashboard. Features take small fragments of it, or a diagram card for how things connect (a hub, lanes); two diagrams at most.
+- **Software** (after Taste Skill): show the full interface a single time, large, in one application window, with an item open next to the list it came from and filled with the material the product really handles; a code-review tool, for instance, shows changed lines and the button that approves them. A stock dashboard never stands in for it. Feature sections then zoom in on parts of that same interface; where the point is how pieces connect, a diagram card does the job, two per page at most.
 - Tools it really works with: their real logos in their own colors, from a source with a verified license (A3), never redrawn or greyed.
 - The title of a fake app is a `div`, never an `h1` to `h6`.
 - Animated demo: 3 to 5 beats and a conclusion, 10 to 16 s, no unexplainable cursor movement, a poster frame that tells the story on its own, the content moves instead of being replaced.

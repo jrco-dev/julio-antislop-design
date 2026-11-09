@@ -6,7 +6,7 @@ A real photograph proves that the thing exists. A drawn object only says that it
 
 | Subject | What leads the first screen | Photographs elsewhere |
 | --- | --- | --- |
-| A place (café, shop, guesthouse, workshop, studio with a door) | The client's own photograph of the place | 2 or 3 per screen on a place page (Taste Skill) |
+| A place (café, shop, guesthouse, workshop, studio with a door) | The client's own photograph of the place | Over several screens, each holding one dominant photograph or a row of 3 or 4 (§6) |
 | A physical product | The client's photograph, cut-out or render of the product | Its use, its parts, where it lives |
 | Software, AI, fintech | The real interface (`references/visuals.md` rank 1) | Only real people or real hardware, never mood |
 | A game | Its own art: key art, in-engine shots, trailer frame | Never library frames in place of its world |
@@ -19,7 +19,7 @@ A photograph never fills a slot meant for an effect, a decorative drawing or an 
 
 ## 2. Where photographs come from
 
-1. **The client's own.** Ask for them in the intake (`references/intake.md`). If there are none, give a shot list in the report: the front seen straight on, the room seen from the door, the counter or bench, three products on one surface, hands at work, one detail. Shoot in daylight with no flash and no filter, in both landscape and portrait (adapted from Taste Skill).
+1. **The client's own.** Ask for them in the intake (`references/intake.md`). If there are none, the report asks for a short shoot, adapted from Taste Skill: what a first-time visitor sees (the frontage head-on, then the room from the entrance), where the work happens (the counter or workbench, hands busy), and what is sold (three products together on one surface, plus one close-up). Natural light only, nothing added in camera, every shot taken both horizontally and vertically.
 2. **Otherwise**, in the order set by `references/idea-and-direction.md` §7: generated images, flagged as generated and never used to show the client's product as if it were real; or licensed stand-ins, which are photographs by other people that show the subject's world (§3 and §4).
 
 Optional tool: Taste Skill's `photos.mjs` fetches photographs from Wikimedia Commons and writes the credits. Its curated library also contains Unsplash frames, which are under none of the licences in §3, so pass `--commons-only`. Treat each result as a candidate and check it with §3.
@@ -31,7 +31,7 @@ Use only these four. Check the licence on the photograph's own source page. The 
 | Licence | Commercial use | What it requires |
 | --- | --- | --- |
 | CC0 | Yes | Nothing. Credit anyway, as a courtesy and so the photograph can be traced |
-| Public domain (Public Domain Mark, or a museum's public-domain label) | Yes | Nothing. Name the author when the source names one |
+| Public domain (Public Domain Mark, or a museum's public-domain label) | Yes | Nothing once the status holds. The Public Domain Mark is a label, not a licence, and does not guarantee public-domain status everywhere: check the jurisdiction where the site is published. Name the author when the source names one |
 | CC BY (4.0 or earlier version) | Yes | Credit the author, link the licence, say if the photograph was changed |
 | CC BY-SA | Yes | Same as CC BY. In addition, a changed version must be released under the same licence |
 
@@ -44,7 +44,7 @@ Refuse everything else: NC (non-commercial), ND (no derivatives), "all rights re
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | Use only works labelled "CC0 Public Domain Designation" that also have a download button. A work without that button is not in the public domain. Getting any third-party permission is the user's responsibility. The museum asks for the credit "Artist. Title, Date. The Art Institute of Chicago." |
 | [The Met](https://www.metmuseum.org/en/policies/image-resources) | Open Access images, which carry the OA icon, are CC0 and allowed for commercial use. Works under copyright are not Open Access |
 
-**CC BY-SA in practice.** If you place an unmodified photograph next to other content, the result is a collection, not an adaptation, so the page itself does not become BY-SA ([Creative Commons](https://creativecommons.org/course/cc-cert-edu/unit-4-using-cc-licenses-and-cc-licensed-works/4-4-remixing-cc-licensed-work/)). If you change the photograph (a crop beyond its frame, a retouch, a composite), mark it "adapted" in the credits and keep the changed file under BY-SA. When a CC0 photograph of the same subject exists, prefer it.
+**CC BY-SA in practice.** If you place an unmodified photograph next to other content, the result is a collection, not an adaptation, so the page itself does not become BY-SA ([Creative Commons](https://creativecommons.org/course/cc-cert-edu/unit-4-using-cc-licenses-and-cc-licensed-works/4-4-remixing-cc-licensed-work/)). If you change the photograph, any crop, retouch or composite counts as an adaptation under the licence: mark it "adapted" in the credits and keep the changed file under BY-SA. When a CC0 photograph of the same subject exists, prefer it.
 
 Museum collections show objects and the past: old maps, postcards of the street, an instrument of the trade. They feed the subject inventory. They never stand in for the client's product.
 
@@ -57,7 +57,7 @@ A stand-in shows the world around the client. It never shows the client (floor A
 - **No recognisable face** in a slot that suggests staff, guests or customers. Hands, backs and faces out of frame are fine (Taste Skill).
 - **No landmark** that would place the client somewhere it is not.
 - **Look at the photograph at full size** before using it: the subject must be sharp, with no watermark, and its light must match the rest of the set.
-- **Disclose it once on the page**, in the credits line (§8), and list it in the report together with the client photograph that should replace it. Taste Skill puts no notice on the page. Our floor A2 asks for one notice, and floors are never lifted.
+- **Disclose it once on the page**, in the credits line (§8), and list it in the report together with the client photograph that should replace it. Taste Skill credits a stand-in in its footer credit line like any other photograph, with no caption under it and nothing saying it is a stand-in. Our floor A2 asks that line to say so, and floors are never lifted.
 
 ## 5. A physical product without photographs
 
@@ -80,23 +80,23 @@ The product must still be visible: an anchor of the subject appears in the first
 | Operate | 0 decorative photographs |
 | Read | Only where the photograph explains |
 
-Never show the same frame twice on one page. A smaller file, a crop or a mirror of a frame counts as the same frame. Never show three near-identical frames. Never upscale: a file displayed wider than its own pixel width is blurred. Check that `naturalWidth` is at least the rendered width at 1x. For the hero, aim for 2x.
+Each picture appears once per page: resizing, cropping or flipping it does not make it a new picture, and a run of three shots that barely differ reads as one shot repeated. A file is only ever shown at or below its own resolution, because stretching blurs it: the rendered width at 1x must not exceed `naturalWidth`, and the hero's file should be twice its rendered width.
 
 ## 7. Cropping and art direction
 
-- **One visual world**: one light, one grade, one register across the set. Black and white only as one deliberate frame (Taste Skill).
+- **The set looks shot on the same day by the same person**: matching light, matching colour treatment, matching distance and tone. Monochrome appears in one frame at most, and on purpose (Taste Skill).
 - **Few ratios**: pick 3 or 4 from 4:5, 4:3, 1:1 and 3:2. Use one ratio per row and keep sizes equal within a row.
 - **Crop to the subject.** Set `object-position` on the subject. Use `<picture>` with a phone crop whenever a full-bleed photograph would lose its subject at 390 px.
-- **No effect on a photograph**: no duotone, halftone, grain, glitch, blend mode or filter (Taste Skill). Mixed light is fixed with a crop, never with an effect.
+- **No effect on a photograph**: no duotone, halftone, grain, glitch, blend mode or filter (Taste Skill), except the drawn moment (`references/moments.md`), where Photograph develops may filter its one photograph while it enters. Mixed light is fixed with a crop, never with an effect.
 - **Text on a photograph** only where the area is calm and the contrast measures at least 4.5:1, or 3:1 for large text, on both the desktop crop and the phone crop. Otherwise put the text beside the photograph or under it.
-- **Visible from the first paint.** A photograph never waits for a scroll reveal (`references/moments.md`).
+- **Visible from the first paint**, except the drawn moment (`references/moments.md`: Photo chapters, Photograph develops), whose finished state still shows without script and under reduced motion. Outside it, a photograph never waits for a scroll reveal.
 - **Corners and frames**: one rule for the whole set, written in `DESIGN.md`.
 
 ## 8. Credits
 
 - **One line in the footer** that links to the credits list, never one link per photograph. Taste Skill measured 18 to 20 credit links as reading like a "credit wall". Keep the line to about 110 characters. Example: "Some photographs are illustrative, not of [client] · Photo credits".
 - **The credits list** is a page or a section reached from that line. For each photograph, give the author, a link to the source page, the licence with its link, and "adapted" when the photograph was changed.
-- **No caption** under photographs in Persuade or Experience mode. In Read mode a caption is content and can carry the credit.
+- **No caption** under photographs in Persuade mode. In Read mode a caption is content and can carry the credit; in Experience mode each work keeps its caption (title, year, role), as in `references/defaults-by-mode.md` and `references/copy.md` §10.
 
 ## 9. In the report
 

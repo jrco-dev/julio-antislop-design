@@ -6,7 +6,7 @@ Une vraie photographie prouve que la chose existe ; un objet dessiné dit seulem
 
 | Sujet | Ce qui mène le premier écran | Photos ailleurs |
 | --- | --- | --- |
-| Un lieu (café, boutique, maison d'hôtes, atelier, studio avec une porte) | La photo du lieu par le client | 2 ou 3 par écran sur une page de lieu (Taste Skill) |
+| Un lieu (café, boutique, maison d'hôtes, atelier, studio avec une porte) | La photo du lieu par le client | Sur plusieurs écrans, chacun avec une photo dominante ou une rangée de 3 ou 4 (§6) |
 | Un produit physique | La photo, le détourage ou le rendu du produit par le client | Son usage, ses pièces, là où il vit |
 | Logiciel, IA, fintech | La vraie interface (`references/visuals.md` rang 1) | Seulement de vraies personnes ou du vrai matériel, jamais d'ambiance |
 | Un jeu | Ses propres visuels : key art, captures en jeu, image de la bande-annonce | Jamais d'images de banque à la place de son monde |
@@ -19,7 +19,7 @@ Une photo ne prend jamais la place d'un effet, d'un dessin décoratif ou d'une b
 
 ## 2. D'où viennent les photos
 
-1. **Celles du client.** Les demander au cadrage (`references/intake.md`). À défaut, une liste de prises dans le rapport : la devanture de face, la salle depuis la porte, le comptoir ou l'établi, trois produits sur une même surface, des mains au travail, un détail ; lumière du jour, sans flash ni filtre, en paysage et en portrait (adapté de Taste Skill).
+1. **Celles du client.** Les demander au cadrage (`references/intake.md`). S'il n'y en a pas, le rapport demande une courte séance, adaptée de Taste Skill : ce que voit un visiteur qui arrive (la façade de face, puis la salle depuis l'entrée), l'endroit où le travail se fait (le comptoir ou l'établi, des mains occupées) et ce qui se vend (trois produits ensemble sur une même surface, plus un gros plan). Lumière naturelle seulement, rien d'ajouté à la prise de vue, chaque plan pris à l'horizontale et à la verticale.
 2. **Sinon**, dans l'ordre de `references/idea-and-direction.md` §7 : des images générées, signalées comme telles, jamais le produit du client présenté comme réel ; ou des photos de substitution sous licence, photos d'autres personnes qui montrent le monde du sujet (§3, §4).
 
 Outil facultatif : `photos.mjs` de Taste Skill cherche sur Wikimedia Commons et écrit les crédits ; sa bibliothèque mêle aussi des images Unsplash, hors des licences du §3 (`--commons-only`). Chaque résultat reste un candidat à vérifier selon le §3.
@@ -31,7 +31,7 @@ Ces quatre seulement, vérifiées sur la page source de l'image elle-même, jama
 | Licence | Usage commercial | Ce qu'elle exige |
 | --- | --- | --- |
 | CC0 | Oui | Rien ; créditer quand même, par courtoisie et pour la traçabilité |
-| Domaine public (Public Domain Mark, ou mention « domaine public » d'un musée) | Oui | Rien ; nommer l'auteur quand la source le nomme |
+| Domaine public (Public Domain Mark, ou mention « domaine public » d'un musée) | Oui | Rien une fois le statut établi. La Public Domain Mark est une étiquette, pas une licence, et ne garantit pas le domaine public partout : vérifier la juridiction où le site est publié. Nommer l'auteur quand la source le nomme |
 | CC BY (4.0 ou antérieure) | Oui | Créditer l'auteur, lier la licence, signaler toute modification |
 | CC BY-SA | Oui | Comme CC BY ; une version modifiée se diffuse sous la même licence |
 
@@ -44,7 +44,7 @@ Refusées : NC (non commercial), ND (pas de modification), « tous droits réser
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | Seules les œuvres marquées « CC0 Public Domain Designation » avec un bouton de téléchargement ; sans bouton, l'œuvre n'est pas dans le domaine public. Les autorisations de tiers restent à la charge de l'utilisateur. Le musée demande le crédit « Artiste. Titre, date. The Art Institute of Chicago. » |
 | [The Met](https://www.metmuseum.org/en/policies/image-resources) | Les images Open Access (icône OA) sont en CC0, usage commercial permis ; les œuvres sous droits n'en font pas partie |
 
-**CC BY-SA en pratique.** Une photo non modifiée placée parmi d'autres contenus forme un recueil, pas une adaptation : la page ne devient pas BY-SA ([Creative Commons](https://creativecommons.org/course/cc-cert-edu/unit-4-using-cc-licenses-and-cc-licensed-works/4-4-remixing-cc-licensed-work/)). Une photo modifiée (recadrage au-delà du cadre, retouche, montage) est marquée « adaptée » dans les crédits, et le fichier modifié reste sous BY-SA. Préférer CC0 quand le même sujet existe.
+**CC BY-SA en pratique.** Une photo non modifiée placée parmi d'autres contenus forme un recueil, pas une adaptation : la page ne devient pas BY-SA ([Creative Commons](https://creativecommons.org/course/cc-cert-edu/unit-4-using-cc-licenses-and-cc-licensed-works/4-4-remixing-cc-licensed-work/)). Tout recadrage, retouche ou montage compte comme une adaptation au sens de la licence : la photo modifiée est marquée « adaptée » dans les crédits, et le fichier modifié reste sous BY-SA. Préférer CC0 quand le même sujet existe.
 
 Les collections de musées montrent des objets et le passé : cartes anciennes, cartes postales de la rue, un instrument du métier. Elles nourrissent l'inventaire du sujet ; elles ne remplacent jamais le produit.
 
@@ -57,7 +57,7 @@ Une photo de substitution montre le monde autour du client, jamais le client (pl
 - **Aucun visage reconnaissable** à une place qui laisse croire à un employé, un client ou un hôte ; mains, dos et visages hors cadre seulement (Taste Skill).
 - **Aucun monument** qui situerait le client là où il n'est pas.
 - **Regardée en taille réelle** avant usage : sujet net, sans filigrane, même lumière que le reste de la série.
-- **Signalée une fois sur la page**, dans la ligne de crédits (§8), et listée dans le rapport avec la photo du client à prendre à sa place. Taste Skill ne met aucune mention sur la page ; notre plancher A2 en demande une, et le plancher ne se lève pas.
+- **Signalée une fois sur la page**, dans la ligne de crédits (§8), et listée dans le rapport avec la photo du client à prendre à sa place. Taste Skill crédite un substitut dans sa ligne de crédits en pied de page comme toute autre photo, sans légende dessous et sans dire que c'est un substitut ; notre plancher A2 demande que cette ligne le dise, et le plancher ne se lève pas.
 
 ## 5. Un produit physique sans photo
 
@@ -80,23 +80,23 @@ Le produit reste visible : une ancre du sujet dans les deux premiers écrans (`r
 | Opérer | 0 photo décorative |
 | Lire | Seulement là où la photo explique |
 
-Jamais deux fois la même image sur une page (un fichier plus petit, un recadrage ou un miroir comptent comme la même), jamais trois quasi identiques. Jamais d'agrandissement : un fichier affiché plus large que sa largeur en pixels devient flou ; vérifier `naturalWidth` ≥ largeur rendue à 1x (2x visé pour le hero).
+Chaque image paraît une fois par page : la redimensionner, la recadrer ou la retourner n'en fait pas une nouvelle, et une suite de trois prises presque pareilles se lit comme une seule répétée. Un fichier ne s'affiche qu'à sa résolution ou en dessous, car l'étirer le rend flou : la largeur rendue à 1x ne dépasse pas `naturalWidth`, et le fichier du hero vise le double de sa largeur rendue.
 
 ## 7. Cadrage et direction artistique
 
-- **Un seul monde visuel** : une lumière, un étalonnage, un registre pour toute la série ; le noir et blanc seulement pour une image voulue (Taste Skill).
+- **La série semble prise le même jour par la même personne** : même lumière, même traitement des couleurs, même distance, même ton. Le monochrome n'apparaît que sur une image au plus, et par choix (Taste Skill).
 - **Peu de formats** : 3 ou 4 parmi 4:5, 4:3, 1:1 et 3:2 ; un format par rangée, tailles égales dans une rangée.
 - **Recadrer sur le sujet** : `object-position` sur le sujet ; un `<picture>` avec un recadrage mobile dès qu'une photo pleine largeur perd son sujet à 390 px.
-- **Aucun effet sur une photo** : ni duotone, ni trame, ni grain, ni glitch, ni mode de fusion, ni filtre (Taste Skill). Des lumières mêlées se corrigent par le recadrage, jamais par un effet.
+- **Aucun effet sur une photo** : ni duotone, ni trame, ni grain, ni glitch, ni mode de fusion, ni filtre (Taste Skill), sauf le moment tiré (`references/moments.md`), où La photo se révèle peut filtrer sa photo le temps de son entrée. Des lumières mêlées se corrigent par le recadrage, jamais par un effet.
 - **Texte sur une photo** seulement sur une zone calme où le contraste mesure 4,5:1 au moins (3:1 en grand texte), au recadrage bureau comme au recadrage mobile ; sinon à côté ou dessous.
-- **Visible dès le premier affichage** : une photo n'attend jamais une apparition au défilement (`references/moments.md`).
+- **Visible dès le premier affichage**, sauf le moment tiré (`references/moments.md` : Chapitres en photos, La photo se révèle), dont l'état fini s'affiche quand même sans script et en mouvement réduit. En dehors, une photo n'attend jamais une apparition au défilement.
 - **Coins et cadres** : une seule règle pour toute la série, écrite dans `DESIGN.md`.
 
 ## 8. Crédits
 
 - **Une ligne dans le pied de page** qui mène à la liste des crédits, jamais un lien par photo (Taste Skill a relevé que 18 à 20 liens de crédit se lisent comme un « mur de crédits »). Environ 110 caractères au plus. Exemple : « Certaines photos sont illustratives, elles ne montrent pas [client] · Crédits photo ».
 - **La liste** (page ou section reliée à cette ligne) : par photo, l'auteur, le lien vers la page source, la licence avec son lien, et « adaptée » si elle a été modifiée.
-- **Pas de légende** sous les photos en Persuader ou Expérience ; en Lire, une légende fait partie du contenu et peut porter le crédit.
+- **Pas de légende** sous les photos en Persuader ; en Lire, une légende fait partie du contenu et peut porter le crédit ; en Expérience, chaque œuvre garde sa légende (titre, année, rôle), comme dans `references/defaults-by-mode.md` et `references/copy.md` §10.
 
 ## 9. Dans le rapport
 

@@ -1,6 +1,6 @@
 # Textes : les mots de la page
 
-Le texte trahit une page générée avant la couleur : on lit le titre d'abord, et un modèle écrit tous les clients d'une même voix, avec les mêmes procédés. La cause, selon Taste Skill, est le manque de faits ; le remède, ce sont des faits et des décisions, jamais des synonymes. Un mot creux remplacé par son synonyme est le tic suivant.
+On lit le titre avant de remarquer la palette : ce sont donc les mots qui signalent d'abord une page générée, puisqu'un modèle donne à chaque client la même voix et la même poignée de procédés. Taste Skill en voit la cause dans un brief vide, où un modèle sans faits comble les trous avec du plausible. Échanger un mot repéré contre un quasi-équivalent ne fait qu'engendrer le tic suivant ; ce qui répare le texte, ce sont des informations réelles et des choix assumés.
 
 Portée : chaque règle vaut dans tous les modes sauf mention **(Persuader)** ; le §10 dit ce qui change ailleurs. Tics de texte datés : `tells.md` (Texte). Appliqué à l'étape 8 de `process.md`.
 
@@ -11,15 +11,15 @@ Depuis le brief, `PRODUCT.md`, le site existant et les messages du client, mot p
 | Champ | Contenu | Va dans |
 | --- | --- | --- |
 | Ce que c'est | Une phrase, sans adjectif | h1, phrase d'appui |
-| Pour qui, et pour qui pas | L'acheteur idéal ; qui devrait aller ailleurs | h1 ou phrase, une ligne de FAQ |
+| Qui il sert, qui il ne sert pas | L'acheteur à qui il convient le mieux, et celui qu'il décevrait | h1 ou phrase d'appui ; une réponse de FAQ |
 | Ce qu'ils font aujourd'hui à la place | Un tableur, le concurrent, rien | La ligne du problème |
 | La vraie différence | Ce qui est vrai ici et pas ailleurs, avec sa preuve | Titres qui affirment |
 | Faits durs | Prix, lieu, date, nombre, chacun avec sa source | Premier écran, phrases |
 | Mots des clients | Tournures d'avis, d'e-mails, de tickets | Ligne du problème, titres |
-| Une limite | Ce que ça ne fait pas, pour qui ce n'est pas fait | Un aveu par page |
+| Une limite | Une tâche qu'il ne sait pas faire, un client à qui il ne conviendra pas | Avouée une fois sur la page |
 | L'action | La transaction unique et ses conditions | Boutons, la clôture |
 
-- **Un champ vide reste vide** : sa section rétrécit ou disparaît, et le rapport liste ce que le client doit fournir (A2). Les détails inventés (un numéro de lot, une minute précise, un pourcentage jamais mesuré) sont le tic actuel.
+- **Ne jamais remplir un champ vide.** Une section qui n'a rien de vrai à dire raccourcit ou disparaît, et ce qui manque part dans le rapport, comme demande au client (A2). La fausse précision est le signe actuel : un numéro de série que personne n'a attribué, un délai de livraison à la minute, un taux de satisfaction jamais mesuré.
 - **Un fait manquant dont la page a besoin** (un prix, les horaires) : proposer une valeur à la personne (`intake.md`, « Rythme »). Gardée sans confirmation, c'est du contenu d'exemple sous A2 : marqué dans le balisage, listé dans le rapport, signalé une seule fois sur la page. Les horaires et prix « supposés » que Taste admet pour un commerce local reçoivent ce traitement, rien de plus.
 - **Une limite ou un ennemi** (une habitude, jamais le lecteur) vient du brief ou d'un fait simple du métier.
 - Contrôle : chaque nombre, nom et citation de la page renvoie à une ligne de la fiche.
@@ -84,7 +84,7 @@ Quatre à six lignes dans la fiche brief, jamais sur la page : registre et raiso
 
 - **Un fait, une valeur, une formulation**, répétée mot pour mot là où elle revient ; jamais deux prix ou deux horaires pour une même chose.
 - **Aucun nombre sans source** dans la fiche ; avec son unité, dans la phrase qu'il prouve, irrégulier quand il est réel. Les chiffres de preuve ronds et sans source (« 10 000+ équipes », « 3× plus rapide ») sont exclus (A2) ; une affirmation qui a besoin de sa source la montre à côté.
-- Ni citation, ni avis, ni note, ni logo, ni client, ni prix, ni personne inventés (A2). Zéro témoignage est une page normale.
+- Ni citation, ni avis, ni note, ni logo, ni client, ni récompense, ni personne inventés (A2). Zéro témoignage est une page normale.
 - **Noms** : les personnes uniquement depuis le brief. Un nom de marque forgé se cherche avec son métier et s'abandonne s'il est pris. Éviter les noms que les modèles forgent sans cesse (Taste cite Kestrel, Halcyon, Lumen, Nimbus, Fieldnote, Acme, Northwind ; Priya, Okafor, Elara).
 - **Coordonnées** uniquement telles que le brief les donne.
 
