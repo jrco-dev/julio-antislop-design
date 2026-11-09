@@ -61,6 +61,38 @@ const r4 = run([roll, "--mode", "operer", "--brief", "x", "--seed", "z", "--out"
 ok("roll : archétype compatible avec le mode Opérer", ["C2", "C5", "C16", "C17", "C24"].includes(JSON.parse(r4.out).archetype.split(" ")[0]));
 ok("roll : sortie anglaise", /Archetype:/.test(run([roll, "--mode", "persuade", "--brief", "x", "--lang", "en", "--out", join(tmp, "e.json")]).out));
 
+// 3 bis. copy-lint
+for (const [k, d] of Object.entries(ed)) {
+  const cl = join(d, "scripts/copy-lint.mjs");
+  const g = run([cl, join(root, "tests/fixtures/copy-good.html")]);
+  ok(`${k} : copy-lint accepte la page propre`, g.code === 0, g.out);
+  ok(`${k} : copy-lint accepte la page propre en français`, run([cl, good]).code === 0);
+  const b = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--json"]);
+  ok(`${k} : copy-lint refuse la page fautive`, b.code === 1);
+  let rules = [];
+  try { rules = JSON.parse(b.out).map((i) => i.rule); } catch {}
+  for (const r of ["titre-vague", "intertitre-vague", "bouton-vague", "bouton-sans-nom", "actions-hero", "formule-toute-faite", "pas-seulement", "trois-temps", "negations-en-serie", "mots-creux", "texte-provisoire", "tirets-cadratins", "titres-points", "residu-de-conversation", "residu-de-redaction", "page-qui-se-commente", "contrastes", "chiffre-sans-source", "annee-perimee", "titre-question"]) ok(`${k} : copy-lint signale ${r}`, rules.includes(r), JSON.stringify(rules));
+  const md = run([cl, join(root, "tests/fixtures/copy-brouillon.md"), "--json"]);
+  let mdRules = [];
+  try { mdRules = JSON.parse(md.out).map((i) => i.rule); } catch {}
+  for (const r of ["titre-vague", "bouton-vague", "formule-toute-faite", "intertitre-vague"]) ok(`${k} : copy-lint signale ${r} dans un brouillon Markdown`, mdRules.includes(r), JSON.stringify(mdRules));
+  const fp = run([cl, join(root, "tests/fixtures/copy-faux-positifs.html"), "--json"]);
+  ok(`${k} : copy-lint ne signale rien sur les faux positifs connus (todo, ™, 4/5, adresse, FAQ, [Bearer token], [BETA], CTA de la nav)`, fp.code === 0 && JSON.parse(fp.out).length === 0, fp.out.slice(0, 300));
+  for (const f of ["copy-hero-actions.html", "copy-hero-sans-section.html"]) {
+    const h = run([cl, join(root, "tests/fixtures", f), "--json"]);
+    let hr = [];
+    try { hr = JSON.parse(h.out).map((i) => i.rule); } catch {}
+    ok(`${k} : copy-lint compte les 3 actions du hero (${f})`, h.code === 1 && hr.includes("actions-hero"), h.out.slice(0, 300));
+  }
+  ok(`${k} : copy-lint rend le code 2 sur une option sans valeur`, run([cl, good, "--allow"]).code === 2);
+  ok(`${k} : copy-lint rend le code 2 sur un fichier introuvable`, run([cl, join(root, "tests/fixtures/absent.html")]).code === 2);
+  const tooWide = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "a", "--json"]);
+  ok(`${k} : --allow ne lève que le mot entier signalé`, JSON.parse(tooWide.out).length > 15);
+  const allowed = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "seamless", "--json"]);
+  ok(`${k} : copy-lint respecte --allow`, !JSON.parse(allowed.out).some((i) => /seamless/i.test(i.msg)));
+}
+ok("copy-lint parle anglais dans l'édition anglaise", /Nothing flagged|Summary/.test(run([join(ed.en, "scripts/copy-lint.mjs"), good]).out));
+
 // 4. check-render (si Playwright est présent)
 let hasPw = true;
 try { await import("playwright"); } catch { hasPw = false; }

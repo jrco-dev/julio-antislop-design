@@ -30,6 +30,15 @@ Here the visitor works on the screen for hours. Singularity shows in precision a
 - Plausible, consistent sample data: never "123,456" or "[X]", and the totals add up.
 - Varied widths: 3 or 4 compact stats above a large chart, or a wide chart next to a narrow list.
 
+## Quiet panels
+
+After Taste Skill: the interface stays 90 to 95% neutral; color comes from the content (photos, real tool logos, data).
+
+- Two levels of boxes at most: a panel and what it holds; inside, groups separate by space or a rule.
+- One panel recipe for the whole app; importance comes from size and position, not a second style.
+- Accent once per panel (the row worked on, the selection); statuses, tags and dates in ink tints.
+- No pattern (grid paper, dots) behind a list, a table or a window.
+
 ## Forms and feedback
 
 - A visible label on every field, never the placeholder alone; persistent help text under complex fields.

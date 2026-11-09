@@ -14,15 +14,18 @@ Pourquoi par mode : un même procédé est un tic sur une landing et une convent
 | Eyebrow, capitales espacées, numérotation 01/02 | Non. Défaut le plus fort : ne se lève que si le brief l'exige ; la numérotation seulement pour une vraie séquence | Idem | Idem | Idem |
 | Polices | 1 ou 2 familles tirées du sujet, aucune police réflexe (`typography.md` §1) sans raison de marque | Idem ; graisses 400-500, 600 rare | Une vraie police de lecture longue | Idem Persuader |
 | Échelle de texte | Modulaire, texte 17 → 19 px, ratio 1,2 → 1,333 ; 5 crans utilisés au plus, qui sautent des crans | Ratio 1,125 → 1,2, texte 14 → 16 px ; la hiérarchie vient aussi de la couleur | Ratio 1,2 → 1,25, texte 18 → 20 px | Libre, une seule échelle |
-| Espacement | Échelle de base 4 px, trois niveaux (intérieur 4-16, groupe 16-48, section 96-192 px desktop) ; aucune valeur brute | Même échelle, section ramenée à 48 px ; densité par crans plus petits | Rythme de lecture : titre plus près de ce qui suit | Comme Persuader |
+| Espacement | Échelle de base 4 px, trois niveaux (intérieur 4-16, groupe 16-48, section 96-192 px desktop, sauf l'exception du rythme d'écran de `references/spacing.md` §3) ; aucune valeur brute | Même échelle, section ramenée à 48 px ; densité par crans plus petits | Rythme de lecture : titre plus près de ce qui suit | Comme Persuader |
 | Couleur | Un fond, une encre, un accent ; accent environ 4 fois au plus par écran ; aplats de couleur entiers permis par section | Fonds et surfaces neutres ; la couleur va dans l'accent, les graphiques et les moments | Neutre ; accent pour les liens et l'état | Libre, au service de l'œuvre |
 | Cartes et grilles | Jamais de rangée de cartes identiques ni de tuile icône-titre-texte ; bento seulement selon `persuade.md` | Cartes et panneaux répétés normaux ; un graphique principal nettement plus grand | Rarement utiles | Grille de l'œuvre, une pièce en focus |
 | Composition | Aligné à gauche, un seul moment centré ; chaque section diffère de sa voisine ; ordre dicté par l'argument | Dictée par la tâche ; densité élevée permise ; sections et ordre conservés en refonte | Une colonne de lecture | L'œuvre au premier écran |
-| Quantité de texte | Prose courte (environ 80 mots par écran) ; l'information attendue (menu, tarifs, programme) est complète, en contenu structuré | Libellés courts | Prose longue permise | Minimale |
-| Mouvement | Un mouvement signature ; entrées de section décalées de 60 à 90 ms, montées de 16 à 32 px, déclenchées une fois ; feedback sur chaque contrôle | Une entrée au chargement ; feedback de 150 à 300 ms | Presque aucun | Libre dans le budget |
+| Quantité de texte | Prose courte, dans le budget de mots par écran de `references/copy.md` §6 (35 à 50 pour un lieu, un service ou un produit grand public ; 60 à 80 pour un produit technique ; environ 900 pour toute la page) ; l'information attendue (menu, tarifs, programme) est complète, en contenu structuré | Libellés courts | Prose longue permise | Minimale |
+| Mouvement | Un mouvement signature, deux sur une page longue (`references/moments.md` §1) ; le hero entre une fois au chargement, minuté selon `references/moments.md` §2 ; sous le hero, rien n'entre au défilement sauf le moment tiré ; feedback sur chaque contrôle | Une entrée au chargement ; feedback de 150 à 300 ms | Presque aucun | Libre dans le budget |
 | Propriétés animées | `transform` et `opacity` ; `clip-path` et masque seulement pour le moment signature, s'il tient 60 images/s sur mobile moyen | `transform` et `opacity` | Idem | Comme Persuader ; jamais de flou animé sur grande surface |
 | Mots | Aucun mot creux (unlock, seamless, supercharge, elevate, effortless, all-in-one…), ni « Get started » ou « Learn more », ni point d'exclamation dans l'interface | Idem ; une variation dit à quoi elle se compare (« +12 % vs le mois dernier ») ; pas de point final sur titres, labels et boutons | Idem | Idem |
 | Clair ou sombre | Selon la scène d'usage (qui, où, sous quelle lumière), jamais selon la catégorie ; les deux variantes conçues ensemble si les deux existent | Idem | Idem | Idem |
+| Genre d'activité | Fixe ce qui mène et si les effets sont permis (`persuade.md` §1 bis) | Non | Non | Même tableau, genre d'œuvre |
+| Rythme d'écran | Hero seul au premier écran ; sections de 1 ou 2 écrans (`persuade.md` §2) | Non | Non | Comme Persuader |
+| Légendes sous les images | Aucune ; crédits dans le pied de page | Légendes de graphiques seulement | Oui : figures, photos | Oui pour les œuvres |
 
 ## Règles communes à tous les modes
 
@@ -32,6 +35,9 @@ Pourquoi par mode : un même procédé est un tic sur une landing et une convent
 - Chiffres en `tabular-nums` et un seul format sur l'écran.
 - Pas de tracking négatif sur le petit texte ; tracking des titres d'affichage entre -0,02 et -0,04em, jamais au-delà.
 - Surfaces du navigateur thématisées : sélection de texte, curseur de saisie, barres de défilement, anneaux de focus, décalage du soulignement.
+- **Chaque composant n'existe qu'en une version** (d'après Taste Skill) : les boutons se limitent à un principal et un secondaire, les cartes partagent un style, les liens un aspect, rayons et tailles de titres suivent chacun une échelle, et jamais une boîte dans une boîte dans une boîte.
+- Aucun accent, fond, teinte ou dégradé violet ou lavande, sauf vraie couleur de marque du client ; les logos tiers gardent les leurs.
+- Pages d'exemple : coordonnées en `.example`, aucun téléphone au format réel, numéro de rue, code postal, SIRET, RCS ou TVA (A2 : un faux réaliste se lit comme un vrai).
 
 ## Les interdits ne sont pas un style
 

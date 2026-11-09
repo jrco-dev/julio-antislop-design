@@ -70,7 +70,7 @@ Une seule chose que le visiteur peut faire, ou qui change à chaque visite, tir�
 
 1. Les images du client.
 2. Des images générées, si un outil est disponible, signalées comme telles.
-3. De vraies images du monde du sujet dans des collections ouvertes (Openverse, Wikimedia Commons, musées), sous licence permettant l'usage commercial, téléchargées dans le projet et créditées. Chercher l'inventaire, pas la catégorie : la rue en cartes postales anciennes, une carte ancienne du quartier, la matière en gros plan, un objet de musée de son genre. Une image trouvée montre le monde autour du client, jamais son produit, sa salle ou son équipe.
+3. De vraies images du monde du sujet dans des collections ouvertes (Openverse, Wikimedia Commons, musées), sous licence permettant l'usage commercial, téléchargées dans le projet et créditées. Chercher l'inventaire, pas la catégorie : la rue en cartes postales anciennes, une carte ancienne du quartier, la matière en gros plan, un objet de musée de son genre. Une image trouvée montre le monde autour du client, jamais son produit, sa salle ou son équipe. Licences et règles des substituts : `references/photos.md`.
 4. Des dessins en code d'objets du sujet, dans un langage graphique plat unique et les vraies couleurs de la palette, pour ce dont aucune image honnête n'existe. Jamais de « photo » imitée en SVG ou CSS, jamais d'illustration décorative.
 
 Registres classés d'après les notes obtenues et test du sujet sans texte : `visuals.md`.

@@ -32,7 +32,8 @@ Pour des sites précis, déjà choisis et décrits par mode avec la qualité à 
 | --- | --- | --- | --- |
 | Polices | [Google Fonts](https://fonts.google.com) (filtré par catégorie, jamais trié par popularité), [Fontshare](https://www.fontshare.com), [Velvetyne](https://velvetyne.fr), [Collletttivo](https://www.collletttivo.it), [Use & Modify](https://usemodify.com) | Libres ; Fontshare sous EULA ITF ; pour les fonderies libres, vérifier la licence de chaque police | Oui |
 | Échelles fluides | [Utopia](https://utopia.fyi) : calculateurs d'échelle typographique et d'espacement en `clamp()` | Outil en ligne gratuit | Oui |
-| Images libres de droits | Openverse, Wikimedia Commons, collections ouvertes de musées | Licence par image | Oui, avec licence commerciale et crédit |
+| Images libres de droits | Openverse, Wikimedia Commons, collections ouvertes de musées | CC0, domaine public, CC BY, CC BY-SA seulement (`references/photos.md`) | Oui, avec crédit |
+| Icônes réelles d'outils et de marques | [gilbarbara/logos](https://github.com/gilbarbara/logos), [Simple Icons](https://simpleicons.org) | CC0 (les marques restent à leurs titulaires) | Oui, mention des marques en pied de page |
 | Composants animés | [Kokonut UI](https://kokonutui.com), [Cult UI](https://cult-ui.com), [Animata](https://animata.design), [Motion Primitives](https://github.com/ibelick/motion-primitives) | MIT | Oui, crédités et restylés |
 | Illustration produit, bento | [Stageshow](https://github.com/benjitaylor/skills/tree/main/stageshow) | MIT (icônes d'apps exclues) | Oui |
 | Effets GPU et shaders | [Paper Shaders](https://github.com/paper-design/shaders) | Apache 2.0, version à épingler | Oui |

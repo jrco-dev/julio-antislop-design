@@ -53,6 +53,19 @@ Space Grotesk comme repli « original », puis ses remplaçants (DM Sans, Manrop
 
 Le style vers lequel convergent les agents qui évitent tous les tics, ce skill compris (relevé sur nos quatre pages du 2 et 3 novembre 2026) : fond papier clair, titre en grotesque condensée aligné à gauche avec la phrase d'appui à droite, filets fins et tableaux, un seul accent, sections aérées empilées, listes numérotées ; et, en refonte, des blocs génériques de l'existant (grille d'adjectifs « Sur mesure / Souplesse / Expertise ») gardés tels quels. À la place : le tirage, un archétype et deux leviers de risque (`originality.md`).
 
+## Vague 6 — novembre 2026 : relevés par Taste Skill 2.5.1 (44 sites générés testés)
+
+| Tic | À la place |
+| --- | --- |
+| Cartes qui s'inclinent avec le pointeur ; carrousels ; onglets qui changent sur minuterie | Survol = couleur ou levée de 2 px ; tout visible ; onglets au clic |
+| Légende sous chaque image (« Image d'illustration ») | Une meilleure image ; crédits dans le pied de page |
+| Photo de banque d'images présentée comme celle du client | Une image de remplacement listée dans le rapport (`references/photos.md`) |
+| Logiciel seulement en petits fragments sur panneaux colorés ; la même vue du produit à chaque section | `persuade.md` §4 et §4 bis |
+| Logo d'un vrai outil redessiné ou grisé | Le vrai logo, dans ses couleurs |
+| Accent ou fond violet ou lavande, même en aplat | Une couleur tirée du sujet |
+| Shader, grain ou hero sombre sur un café, une boutique ou un service | `persuade.md` §1 bis |
+| Popup, bulle de chat, carré « retour en haut » flottant sur la page | Rien de fixe hors la navigation |
+
 ## Autres tics fréquents
 
 - **Structure** : titre-phrase de 3 ou 4 lignes ; ordre hero, logos, features, témoignage, tarifs, CTA ; même mise en page pour toutes les sections ; tout centré ; même rayon moyen partout ; neuf tailles de police presque égales ; fausse preuve sociale (« 10 000+ équipes », rangées d'étoiles sans source).

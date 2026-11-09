@@ -53,6 +53,19 @@ Instead: a font found in the subject's world (`typography.md` §2), a modular ty
 
 The style that agents avoiding every tell converge on, this skill included (spotted on our four pages of November 2 and 3, 2026): light paper background, left-aligned condensed grotesque headline with the supporting sentence on the right, thin hairlines and tables, a single accent, airy stacked sections, numbered lists; and, in a redesign, generic blocks from the existing site (a grid of adjectives "Tailor-made / Flexibility / Expertise") kept as they were. Instead: the roll, an archetype and two risk levers (`originality.md`).
 
+## Wave 6 — November 2026: reported by Taste Skill 2.5.1 (44 generated sites tested)
+
+| Tell | Instead |
+| --- | --- |
+| Cards tilting with the pointer; carousels; tabs switching on a timer | Hover = color or a 2 px lift; everything visible; tabs on click |
+| Caption under each picture ("Illustrative image") | A better picture; credits in the footer |
+| Stock photo passed off as the client's | A stand-in listed in the report (`references/photos.md`) |
+| Software only as small fragments on colored panels; the same product view in every section | `persuade.md` §4 and §4 bis |
+| Redrawn or greyed logo of a real tool | The real logo, its own colors |
+| Violet or lavender accent or ground, even flat | A color drawn from the subject |
+| Shader, grain or dark hero on a café, shop or service | `persuade.md` §1 bis |
+| Popup, chat bubble, back-to-top square floating over the page | Nothing fixed but the navigation |
+
 ## Other common tells
 
 - **Structure**: a sentence-headline of 3 or 4 lines; the hero, logos, features, testimonial, pricing, CTA order; the same layout for every section; everything centered; the same medium radius everywhere; nine nearly equal font sizes; fake social proof ("10,000+ teams", rows of stars with no source).

@@ -41,9 +41,10 @@ Translate them into role tokens, which components use instead of the raw steps: 
 - **A heading belongs to what follows it**: the space above a heading is at least double the space below it.
 - **The supporting sentence hugs the headline** (an `m` to `l` step), the action comes one step further.
 - **A single gap between sections**, the same everywhere (`--space-section`): check on the full-page screenshot that no gap between two sections is clearly larger than the others (an overly tall block or a forgotten `min-height` is often the cause).
-- **The gap between sections is clearly larger than any internal gap**: 120 to 240 px on desktop in Persuade (see `persuade.md`), 64 to 96 px on mobile.
+- **The gap between sections is clearly larger than any internal gap**: 120 to 240 px on desktop in Persuade (see `persuade.md`), 64 to 96 px on mobile. The screen rhythm below is the only exception.
 - **Vary by level, not by block**: variety comes from moving from one level to another and from the change of composition between sections, never from a value invented for one block.
 - **Buttons and fields**: 44 px height targeted on mobile; vertical and horizontal padding drawn from the scale, horizontal about 1.5 to 2 times the vertical; the same padding on all buttons in the same row.
+- **Exception: the screen rhythm** (`persuade.md` §2). This is the one case where section gaps leave the values above and the section token's top step. The height comes from the screens; what stays constant is the space above each heading (`--space-section`), the rest falls at the bottom. The gap between contents then varies, never under 192 px on desktop and 144 px on mobile (Taste Skill); a `rythme-sections` warning is justified by "screen rhythm".
 - **Equal outer margins** left and right, as a single gutter token (`--gutter`), and a container capped by a single token (`--measure-page`).
 - **Operate mode**: tighter scale (section drops to `xl`, 48 px), but the three levels stay distinct; density comes from smaller steps, not from arbitrary values.
 
