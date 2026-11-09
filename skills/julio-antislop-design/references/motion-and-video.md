@@ -5,7 +5,7 @@
 Construire la page sans mouvement d'abord : une page qui a besoin d'animation pour paraître finie n'est pas finie. Puis, selon le mode (`defaults-by-mode.md`) :
 
 - **Un mouvement signature**, un seul, bien fait ; en mode Persuader, une démo produit ou un effet tiré de la matière peut être ce mouvement.
-- **Entrées de section** (Persuader) : titre, puis texte, puis image, décalés de 60 à 90 ms, montée de 16 à 32 px avec opacité, déclenchées une fois à l'entrée. Le contenu est visible par défaut : si le script échoue, rien ne reste caché.
+- **Entrées** : le hero entre une fois au chargement (titre, puis texte, puis image, décalés de 60 à 90 ms, montée de 16 à 32 px avec opacité) ; en dessous, rien n'entre au défilement sauf le moment tiré (`references/moments.md`). Le contenu est visible par défaut : si le script échoue, rien ne reste caché.
 - **Feedback sur chaque contrôle** : survol, pression, focus. Une pression = légère réduction d'échelle (0,95 à 0,98). Retour visuel en moins de 100 ms.
 - **Durées et courbes** : une courbe d'easing partagée (décélération à l'arrivée, accélération au départ), peu de durées en tokens. Une sortie dure environ 60 à 70 % de l'entrée.
 - **Interruptible** : une nouvelle action annule l'animation en cours et fixe l'état final ; jamais d'interaction bloquée pendant une animation.

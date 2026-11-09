@@ -28,6 +28,8 @@ Every page has **one visual anchor specific to the subject in the first two scre
 3. With an image generation tool: generate the world or the material, flagged as such, never the client's product as if it were real.
 4. Otherwise, ranks 1 to 5 above.
 
+Licences, credits, stand-ins and the case of a physical product with no photograph: `references/photos.md`.
+
 ## Common rules
 
 - One dominant visual per screen is worth more than several small ones.

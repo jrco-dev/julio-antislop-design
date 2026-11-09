@@ -70,7 +70,7 @@ A single thing the visitor can do, or that changes on each visit, drawn from the
 
 1. The client's images.
 2. Generated images, if a tool is available, flagged as such.
-3. Real images of the subject's world from open collections (Openverse, Wikimedia Commons, museums), under a license allowing commercial use, downloaded into the project and credited. Search for the inventory, not the category: the street in old postcards, an old map of the neighborhood, the material in close-up, a museum object of its kind. A found image shows the world around the client, never its product, its room or its team.
+3. Real images of the subject's world from open collections (Openverse, Wikimedia Commons, museums), under a license allowing commercial use, downloaded into the project and credited. Search for the inventory, not the category: the street in old postcards, an old map of the neighborhood, the material in close-up, a museum object of its kind. A found image shows the world around the client, never its product, its room or its team. Licences and stand-in rules: `references/photos.md`.
 4. Code drawings of the subject's objects, in a single flat graphic language and the real colors of the palette, for what no honest image exists of. Never a "photo" imitated in SVG or CSS, never decorative illustration.
 
 Registers ranked by the scores obtained, and the subject-without-text test: `visuals.md`.

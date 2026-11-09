@@ -32,7 +32,8 @@ For specific sites, already chosen and described by mode with the quality to bor
 | --- | --- | --- | --- |
 | Fonts | [Google Fonts](https://fonts.google.com) (filtered by category, never sorted by popularity), [Fontshare](https://www.fontshare.com), [Velvetyne](https://velvetyne.fr), [Collletttivo](https://www.collletttivo.it), [Use & Modify](https://usemodify.com) | Free; Fontshare under the ITF EULA; for free foundries, check the license of each font | Yes |
 | Fluid scales | [Utopia](https://utopia.fyi): type scale and spacing calculators in `clamp()` | Free online tool | Yes |
-| Royalty-free images | Openverse, Wikimedia Commons, open museum collections | License per image | Yes, with a commercial license and credit |
+| Royalty-free images | Openverse, Wikimedia Commons, open museum collections | CC0, public domain, CC BY, CC BY-SA only (`references/photos.md`) | Yes, with credit |
+| Real tool and brand icons | [gilbarbara/logos](https://github.com/gilbarbara/logos), [Simple Icons](https://simpleicons.org) | CC0 (the marks stay their owners') | Yes, trademark line in the footer |
 | Animated components | [Kokonut UI](https://kokonutui.com), [Cult UI](https://cult-ui.com), [Animata](https://animata.design), [Motion Primitives](https://github.com/ibelick/motion-primitives) | MIT | Yes, credited and restyled |
 | Product illustration, bento | [Stageshow](https://github.com/benjitaylor/skills/tree/main/stageshow) | MIT (app icons excluded) | Yes |
 | GPU effects and shaders | [Paper Shaders](https://github.com/paper-design/shaders) | Apache 2.0, pin the version | Yes |

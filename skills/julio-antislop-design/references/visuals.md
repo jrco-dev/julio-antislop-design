@@ -28,6 +28,8 @@ Chaque page a **une ancre visuelle propre au sujet dans les deux premiers écran
 3. Avec un outil de génération d'image : générer le monde ou la matière, signalé comme tel, jamais le produit du client comme s'il était réel.
 4. Sinon, les rangs 1 à 5 ci-dessus.
 
+Licences, crédits, substituts et cas du produit physique sans photo : `references/photos.md`.
+
 ## Règles communes
 
 - Un visuel dominant par écran vaut mieux que plusieurs petits.
