@@ -1,340 +1,318 @@
 # julio-antislop-design
 
-**Un skill pour agents de code qui fait des interfaces conçues, pas générées.**
-*An agent skill that makes interfaces look designed, not generated. [English summary below](#english).*
+**An agent skill that makes interfaces look designed, not generated.**
 
-Une page faite par un modèle ressemble à la moyenne de toutes les pages qu'il a vues : titre centré, petit label au-dessus, trois cartes à icône, un dégradé violet, Inter. Rien n'y est faux, et rien n'y a été décidé. Les études récentes le confirment : les modèles remplissent le brief, mais deux briefs différents donnent deux pages presque identiques, et un meilleur prompt ne suffit pas à corriger ça.
+A page made by a model looks like the average of every page it has seen: a centred headline, a small label above it, three icon cards, a purple gradient, Inter. Nothing in it is wrong, and nothing in it was decided. Recent studies confirm it: models fill in the brief, but two different briefs produce two nearly identical pages, and a better prompt is not enough to fix that.
 
-`julio-antislop-design` remplace ces défauts par un **processus** : l'idée vient du sujet, la direction vient de références réelles, un plancher non négociable protège l'accessibilité, l'honnêteté et la performance, et l'agent regarde ce qu'il a fait avant de le livrer.
+`julio-antislop-design` replaces those defaults with a **process**: the idea comes from the subject, the direction comes from real references, a non-negotiable floor protects accessibility, honesty and performance, and the agent looks at what it made before delivering it.
 
-Il fonctionne avec Claude Code, Claude.ai, Codex, Cursor et tout hôte compatible [Agent Skills](https://agentskills.io). Deux éditions : **française** (`julio-antislop-design`) et **anglaise** (`julio-antislop-design-en`), mêmes règles et mêmes scripts.
+It works with Claude Code, Claude.ai, Codex, Cursor and any [Agent Skills](https://agentskills.io) compatible host. Two editions: **French** (`julio-antislop-design`, the original) and **English** (`julio-antislop-design-en`), with the same rules and the same scripts.
 
-**Score : 7,0 sur 10** en version 0.25 (6,8 en 0.24), sur 5 briefs jugés à l’aveugle ([détail](evals/README.md)). Honnêteté 9,0 ; espacement 6,2 et originalité 6,0, les prochains chantiers.
+**Score: 7.0 out of 10** in version 0.25 (6.8 in 0.24), on 5 blind-judged briefs ([details](evals/README.md)). Honesty 9.0; spacing 6.2 and originality 6.0 are the next targets.
 
 ---
 
-## Sommaire
+## Contents
 
-- [Ce que fait le skill](#ce-que-fait-le-skill)
-- [Exemples](#exemples)
-- [Nouveautés](#nouveautés)
+- [What the skill does](#what-the-skill-does)
+- [Examples](#examples)
+- [What's new](#whats-new)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Comment il travaille](#comment-il-travaille)
-- [Ce que vous recevez](#ce-que-vous-recevez)
-- [Outils recommandés](#outils-recommandés)
-- [Contenu du dépôt](#contenu-du-dépôt)
-- [Limites connues](#limites-connues)
+- [Usage](#usage)
+- [How it works](#how-it-works)
+- [What you get](#what-you-get)
+- [Recommended tools](#recommended-tools)
+- [Repository layout](#repository-layout)
+- [Known limits](#known-limits)
 - [FAQ](#faq)
-- [Contribuer](#contribuer)
-- [Crédits](#crédits)
-- [Licence](#licence)
-- [English](#english)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
 
 ---
 
-## Ce que fait le skill
+## What the skill does
 
-- **Crée** des landing pages, sites, écrans d'app, dashboards, docs et portfolios.
-- **Refond** un écran existant qui « fait IA », sans changer ce que fait le produit.
-- **Relit** un design et dit ce qui trahit une page générée, avec les corrections.
-- **Choisit** une palette, une typographie, des animations, en partant de sources réelles ; sans police fournie, il vous propose 3 paires tirées de votre sujet.
-- **Produit** des vidéos produit et du motion design en code, avec un workflow éprouvé.
+- **Builds** landing pages, websites, app screens, dashboards, docs and portfolios.
+- **Redesigns** an existing screen that "looks AI-made", without changing what the product does.
+- **Reviews** a design and says what gives away a generated page, with the fixes.
+- **Chooses** a palette, typography and motion from real sources; with no font supplied, it offers you 3 pairings drawn from your subject.
+- **Writes the copy** before the code: a fact sheet, a voice of its own, headlines that name what is sold, buttons that say what happens, no stock phrases.
+- **Produces** product videos and motion design in code, with a proven workflow.
 
-Ce qui le distingue :
+What sets it apart:
 
-| Principe | Concrètement |
+| Principle | In practice |
 | --- | --- |
-| L'idée vient du sujet | Inventaire de 8 à 12 éléments propres au client, phrase d'idée, test du concurrent |
-| Rien d'inventé | Aucune police, aucun composant, aucun chiffre, aucune citation imaginaires ; chaque décision a une source notée |
-| Sortir de la moyenne | Un tirage attribue l'archétype de composition, des contraintes et deux risques ; trois premiers écrans comparés avant de construire ; test du déjà-vu ; journal pour ne pas se répéter |
-| Règles selon le contexte | 4 modes (Persuader, Opérer, Lire, Expérience) : un filet discret est normal dans un dashboard et un tic sur une landing |
-| Des modèles réels, pas l'imagination | 110 sites modèles vérifiés, classés par mode, chacun avec la qualité précise à emprunter et ce qu'il ne faut pas copier |
-| Typographie et espacement en système | Police trouvée dans le monde du sujet (jamais une police « réflexe » des modèles), échelle de tailles modulaire, échelle d'espacement à trois niveaux, aucune valeur au jugé |
-| Vérifier, pas promettre | Contrôle des tokens, détecteur automatique, captures à 4 largeurs, Core Web Vitals, critique par un regard neuf |
+| The idea comes from the subject | An inventory of 8 to 12 elements that belong only to the client, an idea sentence, a competitor test |
+| Nothing invented | No imaginary font, component, figure or quote; every decision has a recorded source; stand-in photographs are licensed, credited and listed, never passed off as the client's |
+| Out of the average | A roll assigns the composition archetype, constraints and two risks; three first screens compared before building; a déjà-vu test; a log so the next project doesn't repeat this one |
+| Rules depend on context | 4 modes (Persuade, Operate, Read, Experience) and, inside Persuade, the kind of business: a café gets photographs, a developer tool gets its own live UI |
+| Real models, not imagination | 110 verified model sites by mode, each with the precise quality to borrow and what not to copy |
+| Type and spacing as a system | A typeface found in the subject's world (never a model's "reflex" font), a modular type scale, a three-level spacing scale, no eyeballed values |
+| Checked, not promised | Token check, copy lint, rendered-page check, automatic detector, screenshots at 4 widths, Core Web Vitals, fresh-eyes critique |
 
-## Exemples
+## Examples
 
-Toutes les pages ci-dessous ont été faites par des agents neufs qui suivaient le skill, sans photo fournie, puis notées sur 10 par un juge indépendant qui ne voyait que les captures. Le contenu vient de briefs de test ; rien n'est inventé.
+Every page below was made by fresh agents following the skill, with no photographs supplied, then scored out of 10 by an independent judge who only saw the screenshots. The content comes from test briefs; nothing is invented.
 
-### Galerie des styles
+### Style gallery
 
-Le skill ne produit pas un style maison : le style vient de vos réponses au cadrage (tour Goût). Six briefs, six styles demandés, classés par note.
+The skill has no house style: the style comes from your intake answers (the Taste round). Six briefs, six requested styles, ranked by score.
 
-| Pointé · **SaaS clair** · 8,3 | Atelier Lua · **Minimaliste** · 8,3 |
+| Pointé · **Clean SaaS** · 8.3 | Atelier Lua · **Minimalist** · 8.3 |
 | --- | --- |
-| ![Pointé : « Le relevé, pointé. », vraie table de rapprochement bancaire en vedette, montants en monospace](docs/examples/style-saas.jpg) | ![Atelier Lua : « Grès tourné à la main, à Graça », tasse, bol et assiette dessinés en coupe sur une étagère](docs/examples/style-minimal.jpg) |
-| Outil de rapprochement bancaire. L'interface réelle prouve la fiabilité au lieu de l'affirmer. | Céramiste à Lisbonne. Les pièces dessinées en coupe disent « tourné à la main » sans aucune photo. |
+| ![Pointé: "Le relevé, pointé.", a real bank reconciliation table as the hero, amounts in monospace](docs/examples/style-saas.jpg) | ![Atelier Lua: "Grès tourné à la main, à Graça", cup, bowl and plate drawn in cross-section on a shelf](docs/examples/style-minimal.jpg) |
+| Bank reconciliation tool. The real interface proves reliability instead of claiming it. | Ceramicist in Lisbon. Pieces drawn in cross-section say "hand-thrown" without a single photograph. |
 
-| Teny · **Ludique** · 7,8 | Nuit Basse · **Sombre et immersif** · 7,3 |
+| Teny · **Playful** · 7.8 | Nuit Basse · **Dark and immersive** · 7.3 |
 | --- | --- |
-| ![Teny : cartes-mots illustrées trano, akoho, voankazo, reny sur fond jaune](docs/examples/style-ludique.jpg) | ![Nuit Basse : titre pochoir orange sur noir, reflets des lumières du port en barres sonores](docs/examples/style-immersif.jpg) |
-| App pour apprendre le malgache aux enfants. Illustrations cohérentes et vrai jeu de mémoire jouable. | Festival électronique sur le port de Marseille. Les reflets du quai tremblent au rythme d'une basse. |
+| ![Teny: illustrated word cards trano, akoho, voankazo, reny on a yellow ground](docs/examples/style-ludique.jpg) | ![Nuit Basse: orange stencil title on black, harbour light reflections as sound bars](docs/examples/style-immersif.jpg) |
+| App teaching Malagasy to children. Consistent illustrations and a real, playable memory game. | Electronic music festival on the Marseille docks. The quay's reflections shake to the bass. |
 
-| Terres · **Éditorial** · 6,8 | Villa Ambanja · **Luxe discret** · 6,1 |
+| Terres · **Editorial** · 6.8 | Villa Ambanja · **Quiet luxury** · 6.1 |
 | --- | --- |
-| ![Terres : couverture bleu d'eau de la revue, parcelles hachurées traversées par une rivière](docs/examples/style-editorial.jpg) | ![Villa Ambanja : « Face à la baie d'Ambanja », bleu nuit et brun chaud, ligne d'horizon dessinée](docs/examples/style-luxe.jpg) |
-| Revue papier sur l'agriculture paysanne. Le cliché crème + serif + terracotta est évité ; il manque les photos des reportages. | Maison d'hôtes à Nosy Be. Typographie lente et sobre, pas de noir et or ; sans photo, un luxe intime reste trop vide. |
+| ![Terres: water-blue magazine cover, hatched fields crossed by a river](docs/examples/style-editorial.jpg) | ![Villa Ambanja: "Face à la baie d'Ambanja", night blue and warm brown, a drawn horizon line](docs/examples/style-luxe.jpg) |
+| Print magazine on small-scale farming. The cream + serif + terracotta cliché is avoided; the reportage photographs are missing. | Guesthouse in Nosy Be. Slow, sober typography, no black and gold; without photographs, intimate luxury stays too empty. |
 
-Leçon : le skill est à son meilleur quand le sujet se montre en code (une interface, des objets dessinés, un jeu) ; les styles qui vivent de la photographie (luxe, éditorial) ont besoin de vraies images, que le cadrage demande.
+Lesson: the skill is at its best when the subject can be shown in code (an interface, drawn objects, a game); styles that live on photography (luxury, editorial) need real images, which the intake asks for, and which licensed stand-ins now cover when the client has none.
 
-### Même brief, version 0.24 puis 0.25
+### Same brief, version 0.24 then 0.25
 
-| Atelier vélo, 0.24 : 6,7 | Atelier vélo, 0.25 : **7,6** |
+| Bike workshop, 0.24: 6.7 | Bike workshop, 0.25: **7.6** |
 | --- | --- |
-| ![Les Rayons en 0.24 : « 65 € » géant sur aplat rouge, aucun vélo à l'écran](docs/examples/velo-024.jpg) | ![Les Rayons en 0.25 : « On répare. Ou vous réparez. », vélo au trait et étiquette de prix en kraft](docs/examples/velo-025.jpg) |
-| Le prix en grand, mais aucun vélo : le juge y voyait un garage auto. | La règle « une ancre visuelle du sujet dans les deux premiers écrans » : le vélo et les étiquettes en kraft portent la page. |
+| ![Les Rayons in 0.24: a giant "65 €" on a flat red ground, no bike on screen](docs/examples/velo-024.jpg) | ![Les Rayons in 0.25: "On répare. Ou vous réparez.", a line-drawn bike and a kraft price tag](docs/examples/velo-025.jpg) |
+| The price set large, but no bike: the judge read it as a car garage. | The rule "a visual anchor of the subject in the first two screens": the bike and the kraft tags carry the page. |
 
-Notes détaillées et briefs : [`evals/README.md`](evals/README.md).
+Detailed scores and briefs: [`evals/README.md`](evals/README.md).
 
-## Nouveautés
+## What's new
 
-| Version | Date | Changement |
+| Version | Date | Change |
 | --- | --- | --- |
-| 0.26 | 3 nov. 2026 | **Les 30 lois de l'UX** du catalogue Laws of UX, réécrites depuis leurs sources d'origine, chacune avec une règle, un seuil, les modes concernés et un contrôle UX avant livraison ; `check-render` vérifie aussi la loi de Hick (liens de navigation), la loi de Miller (formulaires longs) et l'effet de Von Restorff (une seule action principale) ; **rythme avec la personne** : chaque question vient avec une réponse recommandée, quatre rendez-vous courts (fiche brief, trois premiers écrans, première version, livraison), jamais d'attente silencieuse |
-| 0.25 | 3 nov. 2026 | `check-render.mjs` contrôle la page rendue (mots coupés, contraste, cibles, rythme des sections, marges, textes provisoires) ; `visuals.md` (visuels sans photo classés d'après les notes, test du sujet sans texte) ; `finish.md` (défauts de finition et leurs contrôles) ; scripts bilingues ; tests automatiques et intégration continue ; kit de comparaison dans `benchmark/` ; `CHANGELOG.md` |
-| 0.24 | 3 nov. 2026 | Plus léger : `SKILL.md` de 9 Ko avec un **chemin rapide** pour les petites demandes, le détail dans `process.md` ; **édition anglaise** complète ; **évaluation** sur 5 briefs (6,8/10) publiée dans `evals/` ; « l'originalité ne remplace jamais la preuve » ; `check-tokens` détecte les eyebrows ; modèles de tickets, guide de contribution, revue trimestrielle automatique ; page d'accueil du projet dans `docs/`, faite avec le skill |
-| 0.23 | 3 nov. 2026 | Originalité : `originality.md` (24 archétypes de composition, 16 cartes de contrainte, 8 leviers de risque, test du déjà-vu, vague 5 « clean anti-slop ») ; `roll.mjs` tire la direction au lieu de laisser l'agent prendre son premier choix ; `board.mjs` capture les sites de référence pour les voir ; `explore.mjs` compare trois premiers écrans avant de construire la page ; axe Originalité éliminatoire dans la critique ; audit du contenu creux en refonte |
-| 0.22 | 3 nov. 2026 | Cadrage en une fois : un tour Goût ajouté (caractère, lumière et couleur, polices, densité, formes, images, mouvement, références aimées et rejets) qui remplit `DESIGN.md` avant le code ; 12 questions au plus, puis plus d'aller-retour ; seule une délégation explicite (« carte blanche ») dispense de ce tour |
-| 0.21 | 3 nov. 2026 | `nav-footer.md` : 18 modèles de navigation et 15 modèles de pied de page relevés sur navbar.gallery, footer.design et unsection.com, avec le cas d'usage, les règles et un exemple réel ; choix noté dans le rapport |
-| 0.20 | 3 nov. 2026 | Leçons du test « style Apple » : produit physique sans photo (registre que le code sait faire, objet entier), règles du verre demandé par le brief (flouter du réel, jamais des blobs), une seule mention du contenu d'exemple, chose vivante qui change l'objet principal, écart entre sections constant |
-| 0.19 | 3 nov. 2026 | `site-models.md` : 110 sites modèles réels par mode, avec la qualité à emprunter ; l'étape « références » y puise, dont au moins un site hors du secteur du projet |
-| 0.18 | 3 nov. 2026 | Sans police fournie, l'agent propose 3 paires affichage + texte tirées du sujet et d'un catalogue de polices vérifiées (`font-catalog.md`) au lieu de choisir en silence |
-| 0.17 | 3 nov. 2026 | Liste datée des polices réflexes (dont Archivo, relevée au test à l'aveugle) ; échelle typographique modulaire par mode ; `spacing.md` ; script `check-tokens.mjs` ; plancher A6 étendu aux tailles et espacements |
-| 0.16 | 3 nov. 2026 | Règles de pied de page et de formulaire de commande, dates calculées en direct, nouveaux tics, issus du test à l'aveugle |
-| 0.15 | 2 nov. 2026 | Cadrage façon Claude Design : deux tours de questions, demande de matière, fiche brief validée |
+| 0.27 | 9 Nov 2026 | **Taste Skill 2.5 lessons**, rewritten into the skill's own rules: `copy.md` (fact sheet, voice card, headlines that name what is sold, buttons as verb + object, word budget per screen, text tells) and a new `copy-lint.mjs` that checks the copy without a browser; `photos.md` (real photographs first, licensed stand-ins from open collections when the client has none, credits in one footer line, never passed off as the client's); `moments.md` (the hero enters once, one or two chosen moments per page, never a fade-in on every section; shaders and big scenes only for technical subjects); the **kind of business** (software, gaming, hardware, product, service, place) now sets the visual budget inside Persuade; screen rhythm, equal edges and "one system" rules; README in English |
+| 0.26 | 3 Nov 2026 | **The 30 laws of UX** from the Laws of UX catalogue, rewritten from their original sources, each with a rule, a threshold, the modes concerned and a pre-delivery UX check; `check-render` also checks Hick's law (navigation links), Miller's law (long forms) and the Von Restorff effect (one primary action); **rhythm with the person**: every question comes with a recommended answer, four short checkpoints (brief sheet, three first screens, first version, delivery), never a silent wait |
+| 0.25 | 3 Nov 2026 | `check-render.mjs` checks the rendered page (broken words, contrast, targets, section rhythm, margins, placeholder text); `visuals.md` (photo-less visuals ranked by score, subject-without-text test); `finish.md` (finish defects and their checks); bilingual scripts; automated tests and CI; blind comparison kit in `benchmark/`; `CHANGELOG.md` |
+| 0.24 | 3 Nov 2026 | Lighter: a 9 KB `SKILL.md` with a **quick path** for small requests, the detail in `process.md`; full **English edition**; **evaluation** on 5 briefs (6.8/10) published in `evals/`; "originality never replaces proof"; `check-tokens` detects eyebrows; issue forms, contribution guide, automatic quarterly review; project home page in `docs/`, made with the skill |
+| 0.23 | 3 Nov 2026 | Originality: `originality.md` (24 composition archetypes, 16 constraint cards, 8 risk levers, déjà-vu test, wave 5 "clean anti-slop"); `roll.mjs` rolls the direction instead of letting the agent take its first idea; `board.mjs` captures reference sites; `explore.mjs` compares three first screens before building; eliminatory Originality axis in the critique; hollow-content audit in redesigns |
+| 0.22 | 3 Nov 2026 | Intake in one go: a Taste round (character, light and colour, fonts, density, shapes, images, motion, liked references and rejections) fills `DESIGN.md` before any code; 12 questions at most, then no more back-and-forth; only an explicit hand-off ("carte blanche") skips it |
+| 0.21 | 3 Nov 2026 | `nav-footer.md`: 18 navigation and 15 footer patterns gathered from navbar.gallery, footer.design and unsection.com, each with its use case, rules and a real example |
+| 0.20 | 3 Nov 2026 | Lessons from an "Apple style" test: physical product without photographs, glass only when the brief asks (blur something real, never blobs), sample content flagged once, a living thing that changes the main object, a constant section gap |
+| 0.19 | 3 Nov 2026 | `site-models.md`: 110 real model sites by mode, each with the quality to borrow; the references step draws on it, including at least one site outside the project's sector |
+| 0.18 | 3 Nov 2026 | With no font supplied, the agent offers 3 display + text pairings drawn from the subject and a catalogue of verified fonts (`font-catalog.md`) instead of choosing silently |
+| 0.17 | 3 Nov 2026 | Dated list of reflex fonts (including Archivo, caught in the blind test); modular type scale per mode; `spacing.md`; `check-tokens.mjs`; floor A6 extended to sizes and spacing |
+| 0.16 | 3 Nov 2026 | Footer and order-form rules, live-computed dates, new tells, from the blind test |
+| 0.15 | 2 Nov 2026 | Claude Design–style intake: two rounds of questions, a request for material, a validated brief sheet |
+
+Full history: [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Installation
 
-**Avec le CLI `skills` (Claude Code, Codex, Cursor et autres agents détectés) :**
+**With the `skills` CLI (Claude Code, Codex, Cursor and other detected agents):**
 
 ```bash
-npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design
+npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en   # English edition
+npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design      # French edition
 ```
 
-Ajoutez `-g` pour l'installer pour tous vos projets.
+Add `-g` to install it for all your projects. Install only one of the two editions in a given project.
 
-**À la main pour Claude Code :**
+**By hand for Claude Code:**
 
 ```bash
 git clone https://github.com/jrco-dev/julio-antislop-design
-cp -r julio-antislop-design/skills/julio-antislop-design ~/.claude/skills/        # tous les projets
-# ou : cp -r … .claude/skills/   dans un seul projet
+cp -r julio-antislop-design/skills/julio-antislop-design-en ~/.claude/skills/     # all projects
+# or: cp -r … .claude/skills/   for a single project
 ```
 
-**Édition anglaise :**
+**On Claude.ai:** download [`dist/julio-antislop-design-en.skill`](dist/julio-antislop-design-en.skill) (or [`dist/julio-antislop-design.skill`](dist/julio-antislop-design.skill) for French) and add it in your skills settings.
 
-```bash
-npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
-```
+Restart your agent after installing.
 
-N'installez qu'une des deux éditions dans un même projet.
+## Usage
 
-**Sur Claude.ai :** téléchargez [`dist/julio-antislop-design.skill`](dist/julio-antislop-design.skill) (ou [`dist/julio-antislop-design-en.skill`](dist/julio-antislop-design-en.skill)) et ajoutez-le dans vos paramètres de skills.
-
-Redémarrez votre agent après l'installation.
-
-## Utilisation
-
-Le skill se déclenche seul dès qu'une tâche touche l'apparence d'une interface. Vous pouvez aussi le nommer. Exemples :
+The skill triggers on its own as soon as a task touches how an interface looks. You can also name it. Examples:
 
 ```text
-Fais la landing page de notre agence de voyages à Nosy Be. Public : couples européens, 35-55 ans.
-Action : réserver un appel. Photos dans ./assets/photos.
+Build the landing page for our travel agency in Nosy Be. Audience: European couples, 35-55.
+Action: book a call. Photos in ./assets/photos.
 
-Refonds ce dashboard, il fait trop IA : src/app/dashboard/page.tsx
+Redesign this dashboard, it looks too AI-made: src/app/dashboard/page.tsx
 
-Relis cette page et dis-moi ce qui trahit une page générée : http://localhost:3000
+Review this page and tell me what gives it away as generated: http://localhost:3000
 
-Choisis une palette et une typo pour une marque de café artisanal de la région de Fianarantsoa.
+Pick a palette and a typeface for a craft coffee brand from the Fianarantsoa region.
 
-Fais une vidéo de 20 secondes qui présente notre app, à partir de captures réelles.
+Make a 20-second video presenting our app, from real screenshots.
+
+Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design-en.
 ```
 
-```text
-Build a landing page for a ceramic studio in Lisbon. Use julio-antislop-design.
-```
+Before building, the agent runs the intake with you **in one go**, so it knows your taste before the first line of code and avoids back-and-forth: a round on the project (surface, audience, target action, what must exist), a round on taste (character, light or dark, colour, fonts, density, shapes, images, motion, sites you like among its models, what you definitely don't want), a round on material (brand, images, proofs with their source, copy, constraints). 12 questions at most, multiple choice, with previews when possible. With no brand font, it offers 3 pairings. It then shows a brief sheet that starts with "I read this project as: …", has it validated once, fills `DESIGN.md` with your answers, and builds without coming back to you. Say "carte blanche" (free hand) and it decides everything itself, stating its assumptions.
 
-Avant de créer, l'agent cadre le projet avec vous **en une fois**, pour connaître votre goût avant la première ligne de code et éviter les allers-retours : un tour sur le projet (surface, audience, action visée, ce qui doit exister), un tour sur le goût (caractère, clair ou sombre, couleur, polices, densité, formes, images, mouvement, sites que vous aimez parmi ses modèles, ce que vous ne voulez surtout pas), un tour sur la matière (marque, images, preuves avec leur source, textes, contraintes). 12 questions au plus, à choix, avec aperçus quand c'est possible. Sans police de marque, il vous propose 3 paires. Il vous montre ensuite une fiche brief qui commence par « Je lis ce projet comme : … », la fait valider une fois, remplit `DESIGN.md` avec vos réponses, puis construit sans revenir vers vous. Dites « carte blanche » pour qu'il décide tout lui-même en annonçant ses hypothèses.
+It never leaves you waiting in silence: every question comes with a recommended answer, and it shows its work at four moments (brief sheet, three first screens, first version, delivery), each time with a proposal you can approve in one word.
 
-Il ne vous fait jamais attendre en silence : chaque question arrive avec une réponse recommandée, et il vous montre son travail à quatre moments (fiche brief, trois premiers écrans, première version, livraison), avec à chaque fois une proposition à valider d'un mot.
+For a **small request** (a component, a section, a fix, "do it quickly"), it takes the **quick path**: no questions unless something blocks, it follows your `DESIGN.md`, the floor and the tokens, checks, and returns a three-line report.
 
-Pour une **petite demande** (un composant, une section, une correction, « fais vite »), il prend le **chemin rapide** : pas de questions sauf blocage, il respecte votre `DESIGN.md`, le plancher et les tokens, vérifie, et rend un rapport en trois lignes.
+## How it works
 
-## Comment il travaille
+### 1. It chooses the mode
 
-### 1. Il choisit le mode
-
-| Mode | Le visiteur réussit quand… | Exemples |
+| Mode | The visitor succeeds when… | Examples |
 | --- | --- | --- |
-| Persuader | il décide et agit | Landing, marketing, tarifs |
-| Opérer | il termine une tâche | App, dashboard, admin |
-| Lire | il comprend | Docs, articles, guides |
-| Expérience | il est dans l'œuvre | Portfolio, galerie |
+| Persuade | they decide and act | Landing, marketing, pricing |
+| Operate | they finish a task | App, dashboard, admin |
+| Read | they understand | Docs, articles, guides |
+| Experience | they are inside the work | Portfolio, gallery |
 
-La **refonte** est une action, pas un mode : audit écrit, diagnostic, direction en 5 lignes que vous validez, puis 9 passes dans un ordre fixe.
+In Persuade, the **kind of business** then sets the visual budget: a place (café, shop, guesthouse) leads with photographs and type; a product shows the product big and whole; a software tool shows its own live interface; shaders and big scroll scenes are kept for technical subjects. A **redesign** is an action, not a mode: a written audit, a diagnosis, a 5-line direction you approve, then 9 passes in a fixed order.
 
-### 2. Il suit un processus en 12 étapes
+### 2. It follows a 12-step process
 
-Lire le projet → cadrage (questions, matière, fiche brief validée) → inventaire du sujet → argument page par page → références réelles → directions hors de la moyenne → idée et test du concurrent → tous les textes avant le code → construire sans mouvement → contrôles automatiques → critique par un regard neuf → mouvement et livraison.
+Read the project → intake (questions, material, validated brief sheet) → subject inventory → page-by-page argument → real references → directions away from the average → idea and competitor test → all the copy before the code → build without motion → automatic checks → fresh-eyes critique → motion and delivery.
 
-### 3. Il respecte un plancher absolu
+### 3. It respects an absolute floor
 
-Sept règles qui ne se lèvent jamais :
+Seven rules that are never lifted:
 
-| | Règle |
+| | Rule |
 | --- | --- |
-| A1 | Accessibilité WCAG 2.2 AA : contrastes, focus, clavier, cibles, mouvement réduit |
-| A2 | Honnêteté : aucune preuve, aucun chiffre, aucune fonctionnalité inventés |
-| A3 | Traçabilité : chaque police, composant, image et référence a une source réelle |
-| A4 | Confidentialité : aucune donnée client envoyée à un service tiers sans accord écrit |
-| A5 | Performance : seuils Core Web Vitals (LCP ≤ 2,5 s, INP ≤ 200 ms, CLS ≤ 0,1) |
-| A6 | Technique : couleurs, polices, tailles et espacements uniquement en tokens, pas de `transition: all`, pas de défilement horizontal… |
-| A7 | Le brief du client l'emporte sur les défauts, jamais sur A1 à A6 |
+| A1 | Accessibility, WCAG 2.2 AA: contrast, focus, keyboard, targets, reduced motion |
+| A2 | Honesty: no invented proof, figure or feature; sample content is flagged and listed |
+| A3 | Traceability: every font, component, image and reference has a real source and a licence that covers the use |
+| A4 | Confidentiality: no client data sent to a third-party service without written consent |
+| A5 | Performance: Core Web Vitals thresholds (LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1) |
+| A6 | Technical: colours, fonts, sizes and spacing only as tokens, no `transition: all`, no horizontal scroll… |
+| A7 | The client's brief wins over the defaults, never over A1 to A6 |
 
-### 4. Il applique des défauts anti-slop selon le mode
+### 4. It applies anti-slop defaults per mode
 
-Pas d'eyebrow ni de label en capitales espacées, pas de dégradé violet, pas de verre décoratif, pas de rangée de cartes identiques, pas de police « réflexe » (Inter, Space Grotesk, DM Sans, Archivo, Satoshi, Fraunces…) sans raison de marque, pas de tailles ni d'espacements posés au jugé, pas le « correctif » crème + terracotta devenu cliché… Chaque défaut peut être levé avec une raison écrite liée au projet. Une page qui se contente de respecter les interdits sans rien affirmer est rejetée : **les interdits ne sont pas un style.**
+No eyebrow or letter-spaced capitals label, no purple gradient, no decorative glass, no row of identical cards, no "reflex" font (Inter, Space Grotesk, DM Sans, Archivo, Satoshi, Fraunces…) without a brand reason, no eyeballed sizes or spacing, no stock phrases or "Learn more" buttons, no fade-in on every section, not the cream + terracotta "fix" that became a cliché… Each default can be lifted with a written reason tied to the project. A page that only avoids the bans without asserting anything is rejected: **the bans are not a style.**
 
-### 5. Il s'inspire de sites réels
+### 5. It draws on real sites
 
-À l'étape des références, l'agent choisit au moins 3 sites dans `site-models.md` (110 sites classés par mode : landing pages de produits et de marques, interfaces d'app, docs et éditorial, portfolios et culture), dont au moins un hors de votre secteur. Il ouvre chaque site, emprunte **une qualité** précise (une composition, une grille, une façon de nommer, une échelle), jamais une page ni l'identité d'une marque, et note l'URL et la qualité dans son rapport.
+At the references step, the agent picks at least 3 sites from `site-models.md` (110 sites by mode: product and brand landing pages, app interfaces, docs and editorial, portfolios and culture), including at least one outside your sector. It opens each site, borrows **one** precise quality (a composition, a grid, a way of naming, a scale), never a page or a brand's identity, and records the URL and the quality in its report.
 
-## Ce que vous recevez
+## What you get
 
-- Le code de la page ou de l'écran, dans votre stack.
-- `DESIGN.md` (système visuel) et `PRODUCT.md` (contexte produit) à la racine du projet, pour que les prochaines demandes restent cohérentes.
-- Une ligne dans `direction-log.md`, pour que le projet suivant ne ressemble pas à celui-ci.
-- Un rapport court : direction choisie et directions écartées, références consultées (URL et qualité empruntée), polices proposées et choisies avec leur raison, défauts levés et leur raison, résultats des contrôles, crédits et licences, contenu d'exemple à valider, et les contrôles qui n'ont pas pu tourner, nommés comme tels.
+- The code of the page or screen, in your stack.
+- `DESIGN.md` (visual system) and `PRODUCT.md` (product context) at the project root, so future requests stay consistent.
+- A line in `direction-log.md`, so the next project doesn't look like this one.
+- A short report: the chosen direction and the discarded ones, references consulted (URL and borrowed quality), fonts proposed and chosen with their reason, lifted defaults and their reason, check results, credits and licences, stand-in photographs and sample content to replace, and the checks that could not run, named as such.
 
-## Outils recommandés
+## Recommended tools
 
-Le skill fonctionne seul, mais ses contrôles sont meilleurs avec :
+The skill works on its own, but its checks are better with:
 
-| Outil | Rôle | Installation |
+| Tool | Role | Install / run |
 | --- | --- | --- |
-| `scripts/check-tokens.mjs` (inclus) | Tailles, espacements et polices hors tokens, polices réflexes, échelle trop chargée ou trop serrée ; Node seul, sans dépendance | `node scripts/check-tokens.mjs <fichier ou dossier>` ; `--mode operate` en app, `--allow-font "Nom"` pour une police de marque |
-| `scripts/check-render.mjs` (inclus) | La page rendue : défilement, mots coupés, contraste, texte minuscule, cibles, alt, titres, rythme des sections, marges, textes provisoires ; captures | `node scripts/check-render.mjs index.html --widths 390,1440 --shots .julio/shots` (Playwright) |
-| [Impeccable](https://github.com/pbakaus/impeccable) | Détecteur de tics et de défauts, sans LLM | `npx impeccable detect <fichier ou URL>` |
-| `scripts/roll.mjs` (inclus) | Tire la direction : archétype, cartes de contrainte, couleur, polices, risques ; Node seul | `node scripts/roll.mjs --mode persuader --brief "…"` |
-| `scripts/board.mjs`, `scripts/explore.mjs` (inclus) | Planche des sites de référence ; comparaison de trois premiers écrans | `npm i -D playwright && npx playwright install chromium` |
-| Chrome ou Chromium + Node.js | Captures à 390, 768, 1440 et 1920 px | Déjà présents sur la plupart des postes |
-| Lighthouse | Performance en laboratoire | Intégré à Chrome DevTools |
+| `scripts/check-tokens.mjs` (included) | Sizes, spacing and fonts outside tokens, reflex fonts, overloaded or cramped scale, eyebrows; Node only, no dependency | `node scripts/check-tokens.mjs <file or folder>`; `--mode operate` for apps, `--allow-font "Name"` for a brand font |
+| `scripts/copy-lint.mjs` (included) | The page's text: headline, headings, button labels, stock phrases and slop words, number of hero actions; Node only, no browser | `node scripts/copy-lint.mjs index.html` |
+| `scripts/check-render.mjs` (included) | The rendered page: scrolling, broken words, contrast, tiny text, targets, alt, headings, section rhythm, margins, placeholder text; screenshots | `node scripts/check-render.mjs index.html --widths 390,1440 --shots .julio/shots` (Playwright) |
+| [Impeccable](https://github.com/pbakaus/impeccable) | Tell and defect detector, no LLM | `npx impeccable detect <file or URL>` |
+| `scripts/roll.mjs` (included) | Rolls the direction: archetype, constraint cards, colour, fonts, risks; Node only | `node scripts/roll.mjs --mode persuade --brief "…"` |
+| `scripts/board.mjs`, `scripts/explore.mjs` (included) | A board of reference sites; comparison of three first screens | `npm i -D playwright && npx playwright install chromium` |
+| [Taste Skill](https://github.com/Leonxlnx/taste-skill) | Optional: its photo search across open collections and its in-browser inspector | Node 22+, Chrome |
+| Chrome or Chromium + Node.js | Screenshots at 390, 768, 1440 and 1920 px | Already on most machines |
+| Lighthouse | Lab performance | Built into Chrome DevTools |
 
-Sans ces outils, l'agent le dit dans son rapport au lieu de prétendre avoir vérifié.
+Without these tools, the agent says so in its report instead of claiming it checked.
 
-## Contenu du dépôt
+## Repository layout
 
 ```
-skills/julio-antislop-design/
-├── SKILL.md                     processus, plancher, défauts essentiels, livraison
-├── references/                  chargés seulement quand la tâche en a besoin
-│   ├── intake.md                cadrage : questions, matière, fiche brief
-│   ├── defaults-by-mode.md      règles anti-slop par mode
-│   ├── idea-and-direction.md    inventaire, argument, directions, images
-│   ├── visuals.md               visuels sans photo, classés d'après les notes obtenues
-│   ├── finish.md                finition : défauts relevés par les juges et contrôles
-│   ├── process.md               les 12 étapes en détail, livraison, rapport
-│   ├── originality.md           tirage, 24 archétypes, contraintes, risques, test du déjà-vu
-│   ├── persuade.md              landing pages, hero, illustration produit, bento
-│   ├── nav-footer.md            18 modèles de navigation, 15 de pied de page
-│   ├── operate.md               apps, dashboards, formulaires, graphiques
+skills/julio-antislop-design-en/
+├── SKILL.md                     process, floor, essential defaults, delivery
+├── references/                  loaded only when the task needs them
+│   ├── intake.md                intake: questions, material, brief sheet
+│   ├── defaults-by-mode.md      anti-slop rules per mode
+│   ├── idea-and-direction.md    inventory, argument, directions, images
+│   ├── copy.md                  fact sheet, voice, headlines, buttons, text tells
+│   ├── photos.md                real photographs, licensed stand-ins, credits
+│   ├── visuals.md               photo-less visuals, ranked by score
+│   ├── moments.md               hero entrance, chosen motion moments, what never moves
+│   ├── finish.md                finish: defects spotted by the judges and their checks
+│   ├── process.md               the 12 steps in detail, delivery, report
+│   ├── originality.md           roll, 24 archetypes, constraints, risks, déjà-vu test
+│   ├── persuade.md              landing pages, kinds of business, hero, product illustration, bento
+│   ├── nav-footer.md            18 navigation patterns, 15 footer patterns
+│   ├── operate.md               apps, dashboards, forms, charts
 │   ├── read-and-experience.md   docs, articles, portfolios
-│   ├── redesign.md              refonte en 9 passes
-│   ├── color.md                 construire une palette en OKLCH
-│   ├── typography.md            polices réflexes, choisir depuis le sujet, échelle modulaire
-│   ├── font-catalog.md          polices vérifiées par trait du sujet, à proposer
-│   ├── spacing.md               échelle d’espacement à trois niveaux
-│   ├── motion-and-video.md      mouvement, effets GPU, vidéo en code
-│   ├── performance.md           budget par mode
-│   ├── tells.md                 tics de pages générées, datés par vague
-│   ├── ux-principles.md         les 30 lois de l'UX appliquées, contrôle UX
-│   ├── site-models.md           sites modèles réels par mode, qualité à emprunter
-│   ├── resources.md             galeries, bibliothèques, outils, licences
-│   └── critique.md              grille de critique sur 6 axes
+│   ├── redesign.md              redesign in 9 passes
+│   ├── color.md                 building a palette in OKLCH
+│   ├── typography.md            reflex fonts, choosing from the subject, modular scale
+│   ├── font-catalog.md          verified fonts by subject trait, to propose
+│   ├── spacing.md               three-level spacing scale, screen rhythm
+│   ├── motion-and-video.md      motion, GPU effects, video in code
+│   ├── performance.md           budget per mode
+│   ├── tells.md                 tells of generated pages, dated by wave
+│   ├── ux-principles.md         the 30 laws of UX, applied; UX check
+│   ├── site-models.md           real model sites by mode, quality to borrow
+│   ├── resources.md             galleries, libraries, tools, licences
+│   └── critique.md              6-axis critique grid
 ├── scripts/
-│   ├── check-tokens.mjs         contrôle du code : tokens, polices réflexes, eyebrows
-│   ├── check-render.mjs         contrôle de la page rendue : mots coupés, contraste, rythme, marges
-│   ├── roll.mjs                 tirage de la direction (archétype, contraintes, couleur, polices, risques)
-│   ├── board.mjs                capture des sites de référence en planche
-│   └── explore.mjs              comparaison de trois premiers écrans
-├── templates/                   DESIGN.md, PRODUCT.md, journal des directions
+│   ├── check-tokens.mjs         code check: tokens, reflex fonts, eyebrows
+│   ├── copy-lint.mjs            copy check: headline, headings, buttons, stock phrases
+│   ├── check-render.mjs         rendered-page check: broken words, contrast, rhythm, margins
+│   ├── roll.mjs                 direction roll (archetype, constraints, colour, fonts, risks)
+│   ├── board.mjs                captures reference sites as a board
+│   └── explore.mjs              compares three first screens
+├── templates/                   DESIGN.md, PRODUCT.md, direction log
 ├── CREDITS.md
 └── LICENSE
-skills/julio-antislop-design-en/  édition anglaise, même structure
-evals/                            5 briefs, consigne du juge, scores par version
-benchmark/                        kit de comparaison à l'aveugle avec d'autres skills
-tests/, tools/                    tests des scripts et de la structure (npm test), empaquetage
-docs/                             page d'accueil du projet, exemples, revue trimestrielle
-.github/                          formulaires d'issue, revue trimestrielle automatique
+skills/julio-antislop-design/     French edition (the original), same structure
+evals/                            5 briefs, judge prompt, scores per version
+benchmark/                        blind comparison kit against other skills
+tests/, tools/                    script and structure tests (npm test), packaging
+docs/                             project home page, examples, quarterly review
+.github/                          issue forms, CI, automatic quarterly review
 ```
 
-## Limites connues
+## Known limits
 
-- **Mesuré sur peu de briefs.** 5 briefs jugés (6,8/10, `evals/`), en bac à sable sans réseau et sans sous-agent de critique ; la comparaison avec d'autres skills attend le kit de test lancé avec tout le réseau. Avant cela, un seul test à l'aveugle (une landing, contre Hallmark et Impeccable, 3 novembre 2026) : classé premier par l'auteur et par un juge indépendant, mais il a révélé une police réflexe (Archivo) et des tailles et espacements hors échelle, corrigés depuis (versions 0.17 et 0.18). Ce test a tourné dans un bac à sable sans réseau : la recherche de concept d'Impeccable et les relecteurs en contexte neuf des trois skills n'ont pas pu tourner. Un second test, avec tout le réseau et un brief neuf, est en préparation.
-- **Les sites modèles se décrivent en texte.** Chaque site de `site-models.md` a été confirmé en ligne, mais plusieurs galeries (Awwwards, Godly, SiteInspire, Commerce Cream) bloquent la lecture automatique, et certaines descriptions visuelles sont à confirmer en ouvrant le site, ce que le skill demande à l'agent de faire.
-- **Rédigé en français.** Les agents le suivent très bien quelle que soit la langue de la demande, et la description déclenche aussi sur des demandes en anglais.
-- **Les ressources externes vieillissent.** Sites, bibliothèques et licences cités ont été vérifiés le 3 novembre 2026 ; revérifiez une licence avant un usage commercial.
-- **Il ne remplace pas un designer.** Il évite les défauts et force les décisions ; la qualité finale dépend toujours de la matière réelle que vous fournissez (photos, textes, données).
+- **Measured on few briefs.** 5 judged briefs (7.0/10, `evals/`), in a sandbox without network and without a critique sub-agent; the comparison with other skills waits for the test kit run with full network access. Version 0.27 adds rules from Taste Skill 2.5 that have not been re-scored yet. Before that, one blind test only (a landing page, against Hallmark and Impeccable, 3 November 2026): ranked first by the author and by an independent judge, but it revealed a reflex font (Archivo) and off-scale sizes and spacing, fixed since (versions 0.17 and 0.18).
+- **Model sites are described in text.** Every site in `site-models.md` was confirmed online, but several galleries (Awwwards, Godly, SiteInspire, Commerce Cream) block automated reading, and some visual descriptions are to be confirmed by opening the site, which the skill asks the agent to do.
+- **External resources age.** Sites, libraries and licences cited were checked in November 2026; check a licence again before commercial use.
+- **It does not replace a designer.** It avoids defects and forces decisions; the final quality still depends on the real material you supply (photographs, copy, data).
 
 ## FAQ
 
-**Pourquoi mon agent me pose-t-il des questions avant de coder ?**
-Un modèle qui manque d'information comble les trous avec la moyenne, et c'est ce qui produit des pages génériques ; un goût deviné se corrige ensuite par allers-retours. Il pose toutes ses questions d'un coup (12 au plus), ne demande jamais ce que votre projet ou votre `DESIGN.md` disent déjà, et vous montre une fiche brief à valider une fois. Dites « carte blanche » et il décide tout en annonçant ses hypothèses.
+**Why does my agent ask questions before coding?**
+A model that lacks information fills the gaps with the average, and that is what produces generic pages; guessed taste is then corrected through back-and-forth. It asks all its questions at once (12 at most), never asks what your project or your `DESIGN.md` already says, and shows you a brief sheet to approve once. Say "carte blanche" and it decides everything, stating its assumptions.
 
-**Je veux un style précis, même s'il figure parmi les « tics ».**
-Dites-le : une consigne explicite l'emporte sur tous les défauts anti-slop. Elle ne l'emporte jamais sur l'accessibilité, l'honnêteté ou la performance.
+**I want a specific style, even if it is among the "tells".**
+Say so: an explicit instruction wins over every anti-slop default. It never wins over accessibility, honesty or performance.
 
-**J'ai déjà un design system.**
-Mettez-le dans un `DESIGN.md` à la racine du projet : il prime sur les défauts du skill.
+**I already have a design system.**
+Put it in a `DESIGN.md` at the project root: it takes precedence over the skill's defaults.
 
-**Je n'ai pas de police de marque.**
-L'agent vous en propose 3 paires, tirées des écritures de votre sujet (enseignes, étiquettes, imprimés) et d'un catalogue de polices Google Fonts vérifiées. Vous choisissez ; sans réponse, il prend la recommandée et l'écrit comme hypothèse.
+**I don't have a brand font.**
+The agent offers you 3 pairings, drawn from the lettering of your subject (signs, labels, print) and from a catalogue of verified Google Fonts. You choose; without an answer, it takes the recommended one and writes it down as an assumption.
 
-**Pourquoi refuse-t-il Inter ou Space Grotesk ?**
-Il ne les refuse pas : ce sont des polices « réflexes », que les modèles prennent sans regarder le sujet, donc devinables. Il les garde si votre marque les utilise. Dans une app ou un dashboard, une police de travail sobre reste permise pour le texte d'interface.
+**I don't have photographs.**
+For a place, people or a setting, the agent can use licensed stand-in photographs from open collections (CC0, public domain, CC BY, CC BY-SA), credits them in one footer line and lists each one in its report for you to replace. It never presents a stand-in as your product, your team or your premises; for a product with no photograph, it falls back on the photo-less visuals ranked in `visuals.md`.
 
-**Mes clients sont sous NDA.**
-Le plancher A4 interdit d'envoyer leurs données à un service tiers sans accord écrit. Les outils hébergés (générateurs de maquettes en ligne, serveurs MCP distants) ne sont utilisés que sur projet interne ou avec cet accord.
+**Why does it refuse Inter or Space Grotesk?**
+It doesn't refuse them: they are "reflex" fonts that models pick without looking at the subject, so they are guessable. It keeps them if your brand uses them. In an app or dashboard, a sober working font stays allowed for interface text.
 
-**Ça marche avec Tailwind, Next.js, Vue, Svelte… ?**
-Oui. Le skill dit quoi décider ; le code suit votre stack.
+**My clients are under NDA.**
+Floor A4 forbids sending their data to a third-party service without written consent. Hosted tools (online mockup generators, remote MCP servers) are used only on internal projects or with that consent.
 
-## Contribuer
+**Does it work with Tailwind, Next.js, Vue, Svelte…?**
+Yes. The skill says what to decide; the code follows your stack.
 
-Le slop change vite : une communauté le suit mieux qu'une seule personne. Trois formulaires d'issue sont prêts : **page qui fait IA** (le plus utile : le brief exact, l'agent, des captures), **nouveau tic repéré** (deux exemples sans lien), **site modèle à ajouter** (la qualité précise à emprunter). Règles et hiérarchie des sources : [`CONTRIBUTING.md`](CONTRIBUTING.md). Avant une pull request : `npm install && npx playwright install chromium && npm test`. Historique : [`CHANGELOG.md`](CHANGELOG.md).
+## Contributing
 
-Chaque trimestre, une issue « Revue trimestrielle » s'ouvre automatiquement pour mettre à jour les tics, les polices réflexes, les sites modèles et les scores ([procédure](docs/quarterly-review.md)).
+Slop changes fast: a community tracks it better than one person. Three issue forms are ready: **AI-looking page** (the most useful: the exact brief, the agent, screenshots), **new tell spotted** (two unrelated examples), **model site to add** (the precise quality to borrow). Rules and the source hierarchy: [`CONTRIBUTING.md`](CONTRIBUTING.md). Before a pull request: `npm install && npx playwright install chromium && npm test`. History: [`CHANGELOG.md`](CHANGELOG.md).
 
-## Crédits
+Every quarter, a "Quarterly review" issue opens automatically to update the tells, reflex fonts, model sites and scores ([procedure](docs/quarterly-review.md)).
 
-Ce skill est une synthèse de plusieurs projets ouverts et de travaux de recherche, détaillés dans [`CREDITS.md`](skills/julio-antislop-design/CREDITS.md) : Hallmark, Taste Skill, Impeccable, UI/UX Pro Max, Stageshow, Design Taste, avoid-ai-design, et unslop de Damir Sokolovsky ([@heydamir](https://x.com/heydamir)), dont la variante refonte est adaptée. Aucun code de ces projets n'est inclus.
+## Credits
 
-## Licence
+This skill is a synthesis of several open projects and research works, detailed in [`CREDITS.md`](skills/julio-antislop-design-en/CREDITS.md): Hallmark, Taste Skill (Leonxlnx), Impeccable, UI/UX Pro Max, Stageshow, Design Taste, avoid-ai-design, the original research behind Laws of UX, and unslop by Damir Sokolovsky ([@heydamir](https://x.com/heydamir)), whose redesign variant is adapted. Rules are rewritten in the skill's own words; no code from these projects is included.
+
+## License
 
 [MIT](LICENSE) © 2026 Jimmy Julio.
 
-Exception : `references/redesign.md` est adapté d'unslop et reste sous licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), avec crédit obligatoire à Damir Sokolovsky.
-
----
-
-## English
-
-**julio-antislop-design** is an agent skill (Claude Code, Claude.ai, Codex, Cursor and any Agent Skills host) for building, redesigning and reviewing landing pages, app screens, dashboards, docs and portfolios that look designed rather than generated.
-
-- **The idea comes from the subject**: an inventory of what belongs only to this client, an idea sentence, and a competitor test.
-- **Nothing is invented**: no made-up fonts, components, numbers, quotes or features; every decision has a recorded real source.
-- **Out of the average**: a local roll assigns a composition archetype (24), constraint cards and two risk levers so the agent can't take its first idea; three heroes are compared before the full build; a déjà-vu test and an Originality score gate delivery.
-- **Rules depend on the mode**: Persuade, Operate, Read, Experience, plus a redesign variant in 9 ordered passes.
-- **An absolute floor**: WCAG 2.2 AA accessibility, honesty, traceability, client confidentiality, Core Web Vitals, technical hygiene.
-- **Real references, not imagination**: 110 verified model sites by mode, each with the precise quality to borrow and what not to copy.
-- **Type and spacing as a system**: a typeface found in the subject's world (never a model's reflex font; with no brand font, the agent offers 3 pairings), a modular type scale and a three-level spacing scale, no eyeballed values.
-- **Checked, not promised**: token checker (no raw sizes, spacing or fonts; reflex fonts flagged), automatic detector, screenshots at 4 widths, fresh-eyes critique, and a report that names any check that did not run.
-
-Install the English edition:
-
-```bash
-npx skills add jrco-dev/julio-antislop-design --skill julio-antislop-design-en
-```
-
-Style gallery in the README: clean SaaS and minimalist (8.3), playful (7.8), dark immersive (7.3), editorial (6.8), quiet luxury (6.1); the style comes from your intake answers, not a house style. Current score: 7.0/10 in 0.25 (6.8 in 0.24) on 5 blind-judged briefs (`evals/`); strongest on honesty (9.0), weakest on spacing (6.2) and originality (6.0). Small requests take a fast path (no intake rounds, floor and tokens still enforced). Contributions: issue forms for AI-looking pages, new tells and model sites; a quarterly review issue opens automatically. The French edition is the original (`julio-antislop-design`). Licensed MIT © 2026 Jimmy Julio, except `references/redesign.md`, adapted from unslop by Damir Sokolovsky under CC BY 4.0.
+Exception: `references/redesign.md` is adapted from unslop and remains under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence, with mandatory credit to Damir Sokolovsky.

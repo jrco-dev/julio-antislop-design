@@ -9,7 +9,7 @@ This skill is a synthesis written from the sources below. No code from these pro
 ## Sources of the rules
 
 - **Hallmark**, Together AI, [github.com/Nutlope/hallmark](https://github.com/Nutlope/hallmark), MIT: anti-slop floor, quantified reflexes, 6-axis critique grid.
-- **Taste Skill**, Leonxlnx, [github.com/Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT: subject inventory, idea sentence and competitor test, living thing, data from the 247-site study, waves of tells.
+- **Taste Skill**, Leonxlnx, [github.com/Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT: subject inventory, idea sentence and competitor test, living thing, data from the 247-site study, waves of tells. Version 2.5.1 (7 November 2026), rewritten in our own words in 0.27: fact sheet, voice card and text tells (`references/copy.md`); real and openly licensed stand-in photographs, credits in one line (`references/photos.md`); hero entrance, rolled moments, effects kept for technical subjects (`references/moments.md`); kind of business, screen rhythm, equal edges, one system.
 - **Impeccable**, Paul Bakaus, [github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable), Apache 2.0: Persuade, Operate, Read, Experience modes; detector; depth and browser-surface rules.
 - **UI/UX Pro Max**, Next Level Builder, [github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), MIT: quantified rules for accessibility, touch, performance and forms; landing page structures.
 - **Stageshow**, Benji Taylor, [github.com/benjitaylor/skills](https://github.com/benjitaylor/skills/tree/main/stageshow), MIT: product illustration, bento rules.

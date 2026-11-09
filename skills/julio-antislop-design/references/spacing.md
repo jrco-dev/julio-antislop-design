@@ -44,6 +44,7 @@ Les traduire en tokens de rôle, que les composants utilisent à la place des cr
 - **L'écart entre sections est nettement plus grand que tout écart interne** : 120 à 240 px sur desktop en Persuader (voir `persuade.md`), 64 à 96 px sur mobile.
 - **Varier par niveau, pas par bloc** : la variété vient du passage d'un niveau à l'autre et du changement de composition entre sections, jamais d'une valeur inventée pour un bloc.
 - **Boutons et champs** : hauteur 44 px visée sur mobile ; padding vertical et horizontal tirés de l'échelle, l'horizontal environ 1,5 à 2 fois le vertical ; le même padding sur tous les boutons d'un même rang.
+- **Avec le rythme d'écran** (`persuade.md` §2) : la hauteur vient des écrans ; ce qui reste constant, c'est l'espace au-dessus de chaque titre (`--space-section`), le reste tombe en bas. L'écart entre contenus varie alors, jamais sous 192 px sur desktop, 144 sur mobile (Taste Skill) ; un avertissement `rythme-sections` se justifie par « rythme d'écran ».
 - **Marges extérieures égales** à gauche et à droite, en un seul token de gouttière (`--gutter`), et un conteneur plafonné en un seul token (`--measure-page`).
 - **Mode Opérer** : échelle plus serrée (la section descend à `xl`, 48 px), mais les trois niveaux restent distincts ; la densité vient de crans plus petits, pas de valeurs arbitraires.
 

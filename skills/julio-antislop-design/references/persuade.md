@@ -3,10 +3,12 @@
 ## Sommaire
 
 1. Le premier écran
+1 bis. Le genre d'activité fixe le budget visuel
 2. Sections et structures par objectif
 3. Composants
 3 bis. Formulaires de commande et de contact
 4. Illustration produit (faux UI)
+4 bis. Pages de produit physique
 5. Grilles bento
 
 ## 1. Le premier écran
@@ -16,6 +18,24 @@
 - Titre, phrase et action visibles à 1280 × 800 sans défiler ; le hero n'a pas de bande morte sous son contenu.
 - Composition : une scène pleine largeur avec le texte sur sa partie calme, ou un split asymétrique où le visuel prend au moins la moitié, ou le texte au-dessus d'une grande vue du produit. Tout empiler et centrer est le gabarit par défaut, à garder seulement pour un hero court sans visuel.
 - Sur les meilleurs sites étudiés par Taste, le média du hero couvre au moins la moitié du premier écran dans 68 % des cas.
+- Défaut levable : le hero seul au premier écran, son bouton principal dedans, rien de la section suivante visible (Taste Skill : 78 % de 327 sites d'entreprise).
+
+## 1 bis. Le genre d'activité fixe le budget visuel
+
+Écrire le genre en première ligne de la fiche de brief, avant le tirage : il décide de ce qui mène et de ce qui est permis (défaut levable, d'après Taste Skill). Le mode Expérience reprend ce tableau pour le genre d'œuvre montrée.
+
+| Genre | Mène | Effets, shaders, fonds techniques |
+| --- | --- | --- |
+| Logiciel (SaaS, IA, outil dev, fintech) | Sa propre interface (§4) | Un, avec repli fixe |
+| Jeu | Son monde : key art, captures | Un, jamais à la place des images du jeu |
+| Matériel technique | L'objet, son usage, ses pièces | Un |
+| Produit physique | Le produit en photographies (§4 bis) | Aucun |
+| Service (cabinet, clinique, agence, artisan) | Le travail, les gens, les lieux | Aucun |
+| Lieu (café, boutique, petit hôtel, atelier de quartier) | Des photographies du lieu | Aucun |
+
+- Hors sujets techniques : photographies, fonds unis, typographie, un mouvement signature. Un fabricant qui ouvre aussi sa porte est un lieu.
+- Le clair ou sombre suit toujours la scène d'usage, pas le genre (Taste réserve le sombre à la tech ; un bar ouvert la nuit peut être sombre).
+- Pas de photographies du client : `references/photos.md` ; une image de remplacement n'est jamais montrée comme celle du client (A2).
 
 ## 2. Sections et structures par objectif
 
@@ -35,6 +55,15 @@ Règles communes : un seul objectif et un seul CTA principal par page, le même,
 
 Ces structures sont des points de départ ; l'argument décide. Ne jamais tordre le contenu pour remplir une structure (un comparatif de trois offres quand il n'y a qu'un prix).
 
+**Rythme d'écran** (défaut levable, d'après Taste Skill ; espacement dans `spacing.md` §3) :
+
+| Règle | Seuil | Contrôle |
+| --- | --- | --- |
+| Hauteur de section | 1 ou 2 écrans à 1440 × 900, titre en premier ; contenu qui remplit 55 % ou plus, sinon fondre ou ajouter son image | Capture par écran |
+| Une section par écran | Aucun titre ni image d'une autre section dans la capture | Capture par écran |
+| Bloc court | Une citation, une rangée de logos ou une FAQ de moins d'un demi-écran ferme la section au-dessus | Revue des captures |
+| Mobile | La section grandit avec son contenu ; rien ne se chevauche, rien sous une barre fixe | Captures à 390 et 320 |
+
 ## 3. Composants
 
 - Boutons plats, une couleur, carrés ou en pastille, décidé une fois. Le rayon « doux » de 9 à 16 px partout est la marque mesurée des sites faibles. Beaucoup de heros forts n'ont qu'un bouton, voire aucun.
@@ -42,6 +71,7 @@ Ces structures sont des points de départ ; l'argument décide. Ne jamais tordre
 - Le footer est une fin conçue, pas un plan du site : il referme l'idée de la page (la dernière information utile, l'action une dernière fois, les coordonnées réelles). Le nom de la marque géant en pleine largeur est devenu un réflexe de génération : ne l'utiliser que si l'idée l'appelle, et l'écrire comme défaut levé dans le rapport. 15 modèles de pied de page dans `nav-footer.md`, deux combinables au plus.
 - Statement : une phrase d'intro mise en grand reste un paragraphe (36 px au plus sur desktop, 24 sur mobile, environ 25 mots).
 - Le contenu d'exemple (produit fictif, cotes, prix à valider) est listé dans le rapport et signalé par **une seule** mention discrète sur la page (pied de page) ; jamais d'étiquettes « à valider » ou « exemple » semées dans les sections, qui cassent la page.
+- Aucune légende sous une image ou un visuel : celle qui explique ou s'excuse signale que l'image est mauvaise. Crédits en une ligne de pied de page. Lire et Expérience gardent les légendes (`defaults-by-mode.md`).
 - Tout texte qui dépend de la date ou de l'heure (« aujourd'hui », « mois en cours », compte à rebours) est calculé en direct au chargement, jamais écrit en dur : sinon il devient faux le lendemain.
 
 ## 3 bis. Formulaires de commande et de contact
@@ -77,8 +107,19 @@ Un faux UI est permis quand il simplifie un vrai produit ; il est interdit quand
 - Fenêtres et appareils jamais dessinés à la main : un kit à géométrie réelle.
 - Mots à 12 px des bords ; bouton à 8 px du champ au-dessus ; aucune quasi-tangente (deux bords à 1-3 px se lisent comme un accident).
 - Icônes d'un jeu, jamais dessinées ; aucun logo inventé (étincelle, violet, lettre dans un carré coloré).
+- **Logiciel** (d'après Taste Skill) : le produit entier une fois, en grand, dans un seul cadre d'app, sa liste à côté de l'élément ouvert, montrant ce sur quoi il travaille vraiment (un outil de revue de code : un diff rouge et vert avec son action), jamais un dashboard générique. Les fonctionnalités en prennent de petits fragments, ou une carte diagramme pour la façon dont les choses se relient (un centre, des voies) ; deux diagrammes au plus.
+- Les outils avec lesquels il travaille vraiment : leurs vrais logos dans leurs couleurs, d'une source à licence vérifiée (A3), jamais redessinés ni grisés.
 - Le titre d'une fausse app est un `div`, jamais un `h1` à `h6`.
 - Démo animée : 3 à 5 temps et une conclusion, 10 à 16 s, aucun mouvement de curseur inexplicable, une image d'affiche qui raconte l'histoire seule, le contenu bouge au lieu d'être remplacé.
+
+## 4 bis. Pages de produit physique
+
+Défauts levables, d'après Taste Skill, en plus de `idea-and-direction.md` §7 :
+
+- **Grand et entier** dans le hero et une autre section : grand côté à 80-100 % de son cadre ; jamais de taille moyenne dans un panneau gris.
+- **Une image différente par section** ; une recoloration ou un miroir est la même vue. L'objet entier mène le hero et deux sections au plus ; les autres montrent l'usage, les pièces, les gens, le lieu.
+- **Chaque promesse d'un titre en image** (« prend quatre caisses » montre quatre caisses), sinon coupée.
+- **Aucun fait deux fois** : une bande de chiffres ne répète jamais le tableau technique.
 
 ## 5. Grilles bento
 

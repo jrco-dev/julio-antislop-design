@@ -2,6 +2,17 @@
 
 Toutes les versions, la plus récente en haut. Le détail des règles est dans le skill ; les scores sont dans `evals/README.md`.
 
+## 0.27.0 — 9 novembre 2026
+
+Leçons de Taste Skill 2.5.1 (Leonxlnx, MIT), réécrites dans nos propres règles ; aucun code repris, conflits tranchés par la hiérarchie des sources (`CONTRIBUTING.md`).
+
+- `copy.md` : fiche des faits avant la première phrase, carte de voix (registre choisi avec sa raison, jamais la voix par défaut du modèle), premier écran qui nomme la catégorie avec un fait dur, intertitres qui nomment une chose, boutons verbe + objet, budgets de mots et de procédés, un fait une formulation, ce qui change par mode.
+- `copy-lint.mjs` : contrôle du texte sans navigateur, sur la page HTML comme sur le brouillon Markdown, en français et en anglais (titre vague ou en question, intertitres interchangeables, boutons vagues ou sans nom, plus de deux actions dans le hero, formules toutes faites, mots creux, « pas seulement X, c'est Y », cadences en fragments, négations en série, cadres de contraste, chiffres de preuve sans source, restes de conversation ou de brouillon, textes provisoires, année périmée, budget de mots) ; `--mode`, `--allow` pour les mots du client.
+- `photos.md` : la vraie photographie d'abord ; photos de remplacement sous licence ouverte vérifiée quand le client n'en a pas, créditées en une ligne et listées dans le rapport, jamais présentées comme le produit, l'équipe ou le lieu du client ; produit sans photo : registres de `visuals.md`.
+- `moments.md` : le hero entre une fois, un ou deux moments tirés par page, jamais de fondu sur chaque section ; shaders et grandes scènes réservés aux sujets techniques ; tout se pose en mouvement réduit.
+- Type d'activité (logiciel, jeu, matériel, produit, service, lieu) qui fixe le budget visuel en Persuader ; rythme par écran, bords égaux, un seul système ; nouveaux tics datés.
+- README entièrement en anglais.
+
 ## 0.26.0 — 3 novembre 2026
 
 - `ux-principles.md` : les 30 lois du catalogue Laws of UX (Jon Yablonski), réécrites depuis leurs sources d'origine, chacune avec règle, seuil, modes et vérification ; garde-fou contre les manipulations ; contrôle UX en 10 points avant livraison.

@@ -30,6 +30,15 @@ Ici le visiteur travaille des heures sur l'écran. La singularité se voit dans 
 - Données d'exemple plausibles et cohérentes : jamais « 123 456 » ni « [X] », et les totaux tombent juste.
 - Largeurs variées : 3 ou 4 stats compactes au-dessus d'un grand graphique, ou un graphique large à côté d'une liste étroite.
 
+## Panneaux calmes
+
+D'après Taste Skill : l'interface reste neutre à 90-95 % ; la couleur vient du contenu (photos, vrais logos d'outils, données).
+
+- Deux niveaux de boîtes au plus : un panneau et ce qu'il contient ; à l'intérieur, les groupes se séparent par l'espace ou un filet.
+- Une recette de panneau pour toute l'app ; l'importance vient de la taille et de la position, pas d'un second style.
+- Accent une fois par panneau (la ligne travaillée, la sélection) ; statuts, étiquettes et dates en teintes de l'encre.
+- Aucun motif (papier quadrillé, points) derrière une liste, un tableau ou une fenêtre.
+
 ## Formulaires et feedback
 
 - Label visible sur chaque champ, jamais le placeholder seul ; texte d'aide persistant sous les champs complexes.

@@ -58,9 +58,9 @@ Detail of each step: `references/process.md`. Steps 1 to 8 happen before any cod
 5. **Look at real references**: 3 sites from `references/site-models.md`, including one outside the sector; `scripts/board.mjs` to capture them.
 6. **Roll the direction**: `node scripts/roll.mjs --mode <mode> --brief "…" --log direction-log.md` (archetype, cards, color, fonts, risks), then 5 directions, the 2 most likely discarded. `references/originality.md`.
 7. **State the idea** ("[a thing from the subject] becomes [a device]", competitor test), the living thing, `DESIGN.md`; **three first screens** compared with `scripts/explore.mjs`, only one chosen.
-8. **Write all the copy** before the code; headlines of 2 lines at most at 320 px.
-9. **Build without motion**: tokens first (colors, fonts, type scale, spacing scale), then hero, sections, visuals (without photos: `references/visuals.md`, a visual anchor of the subject in the first two screens), living thing.
-10. **Check**: `check-tokens.mjs` (the code), `check-render.mjs --shots` (the rendered page), `npx impeccable detect`, performance; then the finish (`references/finish.md`) and the UX check of the 30 laws (`references/ux-principles.md`).
+8. **Write all the copy** before the code (`references/copy.md`); headlines of 2 lines at most at 320 px.
+9. **Build without motion**: tokens first (colors, fonts, type scale, spacing scale), then hero, sections, visuals (`references/photos.md`; without photos, `references/visuals.md`; a visual anchor of the subject in the first two screens), living thing.
+10. **Check**: `check-tokens.mjs` (the code), `copy-lint.mjs` (the copy), `check-render.mjs --shots` (the rendered page), `npx impeccable detect`, performance; then the finish (`references/finish.md`) and the UX check of the 30 laws (`references/ux-principles.md`).
 11. **Get a fresh pair of eyes to judge**: grid in `references/critique.md`, Originality axis and déjà-vu test; fix, three rounds at most.
 12. **Add motion**, re-inspect, deliver with the report.
 
@@ -94,11 +94,12 @@ Each one is lifted with a written reason tied to the idea or the brief. Full tab
 | Detail of the 12 steps, delivery checklist, report format | `references/process.md` |
 | Intake: questions, taste, material, brief sheet | `references/intake.md` |
 | Rules per mode | `references/defaults-by-mode.md` |
-| Inventory, idea, images, product without photos | `references/idea-and-direction.md` |
-| Visuals without photos, ranked by score obtained; subject-without-text test | `references/visuals.md` |
+| Inventory, idea, images | `references/idea-and-direction.md` |
+| Copy: facts, voice, headlines, buttons | `references/copy.md` |
+| Real and stand-in photographs; visuals without photos | `references/photos.md`, `references/visuals.md` |
 | Finish: defects spotted by the judges and their checks | `references/finish.md` |
 | Roll, archetypes, constraints, risks, three heroes, déjà-vu | `references/originality.md` |
-| Landing, hero, forms, glass, product illustration, bento | `references/persuade.md` |
+| Landing, kind of business, hero, forms, bento | `references/persuade.md` |
 | Navigation and footer (18 + 15 patterns) | `references/nav-footer.md` |
 | App, dashboard, charts, forms | `references/operate.md` |
 | Docs, articles, portfolio, gallery | `references/read-and-experience.md` |
@@ -106,7 +107,7 @@ Each one is lifted with a written reason tied to the idea or the brief. Full tab
 | Palette | `references/color.md` |
 | Font and type scale; fonts to propose | `references/typography.md`, `references/font-catalog.md` |
 | Spacing and rhythm | `references/spacing.md` |
-| Motion, effects, video in code | `references/motion-and-video.md` |
+| Moments, motion, effects, video | `references/moments.md`, `references/motion-and-video.md` |
 | Performance per mode | `references/performance.md` |
 | Dated AI tells | `references/tells.md` |
 | The 30 laws of UX, applied, and the UX check | `references/ux-principles.md` |
@@ -117,4 +118,4 @@ Load only what the task needs.
 
 ## 8. Deliver
 
-Do not deliver until the floor, `check-tokens.mjs`, `check-render.mjs`, the detector, the screenshots, the critique (Originality at least 4 out of 5, no known style named in the déjà-vu test) and the direction log have all passed. Full checklist and report format: `references/process.md`. Never claim a check that did not run.
+Do not deliver until the floor, the three check scripts, the detector, the screenshots, the critique (Originality at least 4 out of 5, no known style named in the déjà-vu test) and the direction log have all passed. Full checklist and report format: `references/process.md`. Never claim a check that did not run.

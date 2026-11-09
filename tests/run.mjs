@@ -61,6 +61,26 @@ const r4 = run([roll, "--mode", "operer", "--brief", "x", "--seed", "z", "--out"
 ok("roll : archétype compatible avec le mode Opérer", ["C2", "C5", "C16", "C17", "C24"].includes(JSON.parse(r4.out).archetype.split(" ")[0]));
 ok("roll : sortie anglaise", /Archetype:/.test(run([roll, "--mode", "persuade", "--brief", "x", "--lang", "en", "--out", join(tmp, "e.json")]).out));
 
+// 3 bis. copy-lint
+for (const [k, d] of Object.entries(ed)) {
+  const cl = join(d, "scripts/copy-lint.mjs");
+  const g = run([cl, join(root, "tests/fixtures/copy-good.html")]);
+  ok(`${k} : copy-lint accepte la page propre`, g.code === 0, g.out);
+  ok(`${k} : copy-lint accepte la page propre en français`, run([cl, good]).code === 0);
+  const b = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--json"]);
+  ok(`${k} : copy-lint refuse la page fautive`, b.code === 1);
+  let rules = [];
+  try { rules = JSON.parse(b.out).map((i) => i.rule); } catch {}
+  for (const r of ["titre-vague", "intertitre-vague", "bouton-vague", "bouton-sans-nom", "actions-hero", "formule-toute-faite", "pas-seulement", "trois-temps", "negations-en-serie", "mots-creux", "texte-provisoire", "tirets-cadratins", "titres-points", "residu-de-conversation", "residu-de-redaction", "page-qui-se-commente", "contrastes", "chiffre-sans-source", "annee-perimee", "titre-question"]) ok(`${k} : copy-lint signale ${r}`, rules.includes(r), JSON.stringify(rules));
+  const md = run([cl, join(root, "tests/fixtures/copy-brouillon.md"), "--json"]);
+  let mdRules = [];
+  try { mdRules = JSON.parse(md.out).map((i) => i.rule); } catch {}
+  for (const r of ["titre-vague", "bouton-vague", "formule-toute-faite", "intertitre-vague"]) ok(`${k} : copy-lint signale ${r} dans un brouillon Markdown`, mdRules.includes(r), JSON.stringify(mdRules));
+  const allowed = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "seamless", "--json"]);
+  ok(`${k} : copy-lint respecte --allow`, !JSON.parse(allowed.out).some((i) => /seamless/i.test(i.msg)));
+}
+ok("copy-lint parle anglais dans l'édition anglaise", /Nothing flagged|Summary/.test(run([join(ed.en, "scripts/copy-lint.mjs"), good]).out));
+
 // 4. check-render (si Playwright est présent)
 let hasPw = true;
 try { await import("playwright"); } catch { hasPw = false; }
