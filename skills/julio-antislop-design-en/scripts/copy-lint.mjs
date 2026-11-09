@@ -47,7 +47,7 @@ const STOCK = {
     "delv(?:e|es|ing)", "tapestry", "testament to", "embark on", "a beacon of", "multifaceted", "a myriad of", "a plethora of",
     "synerg(?:y|ies)", "transformative", "groundbreaking", "skyrocket\\w*", "frictionless", "turbocharg\\w*",
     "in today'?s digital age", "in an ever[- ]changing world", "imagine a world where", "at your fingertips", "in just a few clicks",
-    "we'?ve got you covered", "\\w+ made (?:simple|easy)", "where \\w+ meets \\w+", "join thousands of", "trusted by (?:teams worldwide|thousands)",
+    "we'?ve got you covered", "\\w+ made (?:simple|easy)", "join thousands of", "trusted by (?:teams worldwide|thousands)",
     "ready to transform your", "here'?s the thing", "let that sink in", "one[- ]stop shop",
   ],
   fr: [
@@ -68,7 +68,7 @@ const VIRTUE = {
   en: ["innovative", "powerful", "robust", "intuitive", "revolutionary", "unique", "amazing", "incredible", "exceptional", "stunning",
     "top[- ]notch", "industry[- ]leading", "high[- ]quality", "premium", "cutting[- ]edge", "game[- ]changing", "unparalleled",
     "genuinely", "truly", "honest(?:ly)?", "authentic", "passionate", "crafted with care", "thoughtfully", "no[- ]nonsense", "meticulous(?:ly)?"],
-  fr: ["innovant(?:e|s|es)?", "puissant(?:e|s|es)?", "robustes?", "intuiti(?:f|ve|fs|ves)", "révolutionnaires?", "uniques?", "incroyables?",
+  fr: ["innovant(?:e|s|es)?", "puissant(?:e|s|es)?", "robustes?", "intuiti(?:f|ve|fs|ves)", "révolutionnaires?", "incroyables?",
     "exceptionnel(?:le|s|les)?", "performant(?:e|s|es)?", "haut de gamme", "de qualité supérieure", "inégalé(?:e|s|es)?", "premium", "leader",
     "sincèrement", "authentiques?", "passionné(?:e|s|es)?", "avec soin", "bienveillan\\w+", "exigeant(?:e|s|es)?", "incontournables?"],
 };
@@ -107,14 +107,15 @@ const CONTRAST = {
   fr: "\\bpas (?:seulement |juste |simplement )?(?:un |une |le |la |des )?[\\p{L}-]+,? mais\\b|, pas (?:un|une|le|la|des|juste) |\\bplutôt que\\b|\\bau lieu de\\b|\\bfini(?:s)? les?\\b|\\boubliez\\b",
 };
 // Chiffres de preuve sociale sans source visible (plancher A2) : avertissement.
-const PROOF = /(?<![\p{L}\p{N}])\d{1,3}(?:[ ,.\u202f\u00a0]\d{3})+\s?\+|(?<![\p{L}\p{N}])\d+\s?[kK]\+|(?<![\p{L}\p{N}])\d+(?:[.,]\d)?\s?[x×]\s+(?:faster|more|better|plus rapide|plus)|(?<![\p{L}\p{N}])(?:9\d|100)\s?%\s+(?:of (?:our |the )?(?:customers|clients|users)|des (?:clients|utilisateurs)|satisf)|★{3,}|(?<![\d.,])[45](?:[.,]\d)?\s?\/\s?5(?![\d])/u;
-const PLACEHOLDER = /lorem ipsum|\bTODO\b|\bTBD\b|\[(?:à fournir|to be supplied|placeholder|texte|text|insert[^\]]*)\]|your (?:headline|tagline|text) here|votre (?:titre|texte|slogan) ici|\{\{[^}]*\}\}|\bxxx+\b/i;
+const PROOF = /(?<![\p{L}\p{N}])\d{1,3}(?:[ ,.\u202f\u00a0]\d{3})+\s?\+|(?<![\p{L}\p{N}])\d+\s?[kK]\+|(?<![\p{L}\p{N}])\d+(?:[.,]\d)?\s?[x×]\s+(?:faster|more|better|plus rapide|plus)|(?<![\p{L}\p{N}])(?:9\d|100)\s?%\s+(?:of (?:our |the )?(?:customers|clients|users)|des (?:clients|utilisateurs)|satisf)|★{3,}|(?<![\d.,])[45][.,]\d\s?\/\s?5(?![\d])|(?<![\d.,/])[45]\s?\/\s?5\s(?:stars|étoiles)/u;
+const PLACEHOLDER_CASE = /\bTODO\b|\bTBD\b|\bXXX+\b|\bFIXME\b/;
+const PLACEHOLDER = /lorem ipsum|\[(?:à fournir|to be supplied|placeholder|texte|text|insert[^\]]*)\]|your (?:headline|tagline|text) here|votre (?:titre|texte|slogan) ici|\{\{[^}]*\}\}/i;
 
 const W = (s) => `(?<![\\p{L}\\p{N}])(?:${s})(?![\\p{L}\\p{N}])`;
 const compile = (lists) => new RegExp(W(lists.join("|")), "giu");
 const norm = (s) => s.replace(/\s+/g, " ").trim();
 const words = (s) => (norm(s).match(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu) || []);
-const EMOJI = /\p{Extended_Pictographic}/u;
+const EMOJI = /\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F/u;
 
 // ---------- Fichiers ----------
 const files = [];
@@ -129,7 +130,10 @@ targets.forEach(walk);
 const issues = [];
 const add = (level, file, line, rule, msg) => {
   if (ignore.has(rule)) return;
-  if (allow.some((a) => msg.toLowerCase().includes(a))) return;
+  // --allow : ne lève que le texte signalé (entre guillemets dans le message), mot entier.
+  const hits = [...msg.matchAll(/«\s?([^»]+?)\s?»|"([^"]+)"/g)].map((m) => (m[1] || m[2]).toLowerCase());
+  const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  if (hits.length && allow.some((a) => hits.some((h) => new RegExp(`(?<![\\p{L}\\p{N}])${esc(a)}(?![\\p{L}\\p{N}])`, "iu").test(h)))) return;
   issues.push({ level, file, line, rule, msg });
 };
 
@@ -155,6 +159,7 @@ for (const file of files) {
   const buttons = [];  // { text, line, idx }
   let h1s = [];
   let heroRange = null;
+  let inDetails = () => false;
 
   if (isMd) {
     src = src.replace(/```[\s\S]*?```/g, blank).replace(/<!--[\s\S]*?-->/g, blank);
@@ -175,15 +180,19 @@ for (const file of files) {
     src = src.replace(/!\[[^\]]*\]\([^)]*\)/g, blank).replace(/\]\([^)]*\)/g, (s) => "]" + blank(s.slice(1)));
   } else {
     src = src.replace(/<!--[\s\S]*?-->/g, blank).replace(/<(script|style|svg|template|noscript|code|pre)\b[\s\S]*?<\/\1>/gi, blank).replace(/<head\b[\s\S]*?<\/head>/i, blank);
+    const navRanges = [...src.matchAll(/<nav\b[\s\S]*?<\/nav>/gi)].map((m) => [m.index, m.index + m[0].length]);
+    const inNav = (i) => navRanges.some(([a, b]) => i >= a && i < b);
+    const detailsRanges = [...src.matchAll(/<details\b[\s\S]*?<\/details>/gi)].map((m) => [m.index, m.index + m[0].length]);
+    inDetails = (i) => detailsRanges.some(([a, b]) => i >= a && i < b);
     for (const m of src.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)) headings.push({ level: +m[1], text: textOf(m[2]), line: lineAt(src, m.index), idx: m.index });
     for (const m of src.matchAll(/<button\b[^>]*>([\s\S]*?)<\/button>/gi)) {
       const label = m[0].match(/aria-label=["']([^"']+)/i);
       const t = textOf(m[1]) || (label ? label[1] : "");
       if (/type=["']?(?:reset)/i.test(m[0])) continue;
-      buttons.push({ text: t, line: lineAt(src, m.index), idx: m.index, menu: /aria-(?:expanded|controls|haspopup)|menu|burger|close|fermer/i.test(m[0]) });
+      buttons.push({ text: t, line: lineAt(src, m.index), idx: m.index, nav: inNav(m.index), menu: /aria-(?:expanded|controls|haspopup)|menu|burger|close|fermer/i.test(m[0]) });
     }
     for (const m of src.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
-      if (/class=["'][^"']*\b(?:btn|button|cta|bouton)\b|role=["']button/i.test(m[1])) buttons.push({ text: textOf(m[2]) || ((m[1].match(/aria-label=["']([^"']+)/i) || [])[1] || ""), line: lineAt(src, m.index), idx: m.index });
+      if (/class=["'][^"']*\b(?:btn|button|cta|bouton)\b|role=["']button/i.test(m[1])) buttons.push({ text: textOf(m[2]) || ((m[1].match(/aria-label=["']([^"']+)/i) || [])[1] || ""), line: lineAt(src, m.index), idx: m.index, nav: inNav(m.index) });
     }
     for (const m of src.matchAll(/<input\b[^>]*type=["']?submit[^>]*>/gi)) {
       const v = m[0].match(/value=["']([^"']*)/i);
@@ -220,19 +229,23 @@ for (const file of files) {
     const n = words(h.text).length;
     if (n > 8) add("warning", file, h.line, "titre-long", T(`Titre de ${n} mots (« ${h.text} ») : viser 5 environ, 8 au plus, 2 lignes au plus à 320 px`, `Headline of ${n} words ("${h.text}"): aim for about 5, 8 at most, 2 lines at most at 320 px`));
     if (inModes("persuade") && /[?!]\s*$/.test(h.text)) add("error", file, h.line, "titre-question", T(`Le titre principal finit par « ${h.text.trim().slice(-1)} » : il affirme ce qui est vendu`, `The main headline ends with "${h.text.trim().slice(-1)}": it states what is sold`));
-    if (n && n <= 1 && !/\d/.test(h.text)) add("warning", file, h.line, "titre-nu", T(`Titre d'un seul mot (« ${h.text} ») : il doit dire ce qui est vendu ou le lieu`, `One-word headline ("${h.text}"): it must say what is sold or the place`));
-    if (new RegExp(W(L(VAGUE_HEADINGS).map((s) => s.replace(/[?]/g, "\\?")).join("|")), "iu").test(h.text) && n <= 4) add("error", file, h.line, "titre-vague", T(`Titre interchangeable : « ${h.text} »`, `Interchangeable headline: "${h.text}"`));
+    if (inModes("persuade", "experience") && n && n <= 1 && !/\d/.test(h.text)) add("warning", file, h.line, "titre-nu", T(`Titre d'un seul mot (« ${h.text} ») : il doit dire ce qui est vendu ou le lieu`, `One-word headline ("${h.text}"): it must say what is sold or the place`));
+    if (new RegExp(W(L(VAGUE_HEADINGS).map((s) => s.replace(/[?]/g, "\\?")).join("|")), "iu").test(h.text) && n <= 4 && inModes("persuade", "experience")) add("error", file, h.line, "titre-vague", T(`Titre interchangeable : « ${h.text} »`, `Interchangeable headline: "${h.text}"`));
   }
 
   // 2. Intertitres
   const vagueSet = new Set(L(VAGUE_HEADINGS));
   let fullStops = 0;
   const twoFrag = [];
+  let faqLevel = 0;
   for (const h of headings) {
+    if (faqLevel && h.level <= faqLevel) faqLevel = 0;
+    if (/\bfaq\b|questions|fréquent/i.test(h.text)) faqLevel = h.level;
+    const inFaq = faqLevel && h.level > faqLevel || (h.idx != null && inDetails(h.idx));
     const t = h.text.toLowerCase().replace(/[.!:]+$/, "").trim();
-    if (h.level > 1 && vagueSet.has(t)) add("warning", file, h.line, "intertitre-vague", T(`Intertitre qui irait sur n'importe quelle page : « ${h.text} » ; nommer la chose`, `Heading that would fit any page: "${h.text}"; name the thing`));
+    if (h.level > 1 && vagueSet.has(t) && inModes("persuade", "experience")) add("warning", file, h.line, "intertitre-vague", T(`Intertitre qui irait sur n'importe quelle page : « ${h.text} » ; nommer la chose`, `Heading that would fit any page: "${h.text}"; name the thing`));
     if (/[.]$/.test(h.text) && !/\.\.\.|…$/.test(h.text)) fullStops++;
-    if (/\?\s*$/.test(h.text) && !inModes("read") && !/faq|question|fréquent/i.test(h.text)) add("warning", file, h.line, "titre-question", T(`Titre en question : « ${h.text} » ; affirmer la réponse (sauf FAQ)`, `Heading as a question: "${h.text}"; state the answer (FAQ aside)`));
+    if (/\?\s*$/.test(h.text) && !inModes("read") && !inFaq && !/faq|question|fréquent/i.test(h.text)) add("warning", file, h.line, "titre-question", T(`Titre en question : « ${h.text} » ; affirmer la réponse (sauf FAQ)`, `Heading as a question: "${h.text}"; state the answer (FAQ aside)`));
     if (/^[^.?!]{2,40}\.\s+[^.?!]{2,40}\.?$/.test(h.text)) twoFrag.push(h);
     if (/!/.test(h.text)) add("warning", file, h.line, "exclamation", T(`Point d'exclamation dans un titre : « ${h.text} »`, `Exclamation mark in a heading: "${h.text}"`));
     if (EMOJI.test(h.text)) add("warning", file, h.line, "emoji", T(`Émoji dans un titre : « ${h.text} »`, `Emoji in a heading: "${h.text}"`));
@@ -255,7 +268,7 @@ for (const file of files) {
   if (inModes("persuade") && labels.size > 10) add("warning", file, 0, "trop-d-actions", T(`${labels.size} libellés d'action différents : 10 au plus par page`, `${labels.size} different action labels: 10 at most a page`));
   for (const [t, n] of labels) if (inModes("persuade") && n > 4) add("warning", file, 0, "action-repetee", T(`L'action « ${t} » revient ${n} fois : deux fois par écran au plus`, `The action "${t}" appears ${n} times: twice a screen at most`));
   if (heroRange && inModes("persuade", "experience")) {
-    const heroActions = buttons.filter((b) => !b.menu && b.idx >= heroRange[0] && b.idx < heroRange[1]);
+    const heroActions = buttons.filter((b) => !b.menu && !b.nav && b.idx >= heroRange[0] && b.idx < heroRange[1]);
     if (heroActions.length > 2) add("error", file, heroActions[2].line, "actions-hero", T(`${heroActions.length} actions dans le hero : deux au plus, une principale`, `${heroActions.length} actions in the hero: two at most, one primary`));
   }
 
@@ -270,18 +283,19 @@ for (const file of files) {
   const virtueRe = compile(L(VIRTUE));
   const virtueHits = [];
   let dashes = 0, exclam = 0;
-  const negStarts = [];
+  const negStarts = []; // une entrée par série d'au moins deux phrases négatives consécutives
+  let run = 0;
   visibleLines.forEach((ln, k) => {
     const line = k + 1;
     if (!ln.trim()) return;
     for (const m of ln.matchAll(stockRe)) add("error", file, line, "formule-toute-faite", T(`Formule toute faite : « ${m[0]} » ; dire le fait précis à la place`, `Stock phrase: "${m[0]}"; say the specific fact instead`));
     for (const m of ln.matchAll(virtueRe)) virtueHits.push({ w: m[0], line });
     for (const m of ln.matchAll(residueRe)) add("error", file, line, "residu-de-conversation", T(`Reste de conversation avec un modèle : « ${m[0]} »`, `Chatbot leftover: "${m[0]}"`));
-    if (!isMd && (/\[[\p{Lu}][^\]]{1,30}\]/u.test(ln) || /\*\*[^*]+\*\*|\]\(https?:/.test(ln))) add("error", file, line, "residu-de-redaction", T(`Reste de brouillon dans la page (crochets ou Markdown) : « ${norm(ln).slice(0, 60)} »`, `Draft leftover on the page (brackets or Markdown): "${norm(ln).slice(0, 60)}"`));
+    if (!isMd && (/\[[\p{Lu}][\p{Lu} _-]{2,30}\]/u.test(ln) || /\[[^\]]{0,20}(?:name|nom de|company|entreprise|insert|insérer|your |votre |à fournir|to be supplied)[^\]]{0,20}\]/iu.test(ln) || /\*\*[^*]+\*\*|\]\(https?:/.test(ln))) add("error", file, line, "residu-de-redaction", T(`Reste de brouillon dans la page (crochets ou Markdown) : « ${norm(ln).slice(0, 60)} »`, `Draft leftover on the page (brackets or Markdown): "${norm(ln).slice(0, 60)}"`));
     for (const m of ln.matchAll(selfRe)) add("warning", file, line, "page-qui-se-commente", T(`La page parle d'elle-même : « ${m[0]} »`, `The page talks about itself: "${m[0]}"`));
     for (const m of ln.matchAll(contrastRe)) contrastHits.push({ w: m[0], line });
     if (inModes("persuade") && PROOF.test(ln) && line < footLine) add("warning", file, line, "chiffre-sans-source", T(`Chiffre de preuve (« ${ln.match(PROOF)[0].trim()} ») : il lui faut une source dans le brief (A2), citée près du chiffre`, `Proof figure ("${ln.match(PROOF)[0].trim()}"): it needs a source in the brief (A2), cited near the figure`));
-    if (PLACEHOLDER.test(ln)) add("error", file, line, "texte-provisoire", T(`Texte provisoire : « ${norm(ln).slice(0, 60)} »`, `Placeholder text: "${norm(ln).slice(0, 60)}"`));
+    if (PLACEHOLDER.test(ln) || PLACEHOLDER_CASE.test(ln)) add("error", file, line, "texte-provisoire", T(`Texte provisoire : « ${norm(ln).slice(0, 60)} »`, `Placeholder text: "${norm(ln).slice(0, 60)}"`));
     dashes += (ln.match(/—/g) || []).length;
     exclam += (ln.match(/!(?!=)/g) || []).length;
     // « pas seulement X, c'est Y » / « not just X, it's Y »
@@ -293,7 +307,11 @@ for (const file of files) {
       const frag = ln.match(/(?:[\p{L}’'-]+(?: [\p{L}’'-]+)?[.]\s+){2,}[\p{L}’'-]+(?: [\p{L}’'-]+)?[.]/u)[0];
       if (!/\b(?:[A-Z]\.){2,}/.test(frag) && !inModes("operate")) add("warning", file, line, "trois-temps", T(`Cadence en fragments : « ${norm(frag)} »`, `Fragment cadence: "${norm(frag)}"`));
     }
-    for (const s of ln.split(/(?<=[.!?])\s+/)) if ((lang === "en" ? /^\s*(?:not|no more|never) /i : /^\s*(?:pas|plus|jamais|ni) /i).test(s) && words(s).length <= 7) negStarts.push(line);
+    for (const s of ln.split(/(?<=[.!?])\s+/)) {
+      if (!s.trim()) continue;
+      const neg = (lang === "en" ? /^\s*(?:not|no|never) /i : /^\s*(?:pas|jamais|ni|aucun|aucune|zéro) /i).test(s) && words(s).length <= 7;
+      if (neg) { run++; if (run === 2) negStarts.push(line); } else run = 0;
+    }
   });
   if (inModes("persuade", "experience") && contrastHits.length > 2) add("warning", file, contrastHits[2].line, "contrastes", T(`${contrastHits.length} cadres de contraste (« ${contrastHits.map((c) => norm(c.w)).slice(0, 3).join(" », « ")} ») : 2 par page au plus, dire le fait positif`, `${contrastHits.length} contrast frames ("${contrastHits.map((c) => norm(c.w)).slice(0, 3).join('", "')}"): 2 a page at most, state the positive fact`));
   // Année périmée dans le pied de page
@@ -304,11 +322,11 @@ for (const file of files) {
   if (inModes("persuade") && !isMd) {
     const body = visible.replace(/\s+/g, " ");
     const total = words(body).length - words(decode(foot.replace(/<[^>]+>/g, " "))).length;
-    const sections = Math.max(1, (raw.match(/<section\b/gi) || []).length);
+    const sections = Math.max(1, (raw.match(/<section\b/gi) || []).length, headings.filter((h) => h.level === 2).length);
     if (total > 900) add("warning", file, 0, "budget-mots", T(`${total} mots hors pied de page : environ 900 au plus, le reste en sous-pages`, `${total} words outside the footer: about 900 at most, the rest on sub-pages`));
     else if (total / sections > 80) add("warning", file, 0, "budget-mots", T(`${Math.round(total / sections)} mots par section en moyenne : 35 à 50 par écran, 60 à 80 pour un produit technique`, `${Math.round(total / sections)} words per section on average: 35 to 50 a screen, 60 to 80 for a technical product`));
   }
-  if (negStarts.length >= 2) add("warning", file, negStarts[1], "negations-en-serie", T(`${negStarts.length} phrases courtes qui commencent par une négation : cadence de texte généré`, `${negStarts.length} short sentences starting with a negation: generated-text cadence`));
+  if (negStarts.length > 1 && inModes("persuade", "experience")) add("warning", file, negStarts[0], "negations-en-serie", T(`Série de phrases courtes qui commencent par une négation (${negStarts.length} séries) : une par page au plus, dire le fait positif`, `Run of short sentences starting with a negation (${negStarts.length} runs): one a page at most, state the positive fact`));
   const virtueInHeadings = virtueHits.filter((v) => headings.some((h) => h.line === v.line));
   if (virtueHits.length >= 3) add("warning", file, virtueHits[2].line, "mots-creux", T(`${virtueHits.length} mots creux (${[...new Set(virtueHits.map((v) => v.w.toLowerCase()))].join(", ")}) : remplacer par le fait qui le prouve`, `${virtueHits.length} empty virtue words (${[...new Set(virtueHits.map((v) => v.w.toLowerCase()))].join(", ")}): replace with the fact that proves it`));
   else for (const v of virtueInHeadings) add("warning", file, v.line, "mots-creux", T(`Mot creux dans un titre : « ${v.w} »`, `Empty virtue word in a heading: "${v.w}"`));

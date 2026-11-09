@@ -76,6 +76,10 @@ for (const [k, d] of Object.entries(ed)) {
   let mdRules = [];
   try { mdRules = JSON.parse(md.out).map((i) => i.rule); } catch {}
   for (const r of ["titre-vague", "bouton-vague", "formule-toute-faite", "intertitre-vague"]) ok(`${k} : copy-lint signale ${r} dans un brouillon Markdown`, mdRules.includes(r), JSON.stringify(mdRules));
+  const fp = run([cl, join(root, "tests/fixtures/copy-faux-positifs.html"), "--json"]);
+  ok(`${k} : copy-lint ne signale rien sur les faux positifs connus (todo, ™, 4/5, adresse, FAQ, [Bearer token], CTA de la nav)`, fp.code === 0 && JSON.parse(fp.out).length === 0, fp.out.slice(0, 300));
+  const tooWide = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "a", "--json"]);
+  ok(`${k} : --allow ne lève que le mot entier signalé`, JSON.parse(tooWide.out).length > 15);
   const allowed = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "seamless", "--json"]);
   ok(`${k} : copy-lint respecte --allow`, !JSON.parse(allowed.out).some((i) => /seamless/i.test(i.msg)));
 }
