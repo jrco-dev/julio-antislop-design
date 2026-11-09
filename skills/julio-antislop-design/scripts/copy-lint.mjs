@@ -315,7 +315,9 @@ for (const file of files) {
     // Cadence en trois temps : « Rapide. Simple. Sûr. »
     if (/(?:^|[\s>"«“])(?:[\p{L}’'-]+(?: [\p{L}’'-]+)?[.]\s+){2,}[\p{L}’'-]+(?: [\p{L}’'-]+)?[.](?:\s|$)/u.test(ln)) {
       const frag = ln.match(/(?:[\p{L}’'-]+(?: [\p{L}’'-]+)?[.]\s+){2,}[\p{L}’'-]+(?: [\p{L}’'-]+)?[.]/u)[0];
-      if (!/\b(?:[A-Z]\.){2,}/.test(frag) && !inModes("operate")) add("warning", file, line, "trois-temps", T(`Cadence en fragments : « ${norm(frag)} »`, `Fragment cadence: "${norm(frag)}"`));
+      // Abréviations (« Sept. Oct. Nov. », « Lun. Mar. ») : une liste, pas une cadence.
+      const abbrev = frag.split(/\.\s*/).filter(Boolean).every((f) => /^[\p{L}]{1,5}$/u.test(f.trim()) && /^(?:jan|janv|feb|fév|févr|mar|mars|apr|avr|may|mai|jun|juin|jul|juil|aug|août|sep|sept|oct|nov|dec|déc|mon|tue|wed|thu|fri|sat|sun|lun|mer|jeu|ven|sam|dim)$/i.test(f.trim()));
+      if (!abbrev && !/\b(?:[A-Z]\.){2,}/.test(frag) && !inModes("operate")) add("warning", file, line, "trois-temps", T(`Cadence en fragments : « ${norm(frag)} »`, `Fragment cadence: "${norm(frag)}"`));
     }
     for (const s of ln.split(/(?<=[.!?])\s+/)) {
       if (!s.trim()) continue;
