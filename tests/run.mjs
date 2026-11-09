@@ -77,7 +77,15 @@ for (const [k, d] of Object.entries(ed)) {
   try { mdRules = JSON.parse(md.out).map((i) => i.rule); } catch {}
   for (const r of ["titre-vague", "bouton-vague", "formule-toute-faite", "intertitre-vague"]) ok(`${k} : copy-lint signale ${r} dans un brouillon Markdown`, mdRules.includes(r), JSON.stringify(mdRules));
   const fp = run([cl, join(root, "tests/fixtures/copy-faux-positifs.html"), "--json"]);
-  ok(`${k} : copy-lint ne signale rien sur les faux positifs connus (todo, ™, 4/5, adresse, FAQ, [Bearer token], CTA de la nav)`, fp.code === 0 && JSON.parse(fp.out).length === 0, fp.out.slice(0, 300));
+  ok(`${k} : copy-lint ne signale rien sur les faux positifs connus (todo, ™, 4/5, adresse, FAQ, [Bearer token], [BETA], CTA de la nav)`, fp.code === 0 && JSON.parse(fp.out).length === 0, fp.out.slice(0, 300));
+  for (const f of ["copy-hero-actions.html", "copy-hero-sans-section.html"]) {
+    const h = run([cl, join(root, "tests/fixtures", f), "--json"]);
+    let hr = [];
+    try { hr = JSON.parse(h.out).map((i) => i.rule); } catch {}
+    ok(`${k} : copy-lint compte les 3 actions du hero (${f})`, h.code === 1 && hr.includes("actions-hero"), h.out.slice(0, 300));
+  }
+  ok(`${k} : copy-lint rend le code 2 sur une option sans valeur`, run([cl, good, "--allow"]).code === 2);
+  ok(`${k} : copy-lint rend le code 2 sur un fichier introuvable`, run([cl, join(root, "tests/fixtures/absent.html")]).code === 2);
   const tooWide = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "a", "--json"]);
   ok(`${k} : --allow ne lève que le mot entier signalé`, JSON.parse(tooWide.out).length > 15);
   const allowed = run([cl, join(root, "tests/fixtures/copy-bad.html"), "--allow", "seamless", "--json"]);

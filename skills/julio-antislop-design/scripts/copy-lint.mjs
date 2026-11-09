@@ -18,9 +18,14 @@ const targets = [];
 let json = false;
 let mode = "persuade";
 for (let i = 0; i < args.length; i++) {
-  if (args[i] === "--mode") mode = args[++i];
-  else if (args[i] === "--allow") allow.push(args[++i].toLowerCase());
-  else if (args[i] === "--ignore") ignore.add(args[++i]);
+  // Une option sans valeur : message clair et code 2, pas de trace brute.
+  const value = () => {
+    if (i + 1 >= args.length || args[i + 1].startsWith("--")) { console.error(T(`${args[i]} attend une valeur`, `${args[i]} needs a value`)); process.exit(2); }
+    return args[++i];
+  };
+  if (args[i] === "--mode") mode = value();
+  else if (args[i] === "--allow") allow.push(value().toLowerCase());
+  else if (args[i] === "--ignore") ignore.add(value());
   else if (args[i] === "--json") json = true;
   else if (args[i] === "--lang") i++;
   else targets.push(args[i]);
@@ -66,7 +71,7 @@ const STOCK = {
 // Mots creux : avertissement (signalés à partir de 3 sur la page, ou dans un titre).
 const VIRTUE = {
   en: ["innovative", "powerful", "robust", "intuitive", "revolutionary", "unique", "amazing", "incredible", "exceptional", "stunning",
-    "top[- ]notch", "industry[- ]leading", "high[- ]quality", "premium", "cutting[- ]edge", "game[- ]changing", "unparalleled",
+    "top[- ]notch", "industry[- ]leading", "high[- ]quality", "premium", "unparalleled",
     "genuinely", "truly", "honest(?:ly)?", "authentic", "passionate", "crafted with care", "thoughtfully", "no[- ]nonsense", "meticulous(?:ly)?"],
   fr: ["innovant(?:e|s|es)?", "puissant(?:e|s|es)?", "robustes?", "intuiti(?:f|ve|fs|ves)", "révolutionnaires?", "incroyables?",
     "exceptionnel(?:le|s|les)?", "performant(?:e|s|es)?", "haut de gamme", "de qualité supérieure", "inégalé(?:e|s|es)?", "premium", "leader",
@@ -120,7 +125,8 @@ const EMOJI = /\p{Emoji_Presentation}|\p{Extended_Pictographic}\uFE0F/u;
 // ---------- Fichiers ----------
 const files = [];
 const walk = (p) => {
-  const s = statSync(p);
+  const s = statSync(p, { throwIfNoEntry: false });
+  if (!s) { console.error(T(`${p} : introuvable`, `${p}: not found`)); process.exit(2); }
   if (s.isDirectory()) {
     for (const n of readdirSync(p)) if (!["node_modules", ".git", "dist", "build", ".next", "out"].includes(n)) walk(join(p, n));
   } else if ([".html", ".htm", ".md", ".markdown"].includes(extname(p).toLowerCase())) files.push(p);
@@ -189,7 +195,10 @@ for (const file of files) {
       const label = m[0].match(/aria-label=["']([^"']+)/i);
       const t = textOf(m[1]) || (label ? label[1] : "");
       if (/type=["']?(?:reset)/i.test(m[0])) continue;
-      buttons.push({ text: t, line: lineAt(src, m.index), idx: m.index, nav: inNav(m.index), menu: /aria-(?:expanded|controls|haspopup)|menu|burger|close|fermer/i.test(m[0]) });
+      // Bouton de menu : reconnu sur sa balise ouvrante seulement (« See the menu » est une vraie action).
+      const opening = m[0].slice(0, m[0].indexOf(">") + 1);
+      const menuLabel = /^(?:menu|close|fermer|☰|×)$/i.test(t.trim());
+      buttons.push({ text: t, line: lineAt(src, m.index), idx: m.index, nav: inNav(m.index), menu: menuLabel || /aria-(?:expanded|controls|haspopup)|\b(?:menu|burger|hamburger|nav-toggle|close|fermer)\b/i.test(opening) });
     }
     for (const m of src.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
       if (/class=["'][^"']*\b(?:btn|button|cta|bouton)\b|role=["']button/i.test(m[1])) buttons.push({ text: textOf(m[2]) || ((m[1].match(/aria-label=["']([^"']+)/i) || [])[1] || ""), line: lineAt(src, m.index), idx: m.index, nav: inNav(m.index) });
@@ -204,15 +213,16 @@ for (const file of files) {
       const i = h1s[0].idx;
       const before = src.slice(0, i);
       const opens = [...before.matchAll(/<(section|header|div)\b[^>]*>/gi)].filter((o) => o[1].toLowerCase() !== "div" || /hero/i.test(o[0]));
-      const o = opens.length ? opens[opens.length - 1] : null;
-      if (o) {
-        const tag = o[1].toLowerCase();
-        let depth = 0, end = src.length;
-        const re = new RegExp(`<(/?)${tag}\\b[^>]*>`, "gi");
+      const endOf = (o) => {
+        const re = new RegExp(`<(/?)${o[1].toLowerCase()}\\b[^>]*>`, "gi");
         re.lastIndex = o.index;
-        for (let t; (t = re.exec(src));) { depth += t[1] ? -1 : 1; if (depth === 0) { end = t.index; break; } }
-        heroRange = [o.index, end];
-      }
+        for (let t, depth = 0; (t = re.exec(src));) { depth += t[1] ? -1 : 1; if (!depth) return t.index; }
+        return src.length;
+      };
+      // Le conteneur le plus proche qui contient vraiment le h1 ; sinon, du h1 au premier h2 qui suit.
+      const container = opens.findLast((o) => endOf(o) > i);
+      const nextH2 = src.slice(i).search(/<h2\b/i);
+      heroRange = container ? [container.index, endOf(container)] : [i, nextH2 > 0 ? i + nextH2 : src.length];
     }
     // Retirer la navigation du texte courant et des actions du hero.
     src = src.replace(/<nav\b[\s\S]*?<\/nav>/gi, blank);
@@ -291,7 +301,7 @@ for (const file of files) {
     for (const m of ln.matchAll(stockRe)) add("error", file, line, "formule-toute-faite", T(`Formule toute faite : « ${m[0]} » ; dire le fait précis à la place`, `Stock phrase: "${m[0]}"; say the specific fact instead`));
     for (const m of ln.matchAll(virtueRe)) virtueHits.push({ w: m[0], line });
     for (const m of ln.matchAll(residueRe)) add("error", file, line, "residu-de-conversation", T(`Reste de conversation avec un modèle : « ${m[0]} »`, `Chatbot leftover: "${m[0]}"`));
-    if (!isMd && (/\[[\p{Lu}][\p{Lu} _-]{2,30}\]/u.test(ln) || /\[[^\]]{0,20}(?:name|nom de|company|entreprise|insert|insérer|your |votre |à fournir|to be supplied)[^\]]{0,20}\]/iu.test(ln) || /\*\*[^*]+\*\*|\]\(https?:/.test(ln))) add("error", file, line, "residu-de-redaction", T(`Reste de brouillon dans la page (crochets ou Markdown) : « ${norm(ln).slice(0, 60)} »`, `Draft leftover on the page (brackets or Markdown): "${norm(ln).slice(0, 60)}"`));
+    if (!isMd && (/\[(?:NOM|NAME|COMPANY|ENTREPRISE|CLIENT|TITRE|TITLE|INSERT\w*|INSÉRER|VOTRE|YOUR|PLACEHOLDER|TODO)[\p{Lu} _-]{0,25}\]/u.test(ln) || /\[[^\]]{0,20}(?:name|nom de|company|entreprise|insert|insérer|your |votre |à fournir|to be supplied)[^\]]{0,20}\]/iu.test(ln) || /\*\*[^*]+\*\*|\]\(https?:/.test(ln))) add("error", file, line, "residu-de-redaction", T(`Reste de brouillon dans la page (crochets ou Markdown) : « ${norm(ln).slice(0, 60)} »`, `Draft leftover on the page (brackets or Markdown): "${norm(ln).slice(0, 60)}"`));
     for (const m of ln.matchAll(selfRe)) add("warning", file, line, "page-qui-se-commente", T(`La page parle d'elle-même : « ${m[0]} »`, `The page talks about itself: "${m[0]}"`));
     for (const m of ln.matchAll(contrastRe)) contrastHits.push({ w: m[0], line });
     if (inModes("persuade") && PROOF.test(ln) && line < footLine) add("warning", file, line, "chiffre-sans-source", T(`Chiffre de preuve (« ${ln.match(PROOF)[0].trim()} ») : il lui faut une source dans le brief (A2), citée près du chiffre`, `Proof figure ("${ln.match(PROOF)[0].trim()}"): it needs a source in the brief (A2), cited near the figure`));
