@@ -8,7 +8,7 @@ A page made by a model looks like the average of every page it has seen: a centr
 
 It works with Claude Code, Claude.ai, Codex, Cursor and any [Agent Skills](https://agentskills.io) compatible host. Two editions: **French** (`julio-antislop-design`, the original) and **English** (`julio-antislop-design-en`), with the same rules and the same scripts.
 
-**Score: 7.0 out of 10** in version 0.25 (6.8 in 0.24), on 5 blind-judged briefs ([details](evals/README.md)). Honesty 9.0; spacing 6.2 and originality 6.0 are the next targets.
+**Score: 7.1 out of 10** in version 0.27 (7.0 in 0.25, 6.8 in 0.24), on 5 fixed briefs, each page built by a fresh agent and scored by an independent judge who only sees the screenshots ([details](evals/README.md)). Honesty 9.0 and first-screen clarity 7.8 lead; spacing 6.2 and originality 6.0 are the next targets.
 
 ---
 
@@ -54,9 +54,30 @@ What sets it apart:
 
 ## Examples
 
-Every page below was made by fresh agents following the skill, with no photographs supplied, then scored out of 10 by an independent judge who only saw the screenshots. The content comes from test briefs; nothing is invented.
+Every page below was made by a fresh agent following the skill, with nobody answering its questions and no photographs supplied, then scored out of 10 by an independent judge who only saw the screenshots. The content comes from test briefs; nothing is invented.
 
-### Style gallery
+### Version 0.27 on the five evaluation briefs
+
+The same five briefs are replayed at every version, so the scores compare. These are the first screens at 1440 px, as the judge saw them; the score in brackets is the 0.25 run of the same brief.
+
+| Lavanila · **Persuade** · 7.4 (7.0) | Fanilo · **Operate** · 7.5 (7.1) |
+| --- | --- |
+| ![Lavanila: "Vanille d'Antalaha" set on the Indian Ocean beside a drawn map of the SAVA coast, the legend doubling as the table of contents, a yellow "Commander l'échantillon, 12 €" button](docs/examples/eval027-lavanila.jpg) | ![Fanilo: the treasury screen of a neighbourhood association, the balance 2 418,60 € set very large, a 52-square grid of paid dues, three missing receipts and a three-field expense form](docs/examples/eval027-fanilo.jpg) |
+| Vanilla cooperative in Madagascar. The whole page is the lot's route, from the Antalaha coast to the pastry chef's kitchen: map, a pod on a ruler, the harvest calendar, a blank lot label, a delivery date computed live. Judge: "a concept drawn from the subject"; weak spot, uneven rhythm on desktop. | Association treasury app. Every figure adds up; dues are a grid of 52 members, and the balance turns amber while you type an expense. Judge: "the visuals come from the subject"; weak spot, the giant balance reads as a fintech habit. |
+
+| Compost guide · **Read** · 7.4 (7.3) | Hery Rasolo · **Experience** · 6.8 (6.1) |
+| --- | --- |
+| ![Composter en appartement: a town hall guide, slab-serif title, a dimensioned line drawing of the worm bin under the sink on a beetroot-red ground, one "Réserver un lombricomposteur" button](docs/examples/eval027-compost.jpg) | ![Hery Rasolo, photographe à Antsirabe: three years in huge coloured type, each above a contact sheet sized to its series (18, 12, 9 frames)](docs/examples/eval027-portfolio.jpg) |
+| A town hall lends worm composters. A dimensioned drawing shows the bin fits under the sink; you pick a collection Wednesday and the calendar shows when your first compost will be ready. Judge: "content thought of as a tool". | Documentary photographer. Each series takes a width proportional to its number of images, and the frieze is the navigation. Judge: "exemplary honesty"; weak spot, the coloured years shout louder than the photographs will. |
+
+| Les Rayons · **Persuade** · 6.4 (7.6) |
+| --- |
+| ![Les Rayons: "Atelier vélo, Lyon 7e", one bicycle drawn twice, assembled on blue and in parts on cream, split by a slider between "On le répare" and "Vous le réparez"](docs/examples/eval027-les-rayons.jpg) |
+| Cooperative bike workshop. The same bike is drawn assembled and in parts, and a slider moves the line between "we repair it" and "you repair it". The judge liked the comparison table and the booking form that computes the return date, but found the split drawing broken and the blue-and-orange look generic: a lower score than 0.25 on this brief, shown as it is. |
+
+Read honestly: +0.1 on average, one run per brief, so luck plays a part. Visuals rose from 6.2 to 6.8 and singularity from 6.6 to 7.4; absence of AI tells fell from 7.8 to 7.2 and finish from 6.4 to 6.2; spacing (6.2) and originality (6.0) did not move. Per-criterion table: [`evals/README.md`](evals/README.md).
+
+### Style gallery (version 0.25)
 
 The skill has no house style: the style comes from your intake answers (the Taste round). Six briefs, six requested styles, ranked by score.
 
@@ -90,7 +111,7 @@ Detailed scores and briefs: [`evals/README.md`](evals/README.md).
 
 | Version | Date | Change |
 | --- | --- | --- |
-| 0.27 | 9 Nov 2026 | **Taste Skill 2.5 lessons**, rewritten into the skill's own rules: `copy.md` (fact sheet, voice card, headlines that name what is sold, buttons as verb + object, word budget per screen, text tells) and a new `copy-lint.mjs` that checks the copy without a browser; `photos.md` (real photographs first, licensed stand-ins from open collections when the client has none, credits in one footer line, never passed off as the client's); `moments.md` (the hero enters once, one or two chosen moments per page, never a fade-in on every section; shaders and big scenes only for technical subjects); the **kind of business** (software, gaming, hardware, product, service, place) now sets the visual budget inside Persuade; screen rhythm, equal edges and "one system" rules; README in English |
+| 0.27 | 9 Nov 2026 | **Taste Skill 2.5 lessons**, rewritten into the skill's own rules: `copy.md` (fact sheet, voice card, headlines that name what is sold, buttons as verb + object, word budget per screen, text tells) and a new `copy-lint.mjs` that checks the copy without a browser; `photos.md` (real photographs first, licensed stand-ins from open collections when the client has none, credits in one footer line, never passed off as the client's); `moments.md` (the hero enters once, one or two chosen moments per page, never a fade-in on every section; shaders and big scenes only for technical subjects); the **kind of business** (software, gaming, hardware, product, service, place) now sets the visual budget inside Persuade; screen rhythm, equal edges and "one system" rules; README in English; **7.1/10** on the 5 evaluation briefs (7.0 in 0.25), with the new first screens in the README |
 | 0.26 | 3 Nov 2026 | **The 30 laws of UX** from the Laws of UX catalogue, rewritten from their original sources, each with a rule, a threshold, the modes concerned and a pre-delivery UX check; `check-render` also checks Hick's law (navigation links), Miller's law (long forms) and the Von Restorff effect (one primary action); **rhythm with the person**: every question comes with a recommended answer, four short checkpoints (brief sheet, three first screens, first version, delivery), never a silent wait |
 | 0.25 | 3 Nov 2026 | `check-render.mjs` checks the rendered page (broken words, contrast, targets, section rhythm, margins, placeholder text); `visuals.md` (photo-less visuals ranked by score, subject-without-text test); `finish.md` (finish defects and their checks); bilingual scripts; automated tests and CI; blind comparison kit in `benchmark/`; `CHANGELOG.md` |
 | 0.24 | 3 Nov 2026 | Lighter: a 9 KB `SKILL.md` with a **quick path** for small requests, the detail in `process.md`; full **English edition**; **evaluation** on 5 briefs (6.8/10) published in `evals/`; "originality never replaces proof"; `check-tokens` detects eyebrows; issue forms, contribution guide, automatic quarterly review; project home page in `docs/`, made with the skill |
@@ -270,7 +291,7 @@ docs/                             project home page, examples, quarterly review
 
 ## Known limits
 
-- **Measured on few briefs.** 5 judged briefs (7.0/10, `evals/`), in a sandbox without network and without a critique sub-agent; the comparison with other skills waits for the test kit run with full network access. Version 0.27 adds rules from Taste Skill 2.5 that have not been re-scored yet. Before that, one blind test only (a landing page, against Hallmark and Impeccable, 3 November 2026): ranked first by the author and by an independent judge, but it revealed a reflex font (Archivo) and off-scale sizes and spacing, fixed since (versions 0.17 and 0.18).
+- **Measured on few briefs.** 5 judged briefs, one run each (7.1/10 in 0.27, `evals/`), in a sandbox whose shell has no network (no reference boards, no stand-in photographs) and without a critique sub-agent; the comparison with other skills waits for the test kit run with full network access. Before that, one blind test only (a landing page, against Hallmark and Impeccable, 3 November 2026): ranked first by the author and by an independent judge, but it revealed a reflex font (Archivo) and off-scale sizes and spacing, fixed since (versions 0.17 and 0.18).
 - **Model sites are described in text.** Every site in `site-models.md` was confirmed online, but several galleries (Awwwards, Godly, SiteInspire, Commerce Cream) block automated reading, and some visual descriptions are to be confirmed by opening the site, which the skill asks the agent to do.
 - **External resources age.** Sites, libraries and licences cited were checked in November 2026; check a licence again before commercial use.
 - **It does not replace a designer.** It avoids defects and forces decisions; the final quality still depends on the real material you supply (photographs, copy, data).

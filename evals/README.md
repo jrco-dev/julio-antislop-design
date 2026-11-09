@@ -23,22 +23,25 @@ Cinq briefs fixes, un par mode et un de plus en Persuader, pour mesurer chaque v
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 0.24 | 3 nov. 2026 | 7,1 | 6,7 | 7,4 | 6,5 | 6,5 | **6,8** | Skill seul, agent neuf par brief, sans personne pour répondre, bac à sable sans réseau (pas de planche de références), pas de sous-agent de critique ; un juge indépendant par page, sur captures |
 | 0.25 | 3 nov. 2026 | 7,0 | 7,6 | 7,1 | 7,3 | 6,1 | **7,0** | Mêmes conditions que la 0.24, avec `check-render.mjs`, `visuals.md` et `finish.md` |
+| 0.27 | 9 nov. 2026 | 7,4 | 6,4 | 7,5 | 7,4 | 6,8 | **7,1** | Mêmes conditions (shell sans réseau : pas de planche de références, pas de photo de remplacement ; polices locales via `@fontsource`), avec `copy.md`, `copy-lint.mjs`, `photos.md`, `moments.md` ; un juge indépendant par page, sur captures découpées (premier écran puis parties de la page pleine) |
 
 ### Par critère (moyenne des 5 pages)
 
-| Critère | 0.24 | 0.25 | Lecture |
-| --- | --- | --- | --- |
-| Honnêteté | 8,8 | 9,0 | Point fort constant : rien d'inventé |
-| Clarté du premier écran | 7,2 | 7,8 | L'ancre visuelle du sujet aide |
-| Absence de tics d'IA | 7,2 | 7,8 | Eyebrows bloqués par `check-tokens` |
-| Typographie et hiérarchie | 7,4 | 7,2 | Stable ; listes en très grand corps mal coupées (brief 4) |
-| Mobile | 7,0 | 7,0 | |
-| Singularité | 6,8 | 6,6 | |
-| Finition | 6,0 | 6,4 | `check-render` attrape les mots coupés et les vides, pas encore les doublons ni les éléments orphelins |
-| Visuels | 5,4 | 6,2 | Nette hausse là où la règle a été suivie (compost 4 → 8, vélo 5 → 7) |
-| Espacement et rythme | 6,2 | 6,2 | Pas de progrès : prochain chantier |
-| Originalité | 6,4 | 6,0 | Le portfolio tout gris (4) tire la moyenne ; règle corrigée après le test |
+| Critère | 0.24 | 0.25 | 0.27 | Lecture |
+| --- | --- | --- | --- | --- |
+| Honnêteté | 8,8 | 9,0 | 9,0 | Point fort constant : rien d'inventé |
+| Clarté du premier écran | 7,2 | 7,8 | 7,8 | L'ancre visuelle du sujet aide |
+| Absence de tics d'IA | 7,2 | 7,8 | 7,2 | Eyebrows bloqués par `check-tokens` |
+| Typographie et hiérarchie | 7,4 | 7,2 | 7,2 | Stable ; listes en très grand corps mal coupées (brief 4) |
+| Mobile | 7,0 | 7,0 | 7,2 | |
+| Singularité | 6,8 | 6,6 | 7,4 | |
+| Finition | 6,0 | 6,4 | 6,2 | `check-render` attrape les mots coupés et les vides, pas encore les doublons ni les éléments orphelins |
+| Visuels | 5,4 | 6,2 | 6,8 | Nette hausse là où la règle a été suivie (compost 4 → 8, vélo 5 → 7) |
+| Espacement et rythme | 6,2 | 6,2 | 6,2 | Pas de progrès : prochain chantier |
+| Originalité | 6,4 | 6,0 | 6,0 | Le portfolio tout gris (4) tire la moyenne ; règle corrigée après le test |
 
-Lecture honnête : +0,2 en moyenne, avec un seul essai par brief, donc une part de hasard. Les gains viennent des visuels et du premier écran ; l'espacement ne bouge pas et l'originalité reste le point faible.
+Lecture honnête de la 0.27 : +0,1 en moyenne, un seul essai par brief. Les visuels (6,2 → 6,8) et la singularité (6,6 → 7,4) montent ; Les Rayons baisse (7,6 → 6,4 : dessin coupé en deux jugé cassé, bleu et orange jugés génériques) ; l'espacement et l'originalité ne bougent pas. Défauts relevés par plusieurs juges : grands vides sur desktop, colonnes à moitié vides, couleurs d'affichage plus fortes que le sujet.
+
+Lecture honnête de la 0.25 : +0,2 en moyenne, avec un seul essai par brief, donc une part de hasard. Les gains viennent des visuels et du premier écran ; l'espacement ne bouge pas et l'originalité reste le point faible.
 
 À améliorer en priorité : espacement et rythme (vides sur desktop, colonnes à moitié vides), originalité en mode Expérience, finition non mesurable automatiquement (doublons, éléments orphelins).

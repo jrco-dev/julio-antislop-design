@@ -12,6 +12,8 @@ Leçons de Taste Skill 2.5.1 (Leonxlnx, MIT), réécrites dans nos propres règl
 - `moments.md` : le hero entre une fois, un ou deux moments tirés par page, jamais de fondu sur chaque section ; shaders et grandes scènes réservés aux sujets techniques ; tout se pose en mouvement réduit.
 - Type d'activité (logiciel, jeu, matériel, produit, service, lieu) qui fixe le budget visuel en Persuader ; rythme par écran, bords égaux, un seul système ; nouveaux tics datés.
 - README entièrement en anglais.
+- Évaluation sur les 5 briefs : **7,1 sur 10** (7,0 en 0.25) ; visuels 6,2 → 6,8, singularité 6,6 → 7,4 ; Les Rayons baisse (7,6 → 6,4) ; espacement 6,2 et originalité 6,0 inchangés. Premiers écrans ajoutés au README.
+- `check-tokens.mjs` ignore les déclarations d'un bloc `@font-face` ; `copy-lint.mjs` ne prend plus les abréviations de mois pour une cadence en fragments (faux positifs relevés pendant l'évaluation).
 
 ## 0.26.0 — 3 novembre 2026
 
